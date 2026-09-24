@@ -330,7 +330,43 @@
             </div>
           </div>
 
-          <!-- Filtros de Canal y Buscador -->
+          <!-- 1. Frise Chronologique de Progression Mois par Mois -->
+          <div class="timeline-stepper-box">
+            <div class="timeline-stepper-label">
+              <span>📅 <strong>Progression Chronologique (Mois par Mois) :</strong></span>
+              <small style="color: var(--text-muted);">Suivez l'évolution du débat depuis les premières publications jusqu'à aujourd'hui :</small>
+            </div>
+            <div class="timeline-months-bar" id="timeline-months-bar">
+              <button class="month-pill active" data-month="ALL">Tous les mois <span class="badge-mini">15</span></button>
+              <button class="month-pill" data-month="2026-02">Fév 2026 <span class="badge-mini">1</span></button>
+              <button class="month-pill" data-month="2026-04">Avr 2026 <span class="badge-mini">1</span></button>
+              <button class="month-pill" data-month="2026-05">Mai 2026 <span class="badge-mini">2</span></button>
+              <button class="month-pill" data-month="2026-06">Juin 2026 <span class="badge-mini">2</span></button>
+              <button class="month-pill" data-month="2026-07">Juil 2026 <span class="badge-mini">2</span></button>
+              <button class="month-pill" data-month="2026-08">Août 2026 <span class="badge-mini">3</span></button>
+              <button class="month-pill" data-month="2026-09">Sept 2026 <span class="badge-mini">4</span></button>
+            </div>
+          </div>
+
+          <!-- 2. Bilan Global des Postures & Filtres Croisés -->
+          <div class="posture-balance-box">
+            <div class="posture-summary-row">
+              <div class="posture-kpis">
+                <span class="posture-kpi-label">Répartition des Postures :</span>
+                <button class="posture-btn active" data-posture="ALL" id="btn-posture-all">Toutes (15)</button>
+                <button class="posture-btn pour" data-posture="POUR" id="btn-posture-pour">🟢 À Favor / Pour (<span id="count-pour">4</span>)</button>
+                <button class="posture-btn contre" data-posture="CONTRE" id="btn-posture-contre">🔴 En Contra / Contre (<span id="count-contre">6</span>)</button>
+                <button class="posture-btn neutre" data-posture="NEUTRE" id="btn-posture-neutre">⚪ Neutre / Analyse (<span id="count-neutre">5</span>)</button>
+              </div>
+              <div class="posture-ratio-bar">
+                <div class="ratio-segment seg-pour" style="width: 27%;" title="27% Pour (Modernisation & Continuité)">27% Pour</div>
+                <div class="ratio-segment seg-contre" style="width: 40%;" title="40% Contre (Recours & Nuisances)">40% Contre</div>
+                <div class="ratio-segment seg-neutre" style="width: 33%;" title="33% Neutre (Analyses Scientifiques & Juridiques)">33% Neutre</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. Filtros de Canal y Buscador -->
           <div class="news-controls-row">
             <div class="news-filter-pills" id="news-filter-pills">
               <button class="filter-pill active" data-category="ALL">Tous les flux <span class="pill-count" id="count-all">15</span></button>
