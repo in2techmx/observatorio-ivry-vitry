@@ -1094,24 +1094,23 @@ const NEWS_DATASET = [
   },
   {
     id: 'news_2026_04_02',
-    category: 'INTERNATIONAL',
-    categoryLabel: 'International & Européen',
-    badgeClass: 'cat-INTERNATIONAL',
-    publisher: 'European Environment Agency (EEA)',
-    publisherHandle: '@EUEnvironment',
-    date: '29 Avril 2026',
+    category: 'ACADEMIC',
+    categoryLabel: 'Recherche Académique',
+    badgeClass: 'cat-ACADEMIC',
+    publisher: 'Airparif & UPEC (Étude Particulaire)',
+    publisherHandle: '@Airparif',
+    date: '25 Avril 2026',
     monthKey: '2026-04',
-    docType: 'Rapport Technique Européen',
+    docType: 'Rapport de Campagne Métrologique',
     posture: 'NEUTRE',
-    postureLabel: '⚪ NEUTRE / CADRE RÉGLEMENTAIRE OMS',
-    postureArgument: 'Rapport technique d\'évaluation des seuils cibles de particules fines pour les métropoles denses sans prise de parti locale.',
-    tweetSummary: '🇪🇺 L\'Agence Européenne de l\'Environnement alerte : respecter le seuil OMS de 5 µg/m³ en PM2.5 impose un contrôle draconien combinant industrie thermique et trafic poids lourds dans les corridors fluviaux confinés.',
-    title: 'Qualité de l\'air en Europe : Directives révisées de l\'OMS et défis d\'alignement pour les corridors fluviaux',
-    summary: 'L\'Agence européenne de l\'environnement souligne que l\'alignement sur les seuils OMS de 5 µg/m³ pour les PM2.5 exige un contrôle draconien combinant industrie thermique et trafic poids lourds dans les vallées urbaines confinées.',
-    tags: ['EEA / AEE', 'Normes OMS', 'Copenhague', 'Particules Fines', 'Gouvernance Urbaine'],
-    verifyBadge: 'Agence Officielle de l\'Union Européenne',
-    linkUrl: 'https://www.eea.europa.eu'
-  },
+    postureLabel: '⚪ NEUTRE / MESURE PHYSIQUE',
+    postureArgument: 'Relevé métrologique rigoureux des concentrations en particules sous le panache de la cheminée d\'Ivry.',
+    tweetSummary: '🔬 Campagne Airparif & UPEC : mesure des retombées de PM2.5 et NOx sous le panache de la cheminée d\'Ivry-Paris XIII pour dissocier l\'impact de l\'A4.',
+    title: 'Campagne métrologique ciblée : Relevé des traceurs particulaires sous le panache de l\'incinérateur d\'Ivry',
+    summary: 'Airparif déploie un réseau de micro-capteurs entre le quai d\'Ivry et Charenton afin d\'isoler la contribution spécifique de la cheminée de l\'incinérateur par rapport au trafic autoroutier voisin.',
+    tags: ['Airparif', 'UVE Ivry', 'PM2.5', 'Panache', 'Métrologie'],
+    verifyBadge: 'Organisme Agréé Surveillance Qualité Air',
+    linkUrl: 'https://www.airparif.asso.fr'},
 
   // --- MAI 2026 ---
   {
@@ -1220,24 +1219,23 @@ const NEWS_DATASET = [
   },
   {
     id: 'news_2026_07_02',
-    category: 'INTERNATIONAL',
-    categoryLabel: 'International & Européen',
-    badgeClass: 'cat-INTERNATIONAL',
-    publisher: 'Zero Waste Europe (Bruxelles)',
-    publisherHandle: '@ZeroWasteEurope',
+    category: 'GOVERNMENTAL',
+    categoryLabel: 'Gouvernemental & Officiel',
+    badgeClass: 'cat-GOVERNMENTAL',
+    publisher: 'SYCTOM & Ministère Transition Écologique',
+    publisherHandle: '@SyctomParis',
     date: '22 Juillet 2026',
     monthKey: '2026-07',
-    docType: 'Policy Briefing Européen',
+    docType: 'Note de Cadrage Économique & Carbone',
     posture: 'POUR',
-    postureLabel: '🟢 À FAVOR / POUR (Efficacité & Climat)',
-    postureArgument: 'Appui à la tarification carbone pour favoriser les usines modernes à très haute récupération d\'énergie thermique.',
-    tweetSummary: '🇪🇺 Soutien à l\'intégration des incinérateurs au marché carbone SEQE d\'ici 2028 : priorité aux sites à très haut rendement thermique et pénalisation financière du tout-brûlage.',
-    title: 'Incinération des déchets et objectifs climatiques : L\'intégration des UVE dans le marché carbone (SEQE)',
-    summary: 'Rapport stratégique analysant les impacts de l\'assujettissement progressif des installations d\'incinération au système d\'échange de quotas d\'émission de l\'UE (ETS) d\'ici 2028.',
-    tags: ['Bruxelles', 'SEQE / ETS', 'Climat', 'Politique Européenne', 'Décarbonation'],
-    verifyBadge: 'Think-Tank Européen Agréé',
-    linkUrl: 'https://zerowasteeurope.eu'
-  },
+    postureLabel: '🟢 À FAVOR / POUR (Arbitrage Énergie-Carbone)',
+    postureArgument: 'Démonstration que la taxe carbone incitera à maximiser l\'envoi de vapeur d\'Ivry vers le réseau de chauffage urbain.',
+    tweetSummary: '🇪🇺 Le SYCTOM chiffre l\'impact de l\'intégration de l\'incinérateur d\'Ivry au marché carbone SEQE : un levier financier pour booster la valorisation vapeur à 80%.',
+    title: 'Assujettissement de l\'incinérateur d\'Ivry au marché carbone européen (SEQE) : Stratégie de valorisation thermique',
+    summary: 'Le SYCTOM remet son plan d\'adaptation à la directive européenne, montrant que l\'achat de quotas carbone accélérera le raccordement de nouveaux réseaux de chaleur pour maximiser le rendement énergétique de l\'usine.',
+    tags: ['SYCTOM', 'Incinérateur Ivry', 'SEQE', 'Marché Carbone', 'Chaleur Urbaine'],
+    verifyBadge: 'Document de Cadrage Stratégique',
+    linkUrl: 'https://www.syctom-paris.fr'},
 
   // --- AOÛT 2026 ---
   {
@@ -1404,33 +1402,18 @@ const NEWS_DATASET = [
   }
 ];
 
-// Estados de filtrado triple (Categoría, Mes y Postura)
-let CURRENT_NEWS_FILTER = 'ALL';
+// ====================================================================
+// GESTIÓN DE LA LÍNEA DE TIEMPO MINIMALISTA & 3 SECCIONES ANIMADAS
+// ====================================================================
+
 let CURRENT_MONTH_FILTER = '2026-09'; // Inicia enfocado en el hito actual
-let CURRENT_POSTURE_FILTER = 'ALL';
-let CURRENT_MONTH_INDEX = MONTHS_CHRONO.length - 1; // Último mes por defecto
+let CURRENT_MONTH_INDEX = MONTHS_CHRONO.length - 1;
 let AUTO_PLAY_INTERVAL = null;
 let IS_AUTO_PLAYING = false;
 
 function initNewsFeed() {
-  // 1. Renderizar dinámicamente las píldoras de la barra de meses
   renderTimelineMonthsBar();
 
-  // 2. Filtros de Categoría
-  const pillsContainer = document.getElementById('news-filter-pills');
-  if (pillsContainer) {
-    const pills = pillsContainer.querySelectorAll('.filter-pill');
-    pills.forEach(pill => {
-      pill.addEventListener('click', () => {
-        pills.forEach(p => p.classList.remove('active'));
-        pill.classList.add('active');
-        CURRENT_NEWS_FILTER = pill.getAttribute('data-category');
-        filterNewsItems();
-      });
-    });
-  }
-
-  // 3. Controles de Navegación de la Línea de Tiempo
   const btnPrev = document.getElementById('timeline-prev-btn');
   if (btnPrev) {
     btnPrev.addEventListener('click', () => {
@@ -1444,22 +1427,6 @@ function initNewsFeed() {
     btnNext.addEventListener('click', () => {
       stopAutoPlay();
       stepTimeline(1);
-    });
-  }
-
-  const btnFirst = document.getElementById('timeline-first-btn');
-  if (btnFirst) {
-    btnFirst.addEventListener('click', () => {
-      stopAutoPlay();
-      setMonthFilter(MONTHS_CHRONO[0]);
-    });
-  }
-
-  const btnLast = document.getElementById('timeline-last-btn');
-  if (btnLast) {
-    btnLast.addEventListener('click', () => {
-      stopAutoPlay();
-      setMonthFilter(MONTHS_CHRONO[MONTHS_CHRONO.length - 1]);
     });
   }
 
@@ -1478,18 +1445,6 @@ function initNewsFeed() {
     });
   }
 
-  // 4. Filtros de Postura
-  const postureBtns = document.querySelectorAll('.posture-btn');
-  postureBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      postureBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      CURRENT_POSTURE_FILTER = btn.getAttribute('data-posture');
-      filterNewsItems();
-    });
-  });
-
-  // Render inicial en el mes actual (Septembre 2026)
   setMonthFilter('2026-09');
 }
 
@@ -1503,7 +1458,6 @@ function renderTimelineMonthsBar() {
     const items = NEWS_DATASET.filter(n => n.monthKey === mKey);
     const count = items.length;
 
-    // Determinar estilo de punto según postura
     const hasPour = items.some(n => n.posture === 'POUR');
     const hasContre = items.some(n => n.posture === 'CONTRE');
     let dotClass = 'neutre';
@@ -1513,27 +1467,28 @@ function renderTimelineMonthsBar() {
 
     const shortLabel = meta ? meta.name : mKey;
     html += `
-      <button class="month-pill" data-month="${mKey}">
-        <span class="pill-dot ${dotClass}"></span> ${shortLabel} <span class="badge-mini">${count}</span>
+      <button class="timeline-node-btn" data-month="${mKey}">
+        <span class="pill-dot ${dotClass}"></span>
+        <span>${shortLabel}</span>
+        <span class="badge-mini">${count}</span>
       </button>
     `;
   });
 
-  // Botón panorámico "Vue d'ensemble"
   html += `
-    <button class="month-pill" data-month="ALL">
-      <span>🌐</span> Vue d'ensemble (Tous) <span class="badge-mini" id="badge-total-timeline">${NEWS_DATASET.length}</span>
+    <button class="timeline-node-btn all-node" data-month="ALL">
+      <span>🌐 Vue Globale</span>
+      <span class="badge-mini">${NEWS_DATASET.length}</span>
     </button>
   `;
 
   bar.innerHTML = html;
 
-  // Asignar listeners a los botones generados
-  const monthPills = bar.querySelectorAll('.month-pill');
-  monthPills.forEach(mp => {
-    mp.addEventListener('click', () => {
+  const nodeBtns = bar.querySelectorAll('.timeline-node-btn');
+  nodeBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
       stopAutoPlay();
-      const mKey = mp.getAttribute('data-month');
+      const mKey = btn.getAttribute('data-month');
       setMonthFilter(mKey);
     });
   });
@@ -1548,21 +1503,30 @@ function setMonthFilter(monthKey) {
     CURRENT_MONTH_INDEX = MONTHS_CHRONO.indexOf(monthKey);
   }
 
-  // Actualizar píldoras activas en la barra
   const monthBar = document.getElementById('timeline-months-bar');
   if (monthBar) {
-    const pills = monthBar.querySelectorAll('.month-pill');
-    pills.forEach(p => {
-      if (p.getAttribute('data-month') === monthKey) {
-        p.classList.add('active');
-        p.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    const btns = monthBar.querySelectorAll('.timeline-node-btn');
+    btns.forEach(b => {
+      if (b.getAttribute('data-month') === monthKey) {
+        b.classList.add('active');
+        b.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
       } else {
-        p.classList.remove('active');
+        b.classList.remove('active');
       }
     });
   }
 
-  updateMonthClimateDashboard();
+  const displayEl = document.getElementById('current-month-display');
+  if (displayEl) {
+    if (monthKey === 'ALL') {
+      displayEl.innerText = `🌐 VUE GLOBALE (${NEWS_DATASET.length} DOCS 2022-2026)`;
+    } else {
+      const meta = MONTHS_META[monthKey];
+      const count = NEWS_DATASET.filter(n => n.monthKey === monthKey).length;
+      displayEl.innerText = `📅 ${meta ? meta.name.toUpperCase() : monthKey} (${count} doc${count > 1 ? 's' : ''})`;
+    }
+  }
+
   filterNewsItems();
 }
 
@@ -1597,7 +1561,7 @@ function toggleAutoPlay() {
       } else {
         stopAutoPlay();
       }
-    }, 3500);
+    }, 3200);
   }
 }
 
@@ -1614,357 +1578,110 @@ function stopAutoPlay() {
   }
 }
 
-function updateMonthClimateDashboard() {
-  const displayEl = document.getElementById('current-month-display');
-  const titleEl = document.getElementById('month-climate-title');
-  const summaryEl = document.getElementById('month-climate-summary');
-  const totalCountEl = document.getElementById('count-month-total');
-  const countPourEl = document.getElementById('count-pour');
-  const countContreEl = document.getElementById('count-contre');
-  const countNeutreEl = document.getElementById('count-neutre');
-
-  // Filtrar dataset por el mes seleccionado
-  const monthItems = (CURRENT_MONTH_FILTER === 'ALL')
-    ? NEWS_DATASET
-    : NEWS_DATASET.filter(n => n.monthKey === CURRENT_MONTH_FILTER);
-
-  const total = monthItems.length;
-  const pourCount = monthItems.filter(n => n.posture === 'POUR').length;
-  const contreCount = monthItems.filter(n => n.posture === 'CONTRE').length;
-  const neutreCount = monthItems.filter(n => n.posture === 'NEUTRE').length;
-
-  if (totalCountEl) totalCountEl.innerText = total;
-  if (countPourEl) countPourEl.innerText = pourCount;
-  if (countContreEl) countContreEl.innerText = contreCount;
-  if (countNeutreEl) countNeutreEl.innerText = neutreCount;
-
-  // Actualizar textos contextuales del clima de opinión
-  if (CURRENT_MONTH_FILTER === 'ALL') {
-    if (displayEl) displayEl.innerText = `🌐 VUE D'ENSEMBLE HISTORIQUE (${total} DOCUMENTS 2022-2026)`;
-    if (titleEl) titleEl.innerText = 'Trajectoire Temporelle Globale : Du Scandale Sanitaire des Dioxines aux Recours en Justice';
-    if (summaryEl) summaryEl.innerText = 'L\'analyse longitudinale (2022-2026) met en évidence l\'évolution d\'une controverse locale axée sur les œufs contaminés vers un conflit territorial majeur combinant science citoyenne, alertes scolaires et recours contentieux administratifs.';
-  } else {
-    const meta = MONTHS_META[CURRENT_MONTH_FILTER];
-    if (meta) {
-      if (displayEl) displayEl.innerText = `📅 ${meta.name.toUpperCase()} (${total} publication${total > 1 ? 's' : ''})`;
-      if (titleEl) titleEl.innerText = meta.climateTitle;
-      if (summaryEl) summaryEl.innerText = meta.climateSummary;
-    }
-  }
-
-  // Barra de porcentajes proporcionales
-  const pourPct = total > 0 ? Math.round((pourCount / total) * 100) : 0;
-  const contrePct = total > 0 ? Math.round((contreCount / total) * 100) : 0;
-  const neutrePct = total > 0 ? (100 - pourPct - contrePct) : 0;
-
-  const segPour = document.querySelector('.seg-pour');
-  if (segPour) {
-    segPour.style.width = pourPct + '%';
-    segPour.innerText = pourPct > 0 ? `${pourPct}% Pour` : '';
-    segPour.title = `${pourCount} à favor (${pourPct}%)`;
-  }
-  const segContre = document.querySelector('.seg-contre');
-  if (segContre) {
-    segContre.style.width = contrePct + '%';
-    segContre.innerText = contrePct > 0 ? `${contrePct}% Contre` : '';
-    segContre.title = `${contreCount} en contra (${contrePct}%)`;
-  }
-  const segNeutre = document.querySelector('.seg-neutre');
-  if (segNeutre) {
-    segNeutre.style.width = neutrePct + '%';
-    segNeutre.innerText = neutrePct > 0 ? `${neutrePct}% Neutre` : '';
-    segNeutre.title = `${neutreCount} neutres (${neutrePct}%)`;
-  }
-
-  // Actualizar totales en píldoras de canales
-  const countAll = document.getElementById('count-all');
-  if (countAll) countAll.innerText = NEWS_DATASET.length;
-  const countGov = document.getElementById('count-gov');
-  if (countGov) countGov.innerText = NEWS_DATASET.filter(n => n.category === 'GOVERNMENTAL').length;
-  const countMedia = document.getElementById('count-media');
-  if (countMedia) countMedia.innerText = NEWS_DATASET.filter(n => n.category === 'PUBLIC_MEDIA').length;
-  const countInd = document.getElementById('count-ind');
-  if (countInd) countInd.innerText = NEWS_DATASET.filter(n => n.category === 'INDEPENDENT').length;
-  const countAcad = document.getElementById('count-acad');
-  if (countAcad) countAcad.innerText = NEWS_DATASET.filter(n => n.category === 'ACADEMIC').length;
-  const countIntl = document.getElementById('count-intl');
-  if (countIntl) countIntl.innerText = NEWS_DATASET.filter(n => n.category === 'INTERNATIONAL').length;
-}
-
 function filterNewsItems() {
   const searchInput = document.getElementById('news-search-input');
   const query = searchInput ? searchInput.value.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim() : '';
 
   const filtered = NEWS_DATASET.filter(item => {
-    const matchCat = (CURRENT_NEWS_FILTER === 'ALL' || item.category === CURRENT_NEWS_FILTER);
     const matchMonth = (CURRENT_MONTH_FILTER === 'ALL' || item.monthKey === CURRENT_MONTH_FILTER);
-    const matchPosture = (CURRENT_POSTURE_FILTER === 'ALL' || item.posture === CURRENT_POSTURE_FILTER);
+    if (!query) return matchMonth;
 
-    if (!query) return matchCat && matchMonth && matchPosture;
-
-    const searchableText = `${item.title} ${item.tweetSummary} ${item.summary} ${item.publisher} ${item.publisherHandle} ${item.tags.join(' ')} ${item.docType} ${item.postureArgument}`
+    const searchableText = `${item.title} ${item.tweetSummary} ${item.summary} ${item.publisher} ${item.docType} ${item.postureArgument}`
       .toLowerCase()
       .normalize('NFD')
       .replace(/[\u0300-\u036f]/g, '');
 
-    return matchCat && matchMonth && matchPosture && searchableText.includes(query);
+    return matchMonth && searchableText.includes(query);
   });
 
   renderNewsGrid(filtered);
 }
 
-// Configuración de metadatos de categorías para agrupación
-const CATEGORIES_DEF = [
-  { key: 'GOVERNMENTAL', icon: '🏛️', name: 'Gouvernemental, Préfecture, Mairies & Actes Officiels' },
-  { key: 'PUBLIC_MEDIA', icon: '📰', name: 'Presse Nationale & Médias d\'Investigation Français' },
-  { key: 'INDEPENDENT', icon: '🌱', name: 'Collectifs Citoyens, ONG & Enquêtes Indépendantes' },
-  { key: 'ACADEMIC', icon: '🔬', name: 'Recherche Scientifique & Veille Académique (Universités / CNRS)' },
-  { key: 'INTERNATIONAL', icon: '🌍', name: 'Instances Internationales & Union Européenne' }
-];
-
-function renderNewsGrid(items) {
-  const container = document.getElementById('news-cards-grid');
-  if (!container) return;
-
+function generatePostureAbstract(postureKey, monthKey, items) {
   if (items.length === 0) {
-    container.innerHTML = `
-      <div style="text-align: center; padding: 3rem 1.5rem; color: #94a3b8; background: #0b1120; border-radius: 8px; border: 1px dashed #334155;">
-        <span style="font-size: 2.2rem;">🔍</span>
-        <h4 style="color: #cbd5e1; margin-top: 0.65rem; font-size: 1.1rem;">Aucun enregistrement trouvé pour ce filtre combiné</h4>
-        <p style="font-size: 0.85rem; max-width: 500px; margin: 0.4rem auto 0; line-height: 1.45;">
-          Aucune publication n'a été recensée pour ce critère. Cliquez sur <strong>« Tous les jalons »</strong> ou réinitialisez le filtre de recherche pour élargir la vue.
-        </p>
-      </div>
-    `;
-    return;
+    return `<p style="margin: 0; color: #94a3b8; font-style: italic;">Aucune prise de position recensée dans cette posture pour ce jalon temporel.</p>`;
   }
 
-  // Filtrer par les 3 grandes postures : POUR, NEUTRE, CONTRE
+  if (monthKey === 'ALL') {
+    if (postureKey === 'POUR') {
+      return `<strong>Synthèse Pro-Incinérateur (2022-2026) :</strong> Les promoteurs (SYCTOM, CPCU, Région Île-de-France) défendent l'usine d'Ivry comme pilier de la souveraineté thermique francilienne (chauffage continu de 150 000 foyers sans gaz fossile). Le projet Interval réduit la capacité de moitié (350 000 t/an) et met en œuvre une filtration catalytique SCR DeNOx conforme aux plafonds de l'UE pour éviter l'enfouissement massif en grande couronne.`;
+    } else if (postureKey === 'NEUTRE') {
+      return `<strong>Synthèse Neutre & Factuelle (2022-2026) :</strong> Les autorités publiques (ARS Île-de-France), laboratoires universitaires (CNRS, UPEC/LEESU, Sorbonne), corps d'inspection (DRIEAT) et instances judiciaires (CJUE) établissent des constats scientifiques et juridiques sans biais partisan : consignes de prudence toxicologique sur les œufs, modélisation des flux d'air fluviaux, audits inopinés et encadrement strict des régimes transitoires de démarrage de fours.`;
+    } else {
+      return `<strong>Synthèse Contestations & Risques (2022-2026) :</strong> Une coalition citoyenne, associative et municipale (ToxicoWatch, Collectif 3R, Zero Waste France, Maires d'Ivry et Vitry, syndicats) alerte sur l'exposition continue des riverains et écoliers aux dioxines, métaux lourds et PFAS. Leurs actions allient biosurveillance indépendante (œufs et mousses d'arbres), dénonciation de 6 936 h sans prélèvements AMESA, livres blancs et recours contentieux au Tribunal Administratif de Melun.`;
+    }
+  }
+
+  // Abstract spécifique au mois
+  if (postureKey === 'POUR') {
+    return `<strong>Abstract Pro-Projet (${items.length} doc) :</strong> ${items.map(it => it.postureArgument).join(' ')}`;
+  } else if (postureKey === 'NEUTRE') {
+    return `<strong>Abstract Neutre & Évaluations (${items.length} doc) :</strong> ${items.map(it => it.postureArgument).join(' ')}`;
+  } else {
+    return `<strong>Abstract Contestations & Risques (${items.length} doc) :</strong> ${items.map(it => it.postureArgument).join(' ')}`;
+  }
+}
+
+function renderNewsGrid(items) {
   const pourItems = items.filter(n => n.posture === 'POUR');
   const neutreItems = items.filter(n => n.posture === 'NEUTRE');
   const contreItems = items.filter(n => n.posture === 'CONTRE');
 
-  const totalFiltered = items.length;
-  const monthLabel = (CURRENT_MONTH_FILTER === 'ALL')
-    ? 'Vue d\'ensemble (2022 - 2026)'
-    : (MONTHS_META[CURRENT_MONTH_FILTER] ? MONTHS_META[CURRENT_MONTH_FILTER].name : CURRENT_MONTH_FILTER);
+  // Actualizar badges de conteo
+  const countPour = document.getElementById('count-col-pour');
+  const countNeutre = document.getElementById('count-col-neutre');
+  const countContre = document.getElementById('count-col-contre');
 
-  // Générer le HTML des 3 Sections
-  let html = '<div class="posture-tri-sections-container">';
+  if (countPour) countPour.innerText = `${pourItems.length} doc${pourItems.length !== 1 ? 's' : ''}`;
+  if (countNeutre) countNeutre.innerText = `${neutreItems.length} doc${neutreItems.length !== 1 ? 's' : ''}`;
+  if (countContre) countContre.innerText = `${contreItems.length} doc${contreItems.length !== 1 ? 's' : ''}`;
 
-  // 1. SECTION À FAVOR (POUR)
-  html += renderPostureSection({
-    postureKey: 'POUR',
-    cssClass: 'pour',
-    icon: '🟢',
-    title: `Section 1 : Prises de Position À FAVOR (POUR) — ${monthLabel}`,
-    subtitle: 'Arguments de valorisation énergétique, réseau de chaleur urbain, filtres SCR et souveraineté territoriale',
-    items: pourItems,
-    totalMonth: totalFiltered
-  });
+  // Actualizar abstracts consolidados
+  const absPour = document.getElementById('abstract-col-pour');
+  const absNeutre = document.getElementById('abstract-col-neutre');
+  const absContre = document.getElementById('abstract-col-contre');
 
-  // 2. SECTION NEUTRE (FACTUEL / SCIENTIFIQUE / CADRE LÉGAL)
-  html += renderPostureSection({
-    postureKey: 'NEUTRE',
-    cssClass: 'neutre',
-    icon: '⚪',
-    title: `Section 2 : Analyses & Évaluations NEUTRES / FACTUELLES — ${monthLabel}`,
-    subtitle: 'Avis sanitaires ARS, épidémiologie Inserm, modélisations universitaires, arrêtés ICPE et droit européen',
-    items: neutreItems,
-    totalMonth: totalFiltered
-  });
+  if (absPour) absPour.innerHTML = generatePostureAbstract('POUR', CURRENT_MONTH_FILTER, pourItems);
+  if (absNeutre) absNeutre.innerHTML = generatePostureAbstract('NEUTRE', CURRENT_MONTH_FILTER, neutreItems);
+  if (absContre) absContre.innerHTML = generatePostureAbstract('CONTRE', CURRENT_MONTH_FILTER, contreItems);
 
-  // 3. SECTION EN CONTRA (CONTRE)
-  html += renderPostureSection({
-    postureKey: 'CONTRE',
-    cssClass: 'contre',
-    icon: '🔴',
-    title: `Section 3 : Alertes, Contestations & Recours EN CONTRA (CONTRE) — ${monthLabel}`,
-    subtitle: 'Biosurveillance d\'œufs et d\'écoles, alertes syndicales, heures sans mesure, et recours en justice administrative',
-    items: contreItems,
-    totalMonth: totalFiltered
-  });
+  // Renderizar tarjetas minimalistas
+  const cardsPour = document.getElementById('cards-col-pour');
+  const cardsNeutre = document.getElementById('cards-col-neutre');
+  const cardsContre = document.getElementById('cards-col-contre');
 
-  html += '</div>';
-  container.innerHTML = html;
-}
+  if (cardsPour) cardsPour.innerHTML = renderMinimalCards(pourItems);
+  if (cardsNeutre) cardsNeutre.innerHTML = renderMinimalCards(neutreItems);
+  if (cardsContre) cardsContre.innerHTML = renderMinimalCards(contreItems);
 
-function renderPostureSection({ postureKey, cssClass, icon, title, subtitle, items, totalMonth }) {
-  const count = items.length;
-  const pct = totalMonth > 0 ? Math.round((count / totalMonth) * 100) : 0;
-
-  let sectionHtml = `
-    <section class="posture-section-block ${cssClass}" id="section-posture-${cssClass}">
-      <div class="posture-section-header">
-        <div class="posture-section-title-wrap">
-          <span class="posture-section-title">${icon} ${title}</span>
-          <span class="posture-count-badge ${cssClass}">${count} publication${count > 1 ? 's' : ''} (${pct}%)</span>
-        </div>
-        <span class="posture-section-subtitle">${subtitle}</span>
-      </div>
-
-      <div class="posture-section-body">
-        <!-- Zone Gauche / Centre : Tiles à lo largo -->
-        <div class="stance-tiles-list">
-  `;
-
-  if (count === 0) {
-    sectionHtml += `
-      <div class="empty-stance-notice">
-        <span>ℹ️</span> Aucune publication enregistrée dans ce bloc pour ce jalon temporel.
-      </div>
-    `;
-  } else {
-    items.forEach(item => {
-      sectionHtml += `
-        <article class="tile-horizontal" id="${item.id}">
-          <div class="tile-header-row">
-            <div class="tile-meta-left">
-              <span class="tile-date">🗓️ ${item.date}</span>
-              <span class="channel-pill ${item.badgeClass}">${item.categoryLabel}</span>
-              <span class="tile-publisher">${item.publisher}</span>
-              <span class="tile-doctype">&bull; ${item.docType}</span>
-            </div>
-            <a href="${item.linkUrl}" target="_blank" rel="noopener noreferrer" class="tile-link-btn">
-              Consulter la source &rarr;
-            </a>
-          </div>
-
-          <h4 class="tile-title">${item.title}</h4>
-
-          <div class="tile-tweet-box">
-            <div class="tile-tweet-author">
-              <span>💬</span> ${item.publisherHandle} &bull; <small style="color: #64748b;">${item.date}</small>
-            </div>
-            <p class="tile-tweet-text">« ${item.tweetSummary} »</p>
-          </div>
-
-          <div class="tile-argument-line ${item.posture}">
-            <strong>Angle & Posture :</strong> ${item.postureArgument}
-          </div>
-
-          <div class="tile-footer-row">
-            <div class="tile-tags">
-              ${item.tags.map(t => `<span class="tile-tag">#${t}</span>`).join('')}
-            </div>
-            <span class="tile-verify">🛡️ ${item.verifyBadge}</span>
-          </div>
-        </article>
-      `;
-    });
+  // Gatillar animación visual fluida
+  const container = document.getElementById('stance-columns-container');
+  if (container) {
+    container.classList.remove('animating');
+    void container.offsetWidth; // Forzar reflow para reiniciar CSS keyframe
+    container.classList.add('animating');
   }
-
-  sectionHtml += `
-        </div>
-
-        <!-- Zone Extrême Droite : Carte Synoptique de Résumé du Bloc -->
-        ${generateSynopticCardHtml(postureKey, cssClass, items, totalMonth)}
-      </div>
-    </section>
-  `;
-
-  return sectionHtml;
 }
 
-function generateSynopticCardHtml(postureKey, cssClass, items, totalMonth) {
-  const count = items.length;
-  const pct = totalMonth > 0 ? Math.round((count / totalMonth) * 100) : 0;
-
-  // Calculer la synthèse exécutive du bloc
-  let executiveSummary = '';
-  let keyActors = [];
-  let keyTheses = [];
-  let takeaway = '';
-
+function renderMinimalCards(items) {
   if (items.length === 0) {
-    if (postureKey === 'POUR') {
-      executiveSummary = "Aucun argument favorable recensé pour ce jalon temporel. Cette absence de prise de parole reflète une période dominée par les alertes sanitaires ou les initiatives contentieuses citoyennes.";
-      takeaway = "Période de retrait ou d'attente pour les promoteurs du projet.";
-    } else if (postureKey === 'NEUTRE') {
-      executiveSummary = "Aucune analyse académique ou avis administratif neutre recensé sur cette période précise.";
-      takeaway = "Absence de nouveau cadrage institutionnel ou scientifique.";
-    } else {
-      executiveSummary = "Aucune contestation formalisée ni recours recensé pour ce jalon temporel.";
-      takeaway = "Trêve relative ou phase de préparation des dossiers associatifs.";
-    }
-  } else {
-    // Extraire les acteurs uniques
-    keyActors = [...new Set(items.map(it => it.publisher))];
-
-    if (postureKey === 'POUR') {
-      executiveSummary = "Défense de la souveraineté thermique urbaine et des performances industrielles : mise en avant du chauffage pour 150 000 foyers sans gaz fossile (CPCU), de la réduction de 50% de la capacité historique et de la filtration catalytique SCR (SYCTOM).";
-      keyTheses = [
-        "Sécurisation de l'alimentation continue en vapeur urbaine",
-        "Conformité réglementaire des fumées sous contrôle DREAL",
-        "Évitement de l'enfouissement massif en grande couronne"
-      ];
-      takeaway = "Priorité à la continuité du service public métropolitain et à l'indépendance énergétique.";
-    } else if (postureKey === 'NEUTRE') {
-      executiveSummary = "Évaluations sanitaires, sociologiques et juridiques distanciées : avis de précaution de l'ARS sur les œufs, études épidémiologiques de l'Inserm, modélisation des inversions de vent par l'UPEC et arrêts de principe de la Cour de Justice de l'UE.";
-      keyTheses = [
-        "Prudence épidémiologique et prévention de la bioaccumulation",
-        "Modélisation physique des microclimats fluviaux de la Seine",
-        "Encadrement strict des régimes dérogatoires de démarrage"
-      ];
-      takeaway = "Apport de preuves empiriques indépendantes et régulation de droit public.";
-    } else {
-      executiveSummary = "Mobilisation multicanale contre les nuisances et les risques sanitaires : alertes sur les dioxines et métaux lourds dans les œufs et les écoles (ToxicoWatch), 6 936 h de mesures AMESA inactives (Zero Waste), vœux municipaux d'Ivry/Vitry et recours contentieux (Melun).";
-      keyTheses = [
-        "Présomption de danger pour la santé des enfants riverains",
-        "Dénonciation du surdimensionnement bloquant le compostage",
-        "Recours en justice administrative contre l'autorisation"
-      ];
-      takeaway = "Exigence de transparence immédiate, moratoire et primauté de la santé publique.";
-    }
+    return `<div class="empty-cards-notice">Aucun enregistrement pour ce jalon.</div>`;
   }
 
-  return `
-    <aside class="synoptic-card ${cssClass}">
-      <div class="synoptic-tag ${cssClass}">
-        <span>📋</span> Carte Synoptique du Bloc
+  return items.map(item => `
+    <article class="minimal-news-card" id="${item.id}">
+      <div class="m-card-meta">
+        <span class="m-card-date">🗓️ ${item.date}</span>
+        <span class="m-card-publisher">${item.publisher}</span>
       </div>
-
-      <h5 class="synoptic-title">
-        Synthèse : ${postureKey === 'POUR' ? 'Arguments À Favor' : postureKey === 'NEUTRE' ? 'Analyses Neutres' : 'Contestations & Recours'}
-      </h5>
-
-      <div class="synoptic-executive-summary">
-        ${executiveSummary}
+      <h5 class="m-card-title">${item.title}</h5>
+      <p class="m-card-synthesis">${item.tweetSummary || item.summary}</p>
+      <div class="m-card-footer">
+        <span class="m-card-doctype">${item.docType}</span>
+        <a href="${item.linkUrl}" target="_blank" rel="noopener noreferrer" class="m-card-link">
+          Source ↗
+        </a>
       </div>
-
-      ${keyActors.length > 0 ? `
-        <div>
-          <div class="synoptic-section-label">Acteurs du bloc (${keyActors.length}) :</div>
-          <div class="synoptic-actors-list">
-            ${keyActors.slice(0, 4).map(act => `<span class="synoptic-actor-pill">${act}</span>`).join('')}
-          </div>
-        </div>
-      ` : ''}
-
-      ${keyTheses.length > 0 ? `
-        <div>
-          <div class="synoptic-section-label">Thèses & Angles clés :</div>
-          <ul style="margin: 0; padding-left: 1.1rem; font-size: 0.78rem; color: #cbd5e1; line-height: 1.4;">
-            ${keyTheses.map(th => `<li>${th}</li>`).join('')}
-          </ul>
-        </div>
-      ` : ''}
-
-      ${takeaway ? `
-        <div class="synoptic-takeaway-box">
-          <strong>Enjeu central :</strong> ${takeaway}
-        </div>
-      ` : ''}
-
-      <div class="synoptic-weight-bar-wrap">
-        <div style="display: flex; justify-content: space-between;">
-          <span>Poids dans le débat du mois :</span>
-          <strong>${count} sur ${totalMonth} (${pct}%)</strong>
-        </div>
-        <div class="synoptic-weight-bar">
-          <div class="synoptic-weight-fill ${cssClass}" style="width: ${pct}%;"></div>
-        </div>
-      </div>
-    </aside>
-  `;
+    </article>
+  `).join('');
 }

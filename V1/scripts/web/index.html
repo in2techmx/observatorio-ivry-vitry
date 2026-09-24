@@ -322,122 +322,83 @@
       </section>
 
       <!-- PESTAÑA 6: VEILLE & ACTUALITÉS MULTICANALES -->
+            <!-- PESTAÑA 6: VEILLE & ACTUALITÉS (3 SECCIONES MINIMALISTAS & ANIMADAS) -->
       <section id="tab-news" class="tab-panel">
-        <div class="news-section-header">
-          <div class="news-title-row">
-            <div>
-              <h3>Veille Documentaire, Médiatique & Scientifique Multicanale (2022 - 2026)</h3>
-              <p>Surveillance continue et historique des sources officielles, de la recherche académique, de la presse d'investigation, des ONG et des instances européennes :</p>
-            </div>
-            <div class="stream-stats-badge">
-              <span class="live-indicator"></span> 5 Canaux Actifs &bull; 39 Documents & Études Indexés
-            </div>
+        <div class="minimal-news-header">
+          <div class="minimal-header-left">
+            <h3>Controverse de l'Incinérateur d'Ivry-Paris XIII</h3>
+            <p>Trajectoire chronologique de l'incinérateur UVE : synthèse dynamique des 3 postures (À Favor, Neutre et En Contra)</p>
           </div>
-
-          <!-- 1. Frise Chronologique Interactive & Navigation Pas-à-Pas -->
-          <div class="timeline-stepper-box">
-            <div class="timeline-stepper-header">
-              <div>
-                <span class="timeline-section-title">⏱️ <strong>Ligne de Temps Interactive (2022 - 2026) :</strong></span>
-                <span class="timeline-help-text">Avancez pas-à-pas à travers les 18 jalons clés du conflit territorial (alertes ARS, études universitaires, arrêtés...) :</span>
-              </div>
-              <div class="timeline-nav-controls">
-                <button class="timeline-control-btn" id="timeline-first-btn" title="Revenir au début (Février 2022)">⏮ Début (2022)</button>
-                <button class="timeline-control-btn" id="timeline-prev-btn" title="Mois précédent">◀ Précédent</button>
-                <button class="timeline-control-btn play-btn" id="timeline-play-btn" title="Lecture automatique de l'évolution">▶ Lecture Auto</button>
-                <button class="timeline-control-btn" id="timeline-next-btn" title="Mois suivant">Suivant ▶</button>
-                <button class="timeline-control-btn" id="timeline-last-btn" title="Aller au mois actuel (Septembre 2026)">⏭ Mois Actuel</button>
-                <button class="timeline-control-btn all-btn" id="timeline-all-btn" title="Afficher toutes les actualités">🌐 Tous les jalons</button>
-              </div>
-            </div>
-
-            <!-- Pistas de la línea de tiempo interactiva con nodos mes a mes (generados dinámicamente) -->
-            <div class="timeline-months-bar" id="timeline-months-bar">
-              <!-- Rempli dynamiquement par app.js pour tous les jalons 2022-2026 -->
-            </div>
-          </div>
-
-          <!-- 2. Bilan du Climat d'Opinion & Postures du Mois Sélectionné -->
-          <div class="posture-balance-box" id="month-posture-dashboard">
-            <div class="month-climate-header">
-              <div class="month-badge-tag" id="current-month-display">📅 SEPTEMBRE 2026</div>
-              <div class="month-climate-title" id="month-climate-title">Phase de haute contestation juridique et contrôles inopinés</div>
-            </div>
-            <p class="month-climate-summary" id="month-climate-summary">
-              Recours contentieux au Tribunal de Melun (Collectif 3R), analyses citoyennes de sols (Reporterre) et arrêtés de contrôles inopinés de la Préfecture du Val-de-Marne.
-            </p>
-
-            <div class="posture-summary-row">
-              <div class="posture-kpis">
-                <span class="posture-kpi-label">Postures du mois :</span>
-                <button class="posture-btn active" data-posture="ALL" id="btn-posture-all">Toutes (<span id="count-month-total">5</span>)</button>
-                <button class="posture-btn pour" data-posture="POUR" id="btn-posture-pour">🟢 À Favor (<span id="count-pour">0</span>)</button>
-                <button class="posture-btn contre" data-posture="CONTRE" id="btn-posture-contre">🔴 En Contra (<span id="count-contre">3</span>)</button>
-                <button class="posture-btn neutre" data-posture="NEUTRE" id="btn-posture-neutre">⚪ Neutre / Factual (<span id="count-neutre">2</span>)</button>
-              </div>
-              <div class="posture-ratio-bar" id="posture-ratio-bar">
-                <div class="ratio-segment seg-pour" style="width: 0%;">0% Pour</div>
-                <div class="ratio-segment seg-contre" style="width: 60%;">60% Contre</div>
-                <div class="ratio-segment seg-neutre" style="width: 40%;">40% Neutre</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- 3. Filtros por Tipo de Canal y Buscador -->
-          <div class="news-controls-row">
-            <div class="news-filter-pills" id="news-filter-pills">
-              <button class="filter-pill active" data-category="ALL">Tous les types <span class="pill-count" id="count-all">17</span></button>
-              <button class="filter-pill" data-category="GOVERNMENTAL">🏛️ Gouvernemental & Officiel <span class="pill-count" id="count-gov">3</span></button>
-              <button class="filter-pill" data-category="PUBLIC_MEDIA">📰 Médias FR & Locaux <span class="pill-count" id="count-media">4</span></button>
-              <button class="filter-pill" data-category="INDEPENDENT">🌱 Indépendant & Citoyen <span class="pill-count" id="count-ind">4</span></button>
-              <button class="filter-pill" data-category="ACADEMIC">🔬 Académique & Recherche <span class="pill-count" id="count-acad">3</span></button>
-              <button class="filter-pill" data-category="INTERNATIONAL">🌍 International & UE <span class="pill-count" id="count-intl">3</span></button>
-            </div>
-
-            <div class="news-search-box">
-              <input type="text" id="news-search-input" placeholder="🔍 Filtrer par mot-clé (dioxine, recours, syctom, filtre...)" oninput="filterNewsItems()" />
-            </div>
+          <div class="minimal-search-wrap">
+            <input type="text" id="news-search-input" placeholder="🔍 Filtrer les actualités de l'incinérateur..." oninput="filterNewsItems()" />
           </div>
         </div>
 
-        <!-- Contenedor Dinámico de Noticias Agrupadas por Tipo en el Mes -->
-        <div id="news-cards-grid" class="news-grouped-container">
-          <!-- Se llena dinámicamente con app.js agrupado por tipo -->
+        <!-- Línea de tiempo interactiva minimalista y animada -->
+        <div class="minimal-timeline-container">
+          <div class="minimal-timeline-controls">
+            <button class="t-btn" id="timeline-prev-btn" title="Mois précédent">◀ Précédent</button>
+            <button class="t-btn play-btn" id="timeline-play-btn" title="Lecture automatique de l'évolution">▶ Lecture Auto</button>
+            <button class="t-btn" id="timeline-next-btn" title="Mois suivant">Suivant ▶</button>
+            <button class="t-btn all-btn" id="timeline-all-btn" title="Afficher l'ensemble de la période">🌐 Vue Globale</button>
+            <span class="timeline-active-label" id="current-month-display">📅 SEPTEMBRE 2026</span>
+          </div>
+
+          <div class="timeline-scrubber-track" id="timeline-months-bar">
+            <!-- Píldoras de hitos generadas dinámicamente con app.js -->
+          </div>
         </div>
 
-        <!-- Estado de la Canalización de Ingesta (Fast Data & RSS Pipeline) -->
-        <div class="card pipeline-status-card">
-          <h4>🛰️ État de la Canalisation d'Ingesta Automatique (Fast Data / RSS / API)</h4>
-          <div class="pipeline-streams-grid">
-            <div class="stream-status-item">
-              <span class="stream-dot online"></span>
-              <div>
-                <strong>Flux RAA & Préfecture 94 :</strong> Synchronisation quotidienne à 06h00 (Web scraping officiel).
+        <!-- 3 Secciones Claras: À Favor | Neutre | En Contra con Abstract consolidado -->
+        <div class="minimal-stance-grid" id="stance-columns-container">
+          <!-- Columna 1: À FAVOR (POUR) -->
+          <div class="stance-column pour" id="col-pour">
+            <div class="stance-column-header">
+              <div class="stance-title-group">
+                <span class="stance-icon">🟢</span>
+                <span class="stance-col-title">À Favor (Pour)</span>
               </div>
+              <span class="stance-count-pill pour" id="count-col-pour">0 doc</span>
             </div>
-            <div class="stream-status-item">
-              <span class="stream-dot online"></span>
-              <div>
-                <strong>Flux Presse FR (Le Parisien, Citoyens.com) :</strong> Polling RSS toutes les 30 min filtré par mots-clés.
-              </div>
+            <div class="stance-abstract-card pour" id="abstract-col-pour">
+              <!-- Abstract del bloque a favor -->
             </div>
-            <div class="stream-status-item">
-              <span class="stream-dot online"></span>
-              <div>
-                <strong>Collectif 3R & Zero Waste :</strong> Webhooks d'annonces citoyennes et comptes rendus d'assemblées.
-              </div>
+            <div class="stance-cards-list" id="cards-col-pour">
+              <!-- Cards minimalistas -->
             </div>
-            <div class="stream-status-item">
-              <span class="stream-dot online"></span>
-              <div>
-                <strong>HAL / Europe PMC / UPEC :</strong> Alertes automatiques de publications sur 'incinération' et 'santé publique'.
+          </div>
+
+          <!-- Columna 2: NEUTRE & FACTUEL -->
+          <div class="stance-column neutre" id="col-neutre">
+            <div class="stance-column-header">
+              <div class="stance-title-group">
+                <span class="stance-icon">⚪</span>
+                <span class="stance-col-title">Neutre & Factuel</span>
               </div>
+              <span class="stance-count-pill neutre" id="count-col-neutre">0 doc</span>
             </div>
-            <div class="stream-status-item">
-              <span class="stream-dot online"></span>
-              <div>
-                <strong>UE & Agence Européenne de l'Environnement :</strong> Veille sur la révision de la Directive Cadre Déchets.
+            <div class="stance-abstract-card neutre" id="abstract-col-neutre">
+              <!-- Abstract del bloque neutro -->
+            </div>
+            <div class="stance-cards-list" id="cards-col-neutre">
+              <!-- Cards minimalistas -->
+            </div>
+          </div>
+
+          <!-- Columna 3: EN CONTRA (CONTRE) -->
+          <div class="stance-column contre" id="col-contre">
+            <div class="stance-column-header">
+              <div class="stance-title-group">
+                <span class="stance-icon">🔴</span>
+                <span class="stance-col-title">En Contra (Contre)</span>
               </div>
+              <span class="stance-count-pill contre" id="count-col-contre">0 doc</span>
+            </div>
+            <div class="stance-abstract-card contre" id="abstract-col-contre">
+              <!-- Abstract del bloque en contra -->
+            </div>
+            <div class="stance-cards-list" id="cards-col-contre">
+              <!-- Cards minimalistas -->
             </div>
           </div>
         </div>
