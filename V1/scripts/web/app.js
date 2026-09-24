@@ -1732,87 +1732,239 @@ function renderNewsGrid(items) {
         <span style="font-size: 2.2rem;">🔍</span>
         <h4 style="color: #cbd5e1; margin-top: 0.65rem; font-size: 1.1rem;">Aucun enregistrement trouvé pour ce filtre combiné</h4>
         <p style="font-size: 0.85rem; max-width: 500px; margin: 0.4rem auto 0; line-height: 1.45;">
-          Aucune publication de ce type n'a été recensée pour le jalon sélectionné avec cette posture. Cliquez sur <strong>« Tous les jalons »</strong> ou réinitialisez le filtre de posture pour élargir la vue.
+          Aucune publication n'a été recensée pour ce critère. Cliquez sur <strong>« Tous les jalons »</strong> ou réinitialisez le filtre de recherche pour élargir la vue.
         </p>
       </div>
     `;
     return;
   }
 
-  let html = '';
+  // Filtrer par les 3 grandes postures : POUR, NEUTRE, CONTRE
+  const pourItems = items.filter(n => n.posture === 'POUR');
+  const neutreItems = items.filter(n => n.posture === 'NEUTRE');
+  const contreItems = items.filter(n => n.posture === 'CONTRE');
 
-  CATEGORIES_DEF.forEach(catDef => {
-    const catItems = items.filter(it => it.category === catDef.key);
-    if (catItems.length === 0) return;
+  const totalFiltered = items.length;
+  const monthLabel = (CURRENT_MONTH_FILTER === 'ALL')
+    ? 'Vue d\'ensemble (2022 - 2026)'
+    : (MONTHS_META[CURRENT_MONTH_FILTER] ? MONTHS_META[CURRENT_MONTH_FILTER].name : CURRENT_MONTH_FILTER);
 
-    html += `
-      <div class="channel-group-block">
-        <div class="channel-group-header">
-          <div class="channel-group-title">
-            <span>${catDef.icon}</span>
-            <span>${catDef.name}</span>
-          </div>
-          <span class="channel-group-badge">${catItems.length} publication${catItems.length > 1 ? 's' : ''} trouvée${catItems.length > 1 ? 's' : ''}</span>
-        </div>
+  // Générer le HTML des 3 Sections
+  let html = '<div class="posture-tri-sections-container">';
 
-        <div class="channel-news-grid">
-          ${catItems.map(item => `
-            <article class="news-card" id="${item.id}">
-              <div>
-                <!-- 1. En-tête : Badge Canal + Badge Posture Visible -->
-                <div class="news-card-header">
-                  <span class="channel-pill ${item.badgeClass}">${item.categoryLabel}</span>
-                  <span class="posture-card-badge badge-posture-${item.posture}">
-                    ${item.posture === 'POUR' ? '🟢 À FAVOR (POUR)' : item.posture === 'CONTRE' ? '🔴 EN CONTRA (CONTRE)' : '⚪ NEUTRE / FACTUEL'}
-                  </span>
-                </div>
-
-                <!-- 2. Synthèse Express Style Tweet (<280 caractères) -->
-                <div class="tweet-box">
-                  <div class="tweet-meta">
-                    <span class="tweet-icon">💬</span>
-                    <strong class="tweet-author">${item.publisherHandle}</strong>
-                    <span class="tweet-bullet">&bull;</span>
-                    <span class="tweet-date">🗓️ ${item.date}</span>
-                  </div>
-                  <p class="tweet-content">« ${item.tweetSummary} »</p>
-                </div>
-
-                <!-- 3. Source & Type de Document -->
-                <div class="news-publisher">${item.publisher} &bull; <small style="color: #94a3b8;">${item.docType}</small></div>
-
-                <!-- 4. Titre de l'article -->
-                <h4>${item.title}</h4>
-
-                <!-- 5. Ligne d'Angle & Argumentaire de Posture -->
-                <div class="posture-argument-line ${item.posture}">
-                  <strong>Angle d'analyse :</strong> ${item.postureArgument}
-                </div>
-
-                <!-- 6. Résumé détaillé -->
-                <p class="news-summary">${item.summary}</p>
-
-                <!-- 7. Mots-clés / Tags -->
-                <div class="news-tags">
-                  ${item.tags.map(t => `<span class="news-tag">#${t}</span>`).join('')}
-                </div>
-              </div>
-
-              <!-- 8. Pied de carte : Vérification & Lien direct officiel -->
-              <div class="news-card-footer">
-                <span class="verify-badge">
-                  <span>🛡️</span> ${item.verifyBadge}
-                </span>
-                <a href="${item.linkUrl}" target="_blank" rel="noopener noreferrer" class="news-link-btn">
-                  Consulter la source officielle &rarr;
-                </a>
-              </div>
-            </article>
-          `).join('')}
-        </div>
-      </div>
-    `;
+  // 1. SECTION À FAVOR (POUR)
+  html += renderPostureSection({
+    postureKey: 'POUR',
+    cssClass: 'pour',
+    icon: '🟢',
+    title: `Section 1 : Prises de Position À FAVOR (POUR) — ${monthLabel}`,
+    subtitle: 'Arguments de valorisation énergétique, réseau de chaleur urbain, filtres SCR et souveraineté territoriale',
+    items: pourItems,
+    totalMonth: totalFiltered
   });
 
+  // 2. SECTION NEUTRE (FACTUEL / SCIENTIFIQUE / CADRE LÉGAL)
+  html += renderPostureSection({
+    postureKey: 'NEUTRE',
+    cssClass: 'neutre',
+    icon: '⚪',
+    title: `Section 2 : Analyses & Évaluations NEUTRES / FACTUELLES — ${monthLabel}`,
+    subtitle: 'Avis sanitaires ARS, épidémiologie Inserm, modélisations universitaires, arrêtés ICPE et droit européen',
+    items: neutreItems,
+    totalMonth: totalFiltered
+  });
+
+  // 3. SECTION EN CONTRA (CONTRE)
+  html += renderPostureSection({
+    postureKey: 'CONTRE',
+    cssClass: 'contre',
+    icon: '🔴',
+    title: `Section 3 : Alertes, Contestations & Recours EN CONTRA (CONTRE) — ${monthLabel}`,
+    subtitle: 'Biosurveillance d\'œufs et d\'écoles, alertes syndicales, heures sans mesure, et recours en justice administrative',
+    items: contreItems,
+    totalMonth: totalFiltered
+  });
+
+  html += '</div>';
   container.innerHTML = html;
+}
+
+function renderPostureSection({ postureKey, cssClass, icon, title, subtitle, items, totalMonth }) {
+  const count = items.length;
+  const pct = totalMonth > 0 ? Math.round((count / totalMonth) * 100) : 0;
+
+  let sectionHtml = `
+    <section class="posture-section-block ${cssClass}" id="section-posture-${cssClass}">
+      <div class="posture-section-header">
+        <div class="posture-section-title-wrap">
+          <span class="posture-section-title">${icon} ${title}</span>
+          <span class="posture-count-badge ${cssClass}">${count} publication${count > 1 ? 's' : ''} (${pct}%)</span>
+        </div>
+        <span class="posture-section-subtitle">${subtitle}</span>
+      </div>
+
+      <div class="posture-section-body">
+        <!-- Zone Gauche / Centre : Tiles à lo largo -->
+        <div class="stance-tiles-list">
+  `;
+
+  if (count === 0) {
+    sectionHtml += `
+      <div class="empty-stance-notice">
+        <span>ℹ️</span> Aucune publication enregistrée dans ce bloc pour ce jalon temporel.
+      </div>
+    `;
+  } else {
+    items.forEach(item => {
+      sectionHtml += `
+        <article class="tile-horizontal" id="${item.id}">
+          <div class="tile-header-row">
+            <div class="tile-meta-left">
+              <span class="tile-date">🗓️ ${item.date}</span>
+              <span class="channel-pill ${item.badgeClass}">${item.categoryLabel}</span>
+              <span class="tile-publisher">${item.publisher}</span>
+              <span class="tile-doctype">&bull; ${item.docType}</span>
+            </div>
+            <a href="${item.linkUrl}" target="_blank" rel="noopener noreferrer" class="tile-link-btn">
+              Consulter la source &rarr;
+            </a>
+          </div>
+
+          <h4 class="tile-title">${item.title}</h4>
+
+          <div class="tile-tweet-box">
+            <div class="tile-tweet-author">
+              <span>💬</span> ${item.publisherHandle} &bull; <small style="color: #64748b;">${item.date}</small>
+            </div>
+            <p class="tile-tweet-text">« ${item.tweetSummary} »</p>
+          </div>
+
+          <div class="tile-argument-line ${item.posture}">
+            <strong>Angle & Posture :</strong> ${item.postureArgument}
+          </div>
+
+          <div class="tile-footer-row">
+            <div class="tile-tags">
+              ${item.tags.map(t => `<span class="tile-tag">#${t}</span>`).join('')}
+            </div>
+            <span class="tile-verify">🛡️ ${item.verifyBadge}</span>
+          </div>
+        </article>
+      `;
+    });
+  }
+
+  sectionHtml += `
+        </div>
+
+        <!-- Zone Extrême Droite : Carte Synoptique de Résumé du Bloc -->
+        ${generateSynopticCardHtml(postureKey, cssClass, items, totalMonth)}
+      </div>
+    </section>
+  `;
+
+  return sectionHtml;
+}
+
+function generateSynopticCardHtml(postureKey, cssClass, items, totalMonth) {
+  const count = items.length;
+  const pct = totalMonth > 0 ? Math.round((count / totalMonth) * 100) : 0;
+
+  // Calculer la synthèse exécutive du bloc
+  let executiveSummary = '';
+  let keyActors = [];
+  let keyTheses = [];
+  let takeaway = '';
+
+  if (items.length === 0) {
+    if (postureKey === 'POUR') {
+      executiveSummary = "Aucun argument favorable recensé pour ce jalon temporel. Cette absence de prise de parole reflète une période dominée par les alertes sanitaires ou les initiatives contentieuses citoyennes.";
+      takeaway = "Période de retrait ou d'attente pour les promoteurs du projet.";
+    } else if (postureKey === 'NEUTRE') {
+      executiveSummary = "Aucune analyse académique ou avis administratif neutre recensé sur cette période précise.";
+      takeaway = "Absence de nouveau cadrage institutionnel ou scientifique.";
+    } else {
+      executiveSummary = "Aucune contestation formalisée ni recours recensé pour ce jalon temporel.";
+      takeaway = "Trêve relative ou phase de préparation des dossiers associatifs.";
+    }
+  } else {
+    // Extraire les acteurs uniques
+    keyActors = [...new Set(items.map(it => it.publisher))];
+
+    if (postureKey === 'POUR') {
+      executiveSummary = "Défense de la souveraineté thermique urbaine et des performances industrielles : mise en avant du chauffage pour 150 000 foyers sans gaz fossile (CPCU), de la réduction de 50% de la capacité historique et de la filtration catalytique SCR (SYCTOM).";
+      keyTheses = [
+        "Sécurisation de l'alimentation continue en vapeur urbaine",
+        "Conformité réglementaire des fumées sous contrôle DREAL",
+        "Évitement de l'enfouissement massif en grande couronne"
+      ];
+      takeaway = "Priorité à la continuité du service public métropolitain et à l'indépendance énergétique.";
+    } else if (postureKey === 'NEUTRE') {
+      executiveSummary = "Évaluations sanitaires, sociologiques et juridiques distanciées : avis de précaution de l'ARS sur les œufs, études épidémiologiques de l'Inserm, modélisation des inversions de vent par l'UPEC et arrêts de principe de la Cour de Justice de l'UE.";
+      keyTheses = [
+        "Prudence épidémiologique et prévention de la bioaccumulation",
+        "Modélisation physique des microclimats fluviaux de la Seine",
+        "Encadrement strict des régimes dérogatoires de démarrage"
+      ];
+      takeaway = "Apport de preuves empiriques indépendantes et régulation de droit public.";
+    } else {
+      executiveSummary = "Mobilisation multicanale contre les nuisances et les risques sanitaires : alertes sur les dioxines et métaux lourds dans les œufs et les écoles (ToxicoWatch), 6 936 h de mesures AMESA inactives (Zero Waste), vœux municipaux d'Ivry/Vitry et recours contentieux (Melun).";
+      keyTheses = [
+        "Présomption de danger pour la santé des enfants riverains",
+        "Dénonciation du surdimensionnement bloquant le compostage",
+        "Recours en justice administrative contre l'autorisation"
+      ];
+      takeaway = "Exigence de transparence immédiate, moratoire et primauté de la santé publique.";
+    }
+  }
+
+  return `
+    <aside class="synoptic-card ${cssClass}">
+      <div class="synoptic-tag ${cssClass}">
+        <span>📋</span> Carte Synoptique du Bloc
+      </div>
+
+      <h5 class="synoptic-title">
+        Synthèse : ${postureKey === 'POUR' ? 'Arguments À Favor' : postureKey === 'NEUTRE' ? 'Analyses Neutres' : 'Contestations & Recours'}
+      </h5>
+
+      <div class="synoptic-executive-summary">
+        ${executiveSummary}
+      </div>
+
+      ${keyActors.length > 0 ? `
+        <div>
+          <div class="synoptic-section-label">Acteurs du bloc (${keyActors.length}) :</div>
+          <div class="synoptic-actors-list">
+            ${keyActors.slice(0, 4).map(act => `<span class="synoptic-actor-pill">${act}</span>`).join('')}
+          </div>
+        </div>
+      ` : ''}
+
+      ${keyTheses.length > 0 ? `
+        <div>
+          <div class="synoptic-section-label">Thèses & Angles clés :</div>
+          <ul style="margin: 0; padding-left: 1.1rem; font-size: 0.78rem; color: #cbd5e1; line-height: 1.4;">
+            ${keyTheses.map(th => `<li>${th}</li>`).join('')}
+          </ul>
+        </div>
+      ` : ''}
+
+      ${takeaway ? `
+        <div class="synoptic-takeaway-box">
+          <strong>Enjeu central :</strong> ${takeaway}
+        </div>
+      ` : ''}
+
+      <div class="synoptic-weight-bar-wrap">
+        <div style="display: flex; justify-content: space-between;">
+          <span>Poids dans le débat du mois :</span>
+          <strong>${count} sur ${totalMonth} (${pct}%)</strong>
+        </div>
+        <div class="synoptic-weight-bar">
+          <div class="synoptic-weight-fill ${cssClass}" style="width: ${pct}%;"></div>
+        </div>
+      </div>
+    </aside>
+  `;
 }
