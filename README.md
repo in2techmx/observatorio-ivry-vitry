@@ -7,8 +7,16 @@
 
 ---
 
+## 🌐 Acceso Público en Línea (GitHub Pages)
+
+Cualquier persona puede ingresar e interactuar directamente con la plataforma web y el mapa GIS desde su navegador sin instalar nada:
+
+👉 **[https://in2techmx.github.io/observatorio-ivry-vitry/](https://in2techmx.github.io/observatorio-ivry-vitry/)**
+
+---
+
 ## 📌 Descripción del Proyecto
-Plataforma analítica e investigadora de alto rigor sociológico, epidemiológico y computacional orientada a auditar y visualizar las interacciones entre la Unidad de Valorización Energética (UVE) de Ivry/Paris XIII (SYCTOM), la calidad del aire del Valle del Sena (Airparif) y la percepción ciudadana en las comunas de Ivry-sur-Seine y Vitry-sur-Seine.
+Plataforma analítica e investigadora de alto rigor sociológico, epidemiológico y computacional orientada a auditar y visualizar las interacciones entre la Unidad de Valorización Energética (UVE) de Ivry/Paris XIII (SYCTOM), la calidad del aire del Valle del Sena (Airparif) y la percepción ciudadana en las comunas de Ivry-sur-Seine y Vitry-sur-Seine (48° 47' 30" N, 2° 25' 0" E).
 
 ---
 
