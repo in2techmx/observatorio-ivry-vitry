@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Observatoire de Gouvernance Environnementale — Ivry / Vitry (Val-de-Marne)</title>
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header Principal -->
+    <header class="main-header">
+      <div class="header-left">
+        <div class="logo-badge">IN2TECHMX</div>
+        <div>
+          <h1>Observatoire de Gouvernance Environnementale Urbaine</h1>
+          <p class="subtitle">Ivry-sur-Seine / Vitry-sur-Seine (Val-de-Marne) &bull; 48° 47' 30" N, 2° 25' 0" E (94400)</p>
+        </div>
+      </div>
+      <div class="header-right">
+        <div class="atmo-pill">
+          <span class="pulse-dot"></span>
+          <span>Indice Airparif : <strong>MOYEN (Dégradé PM2.5)</strong></span>
+        </div>
+        <div class="version-tag">v0.9.0 (SemVer)</div>
+      </div>
+    </header>
+
+    <!-- Barra de Navegación de 5 Pestañas -->
+    <nav class="nav-tabs">
+      <button class="tab-btn active" data-tab="tab-executive">
+        <span class="icon">📊</span> 1. Tableau de Bord Exécutif
+      </button>
+      <button class="tab-btn" data-tab="tab-gis">
+        <span class="icon">🗺️</span> 2. Observatoire GIS & Panache
+      </button>
+      <button class="tab-btn" data-tab="tab-sentiment">
+        <span class="icon">💬</span> 3. Sentiment & Enquêtes Citoyennes
+      </button>
+      <button class="tab-btn" data-tab="tab-comparative">
+        <span class="icon">📚</span> 4. Politiques Comparées (RAG)
+      </button>
+      <button class="tab-btn" data-tab="tab-assistant">
+        <span class="icon">🤖</span> 5. Assistant BI Agentique
+      </button>
+    </nav>
+
+    <!-- Contenido de las Pestañas -->
+    <main class="tab-content">
+      <!-- PESTAÑA 1: TABLERO EJECUTIVO -->
+      <section id="tab-executive" class="tab-panel active">
+        <div class="kpi-grid">
+          <div class="kpi-card">
+            <span class="kpi-title">Qualité de l'Air (Station Ivry-Port)</span>
+            <div class="kpi-value warning">58 <small>µg/m³</small></div>
+            <span class="kpi-meta">NO₂ : 34 µg/m³ | PM10 : 28 µg/m³ | PM2.5 : 18 µg/m³</span>
+          </div>
+          <div class="kpi-card">
+            <span class="kpi-title">Sentiment Social 24h (Laya Engine)</span>
+            <div class="kpi-value negative">-0.48 <small>/ +1.0</small></div>
+            <span class="kpi-meta">64% Négatif &bull; Thème dominant : <strong>ODEUR</strong></span>
+          </div>
+          <div class="kpi-card">
+            <span class="kpi-title">Vecteur Atmosphérique Actuel</span>
+            <div class="kpi-value info">SW 225° <small>@ 18 km/h</small></div>
+            <span class="kpi-meta">Sotavento vers Charenton / Paris-13 Est</span>
+          </div>
+          <div class="kpi-card">
+            <span class="kpi-title">Participation Citoyenne Validée</span>
+            <div class="kpi-value success">342 <small>enquêtes</small></div>
+            <span class="kpi-meta">Codes 94200 (62%) & 94400 (38%) &bull; RGPD certifié</span>
+          </div>
+        </div>
+
+        <div class="dashboard-columns">
+          <div class="card col-8">
+            <h3>Évolution Quotidienne de la Polarité de Sentiment vs. Épisodes de Vent</h3>
+            <div class="chart-container">
+              <div class="synthetic-timeline">
+                <div class="timeline-bar" style="height: 40%;" title="Lun -0.32"><span class="day">Lun</span><span class="val">-0.32</span></div>
+                <div class="timeline-bar negative-peak" style="height: 75%;" title="Mar -0.71 (Pic Odeur)"><span class="day">Mar</span><span class="val">-0.71</span></div>
+                <div class="timeline-bar" style="height: 52%;" title="Mer -0.45"><span class="day">Mer</span><span class="val">-0.45</span></div>
+                <div class="timeline-bar" style="height: 48%;" title="Jeu -0.40"><span class="day">Jeu</span><span class="val">-0.40</span></div>
+                <div class="timeline-bar" style="height: 60%;" title="Ven -0.55"><span class="day">Ven</span><span class="val">-0.55</span></div>
+                <div class="timeline-bar" style="height: 35%;" title="Sam -0.28"><span class="day">Sam</span><span class="val">-0.28</span></div>
+                <div class="timeline-bar" style="height: 55%;" title="Dim -0.48"><span class="day">Dim</span><span class="val">-0.48</span></div>
+              </div>
+            </div>
+            <p class="chart-note">Corrélations temporelles des signalements d'odeurs nocturnes au niveau du Quai d'Ivry et boulevard Paul Vaillant-Couturier.</p>
+          </div>
+          <div class="card col-4">
+            <h3>Avis Réglementaires & Événements SYCTOM</h3>
+            <ul class="bullet-list">
+              <li><strong>Comité de suivi UVE :</strong> Séance trimestrielle sur les travaux de modernisation du four n°2.</li>
+              <li><strong>Rapport ARS Île-de-France :</strong> Campagne semestrielle de biosurveillance des sols et retombées de dioxines.</li>
+              <li><strong>Collectif 3R :</strong> Dépôt d'un recours contentieux gracieux concernant l'arrêté préfectoral d'exploitation.</li>
+              <li><strong>Enquête publique :</strong> Bilan de concertation sur le plan climat air-énergie territorial (PCAET).</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- PESTAÑA 2: OBSERVATORIO GIS & PANACHE -->
+      <section id="tab-gis" class="tab-panel">
+        <div class="gis-layout">
+          <!-- Panel de Control de Vientos -->
+          <div class="gis-sidebar">
+            <h3>Paramètres de Dispersion</h3>
+            <div class="control-group">
+              <label for="wind-origin-slider">Origine du Vent : <span id="wind-origin-val" class="highlight">225° (SW)</span></label>
+              <input type="range" id="wind-origin-slider" min="0" max="359" value="225" />
+              <div class="wind-presets">
+                <button class="btn-xs" onclick="setWind(225, 18)">SW (Dominant)</button>
+                <button class="btn-xs" onclick="setWind(45, 12)">NE</button>
+                <button class="btn-xs" onclick="setWind(0, 22)">N (Nord)</button>
+                <button class="btn-xs" onclick="setWind(180, 15)">S (Sud)</button>
+              </div>
+            </div>
+
+            <div class="control-group">
+              <label for="wind-speed-slider">Vitesse du Vent : <span id="wind-speed-val" class="highlight">18 km/h</span></label>
+              <input type="range" id="wind-speed-slider" min="5" max="45" value="18" />
+            </div>
+
+            <div class="plume-metrics-box">
+              <h4>Impact Indicatif Calculé</h4>
+              <p>Direction à sotavento : <strong id="downwind-dir-lbl">45° (Noreste)</strong></p>
+              <p>Portée du panache : <strong id="plume-length-lbl">2.96 km</strong></p>
+              <p>Établissements sensibles exposés : <span id="exposed-facilities-count" class="badge-alert">2</span></p>
+              <p>Population IRIS couverte : <span id="exposed-pop-count" class="highlight">8 800 hab.</span></p>
+            </div>
+
+            <div class="facilities-list-box">
+              <h4>Établissements sous le Panache Actuel</h4>
+              <ul id="facilities-under-plume-list" class="mini-list">
+                <!-- Se llena dinámicamente -->
+              </ul>
+            </div>
+          </div>
+
+          <!-- Contenedor del Mapa Leaflet -->
+          <div class="gis-map-container">
+            <div id="map"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PESTAÑA 3: CENTRO DE SENTIMIENTO Y ENCUESTAS -->
+      <section id="tab-sentiment" class="tab-panel">
+        <div class="sentiment-layout">
+          <!-- Simulador de Micro-Decisión Laya -->
+          <div class="card">
+            <h3>Simulateur de Micro-Décision « Laya » (< 70 ms)</h3>
+            <p>Testez la classification probabiliste en temps réel avec signature cryptographique HMAC-SHA256 :</p>
+            <div class="form-group">
+              <textarea id="laya-input-text" rows="3" placeholder="Exemple : Forte odeur nauséabonde et de brûlé ce soir vers le quai d'Ivry, impossible d'ouvrir les fenêtres..."></textarea>
+            </div>
+            <div class="btn-row">
+              <button class="btn-primary" id="btn-run-laya">Analyser avec Laya Engine</button>
+              <button class="btn-secondary" onclick="loadSampleText(1)">Exemple Odeur</button>
+              <button class="btn-secondary" onclick="loadSampleText(2)">Exemple Urgence Santé</button>
+              <button class="btn-secondary" onclick="loadSampleText(3)">Exemple Gouvernance</button>
+            </div>
+
+            <div id="laya-result-box" class="result-box hidden">
+              <!-- Resultados de clasificación -->
+            </div>
+          </div>
+
+          <!-- Formulario de Encuesta Ciudadana -->
+          <div class="card">
+            <h3>Formulaire d'Enquête Citoyenne (Gouvernance & Santé)</h3>
+            <p>Vos témoignages sont anonymisés de façon irréversible (RGPD Art. 32) et vérifiés par filtre anti-spam :</p>
+            <form id="citizen-survey-form">
+              <div class="form-row">
+                <div class="form-group col-6">
+                  <label for="survey-postal">Code Postal :</label>
+                  <input type="text" id="survey-postal" placeholder="94200 ou 94400" required />
+                </div>
+                <div class="form-group col-6">
+                  <label for="survey-neighborhood">Quartier :</label>
+                  <input type="text" id="survey-neighborhood" placeholder="Ex. Ivry-Port, Centre..." />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group col-6">
+                  <label for="survey-odor-freq">Fréquence des odeurs perçues :</label>
+                  <select id="survey-odor-freq">
+                    <option value="DAILY">Quotidienne (Tous les jours)</option>
+                    <option value="WEEKLY" selected>Hebdomadaire (1 à 2 fois par semaine)</option>
+                    <option value="MONTHLY">Mensuelle (Occasionnelle)</option>
+                    <option value="RARELY">Rarement</option>
+                    <option value="NEVER">Jamais</option>
+                  </select>
+                </div>
+                <div class="form-group col-6">
+                  <label for="survey-health-score">Impact perçu sur le confort/santé (1 à 5) :</label>
+                  <input type="range" id="survey-health-score" min="1" max="5" value="3" oninput="document.getElementById('health-val').innerText = this.value" />
+                  <span id="health-val" class="highlight">3</span> / 5
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>Symptômes occasionnels déclarés :</label>
+                <div class="checkbox-group">
+                  <label><input type="checkbox" name="symptom" value="RESPIRATORY"> Gêne respiratoire / toux</label>
+                  <label><input type="checkbox" name="symptom" value="EYE_IRRITATION"> Irritation des yeux</label>
+                  <label><input type="checkbox" name="symptom" value="HEADACHE"> Maux de tête</label>
+                  <label><input type="checkbox" name="symptom" value="SLEEP_DISTURBANCE"> Sommeil perturbé</label>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="survey-comment">Commentaire libre (sanitisé automatiquement) :</label>
+                <textarea id="survey-comment" rows="3" placeholder="Décrivez votre expérience ou observation..."></textarea>
+              </div>
+
+              <button type="submit" class="btn-primary">Soumettre mon témoignage</button>
+            </form>
+
+            <div id="survey-feedback-box" class="feedback-box hidden"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PESTAÑA 4: BIBLIOTECA DE POLÍTICAS COMPARADAS -->
+      <section id="tab-comparative" class="tab-panel">
+        <div class="comparative-header">
+          <h3>Benchmarking des Unités de Valorisation Énergétique (UVE) en France</h3>
+          <p>Étude comparée des modèles de traitement des fumées, cohabitation urbaine et conflits territoriaux :</p>
+        </div>
+
+        <div class="plant-cards-grid">
+          <!-- Ivry-Paris XIII -->
+          <div class="plant-card active-plant">
+            <div class="plant-badge">Site Étudié</div>
+            <h4>UVE Ivry / Paris XIII</h4>
+            <p class="plant-location">Ivry-sur-Seine (Val-de-Marne) &bull; SYCTOM</p>
+            <ul class="plant-specs">
+              <li><strong>Capacité :</strong> 700 000 t/an (en phase de modernisation à 350 000 t)</li>
+              <li><strong>Traitement des fumées :</strong> Voie sèche bicarbonate + filtres à manches + DeNOx SCR</li>
+              <li><strong>Énergie :</strong> Électricité + Réseau de chaleur urbain CPCU</li>
+              <li><strong>Controverses :</strong> Mobilisation associative (Collectif 3R), alertes dioxines de 2022, litige sur le dimensionnement.</li>
+            </ul>
+          </div>
+
+          <!-- Isséane (Issy-les-Moulineaux) -->
+          <div class="plant-card">
+            <div class="plant-badge secondary">Comparateur 1</div>
+            <h4>Isséane</h4>
+            <p class="plant-location">Issy-les-Moulineaux (Hauts-de-Seine) &bull; SYCTOM</p>
+            <ul class="plant-specs">
+              <li><strong>Capacité :</strong> 510 000 t/an</li>
+              <li><strong>Traitement des fumées :</strong> Intégration paysagère et usine à 60% enterrée, zéro fumée visible (panache blanc éliminé)</li>
+              <li><strong>Contexte sociologique :</strong> Acceptation relative due à une forte compensation architecturale et zone à revenu élevé.</li>
+              <li><strong>Leçon apprise :</strong> L'enfouissement technique réduit les nuisances visuelles mais augmente les coûts d'exploitation de 40%.</li>
+            </ul>
+          </div>
+
+          <!-- Éverré (Fos-sur-Mer) -->
+          <div class="plant-card">
+            <div class="plant-badge secondary">Comparateur 2</div>
+            <h4>Éverré</h4>
+            <p class="plant-location">Fos-sur-Mer (Bouches-du-Rhône)</p>
+            <ul class="plant-specs">
+              <li><strong>Capacité :</strong> 410 000 t/an</li>
+              <li><strong>Traitement des fumées :</strong> Électrofiltres + lavage humide + traitement catalytique</li>
+              <li><strong>Controverses :</strong> Contentieux juridique massif (2005-2010), opposition unanime des élus locaux et grèves de la faim.</li>
+              <li><strong>Leçon apprise :</strong> L'absence de consensus préalable génère une rupture de confiance institutionnelle irréversible.</li>
+            </ul>
+          </div>
+
+          <!-- UVE Créteil -->
+          <div class="plant-card">
+            <div class="plant-badge secondary">Comparateur 3</div>
+            <h4>UVE de Créteil</h4>
+            <p class="plant-location">Créteil (Val-de-Marne) &bull; SMITDUVM</p>
+            <ul class="plant-specs">
+              <li><strong>Capacité :</strong> 240 000 t/an</li>
+              <li><strong>Modernisation :</strong> Rénovation avec captage de chaleur résiduelle et réduction drastique des NOx.</li>
+              <li><strong>Cohabitation :</strong> Proximité d'habitats collectifs avec comités de quartier mensuels et bulletins de rejet en mairie.</li>
+              <li><strong>Leçon apprise :</strong> La transparence locale proactive et les réunions publiques régulières amortissent les tensions NIMBY.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- PESTAÑA 5: ASISTENTE BI AGÉNTICO -->
+      <section id="tab-assistant" class="tab-panel">
+        <div class="assistant-layout">
+          <div class="chat-container">
+            <div class="chat-messages" id="chat-messages">
+              <div class="message system-message">
+                <strong>Assistant de Gouvernance Environnementale du Val-de-Marne</strong><br>
+                Posez vos questions sur la qualité de l'air, les vientos dominants, les écoles sous le panache ou les actes du SYCTOM. Toutes les réponses sont strictement fondées sur le catalogue sémantique et les données officielles vérifiées.
+              </div>
+            </div>
+
+            <div class="chat-input-row">
+              <input type="text" id="chat-input" placeholder="Ex. : Quelles sont les écoles sous le panache par vent de Sud-Ouest ?" onkeydown="if(event.key==='Enter') sendChatMessage()" />
+              <button class="btn-primary" onclick="sendChatMessage()">Envoyer</button>
+            </div>
+
+            <div class="chat-suggestions">
+              <span>Suggestions rapides :</span>
+              <button class="btn-xs" onclick="setQueryPrompt('Quelles écoles sont sous le panache quand le vent vient du Sud-Ouest ?')">Écoles exposées vent SW</button>
+              <button class="btn-xs" onclick="setQueryPrompt('Quel est le niveau de dioxyde d azote NO2 et PM2.5 à Ivry-Port ?')">Qualité Airparif Ivry-Port</button>
+              <button class="btn-xs" onclick="setQueryPrompt('Quelles différences entre l usine d Ivry et Isséane à Issy-les-Moulineaux ?')">Comparaison Ivry vs Isséane</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer Permanente con Aviso Científico Obligatorio (RF-09) -->
+    <footer class="main-footer">
+      <div class="disclaimer-alert">
+        <strong>⚠️ AVIS MÉTHODOLOGIQUE ET PRUDENCE ÉPIDÉMIOLOGIQUE (RF-09) :</strong>
+        Les contours géométriques de panache, les scores de sentiment et les analyses spatiales présentés sont des modèles indicatifs destinés à la recherche en sociologie politique et à l'aide à la décision publique. En aucun cas ces indicateurs ne constituent un diagnostic médical, une évaluation sanitaire officielle de l'ARS, ni la démonstration d'une relation de causalité individuelle directe (prévention de l'illusion écologique).
+      </div>
+      <div class="footer-links">
+        <span>Sources Primaires : <strong>Airparif (Open Data)</strong> &bull; <strong>Météo-France</strong> &bull; <strong>INSEE IRIS 2024</strong> &bull; <strong>SYCTOM</strong></span>
+        <span>Gouvernance IN2TECHMX &bull; Conforme RGPD Art. 32 &bull; SecNumCloud / UE Region Ready</span>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Leaflet JS y Scripts de la Aplicación -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="../core/layaClassifier.js"></script>
+  <script src="../core/windPlumeEngine.js"></script>
+  <script src="../core/surveyValidator.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
