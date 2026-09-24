@@ -466,6 +466,54 @@ function setQueryPrompt(promptText) {
 // ====================================================================
 // 5. VEILLE MULTICANALE, POSTURES & PROGRESSION MOIS PAR MOIS (PESTAÑA 6)
 // ====================================================================
+
+const MONTHS_CHRONO = ['2026-02', '2026-04', '2026-05', '2026-06', '2026-07', '2026-08', '2026-09'];
+
+const MONTHS_META = {
+  '2026-02': {
+    name: 'Février 2026',
+    climateTitle: 'Cadrage sociologique & racines des contestations',
+    climateSummary: 'Parution d’études académiques rétrospectives : analyse de la transition d’un réflexe local NIMBY vers une exigence de justice spatiale et environnementale dans le Val-de-Marne.',
+    dominantPosture: 'NEUTRE'
+  },
+  '2026-04': {
+    name: 'Avril 2026',
+    climateTitle: 'Continuité énergétique régionale vs. plafonds OMS',
+    climateSummary: 'La Région Île-de-France conforte l’usine d’Ivry dans son schéma directeur pour le chauffage métropolitain, tandis que l’AEE rappelle les seuils sanitaires OMS sur les PM2.5.',
+    dominantPosture: 'SPLIT'
+  },
+  '2026-05': {
+    name: 'Mai 2026',
+    climateTitle: 'Revendications municipales conjointes & modélisation du fleuve',
+    climateSummary: 'Vœu unanime des conseils municipaux d’Ivry et Vitry réclamant la transparence totale sur les PFAS, conjugué à la modélisation micrométéorologique des inversions thermiques de l’UPEC.',
+    dominantPosture: 'CONTRE'
+  },
+  '2026-06': {
+    name: 'Juin 2026',
+    climateTitle: 'Clash de visions : Modernisation SCR vs. Tri à la source',
+    climateSummary: 'Le SYCTOM valide l’abaissement de capacité à 350 000 t et ses filtres catalytiques SCR, tandis que Zero Waste France dénonce le risque de surcapacité bloquant le compostage.',
+    dominantPosture: 'SPLIT'
+  },
+  '2026-07': {
+    name: 'Juillet 2026',
+    climateTitle: 'Comparaison métropolitaine & tarification carbone européenne',
+    climateSummary: 'Reportage national comparant l’enfouissement paysager d’Isséane et la situation d’Ivry. Débat européen sur l’inclusion des incinérateurs au marché carbone SEQE.',
+    dominantPosture: 'POUR'
+  },
+  '2026-08': {
+    name: 'Août 2026',
+    climateTitle: 'Chauffage décarboné, épidémiologie et alertes citoyennes d’odeurs',
+    climateSummary: 'CPCU valorise l’apport thermique pour 150 000 logements ; Santé Publique France note la chute historique des dioxines ; des riverains réclament des capteurs continus.',
+    dominantPosture: 'SPLIT'
+  },
+  '2026-09': {
+    name: 'Septembre 2026',
+    climateTitle: 'Phase de haute contestation juridique et contrôles inopinés',
+    climateSummary: 'Recours contentieux au Tribunal de Melun (Collectif 3R), analyses citoyennes de sols (Reporterre) et arrêtés de contrôles inopinés de la Préfecture du Val-de-Marne.',
+    dominantPosture: 'CONTRE'
+  }
+};
+
 const NEWS_DATASET = [
   // --- FÉVRIER 2026 ---
   {
@@ -474,16 +522,18 @@ const NEWS_DATASET = [
     categoryLabel: 'Recherche Académique',
     badgeClass: 'cat-ACADEMIC',
     publisher: 'Revue Française de Sociologie (CNRS Éditions)',
+    publisherHandle: '@CNRS_Sociologie',
     date: '10 Février 2026',
     monthKey: '2026-02',
-    docType: 'Article de Recherche',
+    docType: 'Article de Recherche Peer-Reviewed',
     posture: 'NEUTRE',
-    postureLabel: '⚪ NEUTRE / ANALYSE SOCIOLOGIQUE',
+    postureLabel: '⚪ NEUTRE / CADRAGE SOCIOLOGIQUE',
     postureArgument: 'Analyse académique neutre retraçant l\'évolution sociopolitique des argumentaires riverains depuis les années 1990.',
+    tweetSummary: '📚 Enquête CNRS sur le Val-de-Marne : comment les luttes riveraines contre l\'incinération sont passées du réflexe "NIMBY" à une revendication structurée de justice spatiale et environnementale.',
     title: 'Du syndrome NIMBY à la justice environnementale : La politisation des déchets en banlieue rouge',
     summary: 'Analyse sociologique des dynamiques de concertation dans les communes industrielles du Val-de-Marne. L\'article explore comment les arguments sanitaires ont reconfiguré les clivages politiques municipaux et les revendications citoyennes de justice spatiale.',
-    tags: ['Sociologie', 'Justice Environnementale', 'NIMBY', 'CNRS', 'Banlieue Rouge'],
-    verifyBadge: 'Revue Scientifique CNRS',
+    tags: ['Sociologie', 'Justice Spatiale', 'NIMBY', 'CNRS', 'Banlieue Rouge'],
+    verifyBadge: 'Revue Scientifique CNRS / Cairn',
     linkUrl: 'https://www.cairn.info'
   },
 
@@ -494,12 +544,14 @@ const NEWS_DATASET = [
     categoryLabel: 'Gouvernemental & Officiel',
     badgeClass: 'cat-GOVERNMENTAL',
     publisher: 'Région Île-de-France (Commission Environnement)',
+    publisherHandle: '@iledefrance',
     date: '18 Avril 2026',
     monthKey: '2026-04',
-    docType: 'Rapport Stratégique Régional',
+    docType: 'Rapport Stratégique Régional (PRPGD)',
     posture: 'POUR',
     postureLabel: '🟢 À FAVOR / POUR (Stratégie Régionale)',
     postureArgument: 'Défense de l\'UVE comme maillon indispensable de souveraineté pour éviter le transport lointain et l\'enfouissement massif en grande couronne.',
+    tweetSummary: '🏛️ La Région confirme l\'UVE d\'Ivry comme équipement stratégique du plan déchets pour sécuriser le chauffage urbain métropolitain et éviter l\'enfouissement massif en grande couronne.',
     title: 'Plan Régional Déchets : L\'UVE d\'Ivry confirmée comme équipement structurant indispensable',
     summary: 'La Région Île-de-France valide la trajectoire du PRPGD, affirmant que la valorisation énergétique des 350 000 tonnes résiduelles est incontournable pour sécuriser l\'approvisionnement du réseau de chauffage urbain métropolitain.',
     tags: ['Région IDF', 'PRPGD', 'Souveraineté', 'Chauffage Urbain', 'Déchets'],
@@ -512,12 +564,14 @@ const NEWS_DATASET = [
     categoryLabel: 'International & Européen',
     badgeClass: 'cat-INTERNATIONAL',
     publisher: 'European Environment Agency (EEA)',
+    publisherHandle: '@EUEnvironment',
     date: '29 Avril 2026',
     monthKey: '2026-04',
     docType: 'Rapport Technique Européen',
     posture: 'NEUTRE',
     postureLabel: '⚪ NEUTRE / CADRE RÉGLEMENTAIRE OMS',
     postureArgument: 'Rapport technique d\'évaluation des seuils cibles de particules fines pour les métropoles denses sans prise de parti locale.',
+    tweetSummary: '🇪🇺 L\'Agence Européenne de l\'Environnement alerte : respecter le seuil OMS de 5 µg/m³ en PM2.5 impose un contrôle draconien combinant industrie thermique et trafic poids lourds dans les corridors fluviaux confinés.',
     title: 'Qualité de l\'air en Europe : Directives révisées de l\'OMS et défis d\'alignement pour les corridors fluviaux',
     summary: 'L\'Agence européenne de l\'environnement souligne que l\'alignement sur les seuils OMS de 5 µg/m³ pour les PM2.5 exige un contrôle draconien combinant industrie thermique et trafic poids lourds dans les vallées urbaines confinées.',
     tags: ['EEA / AEE', 'Normes OMS', 'Copenhague', 'Particules Fines', 'Gouvernance Urbaine'],
@@ -532,16 +586,18 @@ const NEWS_DATASET = [
     categoryLabel: 'Gouvernemental & Officiel',
     badgeClass: 'cat-GOVERNMENTAL',
     publisher: 'Mairies d\'Ivry-sur-Seine & Vitry-sur-Seine',
+    publisherHandle: '@Ivry94_Vitry94',
     date: '15 Mai 2026',
     monthKey: '2026-05',
     docType: 'Vœu Conjoint des Conseils Municipaux',
     posture: 'CONTRE',
     postureLabel: '🔴 EN CONTRA / CRITIQUE (Élus Territoriaux)',
     postureArgument: 'Dénonciation de l\'opacité historique et exigence formelle d\'un comité indépendant d\'information citoyenne.',
+    tweetSummary: '⚠️ Vœu unanime des mairies d\'Ivry et Vitry : elles exigent la mise en place d\'un comité indépendant et la publication en temps réel des rejets de PFAS et dioxines de l\'usine.',
     title: 'Vœu unanime des élus d\'Ivry et Vitry exigeant la transparence intégrale des mesures de polluants émergents',
     summary: 'Les deux municipalités du Val-de-Marne votent un vœu conjoint demandant à l\'État et au SYCTOM la mise en place d\'un comité local d\'information et de concertation (CLIC) indépendant et la diffusion publique en temps réel des mesures de PFAS et dioxines.',
     tags: ['Ivry-sur-Seine', 'Vitry-sur-Seine', 'Conseil Municipal', 'Transparence', 'PFAS'],
-    verifyBadge: 'Procès-Verbal Officiel',
+    verifyBadge: 'Procès-Verbal Officiel des Mairies',
     linkUrl: 'https://www.ivry94.fr'
   },
   {
@@ -550,12 +606,14 @@ const NEWS_DATASET = [
     categoryLabel: 'Recherche Académique',
     badgeClass: 'cat-ACADEMIC',
     publisher: 'Université Paris-Est Créteil (UPEC) & LEESU',
+    publisherHandle: '@UPEC_LEESU',
     date: '24 Mai 2026',
     monthKey: '2026-05',
     docType: 'Communication Scientifique',
     posture: 'NEUTRE',
     postureLabel: '⚪ NEUTRE / MESURE PHYSIQUE',
     postureArgument: 'Modélisation empirique des flux d\'air sans jugement de valeur sur l\'utilité de l\'équipement industriel.',
+    tweetSummary: '🔬 Modélisation micrométéorologique UPEC : mise en évidence des gradients verticaux lors des inversions thermiques piégeant les polluants dans le corridor fluvial Ivry-Vitry.',
     title: 'Modélisation micrométéorologique de la dispersion des polluants dans le corridor de la Seine amont',
     summary: 'Présentation des mesures de capteurs optiques haute fréquence entre Ivry et Vitry. L\'étude modélise l\'effet de canalisation des vents par la vallée du fleuve et met en évidence des gradients verticaux lors des inversions thermiques matinales.',
     tags: ['UPEC', 'LEESU', 'Micrométéorologie', 'Vallée de la Seine', 'Inversion Thermique'],
@@ -570,12 +628,14 @@ const NEWS_DATASET = [
     categoryLabel: 'Enquête Citoyenne & Indépendante',
     badgeClass: 'cat-INDEPENDENT',
     publisher: 'Zero Waste France',
+    publisherHandle: '@ZeroWasteFR',
     date: '10 Juin 2026',
     monthKey: '2026-06',
     docType: 'Note de Décryptage Économique',
     posture: 'CONTRE',
     postureLabel: '🔴 EN CONTRA / CRITIQUE DU SURDIMENSIONNEMENT',
     postureArgument: 'Opposition à la combustion thermique de déchets organiques compostables et alerte sur les surcapacités franciliennes.',
+    tweetSummary: '📢 Le tri des biodéchets réduit le gisement résiduel de 30% : maintenir des incinérateurs géants incite à importer des ordures d\'autres départements au lieu de composter.',
     title: 'Plan de prévention francilien : Pourquoi continuer à brûler ce qui doit être composté ?',
     summary: 'Zero Waste France démontre que le tri à la source des biodéchets réduit le gisement résiduel de 30%, fragilisant le modèle économique des incinérateurs géants et incitant à importer des ordures d\'autres départements.',
     tags: ['Zero Waste', 'Compostage', 'Biodéchets', 'Économie Circulaire', 'Surcapacité'],
@@ -588,16 +648,18 @@ const NEWS_DATASET = [
     categoryLabel: 'Gouvernemental & Officiel',
     badgeClass: 'cat-GOVERNMENTAL',
     publisher: 'SYCTOM (Syndicat Métropolitain des Déchets)',
+    publisherHandle: '@SyctomParis',
     date: '28 Juin 2026',
     monthKey: '2026-06',
     docType: 'Délibération du Comité Syndical',
     posture: 'POUR',
     postureLabel: '🟢 À FAVOR / POUR (Modernisation Industrielle)',
     postureArgument: 'Mise en avant des gains écologiques : réduction de 50% de la capacité historique et abaissement drastique des rejets via filtres SCR.',
+    tweetSummary: '✅ Le SYCTOM acte la réduction de 50% de la capacité autorisée d\'Ivry (350 000 t/an d\'ici 2027) et met en service les nouveaux filtres catalytiques SCR haute performance.',
     title: 'Rapport d\'étape : Mise en service de la nouvelle ligne de traitement catalytique SCR et réduction des tonnages',
     summary: 'Le Comité syndical du SYCTOM confirme la réduction de la capacité autorisée de 700 000 t à 350 000 t/an d\'ici 2027 et détaille les performances des filtres à manches pour la captation des particules submicroniques.',
     tags: ['SYCTOM', 'Modernisation', 'Filtration SCR', 'Capacité Réduite', 'Investissement'],
-    verifyBadge: 'Délibération Publique',
+    verifyBadge: 'Délibération Publique Officielle',
     linkUrl: 'https://www.syctom-paris.fr'
   },
 
@@ -608,16 +670,18 @@ const NEWS_DATASET = [
     categoryLabel: 'Média Public / Français',
     badgeClass: 'cat-PUBLIC_MEDIA',
     publisher: 'France 3 Paris Île-de-France',
+    publisherHandle: '@France3Paris',
     date: '14 Juillet 2026',
     monthKey: '2026-07',
     docType: 'Reportage Audiovisuel & Enquête',
     posture: 'NEUTRE',
     postureLabel: '⚪ NEUTRE / REPORTAGE COMPARATIF',
     postureArgument: 'Mise en perspective équilibrée entre besoins de traitement des déchets métropolitains et aspirations citoyennes à un cadre de vie sain.',
+    tweetSummary: '📺 Comparatif entre l\'usine d\'Ivry et Isséane : entre prouesse architecturale souterraine à 580M€ à Issy et contestation populaire le long du quai de Seine à Ivry.',
     title: 'UVE urbaines en Île-de-France : L\'équilibre fragile entre traitement des déchets et acceptabilité citoyenne',
     summary: 'Reportage croisé entre Isséane (Issy) et l\'usine d\'Ivry. Analyse comparative des coûts d\'enfouissement architectural et des stratégies de dialogue avec les comités de quartier.',
     tags: ['France 3', 'Télévision', 'Isséane', 'Ivry', 'Débat Public'],
-    verifyBadge: 'Audiovisuel Public',
+    verifyBadge: 'Audiovisuel Public Régional',
     linkUrl: 'https://france3-regions.francetvinfo.fr/paris-ile-de-france/'
   },
   {
@@ -626,12 +690,14 @@ const NEWS_DATASET = [
     categoryLabel: 'International & Européen',
     badgeClass: 'cat-INTERNATIONAL',
     publisher: 'Zero Waste Europe (Bruxelles)',
+    publisherHandle: '@ZeroWasteEurope',
     date: '22 Juillet 2026',
     monthKey: '2026-07',
     docType: 'Policy Briefing Européen',
     posture: 'POUR',
     postureLabel: '🟢 À FAVOR / POUR (Efficacité & Climat)',
     postureArgument: 'Appui à la tarification carbone pour favoriser les usines modernes à très haute récupération d\'énergie thermique.',
+    tweetSummary: '🇪🇺 Soutien à l\'intégration des incinérateurs au marché carbone SEQE d\'ici 2028 : priorité aux sites à très haut rendement thermique et pénalisation financière du tout-brûlage.',
     title: 'Incinération des déchets et objectifs climatiques : L\'intégration des UVE dans le marché carbone (SEQE)',
     summary: 'Rapport stratégique analysant les impacts de l\'assujettissement progressif des installations d\'incinération au système d\'échange de quotas d\'émission de l\'UE (ETS) d\'ici 2028.',
     tags: ['Bruxelles', 'SEQE / ETS', 'Climat', 'Politique Européenne', 'Décarbonation'],
@@ -646,12 +712,14 @@ const NEWS_DATASET = [
     categoryLabel: 'Média Public / Français',
     badgeClass: 'cat-PUBLIC_MEDIA',
     publisher: 'CPCU & Réseau de Chaleur Métropolitain',
+    publisherHandle: '@CPCUChaleur',
     date: '04 Août 2026',
     monthKey: '2026-08',
     docType: 'Communiqué de Presse Technique',
     posture: 'POUR',
     postureLabel: '🟢 À FAVOR / POUR (Chauffage Décarboné)',
     postureArgument: 'Mise en valeur du rôle vital de l\'usine pour chauffer 150 000 équivalents-logements et les hôpitaux parisiens sans gaz fossile.',
+    tweetSummary: '🔥 La vapeur récupérée à l\'UVE d\'Ivry permet de chauffer 150 000 logements sociaux et hôpitaux, économisant 120 millions de m³ de gaz fossile importé chaque hiver.',
     title: 'Réseau de chaleur métropolitain : L\'apport stratégique de l\'UVE d\'Ivry pour décarboner les logements sociaux',
     summary: 'La Compagnie Parisienne de Chauffage Urbain détaille la contribution de la vapeur issue de l\'UVE d\'Ivry, évitant l\'importation de 120 millions de m³ de gaz naturel fossile chaque hiver.',
     tags: ['CPCU', 'Chaleur Urbaine', 'Décarbonation', 'Énergie Locale', 'Logements Sociaux'],
@@ -664,16 +732,18 @@ const NEWS_DATASET = [
     categoryLabel: 'Recherche Académique',
     badgeClass: 'cat-ACADEMIC',
     publisher: 'Santé Publique France & Inserm',
+    publisherHandle: '@SantePubliqueFr',
     date: '17 Août 2026',
     monthKey: '2026-08',
-    docType: 'Étude Épidémiologique (Peer-Reviewed)',
+    docType: 'Étude Épidémiologique Peer-Reviewed',
     posture: 'NEUTRE',
     postureLabel: '⚪ NEUTRE / ÉPIDÉMIOLOGIE INDÉPENDANTE',
     postureArgument: 'Rapport médical scientifique constatant la réduction des dioxines mais invitant à surveiller l\'exposition chronique aux particules fines.',
+    tweetSummary: '📊 Cohorte sur 12 000 riverains : chute de 85% de l\'imprégnation aux dioxines par rapport aux années 1990, mais appel à surveiller les effets cocktails de particules fines PM2.5.',
     title: 'Biomonitoring et pathologies respiratoires chez les cohortes riveraines d\'UVE modernes en milieu dense',
     summary: 'Étude pluriannuelle portant sur 12 000 résidents franciliens. Les chercheurs notent une chute de 85% de l\'imprégnation aux dioxines par rapport aux années 1990 mais recommandent une vigilance sur les effets cocktails PM2.5.',
     tags: ['Inserm', 'Santé Publique France', 'Épidémiologie', 'Biomarqueurs', 'PM2.5'],
-    verifyBadge: 'Revue à Comité de Lecture',
+    verifyBadge: 'Revue Médicale à Comité de Lecture',
     linkUrl: 'https://www.santepubliquefrance.fr'
   },
   {
@@ -682,12 +752,14 @@ const NEWS_DATASET = [
     categoryLabel: 'Média Public / Français',
     badgeClass: 'cat-PUBLIC_MEDIA',
     publisher: 'Citoyens.com (Val-de-Marne 94)',
+    publisherHandle: '@Citoyens_94',
     date: '22 Août 2026',
     monthKey: '2026-08',
     docType: 'Reportage d\'Actualité Locale',
     posture: 'CONTRE',
     postureLabel: '🔴 EN CONTRA / INQUIÉTUDES RIVERAINS',
     postureArgument: 'Écho aux craintes des familles sur les épisodes d\'odeurs persistantes et demande d\'un système d\'alerte sanitaire.',
+    tweetSummary: '📢 Des familles d\'Ivry et Vitry réclament des capteurs de dioxines en continu 24/7 suite à des épisodes d\'odeurs persistantes près des écoles Montesquieu et Einstein.',
     title: 'Incinérateur d\'Ivry : Riverains et associations réclament des capteurs de dioxines en continu',
     summary: 'Focus sur les mobilisations citoyennes à Vitry et Ivry-Port. Face aux signalements d\'odeurs lors des vents de sud-ouest, les habitants demandent des garanties sur l\'impact autour des écoles Montesquieu et Einstein.',
     tags: ['Citoyens.com', 'Val-de-Marne', 'Capteurs', 'Odeurs', 'Santé'],
@@ -702,12 +774,14 @@ const NEWS_DATASET = [
     categoryLabel: 'Enquête Citoyenne & Indépendante',
     badgeClass: 'cat-INDEPENDENT',
     publisher: 'Reporterre (Le quotidien de l\'écologie)',
+    publisherHandle: '@Reporterre',
     date: '02 Septembre 2026',
     monthKey: '2026-09',
     docType: 'Enquête de Terrain',
     posture: 'CONTRE',
     postureLabel: '🔴 EN CONTRA / CONTRE-EXPERTISE CITOYENNE',
     postureArgument: 'Contestation des données officielles et financement participatif de prélèvements indépendants de sols par les riverains.',
+    tweetSummary: '🌱 Des collectifs d\'Ivry et Vitry financent leurs propres analyses de terre végétale pour évaluer la persistance des métaux lourds indépendamment des relevés du SYCTOM.',
     title: 'À Ivry et Vitry, des habitants financent leurs propres analyses de sols et de retombées atmosphériques',
     summary: 'Enquête sur les démarches de science citoyenne à Ivry-Port et Vitry-les-Ardoines. Des collectifs font tester la terre végétale pour mesurer la persistance des métaux lourds indépendamment des relevés du SYCTOM.',
     tags: ['Reporterre', 'Science Citoyenne', 'Biomonitoring', 'Sols', 'Contre-Expertise'],
@@ -720,12 +794,14 @@ const NEWS_DATASET = [
     categoryLabel: 'Média Public / Français',
     badgeClass: 'cat-PUBLIC_MEDIA',
     publisher: 'Le Parisien (Édition Val-de-Marne 94)',
+    publisherHandle: '@LeParisien_94',
     date: '08 Septembre 2026',
     monthKey: '2026-09',
     docType: 'Article d\'Investigation Locale',
     posture: 'CONTRE',
     postureLabel: '🔴 EN CONTRA / FRICTIONS DE CHANTIER',
     postureArgument: 'Mise en lumière des nuisances de norias de camions et du mécontentement grandissant des habitants du quai d\'Ivry.',
+    tweetSummary: '📰 Enquête sur le chantier géant d\'Ivry : norias de camions, riverains excédés sur le quai de Seine et incertitudes sur le calendrier de livraison de la nouvelle usine.',
     title: 'Modernisation de l\'incinérateur d\'Ivry-Vitry : Où en est le chantier géant au bord de la Seine ?',
     summary: 'Le quotidien dresse le bilan des nuisances de chantier signalées par les riverains et interroge le calendrier de livraison alors que les associations maintiennent la pression juridique.',
     tags: ['Le Parisien', 'Chantier', 'Quai d\'Ivry', 'Déchets', 'Riverains'],
@@ -738,12 +814,14 @@ const NEWS_DATASET = [
     categoryLabel: 'Gouvernemental & Officiel',
     badgeClass: 'cat-GOVERNMENTAL',
     publisher: 'Préfecture du Val-de-Marne & DREAL Île-de-France',
+    publisherHandle: '@Prefet94',
     date: '12 Septembre 2026',
     monthKey: '2026-09',
     docType: 'Arrêté Préfectoral de Contrôle',
     posture: 'NEUTRE',
     postureLabel: '⚪ NEUTRE / CONTRÔLE RÉGLEMENTAIRE',
     postureArgument: 'Acte administratif d\'autorité imposant le renforcement des contrôles sans prise de position politique.',
+    tweetSummary: '🏛️ Nouvel arrêté préfectoral : surveillance renforcée et audits semestriels inopinés imposés au SYCTOM sur les rejets atmosphériques et les retombées de métaux lourds.',
     title: 'Arrêté n° 2026/0182 : Surveillance renforcée des rejets atmosphériques et contrôles inopinés de l\'UVE',
     summary: 'La Préfecture notifie au SYCTOM des prescriptions complémentaires d\'exploitation, fixant un calendrier d\'audits semestriels inopinés sur les retombées de métaux lourds sur Ivry et Vitry.',
     tags: ['Arrêté Préfectoral', 'SYCTOM', 'Norme NOx', 'DREAL', 'Contrôle Inopiné'],
@@ -756,12 +834,14 @@ const NEWS_DATASET = [
     categoryLabel: 'International & Européen',
     badgeClass: 'cat-INTERNATIONAL',
     publisher: 'Cour de Justice de l\'Union Européenne (CJUE)',
+    publisherHandle: '@EUCourtPress',
     date: '14 Septembre 2026',
     monthKey: '2026-09',
     docType: 'Arrêt de Justice Européen',
     posture: 'NEUTRE',
     postureLabel: '⚪ NEUTRE / JURISPRUDENCE DE L\'UNION',
     postureArgument: 'Jugement de droit strict encadrant les plafonds d\'émissions lors des phases transitoires de démarrage d\'installations thermiques.',
+    tweetSummary: '⚖️ Arrêt CJUE : la Cour de Justice de l\'Union encadre strictement les dérogations d\'émissions lors des phases de démarrage ou montée en température des fours d\'incinération.',
     title: 'Arrêt C-311/24 : Encadrement strict des dérogations d\'émissions lors des phases de démarrage de fours',
     summary: 'La CJUE rappelle que les phases de dysfonctionnement ou de montée en température ne peuvent excéder les plafonds horaires cumulés sans sanctions administratives effectives.',
     tags: ['CJUE', 'Directive IED', 'Jurisprudence', 'Union Européenne', 'Valeurs Limites'],
@@ -774,12 +854,14 @@ const NEWS_DATASET = [
     categoryLabel: 'Enquête Citoyenne & Indépendante',
     badgeClass: 'cat-INDEPENDENT',
     publisher: 'Collectif 3R (Réduire, Réutiliser, Recycler)',
+    publisherHandle: '@Collectif3R',
     date: '19 Septembre 2026',
     monthKey: '2026-09',
     docType: 'Recours Administratif Contentieux',
     posture: 'CONTRE',
     postureLabel: '🔴 EN CONTRA / RECOURS EN JUSTICE',
     postureArgument: 'Demande formelle d\'annulation de l\'arrêté préfectoral pour non-prise en compte de l\'effet cumulé avec la pollution de l\'A4.',
+    tweetSummary: '⚖️ Recours contentieux au Tribunal de Melun déposé contre l\'autorisation d\'exploiter : le collectif dénonce la sous-évaluation des particules ultrafines sur les écoles du quai.',
     title: 'Recours contentieux déposé devant le Tribunal Administratif de Melun concernant l\'étude d\'impact',
     summary: 'Le Collectif 3R attaque l\'arrêté préfectoral devant la justice administrative, pointant la sous-évaluation des particules ultrafines sur les écoles riveraines du quai d\'Ivry.',
     tags: ['Collectif 3R', 'Tribunal Administratif', 'Contentieux', 'Particules Ultrafines', 'Justice Environnementale'],
@@ -790,8 +872,11 @@ const NEWS_DATASET = [
 
 // Estados de filtrado triple (Categoría, Mes y Postura)
 let CURRENT_NEWS_FILTER = 'ALL';
-let CURRENT_MONTH_FILTER = 'ALL';
+let CURRENT_MONTH_FILTER = '2026-09'; // Inicia enfocado en el mes actual con opción de retroceder o ver todo
 let CURRENT_POSTURE_FILTER = 'ALL';
+let CURRENT_MONTH_INDEX = 6; // Índice de '2026-09' en MONTHS_CHRONO
+let AUTO_PLAY_INTERVAL = null;
+let IS_AUTO_PLAYING = false;
 
 function initNewsFeed() {
   // 1. Filtros de Categoría
@@ -814,15 +899,62 @@ function initNewsFeed() {
     const monthPills = monthBar.querySelectorAll('.month-pill');
     monthPills.forEach(mp => {
       mp.addEventListener('click', () => {
-        monthPills.forEach(p => p.classList.remove('active'));
-        mp.classList.add('active');
-        CURRENT_MONTH_FILTER = mp.getAttribute('data-month');
-        filterNewsItems();
+        stopAutoPlay();
+        const mKey = mp.getAttribute('data-month');
+        setMonthFilter(mKey);
       });
     });
   }
 
-  // 3. Filtros de Postura (A Favor, En Contra, Neutro)
+  // 3. Controles de Navegación de la Línea de Tiempo (Prev, Next, First, Last, Play, All)
+  const btnPrev = document.getElementById('timeline-prev-btn');
+  if (btnPrev) {
+    btnPrev.addEventListener('click', () => {
+      stopAutoPlay();
+      stepTimeline(-1);
+    });
+  }
+
+  const btnNext = document.getElementById('timeline-next-btn');
+  if (btnNext) {
+    btnNext.addEventListener('click', () => {
+      stopAutoPlay();
+      stepTimeline(1);
+    });
+  }
+
+  const btnFirst = document.getElementById('timeline-first-btn');
+  if (btnFirst) {
+    btnFirst.addEventListener('click', () => {
+      stopAutoPlay();
+      setMonthFilter(MONTHS_CHRONO[0]);
+    });
+  }
+
+  const btnLast = document.getElementById('timeline-last-btn');
+  if (btnLast) {
+    btnLast.addEventListener('click', () => {
+      stopAutoPlay();
+      setMonthFilter(MONTHS_CHRONO[MONTHS_CHRONO.length - 1]);
+    });
+  }
+
+  const btnPlay = document.getElementById('timeline-play-btn');
+  if (btnPlay) {
+    btnPlay.addEventListener('click', () => {
+      toggleAutoPlay();
+    });
+  }
+
+  const btnAll = document.getElementById('timeline-all-btn');
+  if (btnAll) {
+    btnAll.addEventListener('click', () => {
+      stopAutoPlay();
+      setMonthFilter('ALL');
+    });
+  }
+
+  // 4. Filtros de Postura (A Favor, En Contra, Neutro)
   const postureBtns = document.querySelectorAll('.posture-btn');
   postureBtns.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -833,39 +965,152 @@ function initNewsFeed() {
     });
   });
 
-  // Render inicial de todas las noticias y cálculo de métricas
-  renderNewsGrid(NEWS_DATASET);
-  updatePillCounts();
+  // Render inicial
+  setMonthFilter('2026-09');
 }
 
-function updatePillCounts() {
-  const total = NEWS_DATASET.length;
-  const pourCount = NEWS_DATASET.filter(n => n.posture === 'POUR').length;
-  const contreCount = NEWS_DATASET.filter(n => n.posture === 'CONTRE').length;
-  const neutreCount = NEWS_DATASET.filter(n => n.posture === 'NEUTRE').length;
+function setMonthFilter(monthKey) {
+  CURRENT_MONTH_FILTER = monthKey;
 
+  // Sincronizar índice
+  if (monthKey === 'ALL') {
+    CURRENT_MONTH_INDEX = -1;
+  } else {
+    CURRENT_MONTH_INDEX = MONTHS_CHRONO.indexOf(monthKey);
+  }
+
+  // Actualizar píldoras activas en la barra de meses
+  const monthBar = document.getElementById('timeline-months-bar');
+  if (monthBar) {
+    const pills = monthBar.querySelectorAll('.month-pill');
+    pills.forEach(p => {
+      if (p.getAttribute('data-month') === monthKey) {
+        p.classList.add('active');
+        p.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      } else {
+        p.classList.remove('active');
+      }
+    });
+  }
+
+  updateMonthClimateDashboard();
+  filterNewsItems();
+}
+
+function stepTimeline(delta) {
+  if (CURRENT_MONTH_FILTER === 'ALL') {
+    CURRENT_MONTH_INDEX = (delta > 0) ? 0 : MONTHS_CHRONO.length - 1;
+  } else {
+    CURRENT_MONTH_INDEX += delta;
+    if (CURRENT_MONTH_INDEX >= MONTHS_CHRONO.length) CURRENT_MONTH_INDEX = 0;
+    if (CURRENT_MONTH_INDEX < 0) CURRENT_MONTH_INDEX = MONTHS_CHRONO.length - 1;
+  }
+  setMonthFilter(MONTHS_CHRONO[CURRENT_MONTH_INDEX]);
+}
+
+function toggleAutoPlay() {
+  const btn = document.getElementById('timeline-play-btn');
+  if (IS_AUTO_PLAYING) {
+    stopAutoPlay();
+  } else {
+    IS_AUTO_PLAYING = true;
+    if (btn) {
+      btn.classList.add('playing');
+      btn.innerHTML = '⏸ Pause';
+    }
+    // Si estaba en el último mes o en ALL, arrancar desde el principio
+    if (CURRENT_MONTH_INDEX === -1 || CURRENT_MONTH_INDEX >= MONTHS_CHRONO.length - 1) {
+      CURRENT_MONTH_INDEX = 0;
+      setMonthFilter(MONTHS_CHRONO[0]);
+    }
+    AUTO_PLAY_INTERVAL = setInterval(() => {
+      if (CURRENT_MONTH_INDEX < MONTHS_CHRONO.length - 1) {
+        stepTimeline(1);
+      } else {
+        stopAutoPlay();
+      }
+    }, 3500);
+  }
+}
+
+function stopAutoPlay() {
+  if (AUTO_PLAY_INTERVAL) {
+    clearInterval(AUTO_PLAY_INTERVAL);
+    AUTO_PLAY_INTERVAL = null;
+  }
+  IS_AUTO_PLAYING = false;
+  const btn = document.getElementById('timeline-play-btn');
+  if (btn) {
+    btn.classList.remove('playing');
+    btn.innerHTML = '▶ Lecture Auto';
+  }
+}
+
+function updateMonthClimateDashboard() {
+  const displayEl = document.getElementById('current-month-display');
+  const titleEl = document.getElementById('month-climate-title');
+  const summaryEl = document.getElementById('month-climate-summary');
+  const totalCountEl = document.getElementById('count-month-total');
   const countPourEl = document.getElementById('count-pour');
-  if (countPourEl) countPourEl.innerText = pourCount;
   const countContreEl = document.getElementById('count-contre');
-  if (countContreEl) countContreEl.innerText = contreCount;
   const countNeutreEl = document.getElementById('count-neutre');
+
+  // Filtrar dataset por el mes seleccionado
+  const monthItems = (CURRENT_MONTH_FILTER === 'ALL')
+    ? NEWS_DATASET
+    : NEWS_DATASET.filter(n => n.monthKey === CURRENT_MONTH_FILTER);
+
+  const total = monthItems.length;
+  const pourCount = monthItems.filter(n => n.posture === 'POUR').length;
+  const contreCount = monthItems.filter(n => n.posture === 'CONTRE').length;
+  const neutreCount = monthItems.filter(n => n.posture === 'NEUTRE').length;
+
+  if (totalCountEl) totalCountEl.innerText = total;
+  if (countPourEl) countPourEl.innerText = pourCount;
+  if (countContreEl) countContreEl.innerText = contreCount;
   if (countNeutreEl) countNeutreEl.innerText = neutreCount;
 
-  // Actualizar ancho de barras de balance porcentual
-  const pourPct = Math.round((pourCount / total) * 100);
-  const contrePct = Math.round((contreCount / total) * 100);
-  const neutrePct = 100 - pourPct - contrePct;
+  // Actualizar textos contextuales del clima de opinión
+  if (CURRENT_MONTH_FILTER === 'ALL') {
+    if (displayEl) displayEl.innerText = '🌐 VUE D\'ENSEMBLE (TOUS LES MOIS)';
+    if (titleEl) titleEl.innerText = 'Trajectoire Temporelle Globale : Polarisation & Mobilisation Citoyenne Croissante';
+    if (summaryEl) summaryEl.innerText = 'Depuis février 2026, l\'observation montre un glissement d\'un débat technique initial vers un recours contentieux au Tribunal de Melun et une demande citoyenne de capteurs de pointe face aux nuisances olfactives.';
+  } else {
+    const meta = MONTHS_META[CURRENT_MONTH_FILTER];
+    if (meta) {
+      if (displayEl) displayEl.innerText = `📅 ${meta.name.toUpperCase()} (${total} publication${total > 1 ? 's' : ''})`;
+      if (titleEl) titleEl.innerText = meta.climateTitle;
+      if (summaryEl) summaryEl.innerText = meta.climateSummary;
+    }
+  }
+
+  // Barra de porcentajes proporcionales
+  const pourPct = total > 0 ? Math.round((pourCount / total) * 100) : 0;
+  const contrePct = total > 0 ? Math.round((contreCount / total) * 100) : 0;
+  const neutrePct = total > 0 ? (100 - pourPct - contrePct) : 0;
 
   const segPour = document.querySelector('.seg-pour');
-  if (segPour) { segPour.style.width = pourPct + '%'; segPour.innerText = pourPct + '% Pour'; }
+  if (segPour) {
+    segPour.style.width = pourPct + '%';
+    segPour.innerText = pourPct > 0 ? `${pourPct}% Pour` : '';
+    segPour.title = `${pourCount} à favor (${pourPct}%)`;
+  }
   const segContre = document.querySelector('.seg-contre');
-  if (segContre) { segContre.style.width = contrePct + '%'; segContre.innerText = contrePct + '% Contre'; }
+  if (segContre) {
+    segContre.style.width = contrePct + '%';
+    segContre.innerText = contrePct > 0 ? `${contrePct}% Contre` : '';
+    segContre.title = `${contreCount} en contra (${contrePct}%)`;
+  }
   const segNeutre = document.querySelector('.seg-neutre');
-  if (segNeutre) { segNeutre.style.width = neutrePct + '%'; segNeutre.innerText = neutrePct + '% Neutre'; }
+  if (segNeutre) {
+    segNeutre.style.width = neutrePct + '%';
+    segNeutre.innerText = neutrePct > 0 ? `${neutrePct}% Neutre` : '';
+    segNeutre.title = `${neutreCount} neutres (${neutrePct}%)`;
+  }
 
-  // Contadores de categorías
+  // Actualizar totales en píldoras de canales
   const countAll = document.getElementById('count-all');
-  if (countAll) countAll.innerText = total;
+  if (countAll) countAll.innerText = NEWS_DATASET.length;
   const countGov = document.getElementById('count-gov');
   if (countGov) countGov.innerText = NEWS_DATASET.filter(n => n.category === 'GOVERNMENTAL').length;
   const countMedia = document.getElementById('count-media');
@@ -895,7 +1140,7 @@ function filterNewsItems() {
     // 4. Filtro de Búsqueda de Texto
     if (!query) return matchCat && matchMonth && matchPosture;
 
-    const searchableText = `${item.title} ${item.summary} ${item.publisher} ${item.tags.join(' ')} ${item.docType} ${item.postureArgument}`
+    const searchableText = `${item.title} ${item.tweetSummary} ${item.summary} ${item.publisher} ${item.publisherHandle} ${item.tags.join(' ')} ${item.docType} ${item.postureArgument}`
       .toLowerCase()
       .normalize('NFD')
       .replace(/[\u0300-\u036f]/g, '');
@@ -906,58 +1151,110 @@ function filterNewsItems() {
   renderNewsGrid(filtered);
 }
 
+// Configuración de metadatos de categorías para agrupación
+const CATEGORIES_DEF = [
+  { key: 'GOVERNMENTAL', icon: '🏛️', name: 'Gouvernemental, Préfecture & Actes Officiels' },
+  { key: 'PUBLIC_MEDIA', icon: '📰', name: 'Presse Régionale & Médias Français' },
+  { key: 'INDEPENDENT', icon: '🌱', name: 'Collectifs Citoyens, ONG & Enquêtes Indépendantes' },
+  { key: 'ACADEMIC', icon: '🔬', name: 'Recherche Scientifique & Veille Académique' },
+  { key: 'INTERNATIONAL', icon: '🌍', name: 'Instances Internationales & Union Européenne' }
+];
+
 function renderNewsGrid(items) {
-  const grid = document.getElementById('news-cards-grid');
-  if (!grid) return;
+  const container = document.getElementById('news-cards-grid');
+  if (!container) return;
 
   if (items.length === 0) {
-    grid.innerHTML = `
-      <div style="grid-column: 1 / -1; text-align: center; padding: 3rem 1rem; color: #94a3b8; background: #0b1120; border-radius: 8px; border: 1px dashed #334155;">
-        <span style="font-size: 2rem;">🔍</span>
-        <h4 style="color: #cbd5e1; margin-top: 0.5rem;">Aucune publication trouvée pour ce critère combiné</h4>
-        <p style="font-size: 0.85rem;">Essayez un autre mot-clé ou réinitialisez le filtre de mois ou de posture.</p>
+    container.innerHTML = `
+      <div style="text-align: center; padding: 3rem 1.5rem; color: #94a3b8; background: #0b1120; border-radius: 8px; border: 1px dashed #334155;">
+        <span style="font-size: 2.2rem;">🔍</span>
+        <h4 style="color: #cbd5e1; margin-top: 0.65rem; font-size: 1.1rem;">Aucun enregistrement trouvé pour ce filtre combiné</h4>
+        <p style="font-size: 0.85rem; max-width: 500px; margin: 0.4rem auto 0; line-height: 1.45;">
+          Aucune publication de ce type n'a été recensée pour le mois sélectionné avec cette posture. Cliquez sur <strong>« Tous les mois »</strong> ou réinitialisez le filtre de posture pour élargir la vue.
+        </p>
       </div>
     `;
     return;
   }
 
-  grid.innerHTML = items.map(item => `
-    <article class="news-card" id="${item.id}">
-      <div>
-        <div class="news-card-header">
-          <span class="channel-pill ${item.badgeClass}">${item.categoryLabel}</span>
-          <span class="posture-card-badge badge-posture-${item.posture}">${item.postureLabel}</span>
+  // Agrupar los registros por TIPO / CANAL en el mes seleccionado
+  let html = '';
+
+  CATEGORIES_DEF.forEach(catDef => {
+    const catItems = items.filter(it => it.category === catDef.key);
+    if (catItems.length === 0) return; // Solo renderizar categorías que tengan registros en la selección activa
+
+    html += `
+      <div class="channel-group-block">
+        <div class="channel-group-header">
+          <div class="channel-group-title">
+            <span>${catDef.icon}</span>
+            <span>${catDef.name}</span>
+          </div>
+          <span class="channel-group-badge">${catItems.length} publication${catItems.length > 1 ? 's' : ''} trouvée${catItems.length > 1 ? 's' : ''}</span>
         </div>
 
-        <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.35rem;">
-          <div class="news-publisher">${item.publisher} &bull; <small style="color: #94a3b8;">${item.docType}</small></div>
-          <span class="news-date">🗓️ ${item.date}</span>
-        </div>
+        <div class="channel-news-grid">
+          ${catItems.map(item => `
+            <article class="news-card" id="${item.id}">
+              <div>
+                <!-- 1. En-tête : Badge Canal + Badge Posture Visible -->
+                <div class="news-card-header">
+                  <span class="channel-pill ${item.badgeClass}">${item.categoryLabel}</span>
+                  <span class="posture-card-badge badge-posture-${item.posture}">
+                    ${item.posture === 'POUR' ? '🟢 À FAVOR (POUR)' : item.posture === 'CONTRE' ? '🔴 EN CONTRA (CONTRE)' : '⚪ NEUTRE / FACTUEL'}
+                  </span>
+                </div>
 
-        <h4>${item.title}</h4>
+                <!-- 2. Synthèse Express Style Tweet (<280 caractères) -->
+                <div class="tweet-box">
+                  <div class="tweet-meta">
+                    <span class="tweet-icon">💬</span>
+                    <strong class="tweet-author">${item.publisherHandle}</strong>
+                    <span class="tweet-bullet">&bull;</span>
+                    <span class="tweet-date">🗓️ ${item.date}</span>
+                  </div>
+                  <p class="tweet-content">« ${item.tweetSummary} »</p>
+                </div>
 
-        <!-- Línea destacada de argumento de postura -->
-        <div class="posture-argument-line ${item.posture}">
-          <strong>Angle & Posture :</strong> ${item.postureArgument}
-        </div>
+                <!-- 3. Source & Type de Document -->
+                <div class="news-publisher">${item.publisher} &bull; <small style="color: #94a3b8;">${item.docType}</small></div>
 
-        <p class="news-summary">${item.summary}</p>
+                <!-- 4. Titre de l'article -->
+                <h4>${item.title}</h4>
 
-        <div class="news-tags">
-          ${item.tags.map(t => `<span class="news-tag">#${t}</span>`).join('')}
+                <!-- 5. Ligne d'Angle & Argumentaire de Posture -->
+                <div class="posture-argument-line ${item.posture}">
+                  <strong>Angle d'analyse :</strong> ${item.postureArgument}
+                </div>
+
+                <!-- 6. Résumé détaillé -->
+                <p class="news-summary">${item.summary}</p>
+
+                <!-- 7. Mots-clés / Tags -->
+                <div class="news-tags">
+                  ${item.tags.map(t => `<span class="news-tag">#${t}</span>`).join('')}
+                </div>
+              </div>
+
+              <!-- 8. Pied de carte : Vérification & Lien direct officiel -->
+              <div class="news-card-footer">
+                <span class="verify-badge">
+                  <span>🛡️</span> ${item.verifyBadge}
+                </span>
+                <a href="${item.linkUrl}" target="_blank" rel="noopener noreferrer" class="news-link-btn">
+                  Consulter la source officielle &rarr;
+                </a>
+              </div>
+            </article>
+          `).join('')}
         </div>
       </div>
+    `;
+  });
 
-      <div class="news-card-footer">
-        <span class="verify-badge">
-          <span>🛡️</span> ${item.verifyBadge}
-        </span>
-        <a href="${item.linkUrl}" target="_blank" rel="noopener noreferrer" class="news-link-btn">
-          Consulter la source officielle &rarr;
-        </a>
-      </div>
-    </article>
-  `).join('');
+  container.innerHTML = html;
 }
+
 
 

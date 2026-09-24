@@ -787,13 +787,92 @@ textarea:focus, input[type="text"]:focus, select:focus {
   flex-wrap: wrap;
   gap: 0.5rem;
   font-size: 0.88rem;
+/* 1. Frise Chronologique Interactive & Navigation Pas-à-Pas */
+.timeline-stepper-box {
+  background: linear-gradient(180deg, #0b1120 0%, #0f172a 100%);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1.15rem 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.timeline-stepper-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.85rem;
+}
+
+.timeline-section-title {
+  font-size: 0.92rem;
+  color: #fff;
+  display: block;
+}
+
+.timeline-help-text {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  display: block;
+  margin-top: 0.2rem;
+}
+
+.timeline-nav-controls {
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.timeline-control-btn {
+  background-color: #1e293b;
+  border: 1px solid #475569;
+  color: #e2e8f0;
+  font-size: 0.76rem;
+  font-weight: 600;
+  padding: 0.35rem 0.65rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.timeline-control-btn:hover {
+  background-color: #334155;
+  border-color: var(--accent-cyan);
+  color: #fff;
+}
+
+.timeline-control-btn.play-btn {
+  background: linear-gradient(135deg, #0284c7, #2563eb);
+  border: none;
+  color: #fff;
+}
+
+.timeline-control-btn.play-btn:hover {
+  opacity: 0.9;
+}
+
+.timeline-control-btn.play-btn.playing {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+}
+
+.timeline-control-btn.all-btn {
+  background-color: #0f2d4a;
+  border-color: #0284c7;
+  color: #38bdf8;
 }
 
 .timeline-months-bar {
   display: flex;
-  gap: 0.5rem;
+  gap: 0.45rem;
   overflow-x: auto;
-  padding-bottom: 0.25rem;
+  padding: 0.35rem 0.1rem;
+  border-top: 1px solid #1e293b;
+  padding-top: 0.75rem;
 }
 
 .month-pill {
@@ -801,42 +880,93 @@ textarea:focus, input[type="text"]:focus, select:focus {
   border: 1px solid var(--border-color);
   color: #cbd5e1;
   font-size: 0.8rem;
-  padding: 0.4rem 0.8rem;
-  border-radius: 6px;
+  padding: 0.45rem 0.85rem;
+  border-radius: 8px;
   cursor: pointer;
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.45rem;
   white-space: nowrap;
-  transition: all 0.2s;
+  transition: all 0.2s ease;
+  position: relative;
 }
 
 .month-pill:hover {
   border-color: var(--accent-blue);
   color: #fff;
+  transform: translateY(-1px);
 }
 
 .month-pill.active {
-  background-color: #0284c7;
+  background: linear-gradient(135deg, #0284c7, #0369a1);
   border-color: var(--accent-cyan);
   color: #fff;
   font-weight: 700;
+  box-shadow: 0 0 12px rgba(2, 132, 199, 0.4);
 }
+
+.pill-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.pill-dot.pour { background-color: #22c55e; box-shadow: 0 0 6px #22c55e; }
+.pill-dot.contre { background-color: #ef4444; box-shadow: 0 0 6px #ef4444; }
+.pill-dot.neutre { background-color: #3b82f6; box-shadow: 0 0 6px #3b82f6; }
+.pill-dot.split { background: linear-gradient(90deg, #ef4444 50%, #22c55e 50%); }
 
 .badge-mini {
   background-color: rgba(255, 255, 255, 0.2);
-  padding: 0.1rem 0.35rem;
+  padding: 0.1rem 0.4rem;
   border-radius: 4px;
   font-size: 0.7rem;
+  font-weight: 600;
 }
 
-/* 2. Bilan Global des Postures */
+/* 2. Bilan du Climat d'Opinion & Postures du Mois */
 .posture-balance-box {
   background-color: #0b1120;
   border: 1px solid var(--border-color);
   border-radius: 8px;
-  padding: 1rem 1.25rem;
+  padding: 1.15rem 1.25rem;
   margin-bottom: 1rem;
+}
+
+.month-climate-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.month-badge-tag {
+  background: linear-gradient(135deg, #0284c7, #2563eb);
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0.25rem 0.65rem;
+  border-radius: 4px;
+  letter-spacing: 0.5px;
+}
+
+.month-climate-title {
+  font-size: 0.96rem;
+  font-weight: 700;
+  color: #f1f5f9;
+}
+
+.month-climate-summary {
+  font-size: 0.83rem;
+  color: #cbd5e1;
+  line-height: 1.45;
+  margin-bottom: 0.85rem;
+  background-color: rgba(15, 23, 42, 0.6);
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  border-left: 3px solid var(--accent-cyan);
 }
 
 .posture-summary-row {
@@ -848,31 +978,31 @@ textarea:focus, input[type="text"]:focus, select:focus {
 .posture-kpis {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.5rem;
   flex-wrap: wrap;
 }
 
 .posture-kpi-label {
-  font-size: 0.84rem;
+  font-size: 0.82rem;
   font-weight: 600;
-  color: #cbd5e1;
+  color: #94a3b8;
 }
 
 .posture-btn {
   background-color: #1e293b;
   border: 1px solid var(--border-color);
   color: #cbd5e1;
-  font-size: 0.8rem;
-  padding: 0.35rem 0.75rem;
+  font-size: 0.78rem;
+  padding: 0.35rem 0.7rem;
   border-radius: 6px;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all 0.2s ease;
 }
 
 .posture-btn.active {
   border-color: #fff;
   font-weight: 700;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.15);
 }
 
 .posture-btn.pour { color: #86efac; border-color: rgba(34, 197, 94, 0.4); }
@@ -900,49 +1030,7 @@ textarea:focus, input[type="text"]:focus, select:focus {
 .seg-contre { background: linear-gradient(90deg, #b91c1c, #ef4444); }
 .seg-neutre { background: linear-gradient(90deg, #1d4ed8, #3b82f6); }
 
-/* Badges de Postura en Tarjetas */
-.posture-card-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.3rem;
-  font-size: 0.73rem;
-  font-weight: 700;
-  padding: 0.2rem 0.55rem;
-  border-radius: 4px;
-}
-
-.badge-posture-POUR {
-  background-color: rgba(34, 197, 94, 0.18);
-  color: #86efac;
-  border: 1px solid rgba(34, 197, 94, 0.4);
-}
-
-.badge-posture-CONTRE {
-  background-color: rgba(239, 68, 68, 0.18);
-  color: #fca5a5;
-  border: 1px solid rgba(239, 68, 68, 0.4);
-}
-
-.badge-posture-NEUTRE {
-  background-color: rgba(59, 130, 246, 0.18);
-  color: #93c5fd;
-  border: 1px solid rgba(59, 130, 246, 0.4);
-}
-
-.posture-argument-line {
-  background-color: #0b1120;
-  border-left: 3px solid #64748b;
-  padding: 0.4rem 0.65rem;
-  margin: 0.5rem 0;
-  font-size: 0.78rem;
-  color: #cbd5e1;
-  border-radius: 0 4px 4px 0;
-}
-
-.posture-argument-line.POUR { border-left-color: #22c55e; }
-.posture-argument-line.CONTRE { border-left-color: #ef4444; }
-.posture-argument-line.NEUTRE { border-left-color: #3b82f6; }
-
+/* 3. Contrôles de Filtre par Canal et Recherche */
 .news-controls-row {
   display: flex;
   justify-content: space-between;
@@ -950,14 +1038,15 @@ textarea:focus, input[type="text"]:focus, select:focus {
   gap: 1rem;
   flex-wrap: wrap;
   background-color: var(--bg-card);
-  padding: 1rem;
+  padding: 0.85rem 1rem;
   border-radius: 8px;
   border: 1px solid var(--border-color);
+  margin-bottom: 1.25rem;
 }
 
 .news-filter-pills {
   display: flex;
-  gap: 0.5rem;
+  gap: 0.45rem;
   flex-wrap: wrap;
 }
 
@@ -965,13 +1054,13 @@ textarea:focus, input[type="text"]:focus, select:focus {
   background-color: #0b1120;
   border: 1px solid var(--border-color);
   color: #cbd5e1;
-  font-size: 0.82rem;
-  padding: 0.4rem 0.75rem;
+  font-size: 0.78rem;
+  padding: 0.35rem 0.7rem;
   border-radius: 20px;
   cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.35rem;
   transition: all 0.2s ease;
 }
 
@@ -989,34 +1078,75 @@ textarea:focus, input[type="text"]:focus, select:focus {
 
 .pill-count {
   background-color: rgba(255, 255, 255, 0.2);
-  padding: 0.1rem 0.4rem;
+  padding: 0.1rem 0.35rem;
   border-radius: 10px;
-  font-size: 0.72rem;
+  font-size: 0.68rem;
 }
 
 .news-search-box {
-  min-width: 280px;
+  min-width: 260px;
 }
 
 .news-search-box input {
   padding: 0.45rem 0.85rem;
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   border-radius: 20px;
 }
 
-/* Grid de Tarjetas de Noticias */
-.news-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-  gap: 1.25rem;
+/* 4. Organisation Groupée par Type de Canal dans le Mois */
+.news-grouped-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
   margin-bottom: 1.5rem;
 }
 
+.channel-group-block {
+  background-color: rgba(15, 23, 42, 0.4);
+  border: 1px solid #1e293b;
+  border-radius: 8px;
+  padding: 1.15rem;
+}
+
+.channel-group-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #1e293b;
+  padding-bottom: 0.65rem;
+  margin-bottom: 1rem;
+}
+
+.channel-group-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #f1f5f9;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.channel-group-badge {
+  font-size: 0.72rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 12px;
+  background-color: #1e293b;
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+.channel-news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 1.15rem;
+}
+
+/* 5. Cartes de Nouvelles & Synthèse Tweet */
 .news-card {
   background-color: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: 8px;
-  padding: 1.25rem;
+  padding: 1.15rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -1031,14 +1161,16 @@ textarea:focus, input[type="text"]:focus, select:focus {
 .news-card-header {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 0.75rem;
+  align-items: center;
+  margin-bottom: 0.65rem;
+  gap: 0.5rem;
+  flex-wrap: wrap;
 }
 
 .channel-pill {
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-weight: 700;
-  padding: 0.2rem 0.55rem;
+  padding: 0.2rem 0.5rem;
   border-radius: 4px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -1074,30 +1206,113 @@ textarea:focus, input[type="text"]:focus, select:focus {
   border: 1px solid rgba(6, 182, 212, 0.4);
 }
 
-.news-date {
+/* Posture Badges Visibles en Grand */
+.posture-card-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
   font-size: 0.75rem;
-  color: var(--text-muted);
+  font-weight: 800;
+  padding: 0.25rem 0.6rem;
+  border-radius: 5px;
+  letter-spacing: 0.3px;
+}
+
+.badge-posture-POUR {
+  background-color: rgba(34, 197, 94, 0.22);
+  color: #4ade80;
+  border: 1px solid #22c55e;
+}
+
+.badge-posture-CONTRE {
+  background-color: rgba(239, 68, 68, 0.22);
+  color: #f87171;
+  border: 1px solid #ef4444;
+}
+
+.badge-posture-NEUTRE {
+  background-color: rgba(59, 130, 246, 0.22);
+  color: #60a5fa;
+  border: 1px solid #3b82f6;
+}
+
+/* Boîte de Synthèse Style Tweet (<280 caractères) */
+.tweet-box {
+  background: #070d19;
+  border: 1px solid #1e293b;
+  border-radius: 6px;
+  padding: 0.65rem 0.8rem;
+  margin: 0.6rem 0;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.tweet-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.73rem;
+  color: #94a3b8;
+  margin-bottom: 0.35rem;
+}
+
+.tweet-icon {
+  font-size: 0.85rem;
+}
+
+.tweet-author {
+  color: var(--accent-cyan);
+  font-weight: 700;
+}
+
+.tweet-bullet {
+  color: #475569;
+}
+
+.tweet-date {
+  color: #64748b;
+}
+
+.tweet-content {
+  font-size: 0.83rem;
+  color: #e2e8f0;
+  line-height: 1.38;
+  font-style: italic;
+  font-weight: 500;
 }
 
 .news-publisher {
   font-size: 0.8rem;
   color: var(--accent-blue);
   font-weight: 600;
-  margin-bottom: 0.35rem;
+  margin-bottom: 0.3rem;
 }
 
 .news-card h4 {
-  font-size: 1.02rem;
+  font-size: 0.98rem;
   color: #fff;
   line-height: 1.35;
-  margin-bottom: 0.65rem;
+  margin-bottom: 0.5rem;
 }
 
-.news-summary {
-  font-size: 0.84rem;
+.posture-argument-line {
+  background-color: #0b1120;
+  border-left: 3px solid #64748b;
+  padding: 0.4rem 0.65rem;
+  margin: 0.45rem 0;
+  font-size: 0.78rem;
   color: #cbd5e1;
-  line-height: 1.45;
-  margin-bottom: 0.85rem;
+  border-radius: 0 4px 4px 0;
+}
+
+.posture-argument-line.POUR { border-left-color: #22c55e; }
+.posture-argument-line.CONTRE { border-left-color: #ef4444; }
+.posture-argument-line.NEUTRE { border-left-color: #3b82f6; }
+
+.news-summary {
+  font-size: 0.82rem;
+  color: #94a3b8;
+  line-height: 1.42;
+  margin-bottom: 0.75rem;
   flex: 1;
 }
 
@@ -1105,14 +1320,14 @@ textarea:focus, input[type="text"]:focus, select:focus {
   display: flex;
   gap: 0.35rem;
   flex-wrap: wrap;
-  margin-bottom: 0.85rem;
+  margin-bottom: 0.75rem;
 }
 
 .news-tag {
   background-color: #0b1120;
   color: #94a3b8;
-  font-size: 0.7rem;
-  padding: 0.15rem 0.45rem;
+  font-size: 0.68rem;
+  padding: 0.15rem 0.4rem;
   border-radius: 4px;
   border: 1px solid #1e293b;
 }
@@ -1122,8 +1337,9 @@ textarea:focus, input[type="text"]:focus, select:focus {
   justify-content: space-between;
   align-items: center;
   border-top: 1px solid #334155;
-  padding-top: 0.75rem;
-  font-size: 0.75rem;
+  padding-top: 0.7rem;
+  font-size: 0.74rem;
+  margin-top: 0.4rem;
 }
 
 .verify-badge {
@@ -1131,7 +1347,7 @@ textarea:focus, input[type="text"]:focus, select:focus {
   align-items: center;
   gap: 0.3rem;
   color: #6ee7b7;
-  font-size: 0.72rem;
+  font-size: 0.7rem;
 }
 
 .news-link-btn {
@@ -1142,10 +1358,12 @@ textarea:focus, input[type="text"]:focus, select:focus {
   display: flex;
   align-items: center;
   gap: 0.2rem;
+  transition: color 0.2s ease;
 }
 
 .news-link-btn:hover {
   text-decoration: underline;
+  color: #fff;
 }
 
 /* Status Card de Ingesta */

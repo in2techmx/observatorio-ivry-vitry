@@ -330,51 +330,87 @@
             </div>
           </div>
 
-          <!-- 1. Frise Chronologique de Progression Mois par Mois -->
+          <!-- 1. Frise Chronologique Interactive & Navigation Pas-à-Pas -->
           <div class="timeline-stepper-box">
-            <div class="timeline-stepper-label">
-              <span>📅 <strong>Progression Chronologique (Mois par Mois) :</strong></span>
-              <small style="color: var(--text-muted);">Suivez l'évolution du débat depuis les premières publications jusqu'à aujourd'hui :</small>
+            <div class="timeline-stepper-header">
+              <div>
+                <span class="timeline-section-title">⏱️ <strong>Ligne de Temps Interactive (Mois par Mois) :</strong></span>
+                <span class="timeline-help-text">Avancez pas-à-pas pour observer l'émergence des prises de position et le climat d'opinion :</span>
+              </div>
+              <div class="timeline-nav-controls">
+                <button class="timeline-control-btn" id="timeline-first-btn" title="Revenir au début (Février 2026)">⏮ Premier mois</button>
+                <button class="timeline-control-btn" id="timeline-prev-btn" title="Mois précédent">◀ Précédent</button>
+                <button class="timeline-control-btn play-btn" id="timeline-play-btn" title="Lecture automatique de l'évolution">▶ Lecture Auto</button>
+                <button class="timeline-control-btn" id="timeline-next-btn" title="Mois suivant">Suivant ▶</button>
+                <button class="timeline-control-btn" id="timeline-last-btn" title="Aller au mois actuel (Septembre 2026)">⏭ Dernier mois</button>
+                <button class="timeline-control-btn all-btn" id="timeline-all-btn" title="Afficher toutes les actualités">🌐 Tous les mois</button>
+              </div>
             </div>
+
+            <!-- Pistas de la línea de tiempo interactiva con nodos mes a mes -->
             <div class="timeline-months-bar" id="timeline-months-bar">
-              <button class="month-pill active" data-month="ALL">Tous les mois <span class="badge-mini">15</span></button>
-              <button class="month-pill" data-month="2026-02">Fév 2026 <span class="badge-mini">1</span></button>
-              <button class="month-pill" data-month="2026-04">Avr 2026 <span class="badge-mini">1</span></button>
-              <button class="month-pill" data-month="2026-05">Mai 2026 <span class="badge-mini">2</span></button>
-              <button class="month-pill" data-month="2026-06">Juin 2026 <span class="badge-mini">2</span></button>
-              <button class="month-pill" data-month="2026-07">Juil 2026 <span class="badge-mini">2</span></button>
-              <button class="month-pill" data-month="2026-08">Août 2026 <span class="badge-mini">3</span></button>
-              <button class="month-pill" data-month="2026-09">Sept 2026 <span class="badge-mini">4</span></button>
+              <button class="month-pill" data-month="2026-02">
+                <span class="pill-dot neutre"></span> Fév 2026 <span class="badge-mini">1</span>
+              </button>
+              <button class="month-pill" data-month="2026-04">
+                <span class="pill-dot split"></span> Avr 2026 <span class="badge-mini">2</span>
+              </button>
+              <button class="month-pill" data-month="2026-05">
+                <span class="pill-dot contre"></span> Mai 2026 <span class="badge-mini">2</span>
+              </button>
+              <button class="month-pill" data-month="2026-06">
+                <span class="pill-dot split"></span> Juin 2026 <span class="badge-mini">2</span>
+              </button>
+              <button class="month-pill" data-month="2026-07">
+                <span class="pill-dot pour"></span> Juil 2026 <span class="badge-mini">2</span>
+              </button>
+              <button class="month-pill" data-month="2026-08">
+                <span class="pill-dot split"></span> Août 2026 <span class="badge-mini">3</span>
+              </button>
+              <button class="month-pill active" data-month="2026-09">
+                <span class="pill-dot contre"></span> Sept 2026 <span class="badge-mini">5</span>
+              </button>
+              <button class="month-pill" data-month="ALL">
+                <span>🌐</span> Vue d'ensemble <span class="badge-mini" id="badge-total-timeline">17</span>
+              </button>
             </div>
           </div>
 
-          <!-- 2. Bilan Global des Postures & Filtres Croisés -->
-          <div class="posture-balance-box">
+          <!-- 2. Bilan du Climat d'Opinion & Postures du Mois Sélectionné -->
+          <div class="posture-balance-box" id="month-posture-dashboard">
+            <div class="month-climate-header">
+              <div class="month-badge-tag" id="current-month-display">📅 SEPTEMBRE 2026</div>
+              <div class="month-climate-title" id="month-climate-title">Phase de haute contestation juridique et contrôles inopinés</div>
+            </div>
+            <p class="month-climate-summary" id="month-climate-summary">
+              Recours contentieux au Tribunal de Melun (Collectif 3R), analyses citoyennes de sols (Reporterre) et arrêtés de contrôles inopinés de la Préfecture du Val-de-Marne.
+            </p>
+
             <div class="posture-summary-row">
               <div class="posture-kpis">
-                <span class="posture-kpi-label">Répartition des Postures :</span>
-                <button class="posture-btn active" data-posture="ALL" id="btn-posture-all">Toutes (15)</button>
-                <button class="posture-btn pour" data-posture="POUR" id="btn-posture-pour">🟢 À Favor / Pour (<span id="count-pour">4</span>)</button>
-                <button class="posture-btn contre" data-posture="CONTRE" id="btn-posture-contre">🔴 En Contra / Contre (<span id="count-contre">6</span>)</button>
-                <button class="posture-btn neutre" data-posture="NEUTRE" id="btn-posture-neutre">⚪ Neutre / Analyse (<span id="count-neutre">5</span>)</button>
+                <span class="posture-kpi-label">Postures du mois :</span>
+                <button class="posture-btn active" data-posture="ALL" id="btn-posture-all">Toutes (<span id="count-month-total">5</span>)</button>
+                <button class="posture-btn pour" data-posture="POUR" id="btn-posture-pour">🟢 À Favor (<span id="count-pour">0</span>)</button>
+                <button class="posture-btn contre" data-posture="CONTRE" id="btn-posture-contre">🔴 En Contra (<span id="count-contre">3</span>)</button>
+                <button class="posture-btn neutre" data-posture="NEUTRE" id="btn-posture-neutre">⚪ Neutre / Factual (<span id="count-neutre">2</span>)</button>
               </div>
-              <div class="posture-ratio-bar">
-                <div class="ratio-segment seg-pour" style="width: 27%;" title="27% Pour (Modernisation & Continuité)">27% Pour</div>
-                <div class="ratio-segment seg-contre" style="width: 40%;" title="40% Contre (Recours & Nuisances)">40% Contre</div>
-                <div class="ratio-segment seg-neutre" style="width: 33%;" title="33% Neutre (Analyses Scientifiques & Juridiques)">33% Neutre</div>
+              <div class="posture-ratio-bar" id="posture-ratio-bar">
+                <div class="ratio-segment seg-pour" style="width: 0%;">0% Pour</div>
+                <div class="ratio-segment seg-contre" style="width: 60%;">60% Contre</div>
+                <div class="ratio-segment seg-neutre" style="width: 40%;">40% Neutre</div>
               </div>
             </div>
           </div>
 
-          <!-- 3. Filtros de Canal y Buscador -->
+          <!-- 3. Filtros por Tipo de Canal y Buscador -->
           <div class="news-controls-row">
             <div class="news-filter-pills" id="news-filter-pills">
-              <button class="filter-pill active" data-category="ALL">Tous les flux <span class="pill-count" id="count-all">15</span></button>
+              <button class="filter-pill active" data-category="ALL">Tous les types <span class="pill-count" id="count-all">17</span></button>
               <button class="filter-pill" data-category="GOVERNMENTAL">🏛️ Gouvernemental & Officiel <span class="pill-count" id="count-gov">3</span></button>
-              <button class="filter-pill" data-category="PUBLIC_MEDIA">📰 Médias FR & Locaux <span class="pill-count" id="count-media">3</span></button>
-              <button class="filter-pill" data-category="INDEPENDENT">🌱 Indépendant & Citoyen <span class="pill-count" id="count-ind">3</span></button>
-              <button class="filter-pill" data-category="ACADEMIC">🎓 Académique & Recherche <span class="pill-count" id="count-acad">3</span></button>
-              <button class="filter-pill" data-category="INTERNATIONAL">🌐 International & UE <span class="pill-count" id="count-intl">3</span></button>
+              <button class="filter-pill" data-category="PUBLIC_MEDIA">📰 Médias FR & Locaux <span class="pill-count" id="count-media">4</span></button>
+              <button class="filter-pill" data-category="INDEPENDENT">🌱 Indépendant & Citoyen <span class="pill-count" id="count-ind">4</span></button>
+              <button class="filter-pill" data-category="ACADEMIC">🔬 Académique & Recherche <span class="pill-count" id="count-acad">3</span></button>
+              <button class="filter-pill" data-category="INTERNATIONAL">🌍 International & UE <span class="pill-count" id="count-intl">3</span></button>
             </div>
 
             <div class="news-search-box">
@@ -383,9 +419,9 @@
           </div>
         </div>
 
-        <!-- Rejilla de Tarjetas de Noticias -->
-        <div id="news-cards-grid" class="news-grid">
-          <!-- Se llena dinámicamente con app.js -->
+        <!-- Contenedor Dinámico de Noticias Agrupadas por Tipo en el Mes -->
+        <div id="news-cards-grid" class="news-grouped-container">
+          <!-- Se llena dinámicamente con app.js agrupado por tipo -->
         </div>
 
         <!-- Estado de la Canalización de Ingesta (Fast Data & RSS Pipeline) -->
