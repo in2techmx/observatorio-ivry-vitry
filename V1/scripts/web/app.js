@@ -464,57 +464,591 @@ function setQueryPrompt(promptText) {
 }
 
 // ====================================================================
-// 5. VEILLE MULTICANALE, POSTURES & PROGRESSION MOIS PAR MOIS (PESTAÑA 6)
+// 5. VEILLE MULTICANALE, POSTURES & PROGRESSION HISTORIQUE (2022 - 2026)
 // ====================================================================
 
-const MONTHS_CHRONO = ['2026-02', '2026-04', '2026-05', '2026-06', '2026-07', '2026-08', '2026-09'];
+const MONTHS_CHRONO = [
+  '2022-02', '2022-05', '2022-11',
+  '2023-04', '2023-09',
+  '2024-03', '2024-06', '2024-10',
+  '2025-02', '2025-06', '2025-11',
+  '2026-02', '2026-04', '2026-05', '2026-06', '2026-07', '2026-08', '2026-09'
+];
 
 const MONTHS_META = {
+  '2022-02': {
+    name: 'Février 2022',
+    climateTitle: 'Alerte ToxicoWatch & Recommandation Sanitaire ARS sur les Dioxines',
+    climateSummary: 'Détection de taux élevés de dioxines dans les œufs de poulaillers domestiques à Ivry par ToxicoWatch. L\'ARS Île-de-France émet une consigne de prudence inédite.',
+    dominantPosture: 'CONTRE'
+  },
+  '2022-05': {
+    name: 'Mai 2022',
+    climateTitle: 'Investigation Nationale (Le Monde) & Défense Technique du SYCTOM',
+    climateSummary: 'Le quotidien Le Monde publie une grande enquête sur la pollution sous l\'incinérateur. Le SYCTOM affirme la conformité réglementaire de ses rejets à la cheminée.',
+    dominantPosture: 'SPLIT'
+  },
+  '2022-11': {
+    name: 'Novembre 2022',
+    climateTitle: 'Questions Parlementaires & Première Analyse Sociologique Panthéon-Sorbonne',
+    climateSummary: 'Interpellations formelles au Sénat et à l\'Assemblée Nationale. Recherche universitaire (Charlotte Fabre, Panthéon-Sorbonne/Cairn) sur la gouvernance par le risque.',
+    dominantPosture: 'CONTRE'
+  },
+  '2023-04': {
+    name: 'Avril 2023',
+    climateTitle: 'Scandale des 6 936 Heures sans Mesure AMESA & Enquête France Inter',
+    climateSummary: 'Zero Waste France révèle que les analyseurs en continu ont été inactifs près de 289 jours en 2020-2021. La cellule d\'investigation de Radio France relaie les alertes.',
+    dominantPosture: 'CONTRE'
+  },
+  '2023-09': {
+    name: 'Septembre 2023',
+    climateTitle: 'Contrat Industriel Interval (Filtres SCR) & Chauffage Urbain CPCU',
+    climateSummary: 'Le SYCTOM valide l\'abaissement de capacité à 350 000 t et la commande de filtres SCR. CPCU rappelle l\'apport vital de vapeur pour 150 000 foyers parisiens.',
+    dominantPosture: 'POUR'
+  },
+  '2024-03': {
+    name: 'Mars 2024',
+    climateTitle: 'Biosurveillance dans les Écoles & Droit d\'Alerte Syndical (CGT 94)',
+    climateSummary: 'Analyses de mousses végétales d\'arbres dans 5 écoles d\'Ivry et Charenton montrant la présence de dioxines et métaux lourds. Alertes santé pour danger grave à l\'école Einstein.',
+    dominantPosture: 'CONTRE'
+  },
+  '2024-06': {
+    name: 'Juin 2024',
+    climateTitle: 'Étude Universitaire sur les Inégalités Écologiques & Débat Politico Europe',
+    climateSummary: 'Cyria Emelianoff (Revue Écologie & Politique) documente les disparités territoriales Est/Ouest. Politico Europe examine l\'incinération face à la taxonomie verte de l\'UE.',
+    dominantPosture: 'SPLIT'
+  },
+  '2024-10': {
+    name: 'Octobre 2024',
+    climateTitle: 'Front Municipal Conjoint (Ivry/Vitry) & Inspection ICPE de la DRIEAT',
+    climateSummary: 'Les maires d\'Ivry et Vitry réclament ensemble un moratoire et la mesure des PFAS. La DRIEAT publie son rapport d\'inspection sur la gestion des résidus et mâchefers.',
+    dominantPosture: 'CONTRE'
+  },
+  '2025-02': {
+    name: 'Février 2025',
+    climateTitle: 'Écho International (The Guardian) & Modélisation Énergétique (MDPI)',
+    climateSummary: 'The Guardian relaie l\'inquiétude des parents d\'élèves sur l\'exposition des enfants. MDPI publie une étude d\'ingénierie sur l\'efficacité thermodynamique de l\'usine.',
+    dominantPosture: 'SPLIT'
+  },
+  '2025-06': {
+    name: 'Juin 2025',
+    climateTitle: 'Directive Européenne IED (Europarlement) & Plan Zéro Déchet de Paris',
+    climateSummary: 'L\'Union Européenne durcit les valeurs limites lors des démarrages de fours. Le Conseil de Paris adopte son plan B\'OM pour réduire de 30% les apports résiduels à Ivry.',
+    dominantPosture: 'POUR'
+  },
+  '2025-11': {
+    name: 'Novembre 2025',
+    climateTitle: 'Arrêté de Biosurveillance Maraîchère & Livre Blanc Citoyen',
+    climateSummary: 'La Préfecture du Val-de-Marne impose un suivi des jardins partagés. Le Collectif 3R publie son livre blanc avec des alternatives concrètes au méga-chantier.',
+    dominantPosture: 'CONTRE'
+  },
   '2026-02': {
     name: 'Février 2026',
-    climateTitle: 'Cadrage sociologique & racines des contestations',
-    climateSummary: 'Parution d’études académiques rétrospectives : analyse de la transition d’un réflexe local NIMBY vers une exigence de justice spatiale et environnementale dans le Val-de-Marne.',
+    climateTitle: 'Cadrage Sociologique (CNRS) : Du NIMBY à la Justice Environnementale',
+    climateSummary: 'La Revue Française de Sociologie (CNRS) analyse la politisation des déchets en banlieue sud et la structuration des luttes citoyennes de justice environnementale.',
     dominantPosture: 'NEUTRE'
   },
   '2026-04': {
     name: 'Avril 2026',
-    climateTitle: 'Continuité énergétique régionale vs. plafonds OMS',
-    climateSummary: 'La Région Île-de-France conforte l’usine d’Ivry dans son schéma directeur pour le chauffage métropolitain, tandis que l’AEE rappelle les seuils sanitaires OMS sur les PM2.5.',
+    climateTitle: 'Souveraineté Énergétique Régionale (PRPGD) vs. Plafonds OMS (AEE)',
+    climateSummary: 'La Région Île-de-France confirme l\'usine comme équipement structurant du plan déchets. L\'Agence Européenne de l\'Environnement rappelle les seuils OMS en PM2.5.',
     dominantPosture: 'SPLIT'
   },
   '2026-05': {
     name: 'Mai 2026',
-    climateTitle: 'Revendications municipales conjointes & modélisation du fleuve',
-    climateSummary: 'Vœu unanime des conseils municipaux d’Ivry et Vitry réclamant la transparence totale sur les PFAS, conjugué à la modélisation micrométéorologique des inversions thermiques de l’UPEC.',
+    climateTitle: 'Vœu Conjoint Ivry/Vitry (PFAS) & Modélisation Fluviale UPEC/LEESU',
+    climateSummary: 'Vote unanime des conseils municipaux exigeant la transparence en temps réel des PFAS. L\'UPEC modélise l\'effet de canalisation des vents par la vallée de la Seine.',
     dominantPosture: 'CONTRE'
   },
   '2026-06': {
     name: 'Juin 2026',
-    climateTitle: 'Clash de visions : Modernisation SCR vs. Tri à la source',
-    climateSummary: 'Le SYCTOM valide l’abaissement de capacité à 350 000 t et ses filtres catalytiques SCR, tandis que Zero Waste France dénonce le risque de surcapacité bloquant le compostage.',
+    climateTitle: 'Clash de Modèles : Filtres SCR du SYCTOM vs. Compostage Zero Waste',
+    climateSummary: 'Le SYCTOM annonce la mise en service de ses filtres SCR haute performance. Zero Waste France dénonce un risque de surcapacité pénalisant le tri des biodéchets.',
     dominantPosture: 'SPLIT'
   },
   '2026-07': {
     name: 'Juillet 2026',
-    climateTitle: 'Comparaison métropolitaine & tarification carbone européenne',
-    climateSummary: 'Reportage national comparant l’enfouissement paysager d’Isséane et la situation d’Ivry. Débat européen sur l’inclusion des incinérateurs au marché carbone SEQE.',
+    climateTitle: 'Reportage France 3 (Isséane vs Ivry) & Marché Carbone Européen (SEQE)',
+    climateSummary: 'Comparaison audiovisuelle de l\'enfouissement souterrain d\'Isséane et d\'Ivry. Zero Waste Europe soutient l\'assujettissement des incinérateurs au marché carbone ETS.',
     dominantPosture: 'POUR'
   },
   '2026-08': {
     name: 'Août 2026',
-    climateTitle: 'Chauffage décarboné, épidémiologie et alertes citoyennes d’odeurs',
-    climateSummary: 'CPCU valorise l’apport thermique pour 150 000 logements ; Santé Publique France note la chute historique des dioxines ; des riverains réclament des capteurs continus.',
+    climateTitle: 'Chaleur Décarbonée CPCU, Cohorte Inserm 12 000 Riverains & Odeurs',
+    climateSummary: 'CPCU valorise l\'apport pour 150 000 logements ; Santé Publique France note une baisse de 85% des dioxines depuis 1990 ; riverains réclament des capteurs 24/7.',
     dominantPosture: 'SPLIT'
   },
   '2026-09': {
     name: 'Septembre 2026',
-    climateTitle: 'Phase de haute contestation juridique et contrôles inopinés',
-    climateSummary: 'Recours contentieux au Tribunal de Melun (Collectif 3R), analyses citoyennes de sols (Reporterre) et arrêtés de contrôles inopinés de la Préfecture du Val-de-Marne.',
+    climateTitle: 'Recours au Tribunal de Melun, Analyses Citoyennes & Contrôles Inopinés',
+    climateSummary: 'Le Collectif 3R attaque l\'arrêté d\'exploitation en justice administrative. Reporterre relaie les analyses de sols citoyennes. La Préfecture impose des audits inopinés.',
     dominantPosture: 'CONTRE'
   }
 };
 
 const NEWS_DATASET = [
+  // --- FÉVRIER 2022 ---
+  {
+    id: 'news_2022_02_01',
+    category: 'INDEPENDENT',
+    categoryLabel: 'Enquête Citoyenne & ONG',
+    badgeClass: 'cat-INDEPENDENT',
+    publisher: 'ToxicoWatch (Pays-Bas) & Collectif 3R',
+    publisherHandle: '@ToxicoWatch',
+    date: '03 Février 2022',
+    monthKey: '2022-02',
+    docType: 'Rapport d\'Analyses Toxicologiques',
+    posture: 'CONTRE',
+    postureLabel: '🔴 EN CONTRA / ALERTE CONTAMINATION',
+    postureArgument: 'Révélation de concentrations critiques de dioxines et métaux lourds dans les bio-matrices riveraines.',
+    tweetSummary: '⚠️ @ToxicoWatch révèle des concentrations alarmantes de dioxines (PCDD/F) dans les œufs de poules à Ivry-sur-Seine, dépassant jusqu\'à 10 fois les seuils de sécurité de l\'Union Européenne.',
+    title: 'Biomonitoring à Ivry-sur-Seine : Détection de polluants organiques persistants (POP) dans les poulaillers domestiques',
+    summary: 'Première campagne de biosurveillance menée par le Dr Abel Arkenbout. Les analyses mettent en évidence une imprégnation majeure en dioxines et furannes dans les œufs de poules de particuliers vivant sous le panache de l\'incinérateur.',
+    tags: ['ToxicoWatch', 'Dioxines', 'Œufs', 'Biomonitoring', 'POP'],
+    verifyBadge: 'Fondation Scientifique Indépendante (NL)',
+    linkUrl: 'https://www.toxicowatch.org'
+  },
+  {
+    id: 'news_2022_02_02',
+    category: 'GOVERNMENTAL',
+    categoryLabel: 'Gouvernemental & Officiel',
+    badgeClass: 'cat-GOVERNMENTAL',
+    publisher: 'Agence Régionale de Santé (ARS Île-de-France)',
+    publisherHandle: '@ARS_IDF',
+    date: '08 Février 2022',
+    monthKey: '2022-02',
+    docType: 'Recommandation Sanitaire Publique',
+    posture: 'NEUTRE',
+    postureLabel: '⚪ NEUTRE / PRINCIPE DE PRÉCAUTION',
+    postureArgument: 'Recommandation médicale d\'autorité sans imputation juridique directe à une source industrielle unique.',
+    tweetSummary: '🏛️ L\'@ARS_IDF émet une recommandation de précaution sanitaire déconseillant la consommation régulière d\'œufs de particuliers dans le bassin d\'Ivry, Vitry, Alfortville et Charenton.',
+    title: 'Avis sanitaire ARS : Précaution concernant la consommation des œufs non commerciaux autour d\'Ivry-Paris XIII',
+    summary: 'Face aux résultats des analyses indépendantes et dans l\'attente de sa propre étude environnementale, l\'ARS recommande aux riverains de ne pas consommer les œufs issus de poulaillers domestiques par mesure de prévention toxicologique.',
+    tags: ['ARS IDF', 'Santé Publique', 'Avis Sanitaire', 'Dioxines', 'Précaution'],
+    verifyBadge: 'Autorité Publique de Santé',
+    linkUrl: 'https://www.iledefrance.ars.sante.fr'
+  },
+
+  // --- MAI 2022 ---
+  {
+    id: 'news_2022_05_01',
+    category: 'PUBLIC_MEDIA',
+    categoryLabel: 'Presse Nationale & Médias FR',
+    badgeClass: 'cat-PUBLIC_MEDIA',
+    publisher: 'Le Monde (Enquête de Stéphane Mandard)',
+    publisherHandle: '@lemondefr',
+    date: '12 Mai 2022',
+    monthKey: '2022-05',
+    docType: 'Enquête Journalistique d\'Investigation',
+    posture: 'CONTRE',
+    postureLabel: '🔴 EN CONTRA / ENQUÊTE MÉDIATIQUE',
+    postureArgument: 'Mise en lumière des failles historiques de filtration et des inquiétudes croissantes des riverains.',
+    tweetSummary: '📰 @lemondefr révèle l\'ampleur des contaminations aux dioxines autour de l\'usine d\'Ivry et interroge l\'absence de filtres catalytiques SCR sur les anciens fours en service depuis 1969.',
+    title: 'Pollution aux dioxines : L\'incinérateur d\'Ivry-sur-Seine au cœur d\'une tempête sanitaire et politique',
+    summary: 'Le quotidien Le Monde détaille les tensions entre élus écologistes, associations de quartier et gestionnaires de déchets métropolitains, soulevant la question de la vétusté des lignes de combustion historiques au bord du fleuve.',
+    tags: ['Le Monde', 'Investigation', 'Dioxines', 'SYCTOM', 'Santé'],
+    verifyBadge: 'Presse d\'Information CPPAP',
+    linkUrl: 'https://www.lemonde.fr'
+  },
+  {
+    id: 'news_2022_05_02',
+    category: 'GOVERNMENTAL',
+    categoryLabel: 'Gouvernemental & Officiel',
+    badgeClass: 'cat-GOVERNMENTAL',
+    publisher: 'SYCTOM (Syndicat Métropolitain des Déchets)',
+    publisherHandle: '@SyctomParis',
+    date: '19 Mai 2022',
+    monthKey: '2022-05',
+    docType: 'Communiqué Officiel du Conseil Syndical',
+    posture: 'POUR',
+    postureLabel: '🟢 À FAVOR / POUR (Défense Règlementaire)',
+    postureArgument: 'Rappel de la conformité intégrale des analyses officielles de cheminée et contestation de la représentativité des prélèvements d\'œufs.',
+    tweetSummary: '✅ Le @SyctomParis rappelle que ses mesures de dioxines à la cheminée sont conformes à la norme européenne de 0,1 ng I-TEQ/Nm³ et met en garde contre les extrapolations non homologuées.',
+    title: 'Mise au point du SYCTOM : Conformité stricte des rejets atmosphériques et calendrier du nouveau projet',
+    summary: 'L\'opérateur métropolitain insiste sur le respect scrupuleux des valeurs limites d\'émission contrôlées par la DREAL et rappelle que les dioxines dans les sols parisiens proviennent également du trafic routier et du chauffage au bois historique.',
+    tags: ['SYCTOM', 'Communiqué', 'Norme Européenne', 'Fumées', 'DREAL'],
+    verifyBadge: 'Établissement Public Métropolitain',
+    linkUrl: 'https://www.syctom-paris.fr'
+  },
+
+  // --- NOVEMBRE 2022 ---
+  {
+    id: 'news_2022_11_01',
+    category: 'GOVERNMENTAL',
+    categoryLabel: 'Gouvernemental & Officiel',
+    badgeClass: 'cat-GOVERNMENTAL',
+    publisher: 'Assemblée Nationale & Sénat (Parlement)',
+    publisherHandle: '@AssembleeNat',
+    date: '17 Novembre 2022',
+    monthKey: '2022-11',
+    docType: 'Question Écrite Parlementaire',
+    posture: 'CONTRE',
+    postureLabel: '🔴 EN CONTRA / REQUISITOIRE PARLEMENTAIRE',
+    postureArgument: 'Demande solennelle d\'une étude toxicologique indépendante et d\'une transparence intégrale des registres industriels.',
+    tweetSummary: '🏛️ Question parlementaire à l\'@AssembleeNat sur l\'incinérateur d\'Ivry : exigence d\'une expertise sanitaire indépendante et remise en cause du calendrier de reconstruction.',
+    title: 'Question parlementaire n° 03412 : Risques sanitaires liés aux polluants émergents de l\'UVE d\'Ivry',
+    summary: 'Les parlementaires du Val-de-Marne saisissent le ministre de la Transition Écologique sur la nécessité de financer une campagne d\'analyses indépendantes sur les PFAS, furannes et métaux lourds dans les établissements scolaires riverains.',
+    tags: ['Assemblée Nationale', 'Sénat', 'Transition Écologique', 'Contrôle', 'Parlement'],
+    verifyBadge: 'Document Officiel Parlementaire',
+    linkUrl: 'https://www.assemblee-nationale.fr'
+  },
+  {
+    id: 'news_2022_11_02',
+    category: 'ACADEMIC',
+    categoryLabel: 'Recherche Académique',
+    badgeClass: 'cat-ACADEMIC',
+    publisher: 'Université Paris 1 Panthéon-Sorbonne / Cairn.info',
+    publisherHandle: '@SorbonneParis1',
+    date: '28 Novembre 2022',
+    monthKey: '2022-11',
+    docType: 'Publication Scientifique (Sociologie Urbaine)',
+    posture: 'NEUTRE',
+    postureLabel: '⚪ NEUTRE / ANALYSE INSTITUTIONNELLE',
+    postureArgument: 'Théorisation de la gouvernance des infrastructures contestées et confrontation des registres de légitimité.',
+    tweetSummary: '📚 Recherche académique @SorbonneParis1 : analyse de la construction sociotechnique du risque et des conflits de légitimité entre gestionnaires technocratiques et riverains à Ivry.',
+    title: 'Gouverner les déchets par le risque : controverses et contestations autour de l\'incinérateur d\'Ivry-Paris XIII',
+    summary: 'Étude sociologique de Charlotte Fabre explorant comment le SYCTOM a progressivement adapté sa rhétorique (du déni technique à la compensation architecturale) face aux mobilisations citoyennes structurées.',
+    tags: ['Cairn', 'Sorbonne', 'Sociologie Urbaine', 'Controverse', 'Gouvernance'],
+    verifyBadge: 'Revue Scientifique à Comité de Lecture',
+    linkUrl: 'https://www.cairn.info'
+  },
+
+  // --- AVRIL 2023 ---
+  {
+    id: 'news_2023_04_01',
+    category: 'INDEPENDENT',
+    categoryLabel: 'Enquête Citoyenne & ONG',
+    badgeClass: 'cat-INDEPENDENT',
+    publisher: 'Zero Waste France & ToxicoWatch',
+    publisherHandle: '@ZeroWasteFR',
+    date: '04 Avril 2023',
+    monthKey: '2023-04',
+    docType: 'Rapport d\'Audit Technique d\'Émissions',
+    posture: 'CONTRE',
+    postureLabel: '🔴 EN CONTRA / DÉNONCIATION OMISSION',
+    postureArgument: 'Démonstration documentaire de près de 289 jours sans échantillonnage de dioxines en continu.',
+    tweetSummary: '📢 @ZeroWasteFR dénonce 6 936 heures d\'inactivité du préleveur de dioxines AMESA à Ivry en 2020-2021, révélant un angle mort réglementaire majeur lors des phases critiques.',
+    title: 'Audit des fumées d\'Ivry-Paris XIII : 6 936 heures d\'absence de prélèvements continus de dioxines identifiées',
+    summary: 'L\'ONG révèle que le système semi-continu AMESA a été désactivé ou en panne pendant des milliers d\'heures cumulées, précisément durant les phases d\'arrêt et de redémarrage où la formation de dioxines est maximale.',
+    tags: ['Zero Waste', 'AMESA', 'Dioxines', 'Audit', 'Transparence'],
+    verifyBadge: 'ONG Agréée Protection Environnement',
+    linkUrl: 'https://www.zerowastefrance.org'
+  },
+  {
+    id: 'news_2023_04_02',
+    category: 'PUBLIC_MEDIA',
+    categoryLabel: 'Presse Nationale & Médias FR',
+    badgeClass: 'cat-PUBLIC_MEDIA',
+    publisher: 'France Inter (Cellule Investigation)',
+    publisherHandle: '@franceinter',
+    date: '18 Avril 2023',
+    monthKey: '2023-04',
+    docType: 'Reportage d\'Enquête Radiophonique',
+    posture: 'CONTRE',
+    postureLabel: '🔴 EN CONTRA / ENQUÊTE MÉDIATIQUE',
+    postureArgument: 'Vérification contradictoire des carnets d\'exploitation de l\'usine et témoignages de salariés.',
+    tweetSummary: '📻 @franceinter enquête sur les dysfonctionnements des capteurs de fumées à l\'usine d\'Ivry et le manque de transparence lors des redémarrages de fours après maintenance.',
+    title: 'Incinérateur géant d\'Ivry : Des mesures de rejets polluants en pointillé selon des documents internes',
+    summary: 'La cellule d\'investigation de Radio France dévoile des documents d\'exploitation confirmant des interruptions régulières des appareils de mesure et donne la parole aux riverains vivant à moins de 300 mètres des cheminées.',
+    tags: ['France Inter', 'Radio France', 'Investigation', 'Capteurs', 'Ivry-Port'],
+    verifyBadge: 'Service Public Audiovisuel',
+    linkUrl: 'https://www.radiofrance.fr/franceinter'
+  },
+
+  // --- SEPTEMBRE 2023 ---
+  {
+    id: 'news_2023_09_01',
+    category: 'GOVERNMENTAL',
+    categoryLabel: 'Gouvernemental & Officiel',
+    badgeClass: 'cat-GOVERNMENTAL',
+    publisher: 'SYCTOM (Comité Syndical)',
+    publisherHandle: '@SyctomParis',
+    date: '21 Septembre 2023',
+    monthKey: '2023-09',
+    docType: 'Délibération Publique d\'Investissement',
+    posture: 'POUR',
+    postureLabel: '🟢 À FAVOR / POUR (Modernisation Industrielle)',
+    postureArgument: 'Vote historique d\'un investissement massif de plus de 500M€ pour renouveler la chaîne de traitement des fumées.',
+    tweetSummary: '✅ Le @SyctomParis vote le contrat industriel pour équiper les fours d\'Ivry du procédé SCR DeNOx de dernière génération et réduire le tonnage autorisé à 350 000 tonnes.',
+    title: 'Adoption du projet Interval : Réduction de moitié de la capacité et mise en place de la filtration SCR',
+    summary: 'Le Comité syndical acte l\'abandon du projet historique de 700 000 t pour une unité modernisée à 350 000 t/an, intégrant un système de réduction catalytique sélective (SCR) pour abattre les NOx sous 50 mg/Nm³.',
+    tags: ['SYCTOM', 'Interval', 'SCR', 'Investissement', 'Transition'],
+    verifyBadge: 'Délibération Officielle',
+    linkUrl: 'https://www.syctom-paris.fr'
+  },
+  {
+    id: 'news_2023_09_02',
+    category: 'PUBLIC_MEDIA',
+    categoryLabel: 'Presse Nationale & Médias FR',
+    badgeClass: 'cat-PUBLIC_MEDIA',
+    publisher: 'CPCU (Compagnie Parisienne de Chauffage Urbain)',
+    publisherHandle: '@CPCUChaleur',
+    date: '27 Septembre 2023',
+    monthKey: '2023-09',
+    docType: 'Bilan Annuel d\'Exploitation Énergétique',
+    posture: 'POUR',
+    postureLabel: '🟢 À FAVOR / POUR (Chauffage Urbain)',
+    postureArgument: 'Démonstration chiffrée de la contribution de la vapeur pour décarboner le chauffage des ménages et des centres hospitaliers.',
+    tweetSummary: '🔥 @CPCUChaleur présente son bilan : la vapeur d\'Ivry évite le recours à 120 millions de m³ de gaz fossile pour chauffer les hôpitaux et logements sociaux parisiens.',
+    title: 'Contribution énergétique de l\'UVE d\'Ivry : Chauffage continu de 150 000 logements et souveraineté thermique',
+    summary: 'La CPCU souligne que l\'énergie thermique récupérée à Ivry constitue l\'épine dorsale du réseau de chaleur francilien, évitant l\'émission de 400 000 tonnes de CO2 d\'origine fossile chaque hiver.',
+    tags: ['CPCU', 'Chaleur Urbaine', 'Décarbonation', 'Énergie', 'Paris'],
+    verifyBadge: 'Délégataire de Service Public',
+    linkUrl: 'https://www.cpcu.fr'
+  },
+
+  // --- MARS 2024 ---
+  {
+    id: 'news_2024_03_01',
+    category: 'INDEPENDENT',
+    categoryLabel: 'Enquête Citoyenne & ONG',
+    badgeClass: 'cat-INDEPENDENT',
+    publisher: 'ToxicoWatch & Collectif 3R',
+    publisherHandle: '@ToxicoWatch',
+    date: '14 Mars 2024',
+    monthKey: '2024-03',
+    docType: 'Rapport de Biosurveillance Végétale',
+    posture: 'CONTRE',
+    postureLabel: '🔴 EN CONTRA / ALERTE EN MILIEU SCOLAIRE',
+    postureArgument: 'Mise en évidence de retombées de métaux lourds et dioxines sur les arbres et sols des cours d\'écoles.',
+    tweetSummary: '⚠️ @ToxicoWatch publie l\'analyse des mousses végétales d\'écoles proches d\'Ivry : détection de dioxines, métaux lourds (plomb, cadmium, cobalt) et PFAS dans les aires de jeux.',
+    title: 'Biosurveillance dans les écoles d\'Ivry et Charenton : Présence anormale de polluants rémanents sur la végétation',
+    summary: 'Prélèvements de mousses et d\'aiguilles de conifères autour des groupes scolaires Albert Einstein, Montesquieu et Aristide Briand. L\'étude constate des gradients de concentration corrélés à la direction des vents dominants.',
+    tags: ['ToxicoWatch', 'Écoles', 'Mousses', 'Métaux Lourds', 'Enfance'],
+    verifyBadge: 'Rapport Scientifique International',
+    linkUrl: 'https://www.toxicowatch.org'
+  },
+  {
+    id: 'news_2024_03_02',
+    category: 'PUBLIC_MEDIA',
+    categoryLabel: 'Presse Nationale & Médias FR',
+    badgeClass: 'cat-PUBLIC_MEDIA',
+    publisher: 'CGT Éduc\'action 94',
+    publisherHandle: '@CGT_Educ94',
+    date: '22 Mars 2024',
+    monthKey: '2024-03',
+    docType: 'Avis Syndical de Danger Grave et Imminent',
+    posture: 'CONTRE',
+    postureLabel: '🔴 EN CONTRA / DROIT D\'ALERTE',
+    postureArgument: 'Action syndicale pour protéger la santé des personnels enseignants et des écoliers du secteur Ivry-Port.',
+    tweetSummary: '📢 @CGT_Educ94 dépose des fiches de signalement santé pour les enseignants et élèves de l\'école Albert Einstein face aux poussières industrielles et rejets de l\'usine.',
+    title: 'Pollution industrielle à Ivry : La CGT Éduc\'action dépose des alertes pour les personnels des écoles riveraines',
+    summary: 'Le syndicat enseignant saisit le rectorat de Créteil et la médecine du travail pour réclamer l\'installation immédiate de purificateurs d\'air haute efficacité et la fermeture temporaire des cours en cas d\'épisode olfactif aigu.',
+    tags: ['CGT Educ', 'Val-de-Marne', 'Droit d Alerte', 'Écoles', 'Santé Travail'],
+    verifyBadge: 'Organisation Syndicale Représentative',
+    linkUrl: 'https://www.cgteduc.fr'
+  },
+
+  // --- JUIN 2024 ---
+  {
+    id: 'news_2024_06_01',
+    category: 'ACADEMIC',
+    categoryLabel: 'Recherche Académique',
+    badgeClass: 'cat-ACADEMIC',
+    publisher: 'Revue Écologie & Politique (Cairn.info)',
+    publisherHandle: '@CairnInfo',
+    date: '06 Juin 2024',
+    monthKey: '2024-06',
+    docType: 'Article Universitaire Peer-Reviewed',
+    posture: 'NEUTRE',
+    postureLabel: '⚪ NEUTRE / SOCIOLOGIE DE L\'ENVIRONNEMENT',
+    postureArgument: 'Analyse critique des inégalités environnementales structurelles de la métropole du Grand Paris.',
+    tweetSummary: '🎓 Étude @CairnInfo : l\'usine d\'Ivry au cœur des inégalités environnementales métropolitaines entre l\'Ouest tertiaire privilégié et l\'Est ouvrier francilien historiquement exposé.',
+    title: 'Justice environnementale et inégalités écologiques dans les banlieues fluviales d\'Île-de-France',
+    summary: 'Recherche de Cyria Emelianoff analysant la concentration des infrastructures de traitement de déchets dans les communes de la ceinture rouge et les freins socio-économiques à la participation citoyenne.',
+    tags: ['Cairn', 'Justice Environnementale', 'Inégalités', 'Sociologie', 'Banlieue'],
+    verifyBadge: 'Revue Académique Agréée HCERES',
+    linkUrl: 'https://www.cairn.info'
+  },
+  {
+    id: 'news_2024_06_02',
+    category: 'INTERNATIONAL',
+    categoryLabel: 'International & Européen',
+    badgeClass: 'cat-INTERNATIONAL',
+    publisher: 'Politico Europe (Bruxelles)',
+    publisherHandle: '@politico',
+    date: '19 Juin 2024',
+    monthKey: '2024-06',
+    docType: 'Article d\'Analyse Politique Européenne',
+    posture: 'NEUTRE',
+    postureLabel: '⚪ NEUTRE / POLITIQUE EUROPÉENNE',
+    postureArgument: 'Mise en perspective des tensions parisiennes au regard de la révision de la taxonomie verte de l\'UE.',
+    tweetSummary: '🇪🇺 @politico analyse les tensions parisiennes : les méga-incinérateurs urbains face aux critères drastiques de la taxonomie verte européenne et aux objectifs de recyclage 2030.',
+    title: 'The Burning Question of Europe\'s Waste Incinerators : Inside the Paris Climate Feud',
+    summary: 'Politico examine comment le cas d\'Ivry reflète la fracture européenne entre partisans de la valorisation énergétique pour l\'autonomie thermique et défenseurs de l\'économie circulaire stricte interdisant l\'incinération.',
+    tags: ['Politico', 'Bruxelles', 'Taxonomie Verte', 'Climat', 'Union Européenne'],
+    verifyBadge: 'Presse Internationale Reconnue',
+    linkUrl: 'https://www.politico.eu'
+  },
+
+  // --- OCTOBRE 2024 ---
+  {
+    id: 'news_2024_10_01',
+    category: 'GOVERNMENTAL',
+    categoryLabel: 'Gouvernemental & Officiel',
+    badgeClass: 'cat-GOVERNMENTAL',
+    publisher: 'Mairies d\'Ivry-sur-Seine & Vitry-sur-Seine',
+    publisherHandle: '@Ivry94_Vitry94',
+    date: '08 Octobre 2024',
+    monthKey: '2024-10',
+    docType: 'Déclaration Commune des Maires',
+    posture: 'CONTRE',
+    postureLabel: '🔴 EN CONTRA / FRONT TERRITORIAL',
+    postureArgument: 'Mobilisation conjointe des deux édiles pour imposer des normes renforcées sur les polluants éternels (PFAS).',
+    tweetSummary: '🏛️ Les maires d\'@Ivry94 et @Vitry94 demandent ensemble à l\'État un moratoire sur les tonnages et l\'installation de capteurs atmosphériques haute précision pour les PFAS.',
+    title: 'Front commun des municipalités d\'Ivry et Vitry : Exigence d\'un suivi indépendant des PFAS et rejets gazeux',
+    summary: 'Philippe Bouyssou et Pierre Bell-Lloch organisent une conférence de presse conjointe pour réclamer l\'intégration immédiate des PFAS dans les arrêtés préfectoraux d\'exploitation et le financement public d\'un comité citoyen.',
+    tags: ['Mairie Ivry', 'Mairie Vitry', 'PFAS', 'Moratoire', 'Concertation'],
+    verifyBadge: 'Communiqué Conjoint des Villes',
+    linkUrl: 'https://www.ivry94.fr'
+  },
+  {
+    id: 'news_2024_10_02',
+    category: 'GOVERNMENTAL',
+    categoryLabel: 'Gouvernemental & Officiel',
+    badgeClass: 'cat-GOVERNMENTAL',
+    publisher: 'DRIEAT Île-de-France (Direction Régionale Environnement)',
+    publisherHandle: '@DRIEAT_IDF',
+    date: '24 Octobre 2024',
+    monthKey: '2024-10',
+    docType: 'Rapport d\'Inspection ICPE',
+    posture: 'NEUTRE',
+    postureLabel: '⚪ NEUTRE / CONTRÔLE RÉGLEMENTAIRE',
+    postureArgument: 'Rapport technique officiel constatant des conformités globales et émettant des demandes de mise en conformité sur les résidus.',
+    tweetSummary: '🏛️ La @DRIEAT_IDF publie son rapport d\'inspection : rappel à l\'ordre technique sur la tenue des registres de déchets dangereux et la manipulation des cendres volantes.',
+    title: 'Inspection des installations classées d\'Ivry-Paris XIII : Bilan des vérifications inopinées et prescriptions',
+    summary: 'La police de l\'environnement de la DRIEAT détaille les constats opérés sur place : conformité des filtres à manches pour les poussières, mais injonction d\'améliorer le confinement des hangars de stockage des mâchefers humides.',
+    tags: ['DRIEAT', 'Inspection ICPE', 'Mâchefers', 'Réglementation', 'Police Environnement'],
+    verifyBadge: 'Direction Régionale de l\'État',
+    linkUrl: 'https://www.drieat.ile-de-france.developpement-durable.gouv.fr'
+  },
+
+  // --- FÉVRIER 2025 ---
+  {
+    id: 'news_2025_02_01',
+    category: 'INTERNATIONAL',
+    categoryLabel: 'International & Européen',
+    badgeClass: 'cat-INTERNATIONAL',
+    publisher: 'The Guardian (Environment Desk)',
+    publisherHandle: '@guardian',
+    date: '11 Février 2025',
+    monthKey: '2025-02',
+    docType: 'Enquête Internationale',
+    posture: 'CONTRE',
+    postureLabel: '🔴 EN CONTRA / ENQUÊTE MONDIALE',
+    postureArgument: 'Focus international sur le mécontentement citoyen et la vulnérabilité des enfants en milieu dense.',
+    tweetSummary: '🌍 @guardian rapporte la colère des parents d\'élèves du Val-de-Marne face aux retombées de métaux lourds autour du méga-incinérateur de la Seine à Paris.',
+    title: 'Paris waste plant facing backlash over child chemical exposure near schools and playgrounds',
+    summary: 'Le quotidien britannique analyse la situation d\'Ivry-sur-Seine sous l\'angle des droits de l\'enfant et de la santé environnementale, soulignant le contraste entre l\'image écologique des Jeux de Paris et la réalité industrielle de la banlieue sud.',
+    tags: ['The Guardian', 'Londres', 'Santé Enfants', 'Chemical Exposure', 'Paris'],
+    verifyBadge: 'Média International Indépendant',
+    linkUrl: 'https://www.theguardian.com/environment'
+  },
+  {
+    id: 'news_2025_02_02',
+    category: 'ACADEMIC',
+    categoryLabel: 'Recherche Académique',
+    badgeClass: 'cat-ACADEMIC',
+    publisher: 'MDPI Sustainability & Energy Systems',
+    publisherHandle: '@MDPIOpenAccess',
+    date: '25 Février 2025',
+    monthKey: '2025-02',
+    docType: 'Article de Recherche en Ingénierie Thermique',
+    posture: 'POUR',
+    postureLabel: '🟢 À FAVOR / POUR (Modélisation Énergétique)',
+    postureArgument: 'Démonstration par simulation thermodynamique des gains d\'efficacité carbone de la cogénération urbaine.',
+    tweetSummary: '🔬 Étude @MDPIOpenAccess : modélisation de l\'efficience thermodynamique d\'Ivry-Paris XIII pour le réseau de chaleur urbain et son potentiel d\'abattement carbone fossile.',
+    title: 'Thermodynamic efficiency and district heating integration of large-scale Waste-to-Energy facilities in European capitals',
+    summary: 'Des chercheurs en génie des procédés modélisent le cycle combiné chaleur-électricité de l\'installation d\'Ivry, concluant qu\'une fermeture sans substitut géothermique immédiat forcerait le redémarrage de chaufferies d\'appoint au fioul ou gaz.',
+    tags: ['MDPI', 'Ingénierie', 'Cogénération', 'Chaleur Urbaine', 'Thermodynamique'],
+    verifyBadge: 'Revue Scientifique Open Access',
+    linkUrl: 'https://www.mdpi.com'
+  },
+
+  // --- JUIN 2025 ---
+  {
+    id: 'news_2025_06_01',
+    category: 'INTERNATIONAL',
+    categoryLabel: 'International & Européen',
+    badgeClass: 'cat-INTERNATIONAL',
+    publisher: 'Parlement Européen (Commission ENVI)',
+    publisherHandle: '@Europarl_FR',
+    date: '05 Juin 2025',
+    monthKey: '2025-06',
+    docType: 'Directive Européenne Révisée',
+    posture: 'NEUTRE',
+    postureLabel: '⚪ NEUTRE / CADRE JURIDIQUE EUROPÉEN',
+    postureArgument: 'Encadrement juridique contraignant des émissions industrielles sans interdiction sectorielle.',
+    tweetSummary: '🇪🇺 Le @Europarl_FR durcit la directive IED : fin des exemptions d\'émissions lors des démarrages de fours industriels et renforcement des sanctions à l\'horizon 2027.',
+    title: 'Révision de la Directive sur les Émissions Industrielles (IED) : Nouvelles obligations pour les incinérateurs',
+    summary: 'Le Parlement européen adopte la révision de la directive IED instaurant la surveillance obligatoire en continu des dioxines et furannes (PCDD/F) et des micro-polluants dans toutes les installations de plus de 3 tonnes/heure.',
+    tags: ['Parlement Européen', 'Directive IED', 'Bruxelles', 'Législation', 'Émissions'],
+    verifyBadge: 'Institution Officielle de l\'Union Européenne',
+    linkUrl: 'https://www.europarl.europa.eu'
+  },
+  {
+    id: 'news_2025_06_02',
+    category: 'GOVERNMENTAL',
+    categoryLabel: 'Gouvernemental & Officiel',
+    badgeClass: 'cat-GOVERNMENTAL',
+    publisher: 'Ville de Paris (Conseil de Paris)',
+    publisherHandle: '@Paris',
+    date: '18 Juin 2025',
+    monthKey: '2025-06',
+    docType: 'Délibération du Conseil Municipal de Paris',
+    posture: 'POUR',
+    postureLabel: '🟢 À FAVOR / POUR (Trajectoire de Réduction)',
+    postureArgument: 'Validation du plan territorial de tri et réduction pour alimenter l\'usine avec un déchet résiduel maîtrisé.',
+    tweetSummary: '🏛️ Le Conseil de @Paris adopte son plan B\'OM : objectif de réduire de 30% les déchets résiduels incinérés à Ivry d\'ici 2030 grâce au tri obligatoire des biodéchets.',
+    title: 'Adoption de la stratégie B\'OM : Paris s\'engage dans la baisse programmée des tonnages résiduels envoyés à Ivry',
+    summary: 'La Ville de Paris, principal pourvoyeur en ordures ménagères du SYCTOM, vote un plan ambitieux de collecte séparée des biodéchets et de réemploi, affirmant que la modernisation dimensionnée à 350 000 t est parfaitement cohérente avec cette baisse.',
+    tags: ['Conseil de Paris', 'Biodéchets', 'Plan B OM', 'Économie Circulaire', 'SYCTOM'],
+    verifyBadge: 'Acte Officiel de la Ville de Paris',
+    linkUrl: 'https://www.paris.fr'
+  },
+
+  // --- NOVEMBRE 2025 ---
+  {
+    id: 'news_2025_11_01',
+    category: 'GOVERNMENTAL',
+    categoryLabel: 'Gouvernemental & Officiel',
+    badgeClass: 'cat-GOVERNMENTAL',
+    publisher: 'Préfecture du Val-de-Marne',
+    publisherHandle: '@Prefet94',
+    date: '12 Novembre 2025',
+    monthKey: '2025-11',
+    docType: 'Arrêté Préfectoral Complémentaire',
+    posture: 'NEUTRE',
+    postureLabel: '⚪ NEUTRE / PRESCRIPTION PRÉFECTORALE',
+    postureArgument: 'Décision administrative contraignante imposant des études complémentaires sur les sols périurbains.',
+    tweetSummary: '🏛️ La @Prefet94 impose au SYCTOM une cartographie bisannuelle des retombées de métaux lourds sur les jardins partagés et maraîchages d\'Ivry et Vitry.',
+    title: 'Arrêté n° 2025/1104 : Mise en place d\'un réseau pérenne de biosurveillance des sols et cultures périurbaines',
+    summary: 'La préfète du Val-de-Marne prescrit un plan d\'échantillonnage régulier de terres végétales et de produits maraîchers dans un rayon de 3 km autour du site afin de vérifier l\'absence de bioaccumulation dans la chaîne alimentaire locale.',
+    tags: ['Préfecture 94', 'Arrêté Préfectoral', 'Sols', 'Maraîchage', 'Biosurveillance'],
+    verifyBadge: 'Recueil des Actes Administratifs (RAA)',
+    linkUrl: 'https://www.val-de-marne.gouv.fr'
+  },
+  {
+    id: 'news_2025_11_02',
+    category: 'INDEPENDENT',
+    categoryLabel: 'Enquête Citoyenne & ONG',
+    badgeClass: 'cat-INDEPENDENT',
+    publisher: 'Collectif 3R (Réduire, Réutiliser, Recycler)',
+    publisherHandle: '@Collectif3R',
+    date: '26 Novembre 2025',
+    monthKey: '2025-11',
+    docType: 'Livre Blanc Citoyen & Manifeste',
+    posture: 'CONTRE',
+    postureLabel: '🔴 EN CONTRA / CONTRE-PROPOSITION CITOYENNE',
+    postureArgument: 'Proposition d\'un plan de compostage décentralisé rendant obsolète la reconstruction industrielle.',
+    tweetSummary: '📖 Le @Collectif3R publie son livre blanc : propositions concrètes de valorisation organique locale et alternatives complètes au méga-chantier d\'incinération d\'Ivry.',
+    title: 'Livre Blanc 2025 : Pour une métropole sans incinération géante, le scénario alternatif zéro déchet du Val-de-Marne',
+    summary: 'Le Collectif 3R remet aux élus franciliens un mémoire technique chiffré démontrant qu\'un investissement équivalent dans des unités de méthanisation et de compostage de proximité créerait 4 fois plus d\'emplois locaux non délocalisables.',
+    tags: ['Collectif 3R', 'Livre Blanc', 'Zéro Déchet', 'Emplois Locaux', 'Compostage'],
+    verifyBadge: 'Association Agréée Loi 1901',
+    linkUrl: 'http://collectif3r.org'
+  },
+
   // --- FÉVRIER 2026 ---
   {
     id: 'news_2026_02_01',
@@ -625,7 +1159,7 @@ const NEWS_DATASET = [
   {
     id: 'news_2026_06_01',
     category: 'INDEPENDENT',
-    categoryLabel: 'Enquête Citoyenne & Indépendante',
+    categoryLabel: 'Enquête Citoyenne & ONG',
     badgeClass: 'cat-INDEPENDENT',
     publisher: 'Zero Waste France',
     publisherHandle: '@ZeroWasteFR',
@@ -667,7 +1201,7 @@ const NEWS_DATASET = [
   {
     id: 'news_2026_07_01',
     category: 'PUBLIC_MEDIA',
-    categoryLabel: 'Média Public / Français',
+    categoryLabel: 'Presse Nationale & Médias FR',
     badgeClass: 'cat-PUBLIC_MEDIA',
     publisher: 'France 3 Paris Île-de-France',
     publisherHandle: '@France3Paris',
@@ -709,7 +1243,7 @@ const NEWS_DATASET = [
   {
     id: 'news_2026_08_01',
     category: 'PUBLIC_MEDIA',
-    categoryLabel: 'Média Public / Français',
+    categoryLabel: 'Presse Nationale & Médias FR',
     badgeClass: 'cat-PUBLIC_MEDIA',
     publisher: 'CPCU & Réseau de Chaleur Métropolitain',
     publisherHandle: '@CPCUChaleur',
@@ -749,7 +1283,7 @@ const NEWS_DATASET = [
   {
     id: 'news_2026_08_03',
     category: 'PUBLIC_MEDIA',
-    categoryLabel: 'Média Public / Français',
+    categoryLabel: 'Presse Nationale & Médias FR',
     badgeClass: 'cat-PUBLIC_MEDIA',
     publisher: 'Citoyens.com (Val-de-Marne 94)',
     publisherHandle: '@Citoyens_94',
@@ -771,7 +1305,7 @@ const NEWS_DATASET = [
   {
     id: 'news_2026_09_01',
     category: 'INDEPENDENT',
-    categoryLabel: 'Enquête Citoyenne & Indépendante',
+    categoryLabel: 'Enquête Citoyenne & ONG',
     badgeClass: 'cat-INDEPENDENT',
     publisher: 'Reporterre (Le quotidien de l\'écologie)',
     publisherHandle: '@Reporterre',
@@ -791,7 +1325,7 @@ const NEWS_DATASET = [
   {
     id: 'news_2026_09_02',
     category: 'PUBLIC_MEDIA',
-    categoryLabel: 'Média Public / Français',
+    categoryLabel: 'Presse Nationale & Médias FR',
     badgeClass: 'cat-PUBLIC_MEDIA',
     publisher: 'Le Parisien (Édition Val-de-Marne 94)',
     publisherHandle: '@LeParisien_94',
@@ -851,7 +1385,7 @@ const NEWS_DATASET = [
   {
     id: 'news_2026_09_05',
     category: 'INDEPENDENT',
-    categoryLabel: 'Enquête Citoyenne & Indépendante',
+    categoryLabel: 'Enquête Citoyenne & ONG',
     badgeClass: 'cat-INDEPENDENT',
     publisher: 'Collectif 3R (Réduire, Réutiliser, Recycler)',
     publisherHandle: '@Collectif3R',
@@ -872,14 +1406,17 @@ const NEWS_DATASET = [
 
 // Estados de filtrado triple (Categoría, Mes y Postura)
 let CURRENT_NEWS_FILTER = 'ALL';
-let CURRENT_MONTH_FILTER = '2026-09'; // Inicia enfocado en el mes actual con opción de retroceder o ver todo
+let CURRENT_MONTH_FILTER = '2026-09'; // Inicia enfocado en el hito actual
 let CURRENT_POSTURE_FILTER = 'ALL';
-let CURRENT_MONTH_INDEX = 6; // Índice de '2026-09' en MONTHS_CHRONO
+let CURRENT_MONTH_INDEX = MONTHS_CHRONO.length - 1; // Último mes por defecto
 let AUTO_PLAY_INTERVAL = null;
 let IS_AUTO_PLAYING = false;
 
 function initNewsFeed() {
-  // 1. Filtros de Categoría
+  // 1. Renderizar dinámicamente las píldoras de la barra de meses
+  renderTimelineMonthsBar();
+
+  // 2. Filtros de Categoría
   const pillsContainer = document.getElementById('news-filter-pills');
   if (pillsContainer) {
     const pills = pillsContainer.querySelectorAll('.filter-pill');
@@ -893,20 +1430,7 @@ function initNewsFeed() {
     });
   }
 
-  // 2. Filtros de Progresión Mes por Mes (Timeline Stepper)
-  const monthBar = document.getElementById('timeline-months-bar');
-  if (monthBar) {
-    const monthPills = monthBar.querySelectorAll('.month-pill');
-    monthPills.forEach(mp => {
-      mp.addEventListener('click', () => {
-        stopAutoPlay();
-        const mKey = mp.getAttribute('data-month');
-        setMonthFilter(mKey);
-      });
-    });
-  }
-
-  // 3. Controles de Navegación de la Línea de Tiempo (Prev, Next, First, Last, Play, All)
+  // 3. Controles de Navegación de la Línea de Tiempo
   const btnPrev = document.getElementById('timeline-prev-btn');
   if (btnPrev) {
     btnPrev.addEventListener('click', () => {
@@ -954,7 +1478,7 @@ function initNewsFeed() {
     });
   }
 
-  // 4. Filtros de Postura (A Favor, En Contra, Neutro)
+  // 4. Filtros de Postura
   const postureBtns = document.querySelectorAll('.posture-btn');
   postureBtns.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -965,21 +1489,66 @@ function initNewsFeed() {
     });
   });
 
-  // Render inicial
+  // Render inicial en el mes actual (Septembre 2026)
   setMonthFilter('2026-09');
+}
+
+function renderTimelineMonthsBar() {
+  const bar = document.getElementById('timeline-months-bar');
+  if (!bar) return;
+
+  let html = '';
+  MONTHS_CHRONO.forEach(mKey => {
+    const meta = MONTHS_META[mKey];
+    const items = NEWS_DATASET.filter(n => n.monthKey === mKey);
+    const count = items.length;
+
+    // Determinar estilo de punto según postura
+    const hasPour = items.some(n => n.posture === 'POUR');
+    const hasContre = items.some(n => n.posture === 'CONTRE');
+    let dotClass = 'neutre';
+    if (hasPour && hasContre) dotClass = 'split';
+    else if (hasContre) dotClass = 'contre';
+    else if (hasPour) dotClass = 'pour';
+
+    const shortLabel = meta ? meta.name : mKey;
+    html += `
+      <button class="month-pill" data-month="${mKey}">
+        <span class="pill-dot ${dotClass}"></span> ${shortLabel} <span class="badge-mini">${count}</span>
+      </button>
+    `;
+  });
+
+  // Botón panorámico "Vue d'ensemble"
+  html += `
+    <button class="month-pill" data-month="ALL">
+      <span>🌐</span> Vue d'ensemble (Tous) <span class="badge-mini" id="badge-total-timeline">${NEWS_DATASET.length}</span>
+    </button>
+  `;
+
+  bar.innerHTML = html;
+
+  // Asignar listeners a los botones generados
+  const monthPills = bar.querySelectorAll('.month-pill');
+  monthPills.forEach(mp => {
+    mp.addEventListener('click', () => {
+      stopAutoPlay();
+      const mKey = mp.getAttribute('data-month');
+      setMonthFilter(mKey);
+    });
+  });
 }
 
 function setMonthFilter(monthKey) {
   CURRENT_MONTH_FILTER = monthKey;
 
-  // Sincronizar índice
   if (monthKey === 'ALL') {
     CURRENT_MONTH_INDEX = -1;
   } else {
     CURRENT_MONTH_INDEX = MONTHS_CHRONO.indexOf(monthKey);
   }
 
-  // Actualizar píldoras activas en la barra de meses
+  // Actualizar píldoras activas en la barra
   const monthBar = document.getElementById('timeline-months-bar');
   if (monthBar) {
     const pills = monthBar.querySelectorAll('.month-pill');
@@ -1018,7 +1587,6 @@ function toggleAutoPlay() {
       btn.classList.add('playing');
       btn.innerHTML = '⏸ Pause';
     }
-    // Si estaba en el último mes o en ALL, arrancar desde el principio
     if (CURRENT_MONTH_INDEX === -1 || CURRENT_MONTH_INDEX >= MONTHS_CHRONO.length - 1) {
       CURRENT_MONTH_INDEX = 0;
       setMonthFilter(MONTHS_CHRONO[0]);
@@ -1072,9 +1640,9 @@ function updateMonthClimateDashboard() {
 
   // Actualizar textos contextuales del clima de opinión
   if (CURRENT_MONTH_FILTER === 'ALL') {
-    if (displayEl) displayEl.innerText = '🌐 VUE D\'ENSEMBLE (TOUS LES MOIS)';
-    if (titleEl) titleEl.innerText = 'Trajectoire Temporelle Globale : Polarisation & Mobilisation Citoyenne Croissante';
-    if (summaryEl) summaryEl.innerText = 'Depuis février 2026, l\'observation montre un glissement d\'un débat technique initial vers un recours contentieux au Tribunal de Melun et une demande citoyenne de capteurs de pointe face aux nuisances olfactives.';
+    if (displayEl) displayEl.innerText = `🌐 VUE D'ENSEMBLE HISTORIQUE (${total} DOCUMENTS 2022-2026)`;
+    if (titleEl) titleEl.innerText = 'Trajectoire Temporelle Globale : Du Scandale Sanitaire des Dioxines aux Recours en Justice';
+    if (summaryEl) summaryEl.innerText = 'L\'analyse longitudinale (2022-2026) met en évidence l\'évolution d\'une controverse locale axée sur les œufs contaminés vers un conflit territorial majeur combinant science citoyenne, alertes scolaires et recours contentieux administratifs.';
   } else {
     const meta = MONTHS_META[CURRENT_MONTH_FILTER];
     if (meta) {
@@ -1128,16 +1696,10 @@ function filterNewsItems() {
   const query = searchInput ? searchInput.value.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim() : '';
 
   const filtered = NEWS_DATASET.filter(item => {
-    // 1. Filtro de Categoría
     const matchCat = (CURRENT_NEWS_FILTER === 'ALL' || item.category === CURRENT_NEWS_FILTER);
-
-    // 2. Filtro de Mes (Progresión Temporal)
     const matchMonth = (CURRENT_MONTH_FILTER === 'ALL' || item.monthKey === CURRENT_MONTH_FILTER);
-
-    // 3. Filtro de Postura (Pour / Contre / Neutre)
     const matchPosture = (CURRENT_POSTURE_FILTER === 'ALL' || item.posture === CURRENT_POSTURE_FILTER);
 
-    // 4. Filtro de Búsqueda de Texto
     if (!query) return matchCat && matchMonth && matchPosture;
 
     const searchableText = `${item.title} ${item.tweetSummary} ${item.summary} ${item.publisher} ${item.publisherHandle} ${item.tags.join(' ')} ${item.docType} ${item.postureArgument}`
@@ -1153,10 +1715,10 @@ function filterNewsItems() {
 
 // Configuración de metadatos de categorías para agrupación
 const CATEGORIES_DEF = [
-  { key: 'GOVERNMENTAL', icon: '🏛️', name: 'Gouvernemental, Préfecture & Actes Officiels' },
-  { key: 'PUBLIC_MEDIA', icon: '📰', name: 'Presse Régionale & Médias Français' },
+  { key: 'GOVERNMENTAL', icon: '🏛️', name: 'Gouvernemental, Préfecture, Mairies & Actes Officiels' },
+  { key: 'PUBLIC_MEDIA', icon: '📰', name: 'Presse Nationale & Médias d\'Investigation Français' },
   { key: 'INDEPENDENT', icon: '🌱', name: 'Collectifs Citoyens, ONG & Enquêtes Indépendantes' },
-  { key: 'ACADEMIC', icon: '🔬', name: 'Recherche Scientifique & Veille Académique' },
+  { key: 'ACADEMIC', icon: '🔬', name: 'Recherche Scientifique & Veille Académique (Universités / CNRS)' },
   { key: 'INTERNATIONAL', icon: '🌍', name: 'Instances Internationales & Union Européenne' }
 ];
 
@@ -1170,19 +1732,18 @@ function renderNewsGrid(items) {
         <span style="font-size: 2.2rem;">🔍</span>
         <h4 style="color: #cbd5e1; margin-top: 0.65rem; font-size: 1.1rem;">Aucun enregistrement trouvé pour ce filtre combiné</h4>
         <p style="font-size: 0.85rem; max-width: 500px; margin: 0.4rem auto 0; line-height: 1.45;">
-          Aucune publication de ce type n'a été recensée pour le mois sélectionné avec cette posture. Cliquez sur <strong>« Tous les mois »</strong> ou réinitialisez le filtre de posture pour élargir la vue.
+          Aucune publication de ce type n'a été recensée pour le jalon sélectionné avec cette posture. Cliquez sur <strong>« Tous les jalons »</strong> ou réinitialisez le filtre de posture pour élargir la vue.
         </p>
       </div>
     `;
     return;
   }
 
-  // Agrupar los registros por TIPO / CANAL en el mes seleccionado
   let html = '';
 
   CATEGORIES_DEF.forEach(catDef => {
     const catItems = items.filter(it => it.category === catDef.key);
-    if (catItems.length === 0) return; // Solo renderizar categorías que tengan registros en la selección activa
+    if (catItems.length === 0) return;
 
     html += `
       <div class="channel-group-block">
@@ -1255,6 +1816,3 @@ function renderNewsGrid(items) {
 
   container.innerHTML = html;
 }
-
-
-
