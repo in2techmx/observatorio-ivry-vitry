@@ -84,11 +84,11 @@
   "qa_assessment": {
     "evaluator": "FS Guardian & DD",
     "verdict": "CONFORME — PROYECTO SELLADO v0.9.0",
-    "timestamp": "2026-09-24 23:49",
-    "comments": "El MVP Vertical Slice cumple al 100% con los criterios de la FS/FT v0.9.0. Suite de 10 pruebas unitarias en verde. Dictámenes de seguridad (Gate 2) y auditoría (Gate 3) aprobados.",
+    "timestamp": "2026-09-24 23:54",
+    "comments": "Restauración de infraestructura y corrección de regresión completada: todas las 6 pestañas (KPIs, Mapa GIS Leaflet, Simulador Laya/Encuesta, Benchmarking, Asistente IA y Línea de Tiempo Minimalista 3 Secciones) 100% funcionales y ordenadas. Suite de 10/10 pruebas en verde.",
     "second_brain_alerts": [
       "Regla ADR-001: Pruebas deterministas superadas.",
-      "Regla ADR-003: Cero degradación por mocks; datos reales de Ivry y Vitry integrados."
+      "Regla ADR-003: Cero degradación por mocks; preservación estricta de componentes probados."
     ]
   }
 }
