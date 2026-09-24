@@ -73,3 +73,16 @@
   - **GIVEN** la pregunta: "¿Qué acuerdos de modernización y reducción de capacidad se adoptaron para la planta de Ivry?".
   - **WHEN** el asistente conversacional procesa la consulta.
   - **THEN** la respuesta cita textualmente el acuerdo de la comisión de seguimiento del SYCTOM con fecha y enlace al documento oficial, o se abstiene explícitamente si la información no consta en el corpus verificado.
+
+---
+
+### US-06: Seguimiento Multicanal de Noticias y Publicaciones (Gubernamentales, Públicas, Independientes, Académicas, Internacionales)
+**Como** Investigador, Periodista o Ciudadano de Ivry/Vitry,  
+**Quiero** acceder a una sección interactiva de seguimiento estructurado de noticias y expedientes clasificados en 5 canales,  
+**Para** contrastar las decisiones oficiales del Estado con la cobertura de prensa, las investigaciones independientes de colectivos vecinales, la evidencia científica epidemiológica y la jurisprudencia europea.
+
+- **Criterio de Aceptación 1 (Filtrado Dinámico por Canal y Búsqueda por Texto):**
+  - **GIVEN** la Pestaña 6 "Veille & Actualités Multicanales" abierta en el navegador.
+  - **WHEN** el usuario selecciona cualquiera de las píldoras de filtro (Gouvernemental, Médias FR, Indépendant, Académique, International) o introduce un término en el buscador (ej. "dioxine" o "recours").
+  - **THEN** el tablero filtra y renderiza de forma reactiva en menos de 100 ms las tarjetas correspondientes, mostrando para cada una el medio emisor, la fecha, el resumen fáctico, las etiquetas temáticas y el sello de verificación de fuente.
+

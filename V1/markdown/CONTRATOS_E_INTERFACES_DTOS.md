@@ -189,3 +189,32 @@ export interface AgenticBIResponseDTO {
   scientificDisclaimer: string; // "Las correlaciones mostradas son de carácter indicativo conforme a la especificación v0.9.0."
 }
 ```
+
+---
+
+## 5. MÓDULO DE VEILLE MULTICANALE & SEGUIMIENTO DOCUMENTAL
+
+```typescript
+export type NewsStreamCategory = 
+  | 'GOVERNMENTAL'    // Préfecture 94, RAA, SYCTOM, Mairies, DREAL
+  | 'PUBLIC_MEDIA'    // Le Parisien, Citoyens.com, France 3, Presse Nationale
+  | 'INDEPENDENT'     // Collectif 3R, Reporterre, Zero Waste France, Blogs
+  | 'ACADEMIC'        // Inserm, Santé Publique France, UPEC, CNRS, Thèses
+  | 'INTERNATIONAL';  // CJUE, Zero Waste Europe, EEA, OMS
+
+export interface NewsItemDTO {
+  id: string; // UUID o slug
+  category: NewsStreamCategory;
+  categoryLabel: string;
+  badgeClass: string;
+  publisher: string;
+  date: string; // Fecha de publicación oficial
+  docType: 'Arrêté Préfectoral' | 'Délibération' | 'Article de Presse' | 'Enquête' | 'Étude Scientifique' | 'Arrêt Européen';
+  title: string;
+  summary: string;
+  tags: string[];
+  verifyBadge: string; // ej. "Source Officielle Actée", "Revue à Comité de Lecture", "Média Agréé"
+  linkUrl: string; // Enlace a la fuente primaria o expediente
+}
+```
+

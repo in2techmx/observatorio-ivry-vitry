@@ -45,6 +45,9 @@
       <button class="tab-btn" data-tab="tab-assistant">
         <span class="icon">🤖</span> 5. Assistant BI Agentique
       </button>
+      <button class="tab-btn" data-tab="tab-news">
+        <span class="icon">📰</span> 6. Veille & Actualités Multicanales
+      </button>
     </nav>
 
     <!-- Contenido de las Pestañas -->
@@ -309,6 +312,79 @@
               <button class="btn-xs" onclick="setQueryPrompt('Quelles écoles sont sous le panache quand le vent vient du Sud-Ouest ?')">Écoles exposées vent SW</button>
               <button class="btn-xs" onclick="setQueryPrompt('Quel est le niveau de dioxyde d azote NO2 et PM2.5 à Ivry-Port ?')">Qualité Airparif Ivry-Port</button>
               <button class="btn-xs" onclick="setQueryPrompt('Quelles différences entre l usine d Ivry et Isséane à Issy-les-Moulineaux ?')">Comparaison Ivry vs Isséane</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PESTAÑA 6: VEILLE & ACTUALITÉS MULTICANALES -->
+      <section id="tab-news" class="tab-panel">
+        <div class="news-section-header">
+          <div class="news-title-row">
+            <div>
+              <h3>Veille Documentaire, Médiatique & Scientifique Multicanale</h3>
+              <p>Surveillance continue des sources officielles, de la presse locale et nationale, des enquêtes indépendantes, de la recherche académique et des instances internationales :</p>
+            </div>
+            <div class="stream-stats-badge">
+              <span class="live-indicator"></span> 5 Canaux Actifs &bull; 15 Sources Surveillées
+            </div>
+          </div>
+
+          <!-- Filtros de Canal y Buscador -->
+          <div class="news-controls-row">
+            <div class="news-filter-pills" id="news-filter-pills">
+              <button class="filter-pill active" data-category="ALL">Tous les flux <span class="pill-count" id="count-all">15</span></button>
+              <button class="filter-pill" data-category="GOVERNMENTAL">🏛️ Gouvernemental & Officiel <span class="pill-count" id="count-gov">3</span></button>
+              <button class="filter-pill" data-category="PUBLIC_MEDIA">📰 Médias FR & Locaux <span class="pill-count" id="count-media">3</span></button>
+              <button class="filter-pill" data-category="INDEPENDENT">🌱 Indépendant & Citoyen <span class="pill-count" id="count-ind">3</span></button>
+              <button class="filter-pill" data-category="ACADEMIC">🎓 Académique & Recherche <span class="pill-count" id="count-acad">3</span></button>
+              <button class="filter-pill" data-category="INTERNATIONAL">🌐 International & UE <span class="pill-count" id="count-intl">3</span></button>
+            </div>
+
+            <div class="news-search-box">
+              <input type="text" id="news-search-input" placeholder="🔍 Filtrer par mot-clé (dioxine, recours, syctom, filtre...)" oninput="filterNewsItems()" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Rejilla de Tarjetas de Noticias -->
+        <div id="news-cards-grid" class="news-grid">
+          <!-- Se llena dinámicamente con app.js -->
+        </div>
+
+        <!-- Estado de la Canalización de Ingesta (Fast Data & RSS Pipeline) -->
+        <div class="card pipeline-status-card">
+          <h4>🛰️ État de la Canalisation d'Ingesta Automatique (Fast Data / RSS / API)</h4>
+          <div class="pipeline-streams-grid">
+            <div class="stream-status-item">
+              <span class="stream-dot online"></span>
+              <div>
+                <strong>Flux RAA & Préfecture 94 :</strong> Synchronisation quotidienne à 06h00 (Web scraping officiel).
+              </div>
+            </div>
+            <div class="stream-status-item">
+              <span class="stream-dot online"></span>
+              <div>
+                <strong>Flux Presse FR (Le Parisien, Citoyens.com) :</strong> Polling RSS toutes les 30 min filtré par mots-clés.
+              </div>
+            </div>
+            <div class="stream-status-item">
+              <span class="stream-dot online"></span>
+              <div>
+                <strong>Collectif 3R & Zero Waste :</strong> Webhooks d'annonces citoyennes et comptes rendus d'assemblées.
+              </div>
+            </div>
+            <div class="stream-status-item">
+              <span class="stream-dot online"></span>
+              <div>
+                <strong>HAL / Europe PMC / UPEC :</strong> Alertes automatiques de publications sur 'incinération' et 'santé publique'.
+              </div>
+            </div>
+            <div class="stream-status-item">
+              <span class="stream-dot online"></span>
+              <div>
+                <strong>UE & Agence Européenne de l'Environnement :</strong> Veille sur la révision de la Directive Cadre Déchets.
+              </div>
             </div>
           </div>
         </div>

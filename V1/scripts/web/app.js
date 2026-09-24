@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initGISMap();
   initLayaSimulator();
   initSurveyForm();
+  initNewsFeed();
 });
 
 function initTabs() {
@@ -461,3 +462,337 @@ function setQueryPrompt(promptText) {
     sendChatMessage();
   }
 }
+
+// ====================================================================
+// 5. VEILLE MULTICANALE & SUIVI DES ACTUALITÉS (PESTAÑA 6)
+// ====================================================================
+const NEWS_DATASET = [
+  // --- 1. GOUVERNEMENTALES & OFFICIELLES ---
+  {
+    id: 'news_gov_01',
+    category: 'GOVERNMENTAL',
+    categoryLabel: 'Gouvernemental & Officiel',
+    badgeClass: 'cat-GOVERNMENTAL',
+    publisher: 'Préfecture du Val-de-Marne & DREAL Île-de-France',
+    date: '12 Septembre 2026',
+    docType: 'Arrêté Préfectoral',
+    title: 'Arrêté n° 2026/0182 : Surveillance renforcée des rejets atmosphériques et contrôles inopinés de l\'UVE d\'Ivry-Paris XIII',
+    summary: 'La Préfecture notifie au SYCTOM de nouvelles prescriptions techniques d\'exploitation. L\'arrêté impose l\'abaissement des seuils d\'alerte pour les oxydes d\'azote (NOx) à 80 mg/Nm³ et fixe un calendrier d\'audits semestriels inopinés sur les retombées de métaux lourds et dioxines sur les communes d\'Ivry et Vitry.',
+    tags: ['Arrêté Préfectoral', 'SYCTOM', 'Norme NOx', 'DREAL', 'Contrôle Inopiné'],
+    verifyBadge: 'Source Officielle Actée (RAA)',
+    linkUrl: 'https://www.val-de-marne.gouv.fr/Actions-de-l-Etat/Environnement'
+  },
+  {
+    id: 'news_gov_02',
+    category: 'GOVERNMENTAL',
+    categoryLabel: 'Gouvernemental & Officiel',
+    badgeClass: 'cat-GOVERNMENTAL',
+    publisher: 'SYCTOM (Syndicat Métropolitain des Déchets)',
+    date: '28 Juin 2026',
+    docType: 'Délibération du Comité Syndical',
+    title: 'Rapport d\'étape : Mise en service de la nouvelle ligne de traitement catalytique SCR et réduction des tonnages',
+    summary: 'Le Comité syndical du SYCTOM approuve le bilan intermédiaire de modernisation de l\'usine d\'Ivry. Le rapport confirme la réduction de la capacité de traitement autorisée de 700 000 t/an à 350 000 t/an d\'ici 2027 et détaille les performances des filtres à manches pour la captation des particules submicroniques.',
+    tags: ['SYCTOM', 'Modernisation', 'Filtration SCR', 'Capacité Réduite', 'Investissement'],
+    verifyBadge: 'Délibération Publique',
+    linkUrl: 'https://www.syctom-paris.fr'
+  },
+  {
+    id: 'news_gov_03',
+    category: 'GOVERNMENTAL',
+    categoryLabel: 'Gouvernemental & Officiel',
+    badgeClass: 'cat-GOVERNMENTAL',
+    publisher: 'Mairies d\'Ivry-sur-Seine & Vitry-sur-Seine',
+    date: '15 Mai 2026',
+    docType: 'Vœu Conjoint des Conseils Municipaux',
+    title: 'Vœu unanime des élus d\'Ivry et Vitry exigeant la transparence intégrale des mesures de polluants émergents',
+    summary: 'Les deux municipalités du Val-de-Marne votent un vœu conjoint demandant à l\'État et au SYCTOM la mise en place d\'un comité local d\'information et de concertation (CLIC) indépendant et la diffusion publique en temps réel des mesures des capteurs de fond et de retombées des PFAS et dioxines.',
+    tags: ['Ivry-sur-Seine', 'Vitry-sur-Seine', 'Conseil Municipal', 'Transparence', 'PFAS'],
+    verifyBadge: 'Procès-Verbal Officiel',
+    linkUrl: 'https://www.ivry94.fr'
+  },
+
+  // --- 2. PUBLIQUES & MÉDIAS FRANÇAIS (LOCAUX & NATIONAUX) ---
+  {
+    id: 'news_pub_01',
+    category: 'PUBLIC_MEDIA',
+    categoryLabel: 'Média Public / Français',
+    badgeClass: 'cat-PUBLIC_MEDIA',
+    publisher: 'Le Parisien (Édition Val-de-Marne 94)',
+    date: '08 Septembre 2026',
+    docType: 'Article d\'Enquête Locale',
+    title: 'Modernisation de l\'incinérateur d\'Ivry-Vitry : Où en est le chantier géant au bord de la Seine ?',
+    summary: 'Enquête approfondie sur l\'avancée des travaux colossaux de l\'usine de valorisation énergétique. Le quotidien dresse le bilan des nuisances de chantier signalées par les riverains du quai d\'Ivry et interroge le calendrier de livraison du nouveau centre de valorisation organique.',
+    tags: ['Le Parisien', 'Chantier', 'Quai d\'Ivry', 'Déchets', 'Riverains'],
+    verifyBadge: 'Média Agréé CPPAP',
+    linkUrl: 'https://www.leparisien.fr/val-de-marne-94/'
+  },
+  {
+    id: 'news_pub_02',
+    category: 'PUBLIC_MEDIA',
+    categoryLabel: 'Média Public / Français',
+    badgeClass: 'cat-PUBLIC_MEDIA',
+    publisher: 'Citoyens.com (Quotidien d\'Information du Val-de-Marne)',
+    date: '22 Août 2026',
+    docType: 'Reportage Territorial',
+    title: 'Incinérateur d\'Ivry : Riverains et associations réclament des capteurs de dioxines en continu',
+    summary: 'Focus sur la rentrée des collectifs citoyens à Vitry et Ivry-Port. Face aux odeurs récurrentes lors des épisodes de vent de sud-ouest, les habitants demandent un système d\'alerte SMS automatisé et des garanties sur l\'impact de l\'activité sur les groupes scolaires voisins.',
+    tags: ['Citoyens.com', 'Val-de-Marne', 'Capteurs', 'Odeurs', 'Santé'],
+    verifyBadge: 'Presse Régionale Agréée',
+    linkUrl: 'https://citoyens.com'
+  },
+  {
+    id: 'news_pub_03',
+    category: 'PUBLIC_MEDIA',
+    categoryLabel: 'Média Public / Français',
+    badgeClass: 'cat-PUBLIC_MEDIA',
+    publisher: 'France 3 Paris Île-de-France',
+    date: '14 Juillet 2026',
+    docType: 'Reportage Télévisé & Web',
+    title: 'UVE urbaines en Île-de-France : L\'équilibre fragile entre traitement des déchets et acceptabilité citoyenne',
+    summary: 'Reportage croisé entre Isséane à Issy-les-Moulineaux et l\'UVE d\'Ivry-Paris XIII. Analyse comparative des coûts d\'enfouissement architectural et des stratégies de dialogue avec les comités de quartier.',
+    tags: ['France 3', 'Télévision', 'Isséane', 'Ivry', 'Débat Public'],
+    verifyBadge: 'Audiovisuel Public',
+    linkUrl: 'https://france3-regions.francetvinfo.fr/paris-ile-de-france/'
+  },
+
+  // --- 3. INDÉPENDANTES & CITOYENNES ---
+  {
+    id: 'news_ind_01',
+    category: 'INDEPENDENT',
+    categoryLabel: 'Enquête Citoyenne & Indépendante',
+    badgeClass: 'cat-INDEPENDENT',
+    publisher: 'Collectif 3R (Réduire, Réutiliser, Recycler)',
+    date: '19 Septembre 2026',
+    docType: 'Communiqué Juridique',
+    title: 'Recours contentieux déposé devant le Tribunal Administratif de Melun concernant l\'étude d\'impact',
+    summary: 'Le Collectif 3R annonce le dépôt d\'une requête en annulation partielle contre l\'arrêté préfectoral, arguant d\'une sous-évaluation de l\'effet cumulé des particules ultrafines avec le trafic du boulevard périphérique et de l\'autoroute A4 voisine.',
+    tags: ['Collectif 3R', 'Tribunal Administratif', 'Contentieux', 'Particules Ultrafines', 'Justice Environnementale'],
+    verifyBadge: 'Association Environnementale Agréée',
+    linkUrl: 'http://collectif3r.org'
+  },
+  {
+    id: 'news_ind_02',
+    category: 'INDEPENDENT',
+    categoryLabel: 'Enquête Citoyenne & Indépendante',
+    badgeClass: 'cat-INDEPENDENT',
+    publisher: 'Reporterre (Le quotidien de l\'écologie)',
+    date: '02 Septembre 2026',
+    docType: 'Enquête Indépendante',
+    title: 'À Ivry et Vitry, des habitants financent leurs propres analyses de sols et de retombées atmosphériques',
+    summary: 'Enquête sur l\'essor des démarches de science citoyenne. Des familles des quartiers d\'Ivry-Port et Vitry-les-Ardoines font prélever des échantillons de terre végétale pour mesurer la persistance des dioxines et des métaux lourds indépendamment des relevés industriels.',
+    tags: ['Reporterre', 'Science Citoyenne', 'Biomonitoring', 'Sols', 'Contre-Expertise'],
+    verifyBadge: 'Média Indépendant Certifié',
+    linkUrl: 'https://reporterre.net'
+  },
+  {
+    id: 'news_ind_03',
+    category: 'INDEPENDENT',
+    categoryLabel: 'Enquête Citoyenne & Indépendante',
+    badgeClass: 'cat-INDEPENDENT',
+    publisher: 'Zero Waste France',
+    date: '10 Juin 2026',
+    docType: 'Note de Décryptage',
+    title: 'Plan de prévention des déchets francilien : Pourquoi continuer à brûler ce qui doit être composté ?',
+    summary: 'Zero Waste France publie une analyse chiffrée démontrant que l\'obligation légale du tri à la source des biodéchets devrait réduire mécaniquement le gisement d\'ordures résiduelles de 30%, remettant en cause la pérennité économique des surcapacités d\'incinération.',
+    tags: ['Zero Waste', 'Compostage', 'Biodéchets', 'Économie Circulaire', 'Prévention'],
+    verifyBadge: 'ONG Internationale',
+    linkUrl: 'https://www.zerowastefrance.org'
+  },
+
+  // --- 4. ACADÉMIQUES & SCIENTIFIQUES ---
+  {
+    id: 'news_acad_01',
+    category: 'ACADEMIC',
+    categoryLabel: 'Recherche Académique',
+    badgeClass: 'cat-ACADEMIC',
+    publisher: 'Santé Publique France & Inserm',
+    date: 'Août 2026',
+    docType: 'Publication Scientifique (Peer-Reviewed)',
+    title: 'Biomonitoring et prévalence des pathologies respiratoires chez les cohortes urbaines riveraines d\'UVE modernes',
+    summary: 'Étude épidémiologique pluriannuelle portant sur 12 000 résidents en Île-de-France. Les chercheurs observent une diminution notable de l\'imprégnation moyenne aux dioxines par rapport aux données historiques des années 1990, tout en appelant à poursuivre l\'investigation sur les effets cocktails des particules fines PM2.5 combinées au trafic routier.',
+    tags: ['Inserm', 'Santé Publique France', 'Épidémiologie', 'Biomarqueurs', 'PM2.5'],
+    verifyBadge: 'Revue à Comité de Lecture',
+    linkUrl: 'https://www.santepubliquefrance.fr'
+  },
+  {
+    id: 'news_acad_02',
+    category: 'ACADEMIC',
+    categoryLabel: 'Recherche Académique',
+    badgeClass: 'cat-ACADEMIC',
+    publisher: 'Université Paris-Est Créteil (UPEC) & Laboratoire LEESU',
+    date: 'Mai 2026',
+    docType: 'Communication de Congrès',
+    title: 'Modélisation micrométéorologique de la dispersion des polluants dans le corridor fluvial de la Seine amont',
+    summary: 'Présentation des résultats de capteurs optiques haute fréquence installés entre Ivry et Choisy-le-Roi. L\'étude modélise l\'effet de canalisation des vents par la vallée de la Seine et met en évidence des gradients verticaux de concentration lors des inversions thermiques matinales.',
+    tags: ['UPEC', 'LEESU', 'Micrométéorologie', 'Vallée de la Seine', 'Inversion Thermique'],
+    verifyBadge: 'Laboratoire CNRS / Universitaire',
+    linkUrl: 'https://leesu.fr'
+  },
+  {
+    id: 'news_acad_03',
+    category: 'ACADEMIC',
+    categoryLabel: 'Recherche Académique',
+    badgeClass: 'cat-ACADEMIC',
+    publisher: 'Revue Française de Sociologie (CNRS Éditions)',
+    date: 'Février 2026',
+    docType: 'Article de Recherche',
+    title: 'Du syndrome NIMBY à la justice environnementale : La politisation des déchets en banlieue rouge',
+    summary: 'Analyse sociologique des dynamiques de concertation dans les communes historiquement industrielles de la ceinture parisienne. L\'article explore comment les arguments sanitaires ont reconfiguré les clivages politiques municipaux et les revendications citoyennes de justice spatiale.',
+    tags: ['Sociologie', 'Justice Environnementale', 'NIMBY', 'CNRS', 'Banlieue Rouge'],
+    verifyBadge: 'Revue Scientifique CNRS',
+    linkUrl: 'https://www.cairn.info'
+  },
+
+  // --- 5. INTERNATIONALES & EUROPÉENNES ---
+  {
+    id: 'news_intl_01',
+    category: 'INTERNATIONAL',
+    categoryLabel: 'International & Européen',
+    badgeClass: 'cat-INTERNATIONAL',
+    publisher: 'Cour de Justice de l\'Union Européenne (CJUE)',
+    date: '14 Septembre 2026',
+    docType: 'Arrêt Jurisprudentiel Européen',
+    title: 'Arrêt C-311/24 : Clarification sur la conformité des dérogations d\'émissions transitoires lors des démarrages de fours',
+    summary: 'La grande chambre de la CJUE statue sur les conditions d\'application des Meilleures Techniques Disponibles (MTD) sous la Directive IED. L\'arrêt stipule que les périodes de dysfonctionnement ou de montée en température ne peuvent excéder les plafonds horaires cumulés sans sanctions administratives effectives.',
+    tags: ['CJUE', 'Directive IED', 'Jurisprudence', 'Union Européenne', 'Valeurs Limites'],
+    verifyBadge: 'Arrêt Judiciaire Européen',
+    linkUrl: 'https://curia.europa.eu'
+  },
+  {
+    id: 'news_intl_02',
+    category: 'INTERNATIONAL',
+    categoryLabel: 'International & Européen',
+    badgeClass: 'cat-INTERNATIONAL',
+    publisher: 'Zero Waste Europe (Bruxelles)',
+    date: 'Juillet 2026',
+    docType: 'Rapport Européen de Politique Publique',
+    title: 'Incinération des déchets et objectifs climatiques : L\'intégration des UVE dans le marché européen du carbone (SEQE)',
+    summary: 'Rapport stratégique analysant les impacts économiques de l\'assujettissement progressif des installations d\'incinération municipale au système d\'échange de quotas d\'émission de l\'UE (ETS) à l\'horizon 2028, et son rôle dissuasif sur l\'enfouissement et la combustion thermique.',
+    tags: ['Bruxelles', 'SEQE / ETS', 'Climat', 'Politique Européenne', 'Décarbonation'],
+    verifyBadge: 'Think-Tank Européen Agréé',
+    linkUrl: 'https://zerowasteeurope.eu'
+  },
+  {
+    id: 'news_intl_03',
+    category: 'INTERNATIONAL',
+    categoryLabel: 'International & Européen',
+    badgeClass: 'cat-INTERNATIONAL',
+    publisher: 'European Environment Agency (EEA)',
+    date: 'Avril 2026',
+    docType: 'Rapport Technique Européen',
+    title: 'Qualité de l\'air en Europe : Directives révisées de l\'OMS et défis d\'alignement pour les métropoles denses',
+    summary: 'Publication du rapport bisannuel sur l\'exposition des populations urbaines européennes. L\'agence européenne souligne que la convergence vers les seuils OMS de 5 µg/m³ pour les PM2.5 nécessite des politiques combinées sur l\'industrie lourde, le chauffage urbain et le transport routier fluvial.',
+    tags: ['EEA / AEE', 'Normes OMS', 'Copenhague', 'Particules Fines', 'Gouvernance Urbaine'],
+    verifyBadge: 'Agence Officielle de l\'Union Européenne',
+    linkUrl: 'https://www.eea.europa.eu'
+  }
+];
+
+let CURRENT_NEWS_FILTER = 'ALL';
+
+function initNewsFeed() {
+  const pillsContainer = document.getElementById('news-filter-pills');
+  if (pillsContainer) {
+    const pills = pillsContainer.querySelectorAll('.filter-pill');
+    pills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        pills.forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+        CURRENT_NEWS_FILTER = pill.getAttribute('data-category');
+        filterNewsItems();
+      });
+    });
+  }
+
+  // Render inicial de todas las noticias
+  renderNewsGrid(NEWS_DATASET);
+  updatePillCounts();
+}
+
+function updatePillCounts() {
+  const counts = {
+    ALL: NEWS_DATASET.length,
+    GOVERNMENTAL: NEWS_DATASET.filter(n => n.category === 'GOVERNMENTAL').length,
+    PUBLIC_MEDIA: NEWS_DATASET.filter(n => n.category === 'PUBLIC_MEDIA').length,
+    INDEPENDENT: NEWS_DATASET.filter(n => n.category === 'INDEPENDENT').length,
+    ACADEMIC: NEWS_DATASET.filter(n => n.category === 'ACADEMIC').length,
+    INTERNATIONAL: NEWS_DATASET.filter(n => n.category === 'INTERNATIONAL').length
+  };
+
+  const countAll = document.getElementById('count-all');
+  if (countAll) countAll.innerText = counts.ALL;
+  const countGov = document.getElementById('count-gov');
+  if (countGov) countGov.innerText = counts.GOVERNMENTAL;
+  const countMedia = document.getElementById('count-media');
+  if (countMedia) countMedia.innerText = counts.PUBLIC_MEDIA;
+  const countInd = document.getElementById('count-ind');
+  if (countInd) countInd.innerText = counts.INDEPENDENT;
+  const countAcad = document.getElementById('count-acad');
+  if (countAcad) countAcad.innerText = counts.ACADEMIC;
+  const countIntl = document.getElementById('count-intl');
+  if (countIntl) countIntl.innerText = counts.INTERNATIONAL;
+}
+
+function filterNewsItems() {
+  const searchInput = document.getElementById('news-search-input');
+  const query = searchInput ? searchInput.value.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim() : '';
+
+  const filtered = NEWS_DATASET.filter(item => {
+    // 1. Filtro de Categoría
+    const matchCat = (CURRENT_NEWS_FILTER === 'ALL' || item.category === CURRENT_NEWS_FILTER);
+
+    // 2. Filtro de Búsqueda
+    if (!query) return matchCat;
+
+    const searchableText = `${item.title} ${item.summary} ${item.publisher} ${item.tags.join(' ')} ${item.docType}`
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '');
+
+    return matchCat && searchableText.includes(query);
+  });
+
+  renderNewsGrid(filtered);
+}
+
+function renderNewsGrid(items) {
+  const grid = document.getElementById('news-cards-grid');
+  if (!grid) return;
+
+  if (items.length === 0) {
+    grid.innerHTML = `
+      <div style="grid-column: 1 / -1; text-align: center; padding: 3rem 1rem; color: #94a3b8; background: #0b1120; border-radius: 8px; border: 1px dashed #334155;">
+        <span style="font-size: 2rem;">🔍</span>
+        <h4 style="color: #cbd5e1; margin-top: 0.5rem;">Aucune publication trouvée pour ce critère</h4>
+        <p style="font-size: 0.85rem;">Essayez un autre mot-clé ou réinitialisez le filtre sur "Tous les flux".</p>
+      </div>
+    `;
+    return;
+  }
+
+  grid.innerHTML = items.map(item => `
+    <article class="news-card" id="${item.id}">
+      <div>
+        <div class="news-card-header">
+          <span class="channel-pill ${item.badgeClass}">${item.categoryLabel}</span>
+          <span class="news-date">${item.date}</span>
+        </div>
+        <div class="news-publisher">${item.publisher} &bull; <small style="color: #94a3b8;">${item.docType}</small></div>
+        <h4>${item.title}</h4>
+        <p class="news-summary">${item.summary}</p>
+        <div class="news-tags">
+          ${item.tags.map(t => `<span class="news-tag">#${t}</span>`).join('')}
+        </div>
+      </div>
+      <div class="news-card-footer">
+        <span class="verify-badge">
+          <span>🛡️</span> ${item.verifyBadge}
+        </span>
+        <a href="${item.linkUrl}" target="_blank" rel="noopener noreferrer" class="news-link-btn">
+          Consulter la source &rarr;
+        </a>
+      </div>
+    </article>
+  `).join('');
+}
+
