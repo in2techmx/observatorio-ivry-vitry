@@ -1321,39 +1321,44 @@ textarea:focus, input[type="text"]:focus, select:focus {
 /* Métricas del feed social */
 .social-metrics-strip {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1rem;
-  margin-bottom: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 1.1rem;
 }
 
 .social-metric-card {
   background: #0b1120;
   border: 1px solid var(--border-color);
   border-radius: 8px;
-  padding: 0.85rem 1rem;
+  padding: 0.65rem 0.85rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
+  min-height: 74px;
 }
 
 .sm-label {
-  font-size: 0.72rem;
+  font-size: 0.70rem;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   color: var(--text-muted);
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.2rem;
+  line-height: 1.2;
 }
 
 .sm-value {
   font-size: 1.35rem;
   font-weight: 800;
+  line-height: 1.2;
   color: #fff;
+  display: block;
 }
 
 .sm-sub {
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   color: #94a3b8;
-  margin-top: 0.15rem;
+  margin-top: 0.2rem;
 }
 
 .ratio-card {
@@ -1369,8 +1374,9 @@ textarea:focus, input[type="text"]:focus, select:focus {
 .social-ratio-legend {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 0.45rem;
-  font-size: 0.75rem;
+  align-items: center;
+  margin-bottom: 0.35rem;
+  font-size: 0.72rem;
 }
 
 .kpi-chip-sm {
@@ -1803,10 +1809,11 @@ textarea:focus, input[type="text"]:focus, select:focus {
   background: rgba(15, 23, 42, 0.8);
   border-left: 4px solid var(--accent-cyan);
   border-radius: 0 6px 6px 0;
-  padding: 0.75rem 1rem;
+  padding: 0.55rem 0.85rem;
   display: flex;
   flex-direction: column;
-  gap: 0.35rem;
+  gap: 0.25rem;
+  margin-bottom: 0.85rem;
 }
 
 .banner-driver-title {

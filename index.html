@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
   <!-- Leaflet CSS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <link rel="stylesheet" href="./V1/scripts/web/styles.css?v=1.1.0" />
+  <link rel="stylesheet" href="./V1/scripts/web/styles.css?v=1.1.1" />
 </head>
 <body>
   <div class="app-container">
@@ -28,7 +28,7 @@
           <span class="pulse-dot"></span>
           <span>Indice Airparif : <strong>MOYEN (Dégradé PM2.5)</strong></span>
         </div>
-        <div class="version-tag">v0.9.0 (SemVer)</div>
+        <div class="version-tag">v1.1.1 (SemVer)</div>
       </div>
     </header>
 
@@ -241,6 +241,7 @@
                 <span class="sm-sub">Filtre HITL Santé/Odeur</span>
               </div>
               <div class="social-metric-card ratio-card">
+                <span class="sm-label">Répartition du Sentiment</span>
                 <div class="social-ratio-legend">
                   <span class="kpi-chip-sm pour">🟢 Positif : <strong id="sm-pct-pos">0%</strong></span>
                   <span class="kpi-chip-sm neutre">⚪ Neutre : <strong id="sm-pct-neu">0%</strong></span>
@@ -314,6 +315,7 @@
                 <span class="sm-sub" id="hist-top-category">Thème : GOUVERNANCE</span>
               </div>
               <div class="social-metric-card ratio-card">
+                <span class="sm-label">Répartition du Sentiment</span>
                 <div class="social-ratio-legend">
                   <span class="kpi-chip-sm pour">🟢 Positif : <strong id="hist-pct-pos">0%</strong></span>
                   <span class="kpi-chip-sm neutre">⚪ Neutre : <strong id="hist-pct-neu">0%</strong></span>
@@ -644,9 +646,9 @@
 
   <!-- Leaflet JS y Scripts de la Aplicación -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script src="./V1/scripts/core/layaClassifier.js?v=1.1.0"></script>
-  <script src="./V1/scripts/core/windPlumeEngine.js?v=1.1.0"></script>
-  <script src="./V1/scripts/core/surveyValidator.js?v=1.1.0"></script>
-  <script src="./V1/scripts/web/app.js?v=1.1.0"></script>
+  <script src="./V1/scripts/core/layaClassifier.js?v=1.1.1"></script>
+  <script src="./V1/scripts/core/windPlumeEngine.js?v=1.1.1"></script>
+  <script src="./V1/scripts/core/surveyValidator.js?v=1.1.1"></script>
+  <script src="./V1/scripts/web/app.js?v=1.1.1"></script>
 </body>
 </html>

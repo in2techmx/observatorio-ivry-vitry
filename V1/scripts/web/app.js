@@ -3439,7 +3439,7 @@ function loadHistoryMonth(monthKey) {
 
   const bannerTitle = document.getElementById('hist-driver-title');
   const bannerDesc = document.getElementById('hist-driver-desc');
-  if (bannerTitle) bannerTitle.innerText = monthMeta.monthLabel + ' 2026';
+  if (bannerTitle) bannerTitle.innerText = monthMeta.monthLabel.includes('2026') ? monthMeta.monthLabel : `${monthMeta.monthLabel} 2026`;
   if (bannerDesc) bannerDesc.innerText = monthMeta.keyDriverEvent;
 
   const posts = getHistoryMonthPosts(net, m);
