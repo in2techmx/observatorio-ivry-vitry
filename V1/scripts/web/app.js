@@ -31,6 +31,7 @@ if (typeof document !== 'undefined') {
     initLayaSimulator();
     initSurveyForm();
     initSocialSentimentFeed();
+    initHistoryArchive();
     initNewsFeed();
   });
 }
@@ -1125,6 +1126,1227 @@ const HISTORICAL_SUMMARY_2026 = {
   ]
 };
 
+// Base de Données intégrée (54 publications de Janvier à Septembre 2026)
+const HISTORICAL_POSTS_DATABASE_2026 = [
+  {
+    "id": "post_2026_mastodon_001",
+    "monthKey": "2026-01",
+    "network": "mastodon",
+    "networkLabel": "Mastodon / Fediverse",
+    "date": "2026-01-10T09:15:00Z",
+    "author": "Collectif 3R",
+    "handle": "collectif3r@piaille.fr",
+    "avatar": "https://piaille.fr/avatars/original/missing.png",
+    "url": "https://piaille.fr/@collectif3r/112001",
+    "content": "Vœux 2026 : nous demandons un audit citoyen indépendant sur les cheminées de l'incinérateur d'Ivry-Paris XIII. Les riverains ont droit à la transparence intégrale sur les dioxines. #Ivry #Incinérateur",
+    "laya": {
+      "sentimentScore": -0.45,
+      "sentimentLabel": "NEGATIVE",
+      "primaryCategory": "HEALTH",
+      "secondaryCategories": [
+        "GOVERNANCE"
+      ],
+      "urgencyFlag": false,
+      "processingTimeMs": 2,
+      "auditSignature": "ac435d51f07ffead6ba03ecdc48d4d1f585c45588fe30883197bee56c81b2351",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_bluesky_004",
+    "monthKey": "2026-01",
+    "network": "bluesky",
+    "networkLabel": "Bluesky (AT Proto)",
+    "date": "2026-01-12T11:20:00Z",
+    "author": "Claire Dufour (Urbanisme IDF)",
+    "handle": "cldufour.bsky.social",
+    "avatar": "",
+    "url": "https://bsky.app/profile/cldufour.bsky.social/post/3k1001",
+    "content": "La transformation d'Ivry-Confluences pose la question cruciale de la cohabitation entre nouveaux quartiers résidentiels denses et industrie lourde de traitement des déchets. #Urbanisme #Ivry",
+    "laya": {
+      "sentimentScore": 0,
+      "sentimentLabel": "NEUTRAL",
+      "primaryCategory": "ODOR",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "7a0e82683c8f95fb97dd870b5b6dc37e187e3bb74985c9f52aba6e5e51454e75",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_mastodon_002",
+    "monthKey": "2026-01",
+    "network": "mastodon",
+    "networkLabel": "Mastodon / Fediverse",
+    "date": "2026-01-16T14:30:00Z",
+    "author": "SYCTOM Info",
+    "handle": "syctom_officiel@mastodon.social",
+    "avatar": "https://mastodon.social/avatars/original/missing.png",
+    "url": "https://mastodon.social/@syctom_officiel/112002",
+    "content": "Bilan annuel 2025 : l'UVE d'Ivry-Paris XIII a produit plus de 1,1 million de MWh de vapeur pour le chauffage urbain parisien, épargnant l'émission de 150 000 t de CO2 fossile. #Syctom #Ivry",
+    "laya": {
+      "sentimentScore": 0,
+      "sentimentLabel": "NEUTRAL",
+      "primaryCategory": "GOVERNANCE",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "2b1d5ee06d1f282217a760a1128cdb8d0f050d6679aa9b8e08d8a8568abd99cd",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_debats_citoyens_006",
+    "monthKey": "2026-01",
+    "network": "debats_citoyens",
+    "networkLabel": "Débats Citoyens / Actes",
+    "date": "2026-01-20T20:00:00Z",
+    "author": "Commission Consultative des Services Publics",
+    "handle": "registre_ccspl_ivry",
+    "avatar": "",
+    "url": "https://registre.ivry94.fr/delib/2026-01-20",
+    "content": "Question inscrite en séance : Demande d'installation de capteurs métrologiques continus de particules ultra-fines (PUF) à l'école primaire Albert Einstein située sous les vents dominants.",
+    "laya": {
+      "sentimentScore": 0,
+      "sentimentLabel": "NEUTRAL",
+      "primaryCategory": "ODOR",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "77047fa3889b1e8749ff52fd97ea170aac6ab1b4893b4097d9a231e290da3308",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_mastodon_003",
+    "monthKey": "2026-01",
+    "network": "mastodon",
+    "networkLabel": "Mastodon / Fediverse",
+    "date": "2026-01-24T18:45:00Z",
+    "author": "Riverains Ivry-Port",
+    "handle": "riverains_ivry@piaille.fr",
+    "avatar": "https://piaille.fr/avatars/original/missing.png",
+    "url": "https://piaille.fr/@riverains_ivry/112003",
+    "content": "Par ce froid hivernal et vent de sud, le panache blanc est particulièrement dense et rasant au-dessus des immeubles de Bercy et Charenton. Inquiétude sur la dispersion. #Ivry #Pollution",
+    "laya": {
+      "sentimentScore": -0.4,
+      "sentimentLabel": "NEGATIVE",
+      "primaryCategory": "ODOR",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 4,
+      "auditSignature": "21c707965e4f1279f601a022081d8446bddf573b362c117049daba232d76dc68",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_bluesky_005",
+    "monthKey": "2026-01",
+    "network": "bluesky",
+    "networkLabel": "Bluesky (AT Proto)",
+    "date": "2026-01-28T16:05:00Z",
+    "author": "Éco-Veille Métropole",
+    "handle": "ecoveille.bsky.social",
+    "avatar": "",
+    "url": "https://bsky.app/profile/ecoveille.bsky.social/post/3k1002",
+    "content": "L'obligation de tri à la source des biodéchets peine encore à décoller dans les copropriétés du Val-de-Marne. Conséquence : trop de matières organiques finissent incinérées. #Déchets #Vitry",
+    "laya": {
+      "sentimentScore": 0,
+      "sentimentLabel": "NEUTRAL",
+      "primaryCategory": "ODOR",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "9a0250b3cd73922e050703a9b5c1c7279b11a78f445413c3ba90c1cd437f3424",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_mastodon_007",
+    "monthKey": "2026-02",
+    "network": "mastodon",
+    "networkLabel": "Mastodon / Fediverse",
+    "date": "2026-02-05T10:10:00Z",
+    "author": "Zero Waste France",
+    "handle": "zerowastefr@mastodon.social",
+    "avatar": "https://mastodon.social/avatars/original/missing.png",
+    "url": "https://mastodon.social/@zerowastefr/112004",
+    "content": "Moderniser un incinérateur pour brûler moins ? C'est le paradoxe d'Ivry. Nous continuons de plaider pour un moratoire et la réduction drastique à la source plutôt que des méga-fours. #Déchets #Ivry",
+    "laya": {
+      "sentimentScore": 0,
+      "sentimentLabel": "NEUTRAL",
+      "primaryCategory": "ODOR",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "fb3593e636eb000ee5ed04bcea30806204091d31829fb22ebb9b3e766ccd540a",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_bluesky_010",
+    "monthKey": "2026-02",
+    "network": "bluesky",
+    "networkLabel": "Bluesky (AT Proto)",
+    "date": "2026-02-09T08:40:00Z",
+    "author": "Geoffrey Salmon (Élu local)",
+    "handle": "gsalmon.bsky.social",
+    "avatar": "",
+    "url": "https://bsky.app/profile/gsalmon.bsky.social/post/3k1003",
+    "content": "Intervention au conseil territorial sur le budget déchets 2026 : l'amortissement du nouveau centre de valorisation d'Ivry ne doit pas pénaliser la taxe d'enlèvement (TEOM) des ménages. #Syctom #Finances",
+    "laya": {
+      "sentimentScore": 0,
+      "sentimentLabel": "NEUTRAL",
+      "primaryCategory": "GOVERNANCE",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "2c26f38efda2a645b6a5d9c763c718eef42b469863a1c353e37e5b52dc000efb",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_mastodon_008",
+    "monthKey": "2026-02",
+    "network": "mastodon",
+    "networkLabel": "Mastodon / Fediverse",
+    "date": "2026-02-14T17:25:00Z",
+    "author": "Laurent B. (Vitry)",
+    "handle": "laurent_vitry@piaille.fr",
+    "avatar": "https://piaille.fr/avatars/original/missing.png",
+    "url": "https://piaille.fr/@laurent_vitry/112005",
+    "content": "Rotations intempestives de camions-bennes dès 5h du matin sur le quai Jules Guesde à Vitry. Bruit de compresseur insupportable pour les riverains du bord de Seine. #Vitry #Bruit #Trafic",
+    "laya": {
+      "sentimentScore": -0.85,
+      "sentimentLabel": "STRONGLY_NEGATIVE",
+      "primaryCategory": "NOISE",
+      "secondaryCategories": [
+        "TRAFFIC"
+      ],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "a4d5607bf96eeef41c987480f9a9b409a60799e049c39fe6c46590a620cf44ca",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_bluesky_011",
+    "monthKey": "2026-02",
+    "network": "bluesky",
+    "networkLabel": "Bluesky (AT Proto)",
+    "date": "2026-02-18T15:30:00Z",
+    "author": "Santé & Environnement 94",
+    "handle": "sante94.bsky.social",
+    "avatar": "",
+    "url": "https://bsky.app/profile/sante94.bsky.social/post/3k1004",
+    "content": "Rappel utile : l'exposition chronique aux polluants de combustion nécessite un suivi biomonitoring de long terme pour les populations riveraines. #Santé #Ivry #Vitry",
+    "laya": {
+      "sentimentScore": -0.45,
+      "sentimentLabel": "NEGATIVE",
+      "primaryCategory": "HEALTH",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "bb30f7e7c7eec7ccccabea01742af4c61b1fb0f0ba46f027db3cb6aa6d880543",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_mastodon_009",
+    "monthKey": "2026-02",
+    "network": "mastodon",
+    "networkLabel": "Mastodon / Fediverse",
+    "date": "2026-02-22T19:00:00Z",
+    "author": "Airparif Veille",
+    "handle": "airparif_veille@piaille.fr",
+    "avatar": "https://piaille.fr/avatars/original/missing.png",
+    "url": "https://piaille.fr/@airparif_veille/112006",
+    "content": "Épisode de pollution aux particules fines PM2.5 en Île-de-France lié aux conditions anticycloniques. Indice dégradé relevé sur la station Ivry-Port. Vigilance pour personnes sensibles. #Airparif #Pollution",
+    "laya": {
+      "sentimentScore": 0,
+      "sentimentLabel": "NEUTRAL",
+      "primaryCategory": "ODOR",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "62b917b544624ea3cd7276117e6960eb57345172b7978755a9e13f3f84bedc71",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_debats_citoyens_012",
+    "monthKey": "2026-02",
+    "network": "debats_citoyens",
+    "networkLabel": "Débats Citoyens / Actes",
+    "date": "2026-02-25T18:30:00Z",
+    "author": "Conseil de Quartier Ivry-Port",
+    "handle": "cdq_ivryport_officiel",
+    "avatar": "",
+    "url": "https://democratie.ivry94.fr/comptes-rendus/2026-02-25",
+    "content": "Compte-rendu d'atelier : Demande unanime des habitants pour la végétalisation renforcée du mur antibruit le long des voies de circulation des bennes du SYCTOM.",
+    "laya": {
+      "sentimentScore": 0,
+      "sentimentLabel": "NEUTRAL",
+      "primaryCategory": "TRAFFIC",
+      "secondaryCategories": [
+        "GOVERNANCE"
+      ],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "e5b3dc8207997950377f1c3b7d7bbf7e9337f10c20011011784e08277d19fb36",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_mastodon_013",
+    "monthKey": "2026-03",
+    "network": "mastodon",
+    "networkLabel": "Mastodon / Fediverse",
+    "date": "2026-03-08T07:15:00Z",
+    "author": "Info Grève & Déchets",
+    "handle": "greve_syctom@piaille.fr",
+    "avatar": "https://piaille.fr/avatars/original/missing.png",
+    "url": "https://piaille.fr/@greve_syctom/112007",
+    "content": "Blocage de l'usine d'Ivry-Paris XIII ce matin dès 6h par les agents territoriaux et militants écologistes. Dénonciation conjointe des conditions de travail et du sous-dimensionnement du tri. #Ivry #Syctom",
+    "laya": {
+      "sentimentScore": 0,
+      "sentimentLabel": "NEUTRAL",
+      "primaryCategory": "GOVERNANCE",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "97327adf0045a5a7720f2005321e137f3e176cc1c057dbde6dd5d282753182eb",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_bluesky_016",
+    "monthKey": "2026-03",
+    "network": "bluesky",
+    "networkLabel": "Bluesky (AT Proto)",
+    "date": "2026-03-10T14:10:00Z",
+    "author": "Journaliste Banlieues",
+    "handle": "jbanlieues.bsky.social",
+    "avatar": "",
+    "url": "https://bsky.app/profile/jbanlieues.bsky.social/post/3k1005",
+    "content": "Tension palpable ce midi devant le centre de traitement des déchets d'Ivry. Files de camions déviées vers Saint-Ouen et Créteil pour éviter la saturation du site. #Reportage #Ivry",
+    "laya": {
+      "sentimentScore": -0.3,
+      "sentimentLabel": "NEGATIVE",
+      "primaryCategory": "NOISE",
+      "secondaryCategories": [
+        "TRAFFIC"
+      ],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "cef0efb43c4a6305cfe4c1580b5621be301a976e98fd8ce7a22192ec0dd7b25a",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_mastodon_014",
+    "monthKey": "2026-03",
+    "network": "mastodon",
+    "networkLabel": "Mastodon / Fediverse",
+    "date": "2026-03-15T12:00:00Z",
+    "author": "Collectif 3R",
+    "handle": "collectif3r@piaille.fr",
+    "avatar": "https://piaille.fr/avatars/original/missing.png",
+    "url": "https://piaille.fr/@collectif3r/112008",
+    "content": "La grève met en lumière la fragilité d'un système hyper-centralisé. Dès que l'usine d'Ivry s'arrête, des milliers de tonnes de déchets s'accumulent. La vraie résilience, c'est le zéro déchet ! #Déchets #Ivry",
+    "laya": {
+      "sentimentScore": 0.85,
+      "sentimentLabel": "STRONGLY_POSITIVE",
+      "primaryCategory": "ODOR",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "2b130da599e625aefccad968f2d1df5acbd424c4a44a0606b181a2850743a7ad",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_debats_citoyens_018",
+    "monthKey": "2026-03",
+    "network": "debats_citoyens",
+    "networkLabel": "Débats Citoyens / Actes",
+    "date": "2026-03-18T20:30:00Z",
+    "author": "Comité de Défense des Quartiers Sud",
+    "handle": "comite_sud_vitry",
+    "avatar": "",
+    "url": "https://debats.vitry94.fr/interventions/2026-03-18",
+    "content": "Motion d'urgence adoptée : Réclamation d'un plan de délestage immédiat des flux de camions traversant Vitry-sur-Seine durant les épisodes de grève et de blocage d'Ivry.",
+    "laya": {
+      "sentimentScore": -0.3,
+      "sentimentLabel": "NEGATIVE",
+      "primaryCategory": "NOISE",
+      "secondaryCategories": [
+        "TRAFFIC"
+      ],
+      "urgencyFlag": true,
+      "processingTimeMs": 1,
+      "auditSignature": "8289bdbde33db4044b99cf955cf760d0ee51589c5adbc45512dc66431532047c",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_mastodon_015",
+    "monthKey": "2026-03",
+    "network": "mastodon",
+    "networkLabel": "Mastodon / Fediverse",
+    "date": "2026-03-22T16:45:00Z",
+    "author": "Ville d'Ivry-sur-Seine",
+    "handle": "mairie_ivry@piaille.fr",
+    "avatar": "https://piaille.fr/avatars/original/missing.png",
+    "url": "https://piaille.fr/@mairie_ivry/112009",
+    "content": "Communiqué : La Ville rappelle que la compétence traitement des ordures relève du SYCTOM et appelle au dialogue social pour garantir la salubrité publique des rues et des écoles. #Ivry #Gouvernance",
+    "laya": {
+      "sentimentScore": 0,
+      "sentimentLabel": "NEUTRAL",
+      "primaryCategory": "GOVERNANCE",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "b0473d0ebaa306c98192db6f6e87c42e2c002b22eb71ebc16e983354805372d0",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_bluesky_017",
+    "monthKey": "2026-03",
+    "network": "bluesky",
+    "networkLabel": "Bluesky (AT Proto)",
+    "date": "2026-03-26T18:20:00Z",
+    "author": "Dr. Valérie Roche",
+    "handle": "vroche-sante.bsky.social",
+    "avatar": "",
+    "url": "https://bsky.app/profile/vroche-sante.bsky.social/post/3k1006",
+    "content": "L'accumulation d'ordures dans les rues combinée au redoux printanier crée des risques microbiologiques et de rongeurs immédiats. Il faut un protocole d'urgence sanitaire. #SantéPublique #Ivry",
+    "laya": {
+      "sentimentScore": 0,
+      "sentimentLabel": "NEUTRAL",
+      "primaryCategory": "ODOR",
+      "secondaryCategories": [],
+      "urgencyFlag": true,
+      "processingTimeMs": 1,
+      "auditSignature": "16cd14d5792891461ee920f163e62027e92e32b5fc751464387529ac9d1a8909",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_mastodon_019",
+    "monthKey": "2026-04",
+    "network": "mastodon",
+    "networkLabel": "Mastodon / Fediverse",
+    "date": "2026-04-06T11:30:00Z",
+    "author": "Airparif Info",
+    "handle": "airparif_veille@piaille.fr",
+    "avatar": "https://piaille.fr/avatars/original/missing.png",
+    "url": "https://piaille.fr/@airparif_veille/112010",
+    "content": "Lancement de la campagne métrologique ciblée de printemps : déploiement de 15 micro-capteurs entre le quai Marcel Boyer et Charenton pour analyser les traceurs de panache d'Ivry. #Airparif #Métrologie",
+    "laya": {
+      "sentimentScore": 0,
+      "sentimentLabel": "NEUTRAL",
+      "primaryCategory": "ODOR",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "c873134243d7c10374855004d03b3b7d4b4889e30a52adbc28a2838085c21be4",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_bluesky_021",
+    "monthKey": "2026-04",
+    "network": "bluesky",
+    "networkLabel": "Bluesky (AT Proto)",
+    "date": "2026-04-12T09:45:00Z",
+    "author": "Thierry Renard (Ingénieur Thermique)",
+    "handle": "trenard-eco.bsky.social",
+    "avatar": "",
+    "url": "https://bsky.app/profile/trenard-eco.bsky.social/post/3k1007",
+    "content": "La transition vers la réduction catalytique sélective (SCR) à basse température permettra d'abaisser les NOx sous les 50 mg/Nm³ à Ivry. Progrès technique indéniable mais coût élevé. #DeNOx #Énergie",
+    "laya": {
+      "sentimentScore": 0.4,
+      "sentimentLabel": "POSITIVE",
+      "primaryCategory": "ODOR",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "0ab906d63a3dbfa1facd6d06167bda0edefa18ea486b5202df44dd0249577cc2",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_mastodon_020",
+    "monthKey": "2026-04",
+    "network": "mastodon",
+    "networkLabel": "Mastodon / Fediverse",
+    "date": "2026-04-18T16:00:00Z",
+    "author": "Riverain Vitry Port-à-l'Anglais",
+    "handle": "riverain_palanglais@piaille.fr",
+    "avatar": "https://piaille.fr/avatars/original/missing.png",
+    "url": "https://piaille.fr/@riverain_palanglais/112011",
+    "content": "Première journée douce et odeur nauséabonde très perceptible ce soir en rentrant du RER C. Un mélange de fermentescible et de soufre. Impossible d'ouvrir les fenêtres. #Vitry #Odeur",
+    "laya": {
+      "sentimentScore": -0.35,
+      "sentimentLabel": "NEGATIVE",
+      "primaryCategory": "ODOR",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "0f81c10dc3c7c31368b964418c34cc654559056095620dd4c6cf5e74fc1d4f67",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_bluesky_022",
+    "monthKey": "2026-04",
+    "network": "bluesky",
+    "networkLabel": "Bluesky (AT Proto)",
+    "date": "2026-04-22T14:15:00Z",
+    "author": "Collectif Respirer 94",
+    "handle": "respirer94.bsky.social",
+    "avatar": "",
+    "url": "https://bsky.app/profile/respirer94.bsky.social/post/3k1008",
+    "content": "Journée de la Terre : l'air de la vallée de la Seine à Ivry et Vitry reste l'un des plus saturés en micro-particules de la métropole. La santé de nos enfants doit passer avant le tonnage brûlé ! #Pollution #Santé",
+    "laya": {
+      "sentimentScore": -0.45,
+      "sentimentLabel": "NEGATIVE",
+      "primaryCategory": "ODOR",
+      "secondaryCategories": [
+        "HEALTH"
+      ],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "f01ca18647f699ca51e61a74cb257be21f495d3ac1eb8623ddc5f6e7175b82b0",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_debats_citoyens_023",
+    "monthKey": "2026-04",
+    "network": "debats_citoyens",
+    "networkLabel": "Débats Citoyens / Actes",
+    "date": "2026-04-25T19:00:00Z",
+    "author": "Pétition Citoyenne Municipale",
+    "handle": "petition_air_ivry",
+    "avatar": "",
+    "url": "https://petitions.ivry94.fr/puf-ecoles-2026",
+    "content": "Pétition citoyenne déposée avec 1 450 signatures : Exigence d'un système d'alerte SMS en temps réel pour les directeurs d'écoles en cas d'émission de fumée noire anormale ou de pic de NO2.",
+    "laya": {
+      "sentimentScore": 0.4,
+      "sentimentLabel": "POSITIVE",
+      "primaryCategory": "ODOR",
+      "secondaryCategories": [],
+      "urgencyFlag": true,
+      "processingTimeMs": 1,
+      "auditSignature": "d66fdcbd02c3373b9d7b1500dab8f4f2c3fe2ae8b0964ad07d3ee5696835e22b",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_mastodon_024",
+    "monthKey": "2026-05",
+    "network": "mastodon",
+    "networkLabel": "Mastodon / Fediverse",
+    "date": "2026-05-04T08:30:00Z",
+    "author": "Mairie d'Ivry-sur-Seine",
+    "handle": "mairie_ivry@piaille.fr",
+    "avatar": "https://piaille.fr/avatars/original/missing.png",
+    "url": "https://piaille.fr/@mairie_ivry/112012",
+    "content": "Courrier officiel adressé au Préfet du Val-de-Marne : les maires d'Ivry et Vitry réclament la tenue sans délai de la Commission de Suivi de Site (CSS) pour faire toute la lumière sur les rejets. #Ivry #Vitry #Gouvernance",
+    "laya": {
+      "sentimentScore": 0,
+      "sentimentLabel": "NEUTRAL",
+      "primaryCategory": "GOVERNANCE",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "b04252128bd8c6e829e91962ccfd1678505e6fca84687e4a6ce84f8b500d395d",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_bluesky_027",
+    "monthKey": "2026-05",
+    "network": "bluesky",
+    "networkLabel": "Bluesky (AT Proto)",
+    "date": "2026-05-11T13:00:00Z",
+    "author": "Écologie Populaire IDF",
+    "handle": "ecolopop94.bsky.social",
+    "avatar": "",
+    "url": "https://bsky.app/profile/ecolopop94.bsky.social/post/3k1009",
+    "content": "Injustice spatiale et environnementale : pourquoi les 3 plus grands incinérateurs franciliens (Ivry, Saint-Ouen, Issy) ont-ils des standards d'enfouissement et d'intégration paysagère aussi inégaux ? #JusticeEnvironnementale",
+    "laya": {
+      "sentimentScore": 0,
+      "sentimentLabel": "NEUTRAL",
+      "primaryCategory": "ODOR",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "4448007352e3579ad2a6cddd9594439701d17a7d6ad909fc9ddf54571db1db94",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_mastodon_025",
+    "monthKey": "2026-05",
+    "network": "mastodon",
+    "networkLabel": "Mastodon / Fediverse",
+    "date": "2026-05-19T17:10:00Z",
+    "author": "Collectif 3R",
+    "handle": "collectif3r@piaille.fr",
+    "avatar": "https://piaille.fr/avatars/original/missing.png",
+    "url": "https://piaille.fr/@collectif3r/112013",
+    "content": "Rassemblement samedi 23 mai place de la mairie d'Ivry : non à la prolongation du surdimensionnement de l'incinérateur du SYCTOM ! Présentation de nos contre-propositions de tri mécano-biologique. #Ivry #Déchets",
+    "laya": {
+      "sentimentScore": 0,
+      "sentimentLabel": "NEUTRAL",
+      "primaryCategory": "GOVERNANCE",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "e6427712efd22ebce6d5ea5511b1790d461b6ab2c91fb189a7341e50ea222b14",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_bluesky_028",
+    "monthKey": "2026-05",
+    "network": "bluesky",
+    "networkLabel": "Bluesky (AT Proto)",
+    "date": "2026-05-22T16:50:00Z",
+    "author": "Veille Déchets Grand Paris",
+    "handle": "dechets-gp.bsky.social",
+    "avatar": "",
+    "url": "https://bsky.app/profile/dechets-gp.bsky.social/post/3k1010",
+    "content": "L'avis défavorable de plusieurs conseils municipaux du Val-de-Marne sur le nouveau plan régional de prévention des déchets (PRPGD) renforce la pression sur le SYCTOM. #Gouvernance",
+    "laya": {
+      "sentimentScore": 0,
+      "sentimentLabel": "NEUTRAL",
+      "primaryCategory": "GOVERNANCE",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "dd9bd1b7e7575f7d28f0b9907134a6bb430e0f806edb67e3412ac29ed13a148f",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_debats_citoyens_029",
+    "monthKey": "2026-05",
+    "network": "debats_citoyens",
+    "networkLabel": "Débats Citoyens / Actes",
+    "date": "2026-05-27T19:30:00Z",
+    "author": "Fédération des Conseils de Parents d'Élèves (FCPE Ivry)",
+    "handle": "fcpe_ivry_port",
+    "avatar": "",
+    "url": "https://fcpe94.fr/communique-ivry-mai-2026",
+    "content": "Motion votée en conseil d'école : Demande formelle de renouvellement des prélèvements de sol dans les cours de récréation pour mesurer les dioxines et furanes avant l'été.",
+    "laya": {
+      "sentimentScore": -0.45,
+      "sentimentLabel": "NEGATIVE",
+      "primaryCategory": "HEALTH",
+      "secondaryCategories": [
+        "GOVERNANCE"
+      ],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "361a5056d7ef7671ab775d3667cd057c30982a066d977315ae59cc34ab39689a",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_mastodon_026",
+    "monthKey": "2026-05",
+    "network": "mastodon",
+    "networkLabel": "Mastodon / Fediverse",
+    "date": "2026-05-28T21:40:00Z",
+    "author": "Sophie M. (Riveraine)",
+    "handle": "sophie_ivry94@piaille.fr",
+    "avatar": "https://piaille.fr/avatars/original/missing.png",
+    "url": "https://piaille.fr/@sophie_ivry94/112014",
+    "content": "Fumées âcres et gorge irritée chez mon fils ce soir vers le quai d'Ivry. Ce n'est pas normal qu'en 2026 on doive barricader son appartement un soir de printemps ! #Ivry #Santé #Odeur",
+    "laya": {
+      "sentimentScore": 0.4,
+      "sentimentLabel": "POSITIVE",
+      "primaryCategory": "TRAFFIC",
+      "secondaryCategories": [
+        "ODOR",
+        "HEALTH",
+        "PROPERTY_VALUE"
+      ],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "951c0a0b98da96ea515faf99d03a8c9b80507c6500e9c5dd1b481d3f633a6c01",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_mastodon_030",
+    "monthKey": "2026-06",
+    "network": "mastodon",
+    "networkLabel": "Mastodon / Fediverse",
+    "date": "2026-06-12T14:20:00Z",
+    "author": "Riverains Ivry-Port",
+    "handle": "riverains_ivry@piaille.fr",
+    "avatar": "https://piaille.fr/avatars/original/missing.png",
+    "url": "https://piaille.fr/@riverains_ivry/112015",
+    "content": "⚠️ Canicule et odeur insoutenable : 34°C à l'ombre et une odeur pestilentielle de détritus en décomposition et de plastique brûlé monte du quai d'Ivry. Impossible de dormir, nous étouffons ! #Ivry #Odeur #Urgence",
+    "laya": {
+      "sentimentScore": -0.35,
+      "sentimentLabel": "NEGATIVE",
+      "primaryCategory": "ODOR",
+      "secondaryCategories": [
+        "TRAFFIC"
+      ],
+      "urgencyFlag": true,
+      "processingTimeMs": 1,
+      "auditSignature": "36317aeafbbc4f43681f7140db9e1cb6fbb8d4d4cdb639b46e0f86eafd9e828d",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_bluesky_033",
+    "monthKey": "2026-06",
+    "network": "bluesky",
+    "networkLabel": "Bluesky (AT Proto)",
+    "date": "2026-06-14T11:15:00Z",
+    "author": "Julien Valette (Climat IDF)",
+    "handle": "jvalette.bsky.social",
+    "avatar": "",
+    "url": "https://bsky.app/profile/jvalette.bsky.social/post/3k1011",
+    "content": "Le dôme de chaleur parisien bloque les panaches industriels au ras du sol dans la boucle de la Seine. Situation critique pour la qualité de l'air entre Vitry, Ivry et Charenton. #Climat #Pollution",
+    "laya": {
+      "sentimentScore": 0,
+      "sentimentLabel": "NEUTRAL",
+      "primaryCategory": "ODOR",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "29ed4e0a2b555bf482b020099b474da0fbd0dd9bb9f24a8d440168fdb6689997",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_mastodon_031",
+    "monthKey": "2026-06",
+    "network": "mastodon",
+    "networkLabel": "Mastodon / Fediverse",
+    "date": "2026-06-18T10:00:00Z",
+    "author": "SYCTOM Info",
+    "handle": "syctom_officiel@mastodon.social",
+    "avatar": "https://mastodon.social/avatars/original/missing.png",
+    "url": "https://mastodon.social/@syctom_officiel/112016",
+    "content": "Épisode de chaleur : activation renforcée des rampes de brumisation neutralisante et maintien de la fosse d'Ivry sous dépression d'air continue pour juguler les émanations olfactives. #Syctom #Ivry",
+    "laya": {
+      "sentimentScore": 0,
+      "sentimentLabel": "NEUTRAL",
+      "primaryCategory": "GOVERNANCE",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "f8b03261e11ab1b73f0ad44651be4ff93d28a9d52858bebc9b9304bed6d086bd",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_bluesky_034",
+    "monthKey": "2026-06",
+    "network": "bluesky",
+    "networkLabel": "Bluesky (AT Proto)",
+    "date": "2026-06-21T16:40:00Z",
+    "author": "Écologie Citoyenne Vitry",
+    "handle": "ecovitry.bsky.social",
+    "avatar": "",
+    "url": "https://bsky.app/profile/ecovitry.bsky.social/post/3k1012",
+    "content": "Pétition des riverains du Port-à-l'Anglais contre les odeurs nauséabondes estivales : déjà plus de 2 000 signataires en une semaine. Les pouvoirs publics doivent réagir ! #Vitry #Odeurs",
+    "laya": {
+      "sentimentScore": -0.35,
+      "sentimentLabel": "NEGATIVE",
+      "primaryCategory": "ODOR",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "daccd0223f82eb5956a9650416f6883c89de8f89bfcadb547a895761846d5b36",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_mastodon_032",
+    "monthKey": "2026-06",
+    "network": "mastodon",
+    "networkLabel": "Mastodon / Fediverse",
+    "date": "2026-06-25T18:30:00Z",
+    "author": "Dr. Marc Cohen",
+    "handle": "drcohen_urgences@piaille.fr",
+    "avatar": "https://piaille.fr/avatars/original/missing.png",
+    "url": "https://piaille.fr/@drcohen_urgences/112017",
+    "content": "⚠️ Forte augmentation des consultations pour asthme aigu et maux de tête chez les enfants à Ivry-Port cette semaine. L'inversion thermique et l'air stagnant concentrent tous les rejets urbains. #Santé #Ivry",
+    "laya": {
+      "sentimentScore": -0.4,
+      "sentimentLabel": "NEGATIVE",
+      "primaryCategory": "HEALTH",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "3f7dc2fecaf4efe2dd104f3a52714474414be5694880001b431780868a41cc01",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_debats_citoyens_035",
+    "monthKey": "2026-06",
+    "network": "debats_citoyens",
+    "networkLabel": "Débats Citoyens / Actes",
+    "date": "2026-06-29T20:00:00Z",
+    "author": "Registre des Doléances Sanitaires et Environnementales",
+    "handle": "registre_doleances_css",
+    "avatar": "",
+    "url": "https://css-ivry.valdemarne.gouv.fr/doleances/2026-06-29",
+    "content": "Dépôt officiel de 47 fiches de réclamation riverains pour odeurs suffocantes et malaise respiratoire lors de la semaine caniculaire du 15 au 22 juin 2026.",
+    "laya": {
+      "sentimentScore": -0.45,
+      "sentimentLabel": "NEGATIVE",
+      "primaryCategory": "ODOR",
+      "secondaryCategories": [
+        "HEALTH"
+      ],
+      "urgencyFlag": true,
+      "processingTimeMs": 1,
+      "auditSignature": "b9fa55c7e5e47f6575963a3e1158aa1e906fb8e944cffe06e32d1ed404af2d27",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_mastodon_036",
+    "monthKey": "2026-07",
+    "network": "mastodon",
+    "networkLabel": "Mastodon / Fediverse",
+    "date": "2026-07-08T11:00:00Z",
+    "author": "SYCTOM Info",
+    "handle": "syctom_officiel@mastodon.social",
+    "avatar": "https://mastodon.social/avatars/original/missing.png",
+    "url": "https://mastodon.social/@syctom_officiel/112018",
+    "content": "Étape clé sur le chantier Ivry/Paris XIII : Pose de la nouvelle travée DeNOx à réduction catalytique sélective. Réduction de 50% des rejets d'oxydes d'azote garantie dès l'automne. #Syctom #Ivry #Progrès",
+    "laya": {
+      "sentimentScore": 0.4,
+      "sentimentLabel": "POSITIVE",
+      "primaryCategory": "GOVERNANCE",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "d305c9a6cd96ac419bf32b84835d9cc8b7631ea2823d3b0785119fb96a7d1c2a",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_bluesky_039",
+    "monthKey": "2026-07",
+    "network": "bluesky",
+    "networkLabel": "Bluesky (AT Proto)",
+    "date": "2026-07-12T17:30:00Z",
+    "author": "Benoît Mercier (Ingénierie Verte)",
+    "handle": "bmercier-tech.bsky.social",
+    "avatar": "",
+    "url": "https://bsky.app/profile/bmercier-tech.bsky.social/post/3k1013",
+    "content": "La voie sèche au bicarbonate combinée aux filtres à manches d'Ivry constitue l'état de l'art actuel en Europe. Le vrai défi reste le dimensionnement global du gisement métropolitain. #Technologie #Déchets",
+    "laya": {
+      "sentimentScore": 0,
+      "sentimentLabel": "NEUTRAL",
+      "primaryCategory": "ODOR",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "bd8394fe39b46e60996f02ca958db82cfafe1132410c6a8987185c9b895913e5",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_mastodon_037",
+    "monthKey": "2026-07",
+    "network": "mastodon",
+    "networkLabel": "Mastodon / Fediverse",
+    "date": "2026-07-16T15:20:00Z",
+    "author": "Collectif 3R",
+    "handle": "collectif3r@piaille.fr",
+    "avatar": "https://piaille.fr/avatars/original/missing.png",
+    "url": "https://piaille.fr/@collectif3r/112019",
+    "content": "Un filtre catalytique de plus ne résout pas la question des cendres toxiques et des résidus d'épuration (REFIOM) envoyés en décharge de classe 1. La vraie propreté, c'est de ne pas produire ces déchets. #Ivry",
+    "laya": {
+      "sentimentScore": 0.4,
+      "sentimentLabel": "POSITIVE",
+      "primaryCategory": "ODOR",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "445889e8b000ff56d32d4ea64df5eb0ef560c26b60fb9f47ebabca4e428077fd",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_debats_citoyens_041",
+    "monthKey": "2026-07",
+    "network": "debats_citoyens",
+    "networkLabel": "Débats Citoyens / Actes",
+    "date": "2026-07-20T18:00:00Z",
+    "author": "Commission Environnement Conseil Métropolitain",
+    "handle": "metropole_grand_paris_env",
+    "avatar": "",
+    "url": "https://metropolegrandparis.fr/avis-uve-ivry-2026",
+    "content": "Avis favorable sous réserve : La Métropole valide l'avancement des travaux de modernisation mais impose un rapport semestriel contradictoire sur les émissions de dioxines et métaux lourds.",
+    "laya": {
+      "sentimentScore": -0.45,
+      "sentimentLabel": "NEGATIVE",
+      "primaryCategory": "HEALTH",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "64e2242cf6128b9b4de24df80f0cb85d1e5a95183bd2ec7e400693c22367725c",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_bluesky_040",
+    "monthKey": "2026-07",
+    "network": "bluesky",
+    "networkLabel": "Bluesky (AT Proto)",
+    "date": "2026-07-23T14:10:00Z",
+    "author": "Observatoire Citoyen 94",
+    "handle": "obscitoyen94.bsky.social",
+    "avatar": "",
+    "url": "https://bsky.app/profile/obscitoyen94.bsky.social/post/3k1014",
+    "content": "L'apaisement estival est perceptible dans le quartier avec la fermeture estivale de certaines lignes de tri et la diminution du trafic de poids lourds sur les quais. #Ivry #Calme",
+    "laya": {
+      "sentimentScore": 0.4,
+      "sentimentLabel": "POSITIVE",
+      "primaryCategory": "TRAFFIC",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "5b9a8c8940925600de003ddb8ad3f0e5b5e8f27f5fd83100438bac2b4c983c57",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_mastodon_038",
+    "monthKey": "2026-07",
+    "network": "mastodon",
+    "networkLabel": "Mastodon / Fediverse",
+    "date": "2026-07-27T09:40:00Z",
+    "author": "CPCU Chauffage Urbain",
+    "handle": "cpcu_officiel@piaille.fr",
+    "avatar": "https://piaille.fr/avatars/original/missing.png",
+    "url": "https://piaille.fr/@cpcu_officiel/112020",
+    "content": "Travaux estivaux d'extension du réseau de chaleur : raccordement de 2 500 nouveaux logements sociaux d'Ivry et Vitry à l'énergie de récupération de l'UVE d'Ivry. Facture énergétique allégée de 15%. #Énergie",
+    "laya": {
+      "sentimentScore": 0,
+      "sentimentLabel": "NEUTRAL",
+      "primaryCategory": "ODOR",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "b6b9631ed6316bb57f7ece4aaa79748e05f1c0f592842c19c8ae3edef827bc1b",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_mastodon_042",
+    "monthKey": "2026-08",
+    "network": "mastodon",
+    "networkLabel": "Mastodon / Fediverse",
+    "date": "2026-08-08T10:15:00Z",
+    "author": "Riverain Ivry-Port",
+    "handle": "riverain_ivry@piaille.fr",
+    "avatar": "https://piaille.fr/avatars/original/missing.png",
+    "url": "https://piaille.fr/@riverain_ivry/112021",
+    "content": "Août à Ivry : le trafic des camions sur le quai Marcel Boyer est divisé par deux. On respire enfin un peu mieux et les odeurs restent maîtrisées grâce au vent d'ouest. #Ivry #Tranquillité",
+    "laya": {
+      "sentimentScore": 0.4,
+      "sentimentLabel": "POSITIVE",
+      "primaryCategory": "ODOR",
+      "secondaryCategories": [
+        "NOISE",
+        "TRAFFIC"
+      ],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "18f4fe112a83a8bfb42f90feb3634bc09d5fef26a3664a2f3ae31da643128155",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_bluesky_045",
+    "monthKey": "2026-08",
+    "network": "bluesky",
+    "networkLabel": "Bluesky (AT Proto)",
+    "date": "2026-08-11T12:00:00Z",
+    "author": "Comparatif UVE France",
+    "handle": "uve-france.bsky.social",
+    "avatar": "",
+    "url": "https://bsky.app/profile/uve-france.bsky.social/post/3k1015",
+    "content": "Comparatif estival : À Issy-les-Moulineaux (Isséane), l'enfouissement à 60% neutralise le bruit et le panache. À Ivry, l'option aérienne reste source de tensions visuelles permanentes. #Architecture #Déchets",
+    "laya": {
+      "sentimentScore": -0.3,
+      "sentimentLabel": "NEGATIVE",
+      "primaryCategory": "NOISE",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "9610cacdb52a8160d36c5a85fffdf225c30b51a0b59d297d977f34b3b8801139",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_mastodon_043",
+    "monthKey": "2026-08",
+    "network": "mastodon",
+    "networkLabel": "Mastodon / Fediverse",
+    "date": "2026-08-19T14:40:00Z",
+    "author": "Zero Waste France",
+    "handle": "zerowastefr@mastodon.social",
+    "avatar": "https://mastodon.social/avatars/original/missing.png",
+    "url": "https://mastodon.social/@zerowastefr/112022",
+    "content": "En août, la production de déchets ménagers baisse de 25% en IDF. La preuve irréfutable que les volumes ne sont pas figés. Une politique ambitieuse de consigne et vrac permettrait d'arrêter un four entier ! #Déchets",
+    "laya": {
+      "sentimentScore": 0.4,
+      "sentimentLabel": "POSITIVE",
+      "primaryCategory": "ODOR",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "483c84b4fcd37d0d4cbabd8f2622d7d561dab84dc2d553acd594db56a47a2c60",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_bluesky_046",
+    "monthKey": "2026-08",
+    "network": "bluesky",
+    "networkLabel": "Bluesky (AT Proto)",
+    "date": "2026-08-24T16:20:00Z",
+    "author": "Pauline Tessier (Journaliste Écologie)",
+    "handle": "ptessier-eco.bsky.social",
+    "avatar": "",
+    "url": "https://bsky.app/profile/ptessier-eco.bsky.social/post/3k1016",
+    "content": "Enquête d'été : Que deviennent les mâchefers de l'incinérateur d'Ivry ? 80% sont valorisés en sous-couches routières sous contrôle de l'Ademe. Enjeux de traçabilité des métaux résiduels. #Recyclage",
+    "laya": {
+      "sentimentScore": 0,
+      "sentimentLabel": "NEUTRAL",
+      "primaryCategory": "ODOR",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "721e1d4a55093c41b8c4e7a01ec7d4ea59c3e1ef10bbd396f918d73af3d619f6",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_debats_citoyens_047",
+    "monthKey": "2026-08",
+    "network": "debats_citoyens",
+    "networkLabel": "Débats Citoyens / Actes",
+    "date": "2026-08-26T17:00:00Z",
+    "author": "Bulletin Territorial des Riverains",
+    "handle": "bulletin_riverains_aout",
+    "avatar": "",
+    "url": "https://riverains-ivry.org/bulletin-2026-08",
+    "content": "Note d'observation estivale : Période la plus calme de l'année. Vigilance demandée pour la réouverture des chantiers et la reprise du plein régime des fours prévue début septembre.",
+    "laya": {
+      "sentimentScore": 0.4,
+      "sentimentLabel": "POSITIVE",
+      "primaryCategory": "ODOR",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "673e92b969797ef5eb1e355a20c67c43f4380ff03d804eacb1a9530543007187",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_mastodon_044",
+    "monthKey": "2026-08",
+    "network": "mastodon",
+    "networkLabel": "Mastodon / Fediverse",
+    "date": "2026-08-28T18:00:00Z",
+    "author": "Airparif Info",
+    "handle": "airparif_veille@piaille.fr",
+    "avatar": "https://piaille.fr/avatars/original/missing.png",
+    "url": "https://piaille.fr/@airparif_veille/112023",
+    "content": "Bilan météo et qualité de l'air du mois d'août : régime de vent dominant d'Ouest/Sud-Ouest. Dispersion satisfaisante des cheminées industrielles, zéro dépassement du seuil d'alerte NO2 sur le 94. #Airparif",
+    "laya": {
+      "sentimentScore": 0,
+      "sentimentLabel": "NEUTRAL",
+      "primaryCategory": "ODOR",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "752e6fc28d8dcfcd99e3d9fbb60f53c540c2deed94770582ef25af2224e3d6fc",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_mastodon_048",
+    "monthKey": "2026-09",
+    "network": "mastodon",
+    "networkLabel": "Mastodon / Fediverse",
+    "date": "2026-09-04T08:30:00Z",
+    "author": "FCPE Ivry-sur-Seine",
+    "handle": "fcpe_ivry@piaille.fr",
+    "avatar": "https://piaille.fr/avatars/original/missing.png",
+    "url": "https://piaille.fr/@fcpe_ivry/112024",
+    "content": "Rentrée scolaire 2026 : les parents d'élèves de l'école Albert Einstein exigent la publication immédiate des résultats des carottages de sol réalisés en juillet. Zéro compromis avec la santé de nos enfants ! #Ivry #Santé #Écoles",
+    "laya": {
+      "sentimentScore": -0.45,
+      "sentimentLabel": "NEGATIVE",
+      "primaryCategory": "HEALTH",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "a333c7d7a5739b75cb2061c7987c9fc6ca59d22ec406a9192b0b592649efa7c3",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_bluesky_052",
+    "monthKey": "2026-09",
+    "network": "bluesky",
+    "networkLabel": "Bluesky (AT Proto)",
+    "date": "2026-09-08T15:20:00Z",
+    "author": "Sociologie Urbaine & Conflits",
+    "handle": "socio-urbaine.bsky.social",
+    "avatar": "",
+    "url": "https://bsky.app/profile/socio-urbaine.bsky.social/post/3k1017",
+    "content": "La controverse de l'incinérateur d'Ivry illustre le concept d'injustice environnementale péri-métropolitaine : le traitement des déchets du centre historique reporté sur la périphérie populaire. #Sociologie #Ivry",
+    "laya": {
+      "sentimentScore": 0,
+      "sentimentLabel": "NEUTRAL",
+      "primaryCategory": "ODOR",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "fe7f0a26b0c95e6275860df4ca971da9dd733737baf04b7342434b98e87600ed",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_mastodon_049",
+    "monthKey": "2026-09",
+    "network": "mastodon",
+    "networkLabel": "Mastodon / Fediverse",
+    "date": "2026-09-12T14:15:00Z",
+    "author": "Collectif 3R",
+    "handle": "collectif3r@piaille.fr",
+    "avatar": "https://piaille.fr/avatars/original/missing.png",
+    "url": "https://piaille.fr/@collectif3r/112025",
+    "content": "Grande réunion publique ce jeudi en mairie d'Ivry : présentation de notre contre-expertise indépendante sur les émissions réelles de dioxines bromées et métaux lourds. Venez nombreux ! #Ivry #Mobilisation",
+    "laya": {
+      "sentimentScore": -0.45,
+      "sentimentLabel": "NEGATIVE",
+      "primaryCategory": "HEALTH",
+      "secondaryCategories": [
+        "GOVERNANCE"
+      ],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "e5ee03e40560457d946c5971e3c518b10c3a75f47f581c178fdaea39f123fa3f",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_bluesky_053",
+    "monthKey": "2026-09",
+    "network": "bluesky",
+    "networkLabel": "Bluesky (AT Proto)",
+    "date": "2026-09-17T17:50:00Z",
+    "author": "Santé Environnementale IDF",
+    "handle": "sante-env-idf.bsky.social",
+    "avatar": "",
+    "url": "https://bsky.app/profile/sante-env-idf.bsky.social/post/3k1018",
+    "content": "Rappel de précaution de l'ARS : interdiction maintenue de consommation des œufs des poulaillers familiaux dans un rayon de 3 km autour des installations thermiques d'Ivry et Vitry. #Santé #Alimentation",
+    "laya": {
+      "sentimentScore": -0.45,
+      "sentimentLabel": "NEGATIVE",
+      "primaryCategory": "HEALTH",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "57a6ec1a3b8cebb34157bba629baeb5e36688bf835d6ecf7e2ff81e11bbf72d8",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_mastodon_050",
+    "monthKey": "2026-09",
+    "network": "mastodon",
+    "networkLabel": "Mastodon / Fediverse",
+    "date": "2026-09-19T18:45:00Z",
+    "author": "Marc L. (Riverain Ivry-Port)",
+    "handle": "marcl_ivry@piaille.fr",
+    "avatar": "https://piaille.fr/avatars/original/missing.png",
+    "url": "https://piaille.fr/@marcl_ivry/112026",
+    "content": "⚠️ Reprise brutale des rotations de bennes et odeur de plastique brûlé tenace ce vendredi soir quai Marcel Boyer. Le retour des nuisances est immédiat après la trêve du mois d'août. #Ivry #Odeur #Trafic",
+    "laya": {
+      "sentimentScore": -0.35,
+      "sentimentLabel": "NEGATIVE",
+      "primaryCategory": "ODOR",
+      "secondaryCategories": [
+        "TRAFFIC"
+      ],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "7d3366aa7b57e0a4a4934897f6172023a9a782c134109e3c83361028a3cb6f55",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_debats_citoyens_054",
+    "monthKey": "2026-09",
+    "network": "debats_citoyens",
+    "networkLabel": "Débats Citoyens / Actes",
+    "date": "2026-09-22T20:30:00Z",
+    "author": "Conseil Municipal Extraordinaire d'Ivry-sur-Seine",
+    "handle": "registre_cm_ivry_2026_09",
+    "avatar": "",
+    "url": "https://ivry94.fr/seances-cm/2026-09-22",
+    "content": "Adoption unanime d'un vœu exigeant un moratoire sur toute hausse de tonnage du centre d'Ivry-Paris XIII et la mise en place d'un comité d'experts médicaux indépendants rémunéré par le SYCTOM.",
+    "laya": {
+      "sentimentScore": 0,
+      "sentimentLabel": "NEUTRAL",
+      "primaryCategory": "GOVERNANCE",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "2df564675c2c33fa11ae8127f9e91165bac2dc6f5c37fd38ca8bc6423ba73672",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_mastodon_051",
+    "monthKey": "2026-09",
+    "network": "mastodon",
+    "networkLabel": "Mastodon / Fediverse",
+    "date": "2026-09-23T11:00:00Z",
+    "author": "SYCTOM Info",
+    "handle": "syctom_officiel@mastodon.social",
+    "avatar": "https://mastodon.social/avatars/original/missing.png",
+    "url": "https://mastodon.social/@syctom_officiel/112027",
+    "content": "Mise en service opérationnelle des nouveaux analyseurs d'émissions en continu (CEMS) sur les deux lignes de combustion d'Ivry. Conformité totale avec les normes BREF européennes 2026. #Syctom #Ivry",
+    "laya": {
+      "sentimentScore": 0,
+      "sentimentLabel": "NEUTRAL",
+      "primaryCategory": "GOVERNANCE",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "71fead85d73328cb2091eb8d5873d62fa3746a96376a2f517d9ddf6d9c8d43b8",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  }
+];
+
 function setSentimentMode(mode) {
   APP_STATE.sentimentMode = mode;
   const btnLive = document.getElementById('btn-mode-live');
@@ -1147,11 +2369,8 @@ function setSentimentMode(mode) {
 }
 
 function initHistoryArchive() {
-  if (!APP_STATE.historyLoaded) {
-    APP_STATE.historyLoaded = true;
-    renderHistoryMonthsTrack(APP_STATE.historyMonth || '2026-09');
-    loadHistoryMonth(APP_STATE.historyMonth || '2026-09', APP_STATE.historyNetwork || 'consolidated');
-  }
+  renderHistoryMonthsTrack(APP_STATE.historyMonth || '2026-09');
+  loadHistoryMonth(APP_STATE.historyMonth || '2026-09', APP_STATE.historyNetwork || 'consolidated');
 }
 
 function setHistoryNetwork(network) {
@@ -1182,42 +2401,47 @@ function renderHistoryMonthsTrack(activeMonthKey) {
     const isActive = m.monthKey === activeMonthKey;
     const scoreColor = m.avgPolarity > 0.05 ? '#34d399' : (m.avgPolarity < -0.05 ? '#f87171' : '#38bdf8');
     const scoreSign = m.avgPolarity > 0 ? '+' : '';
-    const scoreDisplay = `${scoreSign}${m.avgPolarity.toFixed(2)}`;
+    const scoreDisplay = scoreSign + m.avgPolarity.toFixed(2);
 
-    return `
-      <div class="history-month-pill ${isActive ? 'active' : ''}" onclick="selectHistoryMonth('${m.monthKey}')">
-        <span class="h-month-name">${m.monthLabel.split(' ')[0]}</span>
-        <span class="h-month-score" style="color: ${scoreColor};">${scoreDisplay}</span>
-        <span class="h-month-posts">${m.totalPosts} posts</span>
-      </div>
-    `;
+    return '<div class="history-month-pill ' + (isActive ? 'active' : '') + '" onclick="selectHistoryMonth(\'' + m.monthKey + '\')">' +
+      '<span class="h-month-name">' + m.monthLabel.split(' ')[0] + '</span>' +
+      '<span class="h-month-score" style="color: ' + scoreColor + ';">' + scoreDisplay + '</span>' +
+      '<span class="h-month-posts">' + m.totalPosts + ' posts</span>' +
+    '</div>';
   }).join('');
 }
 
-async function loadHistoryMonth(monthKey, network) {
+function getHistoryMonthPosts(network, monthKey) {
+  let list = HISTORICAL_POSTS_DATABASE_2026.filter(p => p.monthKey === monthKey);
+  if (network && network !== 'consolidated') {
+    list = list.filter(p => p.network === network);
+  }
+  return list;
+}
+
+function loadHistoryMonth(monthKey, network) {
   const grid = document.getElementById('history-posts-grid');
   if (!grid) return;
 
-  grid.innerHTML = `
-    <div class="social-loading-state">
-      <div class="loading-spinner"></div>
-      <span>Interrogation de la base de données (${network}/${monthKey}.json)...</span>
-    </div>
-  `;
+  const mKey = monthKey || APP_STATE.historyMonth || '2026-09';
+  const net = network || APP_STATE.historyNetwork || 'consolidated';
 
-  const mMeta = HISTORICAL_SUMMARY_2026.monthlyTimeline.find(m => m.monthKey === monthKey) || HISTORICAL_SUMMARY_2026.monthlyTimeline[8];
+  const mMeta = HISTORICAL_SUMMARY_2026.monthlyTimeline.find(m => m.monthKey === mKey) || HISTORICAL_SUMMARY_2026.monthlyTimeline[8];
 
   // 1. Mise à jour de la bannière de synthèse
   const driverTitle = document.getElementById('hist-driver-title');
-  if (driverTitle) driverTitle.innerHTML = `${mMeta.monthLabel} &bull; <span style="color: ${mMeta.avgPolarity < -0.1 ? '#f87171' : (mMeta.avgPolarity > 0.1 ? '#34d399' : '#38bdf8')}">${mMeta.polarityLabel}</span>`;
+  if (driverTitle) {
+    const polColor = mMeta.avgPolarity < -0.1 ? '#f87171' : (mMeta.avgPolarity > 0.1 ? '#34d399' : '#38bdf8');
+    driverTitle.innerHTML = mMeta.monthLabel + ' &bull; <span style="color: ' + polColor + '">' + mMeta.polarityLabel + '</span>';
+  }
 
   const driverDesc = document.getElementById('hist-driver-desc');
   if (driverDesc) driverDesc.innerText = mMeta.keyDriverEvent;
 
-  // 2. Récupération des posts du mois
-  const posts = await fetchHistoryMonthPosts(network, monthKey);
+  // 2. Récupération instantanée des posts
+  const posts = getHistoryMonthPosts(net, mKey);
 
-  // 3. Calcul des métriques filtrées par réseau
+  // 3. Calcul des statistiques
   let totalScore = 0;
   let countPos = 0;
   let countNeu = 0;
@@ -1246,7 +2470,7 @@ async function loadHistoryMonth(monthKey, network) {
   if (countEl) countEl.innerText = total;
 
   const activeMonthEl = document.getElementById('hist-active-month');
-  if (activeMonthEl) activeMonthEl.innerText = `Période : ${mMeta.monthLabel} &bull; Source : ${network.toUpperCase()}`;
+  if (activeMonthEl) activeMonthEl.innerText = 'Période : ' + mMeta.monthLabel + ' &bull; Source : ' + net.toUpperCase();
 
   const polarityEl = document.getElementById('hist-polarity');
   if (polarityEl) {
@@ -1265,50 +2489,29 @@ async function loadHistoryMonth(monthKey, network) {
 
   const urgencyEl = document.getElementById('hist-urgency');
   if (urgencyEl) {
-    urgencyEl.innerText = `${urgencyRate}%`;
+    urgencyEl.innerText = urgencyRate + '%';
     urgencyEl.style.color = urgencyRate > 0 ? '#f87171' : '#34d399';
   }
 
   const topCatEl = document.getElementById('hist-top-category');
-  if (topCatEl) topCatEl.innerText = `Thème : ${mMeta.topCategory}`;
+  if (topCatEl) topCatEl.innerText = 'Thème : ' + mMeta.topCategory;
 
   const pctPosEl = document.getElementById('hist-pct-pos');
-  if (pctPosEl) pctPosEl.innerText = `${pctPos}%`;
+  if (pctPosEl) pctPosEl.innerText = pctPos + '%';
   const pctNeuEl = document.getElementById('hist-pct-neu');
-  if (pctNeuEl) pctNeuEl.innerText = `${pctNeu}%`;
+  if (pctNeuEl) pctNeuEl.innerText = pctNeu + '%';
   const pctNegEl = document.getElementById('hist-pct-neg');
-  if (pctNegEl) pctNegEl.innerText = `${pctNeg}%`;
+  if (pctNegEl) pctNegEl.innerText = pctNeg + '%';
 
   const segPos = document.getElementById('hist-seg-pos');
-  if (segPos) segPos.style.width = `${pctPos}%`;
+  if (segPos) segPos.style.width = pctPos + '%';
   const segNeu = document.getElementById('hist-seg-neu');
-  if (segNeu) segNeu.style.width = `${pctNeu}%`;
+  if (segNeu) segNeu.style.width = pctNeu + '%';
   const segNeg = document.getElementById('hist-seg-neg');
-  if (segNeg) segNeg.style.width = `${pctNeg}%`;
+  if (segNeg) segNeg.style.width = pctNeg + '%';
 
   // 5. Rendu des cartes de posts historiques
-  renderHistoryCards(posts, network);
-}
-
-async function fetchHistoryMonthPosts(network, monthKey) {
-  const isSubpath = (typeof window !== 'undefined' && window.location && window.location.pathname.includes('/V1/scripts/web/'));
-  const basePath = isSubpath ? '../../data/sentiment_2026' : './V1/data/sentiment_2026';
-  const url = `${basePath}/${network}/${monthKey}.json`;
-
-  try {
-    const res = await fetch(url);
-    if (res.ok) {
-      const data = await res.json();
-      if (Array.isArray(data) && data.length > 0) {
-        return data;
-      }
-    }
-  } catch (err) {
-    console.warn(`Fetch history ${url} impossible, recours au fallback local.`);
-  }
-
-  // Fallback local intégré
-  return getHistoryFallbackPosts(network, monthKey);
+  renderHistoryCards(posts, net);
 }
 
 function renderHistoryCards(posts, currentNetwork) {
@@ -1316,12 +2519,10 @@ function renderHistoryCards(posts, currentNetwork) {
   if (!grid) return;
 
   if (!posts || posts.length === 0) {
-    grid.innerHTML = `
-      <div class="social-loading-state">
-        <p>Aucune publication archivée pour ce réseau dans ce mois.</p>
-        <button class="social-pill" onclick="setHistoryNetwork('consolidated')">Afficher toutes les plateformes</button>
-      </div>
-    `;
+    grid.innerHTML = '<div class="social-loading-state">' +
+      '<p>Aucune publication archivée pour ce filtre dans ce mois.</p>' +
+      '<button class="social-pill" onclick="setHistoryNetwork(\'consolidated\')">Afficher toutes les plateformes</button>' +
+    '</div>';
     return;
   }
 
@@ -1372,101 +2573,42 @@ function renderHistoryCards(posts, currentNetwork) {
 
     const bodyHtml = sanitizeSocialContent(post.content || '');
 
-    return `
-      <article class="social-card">
-        <div class="sc-header">
-          <div class="sc-author">
-            <div class="sc-author-meta">
-              <div style="display: flex; align-items: center; gap: 0.4rem; margin-bottom: 2px;">
-                <span class="sc-display-name" title="${authorName}">${authorName}</span>
-                ${netBadgeHtml}
-              </div>
-              <a href="${postUrl}" target="_blank" rel="noopener noreferrer" class="sc-handle">@${handle}</a>
-            </div>
-          </div>
-          <time class="sc-date">${dateFormatted}</time>
-        </div>
-
-        <div class="sc-body">
-          ${bodyHtml}
-        </div>
-
-        <div class="sc-laya-inference">
-          <div class="sc-laya-top">
-            <span class="laya-badge-polarity ${polarityBadgeClass}">
-              ${polarityIcon} ${polarityLabel} (${s > 0 ? '+' : ''}${s.toFixed(2)})
-            </span>
-            <span class="laya-badge-category">
-              ${catLabel}
-            </span>
-            ${urgencyBadge}
-          </div>
-          <div class="sc-laya-meta">
-            <span>⚡ Latence : <strong>${laya.processingTimeMs || 1} ms</strong></span>
-            <span>🔒 Sceau : <code title="${laya.auditSignature || ''}">${(laya.auditSignature || 'sig_in2tech_audit').slice(0, 10)}...</code></span>
-            <a href="${postUrl}" target="_blank" rel="noopener noreferrer" class="sc-source-link">🔗 Source officielle</a>
-          </div>
-        </div>
-      </article>
-    `;
+    return '<article class="social-card">' +
+      '<div class="sc-header">' +
+        '<div class="sc-author">' +
+          '<div class="sc-author-meta">' +
+            '<div style="display: flex; align-items: center; gap: 0.4rem; margin-bottom: 2px;">' +
+              '<span class="sc-display-name" title="' + authorName + '">' + authorName + '</span>' +
+              netBadgeHtml +
+            '</div>' +
+            '<a href="' + postUrl + '" target="_blank" rel="noopener noreferrer" class="sc-handle">@' + handle + '</a>' +
+          '</div>' +
+        '</div>' +
+        '<time class="sc-date">' + dateFormatted + '</time>' +
+      '</div>' +
+      '<div class="sc-body">' +
+        bodyHtml +
+      '</div>' +
+      '<div class="sc-laya-inference">' +
+        '<div class="sc-laya-top">' +
+          '<span class="laya-badge-polarity ' + polarityBadgeClass + '">' +
+            polarityIcon + ' ' + polarityLabel + ' (' + (s > 0 ? '+' : '') + s.toFixed(2) + ')' +
+          '</span>' +
+          '<span class="laya-badge-category">' +
+            catLabel +
+          '</span>' +
+          urgencyBadge +
+        '</div>' +
+        '<div class="sc-laya-meta">' +
+          '<span>⚡ Latence : <strong>' + (laya.processingTimeMs || 1) + ' ms</strong></span>' +
+          '<span>🔒 Sceau : <code title="' + (laya.auditSignature || '') + '">' + (laya.auditSignature || 'sig_in2tech').slice(0, 10) + '...</code></span>' +
+          '<a href="' + postUrl + '" target="_blank" rel="noopener noreferrer" class="sc-source-link">🔗 Source officielle</a>' +
+        '</div>' +
+      '</div>' +
+    '</article>';
   }).join('');
 
   grid.innerHTML = cardsHtml;
-}
-
-// Fallback déterministe en mémoire pour garantir 100% de résilience locale
-function getHistoryFallbackPosts(network, monthKey) {
-  const fallbackCorpus = [
-    {
-      id: "post_fb_01",
-      monthKey: "2026-09",
-      network: "mastodon",
-      date: "2026-09-04T08:30:00Z",
-      author: "FCPE Ivry-sur-Seine",
-      handle: "fcpe_ivry@piaille.fr",
-      url: "https://piaille.fr/@fcpe_ivry/112024",
-      content: "Rentrée scolaire 2026 : les parents d'élèves de l'école Albert Einstein exigent la publication immédiate des résultats des carottages de sol. Zéro compromis avec la santé de nos enfants ! #Ivry #Santé",
-      laya: { sentimentScore: -0.5, sentimentLabel: "NEGATIVE", primaryCategory: "HEALTH", urgencyFlag: false, processingTimeMs: 1, auditSignature: "fb_sig_hist_09_01" }
-    },
-    {
-      id: "post_fb_02",
-      monthKey: "2026-09",
-      network: "mastodon",
-      date: "2026-09-12T14:15:00Z",
-      author: "Collectif 3R",
-      handle: "collectif3r@piaille.fr",
-      url: "https://piaille.fr/@collectif3r/112025",
-      content: "Grande réunion publique ce jeudi en mairie d'Ivry : présentation de notre contre-expertise indépendante sur les émissions réelles de dioxines bromées et métaux lourds. Venez nombreux ! #Ivry #Mobilisation",
-      laya: { sentimentScore: -0.4, sentimentLabel: "NEGATIVE", primaryCategory: "GOVERNANCE", urgencyFlag: false, processingTimeMs: 1, auditSignature: "fb_sig_hist_09_02" }
-    },
-    {
-      id: "post_fb_03",
-      monthKey: "2026-09",
-      network: "bluesky",
-      date: "2026-09-08T15:20:00Z",
-      author: "Sociologie Urbaine",
-      handle: "socio-urbaine.bsky.social",
-      url: "https://bsky.app/profile/socio-urbaine.bsky.social/post/3k1017",
-      content: "La controverse de l'incinérateur d'Ivry illustre le concept d'injustice environnementale péri-métropolitaine : le traitement des déchets du centre reporté sur la banlieue. #Sociologie #Ivry",
-      laya: { sentimentScore: -0.3, sentimentLabel: "NEGATIVE", primaryCategory: "GOVERNANCE", urgencyFlag: false, processingTimeMs: 1, auditSignature: "fb_sig_hist_09_03" }
-    },
-    {
-      id: "post_fb_04",
-      monthKey: "2026-09",
-      network: "debats_citoyens",
-      date: "2026-09-22T20:30:00Z",
-      author: "Conseil Municipal Ivry-sur-Seine",
-      handle: "registre_cm_ivry",
-      url: "https://ivry94.fr/seances-cm/2026-09-22",
-      content: "Adoption unanime d'un vœu exigeant un moratoire sur toute hausse de tonnage du centre d'Ivry-Paris XIII et la mise en place d'un comité d'experts médicaux indépendants.",
-      laya: { sentimentScore: -0.3, sentimentLabel: "NEGATIVE", primaryCategory: "GOVERNANCE", urgencyFlag: false, processingTimeMs: 1, auditSignature: "fb_sig_hist_09_04" }
-    }
-  ];
-
-  if (network === 'consolidated') {
-    return fallbackCorpus.filter(p => p.monthKey === monthKey);
-  }
-  return fallbackCorpus.filter(p => p.monthKey === monthKey && p.network === network);
 }
 
 // ====================================================================
