@@ -5,7 +5,7 @@
  */
 
 const assert = require('assert');
-const { classifyMicroDecision, MODEL_IDENTIFIER } = require('../core/layaClassifier');
+const { classifyMicroDecision, verifyAuditSignature, tokenizeFrenchText, MODEL_IDENTIFIER } = require('../core/layaClassifier');
 const { 
   UVE_ORIGIN, 
   generateDispersionPlume, 
@@ -48,6 +48,31 @@ runTest('Laya clasifica correctamente quejas de olores con sentimiento negativo'
   assert.strictEqual(res.sentimentLabel, 'STRONGLY_NEGATIVE', 'El label debe ser STRONGLY_NEGATIVE');
   assert.ok(res.auditSignature && res.auditSignature.length >= 16, 'Debe incluir firma de auditoría HMAC');
   assert.ok(res.scientificDisclaimer.includes('indicativos'), 'Debe incluir el disclaimer científico');
+});
+
+runTest('Laya separa contracciones francesas ("l\'odeur" -> "odeur")', () => {
+  const tokens = tokenizeFrenchText("L'odeur est insupportable ce soir");
+  assert.ok(tokens.includes('odeur'), 'Esperaba token "odeur", obtenido: ' + tokens.join(','));
+});
+
+runTest('Laya invierte polaridad ante negación ("pas de mauvaise odeur")', () => {
+  const r = classifyMicroDecision("Ce soir, il n'y a pas de mauvaise odeur, tout va bien.");
+  assert.ok(r.sentimentScore >= -0.15, 'Puntaje demasiado negativo pese a negación: ' + r.sentimentScore);
+});
+
+runTest('Laya clasifica honestamente texto neutral como UNCLASSIFIED (Cero Cajas Negras)', () => {
+  const r = classifyMicroDecision("Bonjour, quelqu'un sait où se trouve la boulangerie ?");
+  assert.strictEqual(r.primaryCategory, 'UNCLASSIFIED', 'No debe forzar categoría ODOR');
+});
+
+runTest('Laya persiste nonce y permite verificación criptográfica formal (Gate 3)', () => {
+  const r = classifyMicroDecision("Bruit assourdissant cette nuit, impossible de dormir.");
+  assert.ok(r.nonce, 'Debe incluir el nonce persistido');
+  assert.strictEqual(verifyAuditSignature(r), true, 'La firma HMAC debe ser verificable');
+  
+  // Firma alterada debe fallar
+  const tampered = Object.assign({}, r, { sentimentScore: 0.99 });
+  assert.strictEqual(verifyAuditSignature(tampered), false, 'Firma alterada debe fallar verificación');
 });
 
 runTest('Laya clasifica alertas de salud y detecta bandera de urgencia crítica', () => {

@@ -3,9 +3,9 @@
   "project_name": "Observatorio de Gobernanza Ambiental Urbana y Percepción Pública (Ivry/Vitry)",
   "project_type": "Full-Stack GIS & Agentic BI Observatory",
   "workspace_path": "C:\\Users\\in2te\\.gemini\\antigravity\\scratch\\observatorio-ivry-vitry",
-  "version": "0.9.4",
+  "version": "1.0.0",
   "status": "COMPLETADO Y VERIFICADO (3 GATES SUPERADOS)",
-  "last_updated": "2026-09-25T03:17:00",
+  "last_updated": "2026-09-25T03:29:00",
   "stages": [
     {
       "id": "stage-1",
@@ -32,14 +32,14 @@
       "id": "stage-4",
       "name": "4. Control por 3 Puertas (Gates 1, 2, 3)",
       "status": "COMPLETED",
-      "description": "Gate 1 (10/10 Tests verdes), Gate 2 (Seguridad AS / RGPD favorable), Gate 3 (Auditoría AA / Trazabilidad favorable).",
+      "description": "Gate 1 (19/19 Tests verdes), Gate 2 (Seguridad AS / RGPD favorable), Gate 3 (Auditoría AA / Trazabilidad favorable).",
       "responsible": "ADS, AS & AA"
     },
     {
       "id": "stage-5",
       "name": "5. Auditoría FS Guardian & Sellado Inmutable",
       "status": "COMPLETED",
-      "description": "Verificación global de conformidad con la SF/FT v0.9.0, inmutabilidad y release SemVer.",
+      "description": "Verificación global de conformidad con la SF/FT, inmutabilidad y release SemVer v1.0.0.",
       "responsible": "FS Guardian (QA)"
     }
   ],
@@ -53,25 +53,25 @@
     {
       "agent_id": "ADS-1",
       "role": "Agente Desarrollador Core (Algoritmia y Datos)",
-      "main_tasks": "Implementar layaClassifier.js, windPlumeEngine.js, surveyValidator.js y test_suite_gate1.js.",
+      "main_tasks": "Implementar layaClassifier.js v1.0.0, windPlumeEngine.js, surveyValidator.js y test_suite_gate1.js (19/19 PASS).",
       "status": "COMPLETED"
     },
     {
       "agent_id": "ADS-2",
       "role": "Agente Desarrollador Web (Full-Stack & GIS)",
-      "main_tasks": "Implementar portal SPA de 5 pestañas con Leaflet, gráficos SVG y asistente conversacional.",
+      "main_tasks": "Implementar portal SPA con Leaflet, motor de búsqueda plein texte Mastodon API y asistente conversacional.",
       "status": "COMPLETED"
     },
     {
       "agent_id": "AS-Security",
       "role": "Agente de Seguridad",
-      "main_tasks": "Auditoría preventiva RGPD (AIPD), eliminación de PII, seguridad en webhooks y dictamen Gate 2.",
+      "main_tasks": "Auditoría preventiva RGPD (AIPD), eliminación de PII, getAuditSecret en producción y dictamen Gate 2.",
       "status": "COMPLETED"
     },
     {
       "agent_id": "AA-Auditor",
       "role": "Agente Auditor de Trazabilidad",
-      "main_tasks": "Auditar fidelidad con los 4 ejes sociológicos/epidemiológicos, verificación de fuentes y aviso de no-causalidad.",
+      "main_tasks": "Auditar fidelidad con los 4 ejes, persistencia de nonce para re-verificación HMAC y aviso de no-causalidad.",
       "status": "COMPLETED"
     },
     {
@@ -83,12 +83,12 @@
   ],
   "qa_assessment": {
     "evaluator": "FS Guardian & DD",
-    "verdict": "CONFORME — PROYECTO SELLADO v0.9.2",
-    "timestamp": "2026-09-25 02:44",
-    "comments": "Implementación y despliegue de la Base de Datos Histórica Git-as-a-Database 2026 (Enero a Septiembre) particionada por red social (mastodon, bluesky, debats_citoyens, consolidated), con índice anual, scrubber cronológico mensual, selector de fuente y firmas Laya HMAC. Suite de 15/15 pruebas en verde.",
+    "verdict": "CONFORME — PROYECTO SELLADO v1.0.0",
+    "timestamp": "2026-09-25 03:29",
+    "comments": "Actualización mayor del motor de micro-decisión Laya Engine a v1.0.0-fr: persistencia de nonce para re-verificación criptográfica HMAC (Gate 3), control estricto de secretos en producción (Gate 2), tokenización de contracciones en francés, manejo de negaciones e intensificadores, clasificación honesta (UNCLASSIFIED) y soporte de emojis. Suite de 19/19 pruebas en verde.",
     "second_brain_alerts": [
-      "Regla ADR-001: Pruebas deterministas superadas (15/15 PASS).",
-      "Regla ADR-003: Cero degradación por mocks; esquema Git-as-a-Database particionado con preservación estricta de componentes probados."
+      "Regla ADR-001: Pruebas deterministas superadas (19/19 PASS).",
+      "Regla ADR-003: Cero degradación por mocks; preservación de componentes probados y persistencia de nonce para re-verificación de auditoría HMAC."
     ]
   }
 }
