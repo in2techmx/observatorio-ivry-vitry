@@ -5,7 +5,7 @@
  * Cumplimiento: RGPD Art. 32 (Seudonimización Irreversible), Filtro Anti-Spam
  */
 
-const crypto = typeof require !== 'undefined' ? require('crypto') : null;
+const _cryptoSurvey = typeof require !== 'undefined' ? require('crypto') : null;
 
 const VALID_POSTAL_CODES = {
   CORE: ['94200', '94400'], // Ivry-sur-Seine y Vitry-sur-Seine
@@ -24,8 +24,8 @@ function getDailySalt() {
 function anonymizeIdentifier(identifier) {
   if (!identifier) return 'anon_' + Math.random().toString(36).substring(2, 10);
   const input = `${identifier}|${getDailySalt()}`;
-  if (crypto && crypto.createHash) {
-    return 'usr_' + crypto.createHash('sha256').update(input).digest('hex').substring(0, 16);
+  if (_cryptoSurvey && _cryptoSurvey.createHash) {
+    return 'usr_' + _cryptoSurvey.createHash('sha256').update(input).digest('hex').substring(0, 16);
   }
   let hash = 0;
   for (let i = 0; i < input.length; i++) {

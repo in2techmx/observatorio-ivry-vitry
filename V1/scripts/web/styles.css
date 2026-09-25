@@ -258,34 +258,41 @@ body {
 
 /* Timeline Chart */
 .chart-container {
-  height: 180px;
+  height: 200px;
   display: flex;
   align-items: flex-end;
   background-color: #0b1120;
   border-radius: 6px;
-  padding: 1rem 1rem 0.5rem;
+  padding: 1.2rem 1.2rem 0.6rem;
   margin: 1rem 0 0.5rem;
   border: 1px solid #1e293b;
+  position: relative;
 }
 
 .synthetic-timeline {
   display: flex;
   justify-content: space-around;
   width: 100%;
-  height: 100%;
+  height: 140px;
   align-items: flex-end;
 }
 
 .timeline-bar {
-  width: 38px;
+  width: 42px;
   background: linear-gradient(180deg, #38bdf8, #0284c7);
   border-radius: 4px 4px 0 0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 0.3rem 0;
+  padding: 0.35rem 0;
   transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.timeline-bar:hover {
+  transform: scaleY(1.05);
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
 }
 
 .timeline-bar.negative-peak {
@@ -336,11 +343,15 @@ body {
   border-radius: 8px;
   overflow: hidden;
   position: relative;
+  min-height: 540px;
+  height: 100%;
 }
 
 #map {
   width: 100%;
   height: 100%;
+  min-height: 540px;
+  background-color: #0b1120;
 }
 
 .control-group {
@@ -1114,4 +1125,65 @@ textarea:focus, input[type="text"]:focus, select:focus {
   background-color: #0b1120;
   border-radius: 6px;
   border: 1px dashed var(--border-color);
+}
+
+
+/* Gráfica Visual de Ratios de Posturas (Tab 6) */
+.posture-chart-strip {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 0.85rem 1.25rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.posture-chart-kpis {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: 0.82rem;
+}
+
+.posture-kpi-chip {
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.posture-kpi-chip.pour { background: rgba(34, 197, 94, 0.15); color: #86efac; border: 1px solid rgba(34, 197, 94, 0.35); }
+.posture-kpi-chip.neutre { background: rgba(56, 189, 248, 0.15); color: #93c5fd; border: 1px solid rgba(56, 189, 248, 0.35); }
+.posture-kpi-chip.contre { background: rgba(239, 68, 68, 0.15); color: #fca5a5; border: 1px solid rgba(239, 68, 68, 0.35); }
+
+.posture-ratio-bar {
+  display: flex;
+  height: 20px;
+  border-radius: 20px;
+  overflow: hidden;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  line-height: 20px;
+  background-color: #0b1120;
+  border: 1px solid var(--border-color);
+}
+
+.seg-pour {
+  background: linear-gradient(90deg, #16a34a, #22c55e);
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.seg-neutre {
+  background: linear-gradient(90deg, #0284c7, #38bdf8);
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.seg-contre {
+  background: linear-gradient(90deg, #dc2626, #ef4444);
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }

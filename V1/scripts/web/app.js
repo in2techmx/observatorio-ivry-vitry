@@ -42,9 +42,11 @@ function initTabs() {
 
       // Si se activa la pestaña GIS, refrescar tamaño del mapa Leaflet
       if (targetId === 'tab-gis' && APP_STATE.map) {
-        setTimeout(() => {
-          APP_STATE.map.invalidateSize();
-        }, 150);
+        [50, 150, 300, 500].forEach(delay => {
+          setTimeout(() => {
+            APP_STATE.map.invalidateSize(true);
+          }, delay);
+        });
       }
     });
   });
@@ -1626,8 +1628,44 @@ function renderNewsGrid(items) {
   const pourItems = items.filter(n => n.posture === 'POUR');
   const neutreItems = items.filter(n => n.posture === 'NEUTRE');
   const contreItems = items.filter(n => n.posture === 'CONTRE');
+  const total = items.length;
 
-  // Actualizar badges de conteo
+  // Actualizar Gráfica Visual de Ratios de Postura
+  const pourPct = total > 0 ? Math.round((pourItems.length / total) * 100) : 0;
+  const contrePct = total > 0 ? Math.round((contreItems.length / total) * 100) : 0;
+  const neutrePct = total > 0 ? (100 - pourPct - contrePct) : 0;
+
+  const kpiPourCount = document.getElementById('kpi-pour-count');
+  if (kpiPourCount) kpiPourCount.innerText = pourItems.length;
+  const kpiPourPct = document.getElementById('kpi-pour-pct');
+  if (kpiPourPct) kpiPourPct.innerText = `${pourPct}%`;
+
+  const kpiNeutreCount = document.getElementById('kpi-neutre-count');
+  if (kpiNeutreCount) kpiNeutreCount.innerText = neutreItems.length;
+  const kpiNeutrePct = document.getElementById('kpi-neutre-pct');
+  if (kpiNeutrePct) kpiNeutrePct.innerText = `${neutrePct}%`;
+
+  const kpiContreCount = document.getElementById('kpi-contre-count');
+  if (kpiContreCount) kpiContreCount.innerText = contreItems.length;
+  const kpiContrePct = document.getElementById('kpi-contre-pct');
+  if (kpiContrePct) kpiContrePct.innerText = `${contrePct}%`;
+
+  const segPour = document.getElementById('seg-pour');
+  if (segPour) {
+    segPour.style.width = `${pourPct}%`;
+    segPour.innerText = pourPct > 0 ? `${pourPct}% Pour` : '';
+  }
+  const segNeutre = document.getElementById('seg-neutre');
+  if (segNeutre) {
+    segNeutre.style.width = `${neutrePct}%`;
+    segNeutre.innerText = neutrePct > 0 ? `${neutrePct}% Neutre` : '';
+  }
+  const segContre = document.getElementById('seg-contre');
+  if (segContre) {
+    segContre.style.width = `${contrePct}%`;
+    segContre.innerText = contrePct > 0 ? `${contrePct}% Contre` : '';
+  }
+
   const countPour = document.getElementById('count-col-pour');
   const countNeutre = document.getElementById('count-col-neutre');
   const countContre = document.getElementById('count-col-contre');

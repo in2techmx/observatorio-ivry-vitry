@@ -350,6 +350,20 @@
         </div>
 
         <!-- 3 Secciones Claras: À Favor | Neutre | En Contra con Abstract consolidado -->
+        <!-- Gráfica Visual de Distribución de Posturas del Periodo -->
+        <div class="posture-chart-strip">
+          <div class="posture-chart-kpis">
+            <span class="posture-kpi-chip pour">🟢 À Favor : <strong id="kpi-pour-count">0</strong> (<span id="kpi-pour-pct">0%</span>)</span>
+            <span class="posture-kpi-chip neutre">⚪ Neutre : <strong id="kpi-neutre-count">0</strong> (<span id="kpi-neutre-pct">0%</span>)</span>
+            <span class="posture-kpi-chip contre">🔴 En Contra : <strong id="kpi-contre-count">0</strong> (<span id="kpi-contre-pct">0%</span>)</span>
+          </div>
+          <div class="posture-ratio-bar" id="posture-ratio-bar">
+            <div class="ratio-segment seg-pour" id="seg-pour" style="width: 0%;">0% Pour</div>
+            <div class="ratio-segment seg-neutre" id="seg-neutre" style="width: 0%;">0% Neutre</div>
+            <div class="ratio-segment seg-contre" id="seg-contre" style="width: 0%;">0% Contre</div>
+          </div>
+        </div>
+
         <div class="minimal-stance-grid" id="stance-columns-container">
           <!-- Columna 1: À FAVOR (POUR) -->
           <div class="stance-column pour" id="col-pour">

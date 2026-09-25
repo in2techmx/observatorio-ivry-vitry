@@ -5,10 +5,10 @@
  * Cumplimiento: Latencia < 70ms, Cero Cajas Negras, Firma de Auditoría HMAC-SHA256
  */
 
-const crypto = typeof require !== 'undefined' ? require('crypto') : null;
+const _cryptoLaya = typeof require !== 'undefined' ? require('crypto') : null;
 
 // Clave de firma interna del observatorio para sellado de auditoría (HMAC)
-const AUDIT_SECRET_KEY = process.env.LAYA_AUDIT_SECRET || 'IN2TECH_IVRY_VITRY_AUDIT_SALT_2026';
+const AUDIT_SECRET_KEY = (typeof process !== 'undefined' && process.env && process.env.LAYA_AUDIT_SECRET) || 'IN2TECH_IVRY_VITRY_AUDIT_SALT_2026';
 const MODEL_IDENTIFIER = 'laya-micro-v0.9.0-fr';
 
 // Diccionarios léxicos semánticos especializados en la problemática ambiental de Ivry/Vitry
@@ -87,8 +87,8 @@ function tokenizeFrenchText(text) {
  */
 function generateAuditSignature(eventId, score, category, modelId, timestamp, nonce) {
   const payload = `${eventId}|${score.toFixed(4)}|${category}|${modelId}|${timestamp}|${nonce}`;
-  if (crypto && crypto.createHmac) {
-    return crypto.createHmac('sha256', AUDIT_SECRET_KEY).update(payload).digest('hex');
+  if (_cryptoLaya && _cryptoLaya.createHmac) {
+    return _cryptoLaya.createHmac('sha256', AUDIT_SECRET_KEY).update(payload).digest('hex');
   }
   // Fallback determinista en navegadores / entornos sin módulo crypto nativo
   let hash = 0;
