@@ -1,0 +1,46 @@
+[
+  {
+    "id": "post_2026_bluesky_045",
+    "monthKey": "2026-08",
+    "network": "bluesky",
+    "networkLabel": "Bluesky (AT Proto)",
+    "date": "2026-08-11T12:00:00Z",
+    "author": "Comparatif UVE France",
+    "handle": "uve-france.bsky.social",
+    "avatar": "",
+    "url": "https://bsky.app/profile/uve-france.bsky.social/post/3k1015",
+    "content": "Comparatif estival : À Issy-les-Moulineaux (Isséane), l'enfouissement à 60% neutralise le bruit et le panache. À Ivry, l'option aérienne reste source de tensions visuelles permanentes. #Architecture #Déchets",
+    "laya": {
+      "sentimentScore": -0.3,
+      "sentimentLabel": "NEGATIVE",
+      "primaryCategory": "NOISE",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "9610cacdb52a8160d36c5a85fffdf225c30b51a0b59d297d977f34b3b8801139",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_bluesky_046",
+    "monthKey": "2026-08",
+    "network": "bluesky",
+    "networkLabel": "Bluesky (AT Proto)",
+    "date": "2026-08-24T16:20:00Z",
+    "author": "Pauline Tessier (Journaliste Écologie)",
+    "handle": "ptessier-eco.bsky.social",
+    "avatar": "",
+    "url": "https://bsky.app/profile/ptessier-eco.bsky.social/post/3k1016",
+    "content": "Enquête d'été : Que deviennent les mâchefers de l'incinérateur d'Ivry ? 80% sont valorisés en sous-couches routières sous contrôle de l'Ademe. Enjeux de traçabilité des métaux résiduels. #Recyclage",
+    "laya": {
+      "sentimentScore": 0,
+      "sentimentLabel": "NEUTRAL",
+      "primaryCategory": "ODOR",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "721e1d4a55093c41b8c4e7a01ec7d4ea59c3e1ef10bbd396f918d73af3d619f6",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  }
+]

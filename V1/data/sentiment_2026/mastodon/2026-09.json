@@ -1,0 +1,94 @@
+[
+  {
+    "id": "post_2026_mastodon_048",
+    "monthKey": "2026-09",
+    "network": "mastodon",
+    "networkLabel": "Mastodon / Fediverse",
+    "date": "2026-09-04T08:30:00Z",
+    "author": "FCPE Ivry-sur-Seine",
+    "handle": "fcpe_ivry@piaille.fr",
+    "avatar": "https://piaille.fr/avatars/original/missing.png",
+    "url": "https://piaille.fr/@fcpe_ivry/112024",
+    "content": "Rentrée scolaire 2026 : les parents d'élèves de l'école Albert Einstein exigent la publication immédiate des résultats des carottages de sol réalisés en juillet. Zéro compromis avec la santé de nos enfants ! #Ivry #Santé #Écoles",
+    "laya": {
+      "sentimentScore": -0.45,
+      "sentimentLabel": "NEGATIVE",
+      "primaryCategory": "HEALTH",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "a333c7d7a5739b75cb2061c7987c9fc6ca59d22ec406a9192b0b592649efa7c3",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_mastodon_049",
+    "monthKey": "2026-09",
+    "network": "mastodon",
+    "networkLabel": "Mastodon / Fediverse",
+    "date": "2026-09-12T14:15:00Z",
+    "author": "Collectif 3R",
+    "handle": "collectif3r@piaille.fr",
+    "avatar": "https://piaille.fr/avatars/original/missing.png",
+    "url": "https://piaille.fr/@collectif3r/112025",
+    "content": "Grande réunion publique ce jeudi en mairie d'Ivry : présentation de notre contre-expertise indépendante sur les émissions réelles de dioxines bromées et métaux lourds. Venez nombreux ! #Ivry #Mobilisation",
+    "laya": {
+      "sentimentScore": -0.45,
+      "sentimentLabel": "NEGATIVE",
+      "primaryCategory": "HEALTH",
+      "secondaryCategories": [
+        "GOVERNANCE"
+      ],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "e5ee03e40560457d946c5971e3c518b10c3a75f47f581c178fdaea39f123fa3f",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_mastodon_050",
+    "monthKey": "2026-09",
+    "network": "mastodon",
+    "networkLabel": "Mastodon / Fediverse",
+    "date": "2026-09-19T18:45:00Z",
+    "author": "Marc L. (Riverain Ivry-Port)",
+    "handle": "marcl_ivry@piaille.fr",
+    "avatar": "https://piaille.fr/avatars/original/missing.png",
+    "url": "https://piaille.fr/@marcl_ivry/112026",
+    "content": "⚠️ Reprise brutale des rotations de bennes et odeur de plastique brûlé tenace ce vendredi soir quai Marcel Boyer. Le retour des nuisances est immédiat après la trêve du mois d'août. #Ivry #Odeur #Trafic",
+    "laya": {
+      "sentimentScore": -0.35,
+      "sentimentLabel": "NEGATIVE",
+      "primaryCategory": "ODOR",
+      "secondaryCategories": [
+        "TRAFFIC"
+      ],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "7d3366aa7b57e0a4a4934897f6172023a9a782c134109e3c83361028a3cb6f55",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_mastodon_051",
+    "monthKey": "2026-09",
+    "network": "mastodon",
+    "networkLabel": "Mastodon / Fediverse",
+    "date": "2026-09-23T11:00:00Z",
+    "author": "SYCTOM Info",
+    "handle": "syctom_officiel@mastodon.social",
+    "avatar": "https://mastodon.social/avatars/original/missing.png",
+    "url": "https://mastodon.social/@syctom_officiel/112027",
+    "content": "Mise en service opérationnelle des nouveaux analyseurs d'émissions en continu (CEMS) sur les deux lignes de combustion d'Ivry. Conformité totale avec les normes BREF européennes 2026. #Syctom #Ivry",
+    "laya": {
+      "sentimentScore": 0,
+      "sentimentLabel": "NEUTRAL",
+      "primaryCategory": "GOVERNANCE",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "71fead85d73328cb2091eb8d5873d62fa3746a96376a2f517d9ddf6d9c8d43b8",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  }
+]

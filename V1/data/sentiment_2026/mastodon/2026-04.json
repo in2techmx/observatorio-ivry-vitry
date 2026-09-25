@@ -1,0 +1,46 @@
+[
+  {
+    "id": "post_2026_mastodon_019",
+    "monthKey": "2026-04",
+    "network": "mastodon",
+    "networkLabel": "Mastodon / Fediverse",
+    "date": "2026-04-06T11:30:00Z",
+    "author": "Airparif Info",
+    "handle": "airparif_veille@piaille.fr",
+    "avatar": "https://piaille.fr/avatars/original/missing.png",
+    "url": "https://piaille.fr/@airparif_veille/112010",
+    "content": "Lancement de la campagne métrologique ciblée de printemps : déploiement de 15 micro-capteurs entre le quai Marcel Boyer et Charenton pour analyser les traceurs de panache d'Ivry. #Airparif #Métrologie",
+    "laya": {
+      "sentimentScore": 0,
+      "sentimentLabel": "NEUTRAL",
+      "primaryCategory": "ODOR",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "c873134243d7c10374855004d03b3b7d4b4889e30a52adbc28a2838085c21be4",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_mastodon_020",
+    "monthKey": "2026-04",
+    "network": "mastodon",
+    "networkLabel": "Mastodon / Fediverse",
+    "date": "2026-04-18T16:00:00Z",
+    "author": "Riverain Vitry Port-à-l'Anglais",
+    "handle": "riverain_palanglais@piaille.fr",
+    "avatar": "https://piaille.fr/avatars/original/missing.png",
+    "url": "https://piaille.fr/@riverain_palanglais/112011",
+    "content": "Première journée douce et odeur nauséabonde très perceptible ce soir en rentrant du RER C. Un mélange de fermentescible et de soufre. Impossible d'ouvrir les fenêtres. #Vitry #Odeur",
+    "laya": {
+      "sentimentScore": -0.35,
+      "sentimentLabel": "NEGATIVE",
+      "primaryCategory": "ODOR",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "0f81c10dc3c7c31368b964418c34cc654559056095620dd4c6cf5e74fc1d4f67",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  }
+]

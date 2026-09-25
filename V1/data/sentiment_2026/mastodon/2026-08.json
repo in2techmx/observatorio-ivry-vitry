@@ -1,0 +1,71 @@
+[
+  {
+    "id": "post_2026_mastodon_042",
+    "monthKey": "2026-08",
+    "network": "mastodon",
+    "networkLabel": "Mastodon / Fediverse",
+    "date": "2026-08-08T10:15:00Z",
+    "author": "Riverain Ivry-Port",
+    "handle": "riverain_ivry@piaille.fr",
+    "avatar": "https://piaille.fr/avatars/original/missing.png",
+    "url": "https://piaille.fr/@riverain_ivry/112021",
+    "content": "Août à Ivry : le trafic des camions sur le quai Marcel Boyer est divisé par deux. On respire enfin un peu mieux et les odeurs restent maîtrisées grâce au vent d'ouest. #Ivry #Tranquillité",
+    "laya": {
+      "sentimentScore": 0.4,
+      "sentimentLabel": "POSITIVE",
+      "primaryCategory": "ODOR",
+      "secondaryCategories": [
+        "NOISE",
+        "TRAFFIC"
+      ],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "18f4fe112a83a8bfb42f90feb3634bc09d5fef26a3664a2f3ae31da643128155",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_mastodon_043",
+    "monthKey": "2026-08",
+    "network": "mastodon",
+    "networkLabel": "Mastodon / Fediverse",
+    "date": "2026-08-19T14:40:00Z",
+    "author": "Zero Waste France",
+    "handle": "zerowastefr@mastodon.social",
+    "avatar": "https://mastodon.social/avatars/original/missing.png",
+    "url": "https://mastodon.social/@zerowastefr/112022",
+    "content": "En août, la production de déchets ménagers baisse de 25% en IDF. La preuve irréfutable que les volumes ne sont pas figés. Une politique ambitieuse de consigne et vrac permettrait d'arrêter un four entier ! #Déchets",
+    "laya": {
+      "sentimentScore": 0.4,
+      "sentimentLabel": "POSITIVE",
+      "primaryCategory": "ODOR",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "483c84b4fcd37d0d4cbabd8f2622d7d561dab84dc2d553acd594db56a47a2c60",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_mastodon_044",
+    "monthKey": "2026-08",
+    "network": "mastodon",
+    "networkLabel": "Mastodon / Fediverse",
+    "date": "2026-08-28T18:00:00Z",
+    "author": "Airparif Info",
+    "handle": "airparif_veille@piaille.fr",
+    "avatar": "https://piaille.fr/avatars/original/missing.png",
+    "url": "https://piaille.fr/@airparif_veille/112023",
+    "content": "Bilan météo et qualité de l'air du mois d'août : régime de vent dominant d'Ouest/Sud-Ouest. Dispersion satisfaisante des cheminées industrielles, zéro dépassement du seuil d'alerte NO2 sur le 94. #Airparif",
+    "laya": {
+      "sentimentScore": 0,
+      "sentimentLabel": "NEUTRAL",
+      "primaryCategory": "ODOR",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "752e6fc28d8dcfcd99e3d9fbb60f53c540c2deed94770582ef25af2224e3d6fc",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  }
+]

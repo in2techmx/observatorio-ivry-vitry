@@ -1,0 +1,19 @@
+{
+  "network": "bluesky",
+  "totalPosts": 18,
+  "avgPolarity": -0.083,
+  "urgencyCount": 1,
+  "urgencyRate": 5.6,
+  "availableMonths": [
+    "2026-01",
+    "2026-02",
+    "2026-03",
+    "2026-04",
+    "2026-05",
+    "2026-06",
+    "2026-07",
+    "2026-08",
+    "2026-09"
+  ],
+  "generatedAt": "2026-09-25T00:42:17.129Z"
+}

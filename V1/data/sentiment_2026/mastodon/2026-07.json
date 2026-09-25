@@ -1,0 +1,68 @@
+[
+  {
+    "id": "post_2026_mastodon_036",
+    "monthKey": "2026-07",
+    "network": "mastodon",
+    "networkLabel": "Mastodon / Fediverse",
+    "date": "2026-07-08T11:00:00Z",
+    "author": "SYCTOM Info",
+    "handle": "syctom_officiel@mastodon.social",
+    "avatar": "https://mastodon.social/avatars/original/missing.png",
+    "url": "https://mastodon.social/@syctom_officiel/112018",
+    "content": "Étape clé sur le chantier Ivry/Paris XIII : Pose de la nouvelle travée DeNOx à réduction catalytique sélective. Réduction de 50% des rejets d'oxydes d'azote garantie dès l'automne. #Syctom #Ivry #Progrès",
+    "laya": {
+      "sentimentScore": 0.4,
+      "sentimentLabel": "POSITIVE",
+      "primaryCategory": "GOVERNANCE",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "d305c9a6cd96ac419bf32b84835d9cc8b7631ea2823d3b0785119fb96a7d1c2a",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_mastodon_037",
+    "monthKey": "2026-07",
+    "network": "mastodon",
+    "networkLabel": "Mastodon / Fediverse",
+    "date": "2026-07-16T15:20:00Z",
+    "author": "Collectif 3R",
+    "handle": "collectif3r@piaille.fr",
+    "avatar": "https://piaille.fr/avatars/original/missing.png",
+    "url": "https://piaille.fr/@collectif3r/112019",
+    "content": "Un filtre catalytique de plus ne résout pas la question des cendres toxiques et des résidus d'épuration (REFIOM) envoyés en décharge de classe 1. La vraie propreté, c'est de ne pas produire ces déchets. #Ivry",
+    "laya": {
+      "sentimentScore": 0.4,
+      "sentimentLabel": "POSITIVE",
+      "primaryCategory": "ODOR",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "445889e8b000ff56d32d4ea64df5eb0ef560c26b60fb9f47ebabca4e428077fd",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_mastodon_038",
+    "monthKey": "2026-07",
+    "network": "mastodon",
+    "networkLabel": "Mastodon / Fediverse",
+    "date": "2026-07-27T09:40:00Z",
+    "author": "CPCU Chauffage Urbain",
+    "handle": "cpcu_officiel@piaille.fr",
+    "avatar": "https://piaille.fr/avatars/original/missing.png",
+    "url": "https://piaille.fr/@cpcu_officiel/112020",
+    "content": "Travaux estivaux d'extension du réseau de chaleur : raccordement de 2 500 nouveaux logements sociaux d'Ivry et Vitry à l'énergie de récupération de l'UVE d'Ivry. Facture énergétique allégée de 15%. #Énergie",
+    "laya": {
+      "sentimentScore": 0,
+      "sentimentLabel": "NEUTRAL",
+      "primaryCategory": "ODOR",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "b6b9631ed6316bb57f7ece4aaa79748e05f1c0f592842c19c8ae3edef827bc1b",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  }
+]

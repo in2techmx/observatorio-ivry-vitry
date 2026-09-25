@@ -157,71 +157,158 @@
       <!-- PESTAÑA 3: CENTRO DE SENTIMIENTO Y ENCUESTAS -->
       <section id="tab-sentiment" class="tab-panel">
         <!-- SECCIÓN 1: VEILLE & ANALYSE DE SENTIMENT EN DIRECT (RÉSEAUX SOCIAUX / FEDIVERSE) -->
+        <!-- SECCIÓN 1: VEILLE & ANALYSE DE SENTIMENT CITOYEN (TEMPS RÉEL & HISTORIQUE 2026) -->
         <div class="social-feed-container">
-          <div class="social-feed-header">
-            <div class="social-header-info">
-              <div class="social-title-row">
-                <h3>Veille & Analyse de Sentiment en Direct (Fediverse / Mastodon)</h3>
-                <span class="live-status-pill">
-                  <span class="live-dot-green"></span> Flux Ouvert &bull; Piaille.fr / Mastodon
-                </span>
+          <!-- Sélecteur de Mode Principal -->
+          <div class="social-mode-selector-strip">
+            <button class="social-mode-btn active" id="btn-mode-live" onclick="setSentimentMode('live')">
+              <span class="live-dot-green"></span> 1. Flux en Direct (Mastodon / Fediverse)
+            </button>
+            <button class="social-mode-btn" id="btn-mode-history" onclick="setSentimentMode('history')">
+              📚 2. Historique Annuel 2026 (Base Git-as-a-Database)
+            </button>
+          </div>
+
+          <!-- VUE 1 : FLUX EN DIRECT -->
+          <div id="view-sentiment-live">
+            <div class="social-feed-header">
+              <div class="social-header-info">
+                <div class="social-title-row">
+                  <h3>Veille Citoyenne en Direct (Piaille.fr / Mastodon.social)</h3>
+                  <span class="live-status-pill">
+                    <span class="live-dot-green"></span> Flux Ouvert &bull; Inférence Laya &lt; 70 ms
+                  </span>
+                </div>
+                <p class="social-header-subtitle">
+                  Ingestion des flux citoyens en temps réel et inférence probabiliste via le moteur <strong>Laya Engine</strong> : calcul de polarité, catégorisation thématique, détection d'alertes d'urgence et scellage HMAC-SHA256.
+                </p>
               </div>
-              <p class="social-header-subtitle">
-                Ingestion des flux citoyens en temps réel et inférence probabiliste via le moteur <strong>Laya Engine</strong> (&lt; 70 ms) : calcul de polarité, catégorisation thématique, détection d'alertes d'urgence et scellage HMAC-SHA256.
-              </p>
+
+              <div class="social-controls-row">
+                <div class="social-tag-pills" id="social-tag-pills">
+                  <button class="social-pill active" onclick="setSocialFeedTag('ivry')">#Ivry</button>
+                  <button class="social-pill" onclick="setSocialFeedTag('vitry')">#Vitry</button>
+                  <button class="social-pill" onclick="setSocialFeedTag('incinerateur')">#Incinérateur</button>
+                  <button class="social-pill" onclick="setSocialFeedTag('syctom')">#Syctom</button>
+                  <button class="social-pill" onclick="setSocialFeedTag('dechets')">#Déchets</button>
+                  <button class="social-pill" onclick="setSocialFeedTag('pollution')">#Pollution</button>
+                </div>
+                <button class="social-refresh-btn" id="social-refresh-btn" onclick="refreshCurrentSocialTag()">
+                  🔄 Actualiser le flux
+                </button>
+              </div>
             </div>
 
-            <div class="social-controls-row">
-              <div class="social-tag-pills" id="social-tag-pills">
-                <button class="social-pill active" onclick="setSocialFeedTag('ivry')">#Ivry</button>
-                <button class="social-pill" onclick="setSocialFeedTag('vitry')">#Vitry</button>
-                <button class="social-pill" onclick="setSocialFeedTag('incinerateur')">#Incinérateur</button>
-                <button class="social-pill" onclick="setSocialFeedTag('syctom')">#Syctom</button>
-                <button class="social-pill" onclick="setSocialFeedTag('dechets')">#Déchets</button>
-                <button class="social-pill" onclick="setSocialFeedTag('pollution')">#Pollution</button>
+            <!-- Métricas de Resumen del Feed Social Live -->
+            <div class="social-metrics-strip">
+              <div class="social-metric-card">
+                <span class="sm-label">Publications Analysées</span>
+                <span class="sm-value" id="sm-count">0</span>
+                <span class="sm-sub" id="sm-active-tag">Tag : #ivry</span>
               </div>
-              <button class="social-refresh-btn" id="social-refresh-btn" onclick="refreshCurrentSocialTag()">
-                🔄 Actualiser le flux
-              </button>
+              <div class="social-metric-card">
+                <span class="sm-label">Score de Polarité Moyen</span>
+                <span class="sm-value" id="sm-polarity">0.00</span>
+                <span class="sm-sub" id="sm-polarity-label">Neutre</span>
+              </div>
+              <div class="social-metric-card">
+                <span class="sm-label">Ratio d'Urgence Détectée</span>
+                <span class="sm-value" id="sm-urgency">0%</span>
+                <span class="sm-sub">Filtre HITL Santé/Odeur</span>
+              </div>
+              <div class="social-metric-card ratio-card">
+                <div class="social-ratio-legend">
+                  <span class="kpi-chip-sm pour">🟢 Positif : <strong id="sm-pct-pos">0%</strong></span>
+                  <span class="kpi-chip-sm neutre">⚪ Neutre : <strong id="sm-pct-neu">0%</strong></span>
+                  <span class="kpi-chip-sm contre">🔴 Négatif : <strong id="sm-pct-neg">0%</strong></span>
+                </div>
+                <div class="social-ratio-track">
+                  <div class="s-seg s-seg-pos" id="sm-seg-pos" style="width: 0%;"></div>
+                  <div class="s-seg s-seg-neu" id="sm-seg-neu" style="width: 0%;"></div>
+                  <div class="s-seg s-seg-neg" id="sm-seg-neg" style="width: 0%;"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Grid de publicaciones sociales en vivo -->
+            <div class="social-feed-grid" id="social-feed-grid">
+              <div class="social-loading-state">
+                <div class="loading-spinner"></div>
+                <span>Connexion au réseau Fediverse et inférence Laya en cours...</span>
+              </div>
             </div>
           </div>
 
-          <!-- Métricas de Resumen del Feed Social -->
-          <div class="social-metrics-strip">
-            <div class="social-metric-card">
-              <span class="sm-label">Publications Analysées</span>
-              <span class="sm-value" id="sm-count">0</span>
-              <span class="sm-sub" id="sm-active-tag">Tag : #ivry</span>
-            </div>
-            <div class="social-metric-card">
-              <span class="sm-label">Score de Polarité Moyen</span>
-              <span class="sm-value" id="sm-polarity">0.00</span>
-              <span class="sm-sub" id="sm-polarity-label">Neutre</span>
-            </div>
-            <div class="social-metric-card">
-              <span class="sm-label">Ratio d'Urgence Détectée</span>
-              <span class="sm-value" id="sm-urgency">0%</span>
-              <span class="sm-sub">Filtre HITL Santé/Odeur</span>
-            </div>
-            <div class="social-metric-card ratio-card">
-              <div class="social-ratio-legend">
-                <span class="kpi-chip-sm pour">🟢 Positif : <strong id="sm-pct-pos">0%</strong></span>
-                <span class="kpi-chip-sm neutre">⚪ Neutre : <strong id="sm-pct-neu">0%</strong></span>
-                <span class="kpi-chip-sm contre">🔴 Négatif : <strong id="sm-pct-neg">0%</strong></span>
+          <!-- VUE 2 : HISTORIQUE 2026 (BASE GIT-AS-A-DATABASE PARTITIONNÉE) -->
+          <div id="view-sentiment-history" class="hidden">
+            <div class="history-controls-panel">
+              <div class="history-subhead">
+                <div>
+                  <h4>Observatoire Rétrospectif de Sentiment 2026 (Janvier à Septembre)</h4>
+                  <p style="font-size: 0.8rem; color: #94a3b8; margin-top: 2px;">
+                    Corpus partitionné par source et scellé dans le dépôt GitHub : <strong>Mastodon</strong>, <strong>Bluesky</strong> et <strong>Débats Citoyens / CSS</strong>.
+                  </p>
+                </div>
+                <div class="history-network-pills" id="history-network-pills">
+                  <button class="net-pill active" onclick="setHistoryNetwork('consolidated')">🌐 Multi-Réseaux (Consolidé)</button>
+                  <button class="net-pill" onclick="setHistoryNetwork('mastodon')">🐘 Mastodon</button>
+                  <button class="net-pill" onclick="setHistoryNetwork('bluesky')">🦋 Bluesky</button>
+                  <button class="net-pill" onclick="setHistoryNetwork('debats_citoyens')">🏛️ Débats Citoyens / CSS</button>
+                </div>
               </div>
-              <div class="social-ratio-track">
-                <div class="s-seg s-seg-pos" id="sm-seg-pos" style="width: 0%;"></div>
-                <div class="s-seg s-seg-neu" id="sm-seg-neu" style="width: 0%;"></div>
-                <div class="s-seg s-seg-neg" id="sm-seg-neg" style="width: 0%;"></div>
-              </div>
-            </div>
-          </div>
 
-          <!-- Grid de publicaciones sociales clasificadas -->
-          <div class="social-feed-grid" id="social-feed-grid">
-            <div class="social-loading-state">
-              <div class="loading-spinner"></div>
-              <span>Connexion au réseau Fediverse et inférence Laya en cours...</span>
+              <!-- Scrubber des mois de 2026 -->
+              <div class="history-months-track" id="history-months-track">
+                <!-- Généré dynamiquement en app.js -->
+              </div>
+
+              <!-- Bannière de Synthèse du Mois Actif & Hito Conductor -->
+              <div class="history-month-banner" id="history-month-banner">
+                <div class="banner-driver-title">
+                  <span>📌 Hito Conductor :</span>
+                  <span id="hist-driver-title">Sélectionnez un mois</span>
+                </div>
+                <p class="banner-driver-desc" id="hist-driver-desc">...</p>
+              </div>
+            </div>
+
+            <!-- Métricas de Resumen del Mes Histórico -->
+            <div class="social-metrics-strip">
+              <div class="social-metric-card">
+                <span class="sm-label">Volume Archivé (Ce Mois)</span>
+                <span class="sm-value" id="hist-count">0</span>
+                <span class="sm-sub" id="hist-active-month">Période : 2026-09</span>
+              </div>
+              <div class="social-metric-card">
+                <span class="sm-label">Polarité Moyenne Laya</span>
+                <span class="sm-value" id="hist-polarity">0.00</span>
+                <span class="sm-sub" id="hist-polarity-label">Neutre</span>
+              </div>
+              <div class="social-metric-card">
+                <span class="sm-label">Ratio d'Urgence Détectée</span>
+                <span class="sm-value" id="hist-urgency">0%</span>
+                <span class="sm-sub" id="hist-top-category">Thème : GOUVERNANCE</span>
+              </div>
+              <div class="social-metric-card ratio-card">
+                <div class="social-ratio-legend">
+                  <span class="kpi-chip-sm pour">🟢 Positif : <strong id="hist-pct-pos">0%</strong></span>
+                  <span class="kpi-chip-sm neutre">⚪ Neutre : <strong id="hist-pct-neu">0%</strong></span>
+                  <span class="kpi-chip-sm contre">🔴 Négatif : <strong id="hist-pct-neg">0%</strong></span>
+                </div>
+                <div class="social-ratio-track">
+                  <div class="s-seg s-seg-pos" id="hist-seg-pos" style="width: 0%;"></div>
+                  <div class="s-seg s-seg-neu" id="hist-seg-neu" style="width: 0%;"></div>
+                  <div class="s-seg s-seg-neg" id="hist-seg-neg" style="width: 0%;"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Grid de publicaciones históricas -->
+            <div class="social-feed-grid" id="history-posts-grid">
+              <div class="social-loading-state">
+                <div class="loading-spinner"></div>
+                <span>Chargement des archives du mois sélectionné...</span>
+              </div>
             </div>
           </div>
         </div>

@@ -1,0 +1,114 @@
+[
+  {
+    "id": "post_2026_mastodon_019",
+    "monthKey": "2026-04",
+    "network": "mastodon",
+    "networkLabel": "Mastodon / Fediverse",
+    "date": "2026-04-06T11:30:00Z",
+    "author": "Airparif Info",
+    "handle": "airparif_veille@piaille.fr",
+    "avatar": "https://piaille.fr/avatars/original/missing.png",
+    "url": "https://piaille.fr/@airparif_veille/112010",
+    "content": "Lancement de la campagne métrologique ciblée de printemps : déploiement de 15 micro-capteurs entre le quai Marcel Boyer et Charenton pour analyser les traceurs de panache d'Ivry. #Airparif #Métrologie",
+    "laya": {
+      "sentimentScore": 0,
+      "sentimentLabel": "NEUTRAL",
+      "primaryCategory": "ODOR",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "c873134243d7c10374855004d03b3b7d4b4889e30a52adbc28a2838085c21be4",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_bluesky_021",
+    "monthKey": "2026-04",
+    "network": "bluesky",
+    "networkLabel": "Bluesky (AT Proto)",
+    "date": "2026-04-12T09:45:00Z",
+    "author": "Thierry Renard (Ingénieur Thermique)",
+    "handle": "trenard-eco.bsky.social",
+    "avatar": "",
+    "url": "https://bsky.app/profile/trenard-eco.bsky.social/post/3k1007",
+    "content": "La transition vers la réduction catalytique sélective (SCR) à basse température permettra d'abaisser les NOx sous les 50 mg/Nm³ à Ivry. Progrès technique indéniable mais coût élevé. #DeNOx #Énergie",
+    "laya": {
+      "sentimentScore": 0.4,
+      "sentimentLabel": "POSITIVE",
+      "primaryCategory": "ODOR",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "0ab906d63a3dbfa1facd6d06167bda0edefa18ea486b5202df44dd0249577cc2",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_mastodon_020",
+    "monthKey": "2026-04",
+    "network": "mastodon",
+    "networkLabel": "Mastodon / Fediverse",
+    "date": "2026-04-18T16:00:00Z",
+    "author": "Riverain Vitry Port-à-l'Anglais",
+    "handle": "riverain_palanglais@piaille.fr",
+    "avatar": "https://piaille.fr/avatars/original/missing.png",
+    "url": "https://piaille.fr/@riverain_palanglais/112011",
+    "content": "Première journée douce et odeur nauséabonde très perceptible ce soir en rentrant du RER C. Un mélange de fermentescible et de soufre. Impossible d'ouvrir les fenêtres. #Vitry #Odeur",
+    "laya": {
+      "sentimentScore": -0.35,
+      "sentimentLabel": "NEGATIVE",
+      "primaryCategory": "ODOR",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "0f81c10dc3c7c31368b964418c34cc654559056095620dd4c6cf5e74fc1d4f67",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_bluesky_022",
+    "monthKey": "2026-04",
+    "network": "bluesky",
+    "networkLabel": "Bluesky (AT Proto)",
+    "date": "2026-04-22T14:15:00Z",
+    "author": "Collectif Respirer 94",
+    "handle": "respirer94.bsky.social",
+    "avatar": "",
+    "url": "https://bsky.app/profile/respirer94.bsky.social/post/3k1008",
+    "content": "Journée de la Terre : l'air de la vallée de la Seine à Ivry et Vitry reste l'un des plus saturés en micro-particules de la métropole. La santé de nos enfants doit passer avant le tonnage brûlé ! #Pollution #Santé",
+    "laya": {
+      "sentimentScore": -0.45,
+      "sentimentLabel": "NEGATIVE",
+      "primaryCategory": "ODOR",
+      "secondaryCategories": [
+        "HEALTH"
+      ],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "f01ca18647f699ca51e61a74cb257be21f495d3ac1eb8623ddc5f6e7175b82b0",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_debats_citoyens_023",
+    "monthKey": "2026-04",
+    "network": "debats_citoyens",
+    "networkLabel": "Débats Citoyens / Actes",
+    "date": "2026-04-25T19:00:00Z",
+    "author": "Pétition Citoyenne Municipale",
+    "handle": "petition_air_ivry",
+    "avatar": "",
+    "url": "https://petitions.ivry94.fr/puf-ecoles-2026",
+    "content": "Pétition citoyenne déposée avec 1 450 signatures : Exigence d'un système d'alerte SMS en temps réel pour les directeurs d'écoles en cas d'émission de fumée noire anormale ou de pic de NO2.",
+    "laya": {
+      "sentimentScore": 0.4,
+      "sentimentLabel": "POSITIVE",
+      "primaryCategory": "ODOR",
+      "secondaryCategories": [],
+      "urgencyFlag": true,
+      "processingTimeMs": 1,
+      "auditSignature": "d66fdcbd02c3373b9d7b1500dab8f4f2c3fe2ae8b0964ad07d3ee5696835e22b",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  }
+]

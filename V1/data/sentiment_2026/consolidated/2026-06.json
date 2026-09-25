@@ -1,0 +1,138 @@
+[
+  {
+    "id": "post_2026_mastodon_030",
+    "monthKey": "2026-06",
+    "network": "mastodon",
+    "networkLabel": "Mastodon / Fediverse",
+    "date": "2026-06-12T14:20:00Z",
+    "author": "Riverains Ivry-Port",
+    "handle": "riverains_ivry@piaille.fr",
+    "avatar": "https://piaille.fr/avatars/original/missing.png",
+    "url": "https://piaille.fr/@riverains_ivry/112015",
+    "content": "⚠️ Canicule et odeur insoutenable : 34°C à l'ombre et une odeur pestilentielle de détritus en décomposition et de plastique brûlé monte du quai d'Ivry. Impossible de dormir, nous étouffons ! #Ivry #Odeur #Urgence",
+    "laya": {
+      "sentimentScore": -0.35,
+      "sentimentLabel": "NEGATIVE",
+      "primaryCategory": "ODOR",
+      "secondaryCategories": [
+        "TRAFFIC"
+      ],
+      "urgencyFlag": true,
+      "processingTimeMs": 1,
+      "auditSignature": "36317aeafbbc4f43681f7140db9e1cb6fbb8d4d4cdb639b46e0f86eafd9e828d",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_bluesky_033",
+    "monthKey": "2026-06",
+    "network": "bluesky",
+    "networkLabel": "Bluesky (AT Proto)",
+    "date": "2026-06-14T11:15:00Z",
+    "author": "Julien Valette (Climat IDF)",
+    "handle": "jvalette.bsky.social",
+    "avatar": "",
+    "url": "https://bsky.app/profile/jvalette.bsky.social/post/3k1011",
+    "content": "Le dôme de chaleur parisien bloque les panaches industriels au ras du sol dans la boucle de la Seine. Situation critique pour la qualité de l'air entre Vitry, Ivry et Charenton. #Climat #Pollution",
+    "laya": {
+      "sentimentScore": 0,
+      "sentimentLabel": "NEUTRAL",
+      "primaryCategory": "ODOR",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "29ed4e0a2b555bf482b020099b474da0fbd0dd9bb9f24a8d440168fdb6689997",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_mastodon_031",
+    "monthKey": "2026-06",
+    "network": "mastodon",
+    "networkLabel": "Mastodon / Fediverse",
+    "date": "2026-06-18T10:00:00Z",
+    "author": "SYCTOM Info",
+    "handle": "syctom_officiel@mastodon.social",
+    "avatar": "https://mastodon.social/avatars/original/missing.png",
+    "url": "https://mastodon.social/@syctom_officiel/112016",
+    "content": "Épisode de chaleur : activation renforcée des rampes de brumisation neutralisante et maintien de la fosse d'Ivry sous dépression d'air continue pour juguler les émanations olfactives. #Syctom #Ivry",
+    "laya": {
+      "sentimentScore": 0,
+      "sentimentLabel": "NEUTRAL",
+      "primaryCategory": "GOVERNANCE",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "f8b03261e11ab1b73f0ad44651be4ff93d28a9d52858bebc9b9304bed6d086bd",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_bluesky_034",
+    "monthKey": "2026-06",
+    "network": "bluesky",
+    "networkLabel": "Bluesky (AT Proto)",
+    "date": "2026-06-21T16:40:00Z",
+    "author": "Écologie Citoyenne Vitry",
+    "handle": "ecovitry.bsky.social",
+    "avatar": "",
+    "url": "https://bsky.app/profile/ecovitry.bsky.social/post/3k1012",
+    "content": "Pétition des riverains du Port-à-l'Anglais contre les odeurs nauséabondes estivales : déjà plus de 2 000 signataires en une semaine. Les pouvoirs publics doivent réagir ! #Vitry #Odeurs",
+    "laya": {
+      "sentimentScore": -0.35,
+      "sentimentLabel": "NEGATIVE",
+      "primaryCategory": "ODOR",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "daccd0223f82eb5956a9650416f6883c89de8f89bfcadb547a895761846d5b36",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_mastodon_032",
+    "monthKey": "2026-06",
+    "network": "mastodon",
+    "networkLabel": "Mastodon / Fediverse",
+    "date": "2026-06-25T18:30:00Z",
+    "author": "Dr. Marc Cohen",
+    "handle": "drcohen_urgences@piaille.fr",
+    "avatar": "https://piaille.fr/avatars/original/missing.png",
+    "url": "https://piaille.fr/@drcohen_urgences/112017",
+    "content": "⚠️ Forte augmentation des consultations pour asthme aigu et maux de tête chez les enfants à Ivry-Port cette semaine. L'inversion thermique et l'air stagnant concentrent tous les rejets urbains. #Santé #Ivry",
+    "laya": {
+      "sentimentScore": -0.4,
+      "sentimentLabel": "NEGATIVE",
+      "primaryCategory": "HEALTH",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "3f7dc2fecaf4efe2dd104f3a52714474414be5694880001b431780868a41cc01",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_debats_citoyens_035",
+    "monthKey": "2026-06",
+    "network": "debats_citoyens",
+    "networkLabel": "Débats Citoyens / Actes",
+    "date": "2026-06-29T20:00:00Z",
+    "author": "Registre des Doléances Sanitaires et Environnementales",
+    "handle": "registre_doleances_css",
+    "avatar": "",
+    "url": "https://css-ivry.valdemarne.gouv.fr/doleances/2026-06-29",
+    "content": "Dépôt officiel de 47 fiches de réclamation riverains pour odeurs suffocantes et malaise respiratoire lors de la semaine caniculaire du 15 au 22 juin 2026.",
+    "laya": {
+      "sentimentScore": -0.45,
+      "sentimentLabel": "NEGATIVE",
+      "primaryCategory": "ODOR",
+      "secondaryCategories": [
+        "HEALTH"
+      ],
+      "urgencyFlag": true,
+      "processingTimeMs": 1,
+      "auditSignature": "b9fa55c7e5e47f6575963a3e1158aa1e906fb8e944cffe06e32d1ed404af2d27",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  }
+]

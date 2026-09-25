@@ -1,0 +1,138 @@
+[
+  {
+    "id": "post_2026_mastodon_007",
+    "monthKey": "2026-02",
+    "network": "mastodon",
+    "networkLabel": "Mastodon / Fediverse",
+    "date": "2026-02-05T10:10:00Z",
+    "author": "Zero Waste France",
+    "handle": "zerowastefr@mastodon.social",
+    "avatar": "https://mastodon.social/avatars/original/missing.png",
+    "url": "https://mastodon.social/@zerowastefr/112004",
+    "content": "Moderniser un incinérateur pour brûler moins ? C'est le paradoxe d'Ivry. Nous continuons de plaider pour un moratoire et la réduction drastique à la source plutôt que des méga-fours. #Déchets #Ivry",
+    "laya": {
+      "sentimentScore": 0,
+      "sentimentLabel": "NEUTRAL",
+      "primaryCategory": "ODOR",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "fb3593e636eb000ee5ed04bcea30806204091d31829fb22ebb9b3e766ccd540a",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_bluesky_010",
+    "monthKey": "2026-02",
+    "network": "bluesky",
+    "networkLabel": "Bluesky (AT Proto)",
+    "date": "2026-02-09T08:40:00Z",
+    "author": "Geoffrey Salmon (Élu local)",
+    "handle": "gsalmon.bsky.social",
+    "avatar": "",
+    "url": "https://bsky.app/profile/gsalmon.bsky.social/post/3k1003",
+    "content": "Intervention au conseil territorial sur le budget déchets 2026 : l'amortissement du nouveau centre de valorisation d'Ivry ne doit pas pénaliser la taxe d'enlèvement (TEOM) des ménages. #Syctom #Finances",
+    "laya": {
+      "sentimentScore": 0,
+      "sentimentLabel": "NEUTRAL",
+      "primaryCategory": "GOVERNANCE",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "2c26f38efda2a645b6a5d9c763c718eef42b469863a1c353e37e5b52dc000efb",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_mastodon_008",
+    "monthKey": "2026-02",
+    "network": "mastodon",
+    "networkLabel": "Mastodon / Fediverse",
+    "date": "2026-02-14T17:25:00Z",
+    "author": "Laurent B. (Vitry)",
+    "handle": "laurent_vitry@piaille.fr",
+    "avatar": "https://piaille.fr/avatars/original/missing.png",
+    "url": "https://piaille.fr/@laurent_vitry/112005",
+    "content": "Rotations intempestives de camions-bennes dès 5h du matin sur le quai Jules Guesde à Vitry. Bruit de compresseur insupportable pour les riverains du bord de Seine. #Vitry #Bruit #Trafic",
+    "laya": {
+      "sentimentScore": -0.85,
+      "sentimentLabel": "STRONGLY_NEGATIVE",
+      "primaryCategory": "NOISE",
+      "secondaryCategories": [
+        "TRAFFIC"
+      ],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "a4d5607bf96eeef41c987480f9a9b409a60799e049c39fe6c46590a620cf44ca",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_bluesky_011",
+    "monthKey": "2026-02",
+    "network": "bluesky",
+    "networkLabel": "Bluesky (AT Proto)",
+    "date": "2026-02-18T15:30:00Z",
+    "author": "Santé & Environnement 94",
+    "handle": "sante94.bsky.social",
+    "avatar": "",
+    "url": "https://bsky.app/profile/sante94.bsky.social/post/3k1004",
+    "content": "Rappel utile : l'exposition chronique aux polluants de combustion nécessite un suivi biomonitoring de long terme pour les populations riveraines. #Santé #Ivry #Vitry",
+    "laya": {
+      "sentimentScore": -0.45,
+      "sentimentLabel": "NEGATIVE",
+      "primaryCategory": "HEALTH",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "bb30f7e7c7eec7ccccabea01742af4c61b1fb0f0ba46f027db3cb6aa6d880543",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_mastodon_009",
+    "monthKey": "2026-02",
+    "network": "mastodon",
+    "networkLabel": "Mastodon / Fediverse",
+    "date": "2026-02-22T19:00:00Z",
+    "author": "Airparif Veille",
+    "handle": "airparif_veille@piaille.fr",
+    "avatar": "https://piaille.fr/avatars/original/missing.png",
+    "url": "https://piaille.fr/@airparif_veille/112006",
+    "content": "Épisode de pollution aux particules fines PM2.5 en Île-de-France lié aux conditions anticycloniques. Indice dégradé relevé sur la station Ivry-Port. Vigilance pour personnes sensibles. #Airparif #Pollution",
+    "laya": {
+      "sentimentScore": 0,
+      "sentimentLabel": "NEUTRAL",
+      "primaryCategory": "ODOR",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "62b917b544624ea3cd7276117e6960eb57345172b7978755a9e13f3f84bedc71",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_debats_citoyens_012",
+    "monthKey": "2026-02",
+    "network": "debats_citoyens",
+    "networkLabel": "Débats Citoyens / Actes",
+    "date": "2026-02-25T18:30:00Z",
+    "author": "Conseil de Quartier Ivry-Port",
+    "handle": "cdq_ivryport_officiel",
+    "avatar": "",
+    "url": "https://democratie.ivry94.fr/comptes-rendus/2026-02-25",
+    "content": "Compte-rendu d'atelier : Demande unanime des habitants pour la végétalisation renforcée du mur antibruit le long des voies de circulation des bennes du SYCTOM.",
+    "laya": {
+      "sentimentScore": 0,
+      "sentimentLabel": "NEUTRAL",
+      "primaryCategory": "TRAFFIC",
+      "secondaryCategories": [
+        "GOVERNANCE"
+      ],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "e5b3dc8207997950377f1c3b7d7bbf7e9337f10c20011011784e08277d19fb36",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  }
+]

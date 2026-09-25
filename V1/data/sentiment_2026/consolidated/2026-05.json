@@ -1,0 +1,140 @@
+[
+  {
+    "id": "post_2026_mastodon_024",
+    "monthKey": "2026-05",
+    "network": "mastodon",
+    "networkLabel": "Mastodon / Fediverse",
+    "date": "2026-05-04T08:30:00Z",
+    "author": "Mairie d'Ivry-sur-Seine",
+    "handle": "mairie_ivry@piaille.fr",
+    "avatar": "https://piaille.fr/avatars/original/missing.png",
+    "url": "https://piaille.fr/@mairie_ivry/112012",
+    "content": "Courrier officiel adressé au Préfet du Val-de-Marne : les maires d'Ivry et Vitry réclament la tenue sans délai de la Commission de Suivi de Site (CSS) pour faire toute la lumière sur les rejets. #Ivry #Vitry #Gouvernance",
+    "laya": {
+      "sentimentScore": 0,
+      "sentimentLabel": "NEUTRAL",
+      "primaryCategory": "GOVERNANCE",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "b04252128bd8c6e829e91962ccfd1678505e6fca84687e4a6ce84f8b500d395d",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_bluesky_027",
+    "monthKey": "2026-05",
+    "network": "bluesky",
+    "networkLabel": "Bluesky (AT Proto)",
+    "date": "2026-05-11T13:00:00Z",
+    "author": "Écologie Populaire IDF",
+    "handle": "ecolopop94.bsky.social",
+    "avatar": "",
+    "url": "https://bsky.app/profile/ecolopop94.bsky.social/post/3k1009",
+    "content": "Injustice spatiale et environnementale : pourquoi les 3 plus grands incinérateurs franciliens (Ivry, Saint-Ouen, Issy) ont-ils des standards d'enfouissement et d'intégration paysagère aussi inégaux ? #JusticeEnvironnementale",
+    "laya": {
+      "sentimentScore": 0,
+      "sentimentLabel": "NEUTRAL",
+      "primaryCategory": "ODOR",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "4448007352e3579ad2a6cddd9594439701d17a7d6ad909fc9ddf54571db1db94",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_mastodon_025",
+    "monthKey": "2026-05",
+    "network": "mastodon",
+    "networkLabel": "Mastodon / Fediverse",
+    "date": "2026-05-19T17:10:00Z",
+    "author": "Collectif 3R",
+    "handle": "collectif3r@piaille.fr",
+    "avatar": "https://piaille.fr/avatars/original/missing.png",
+    "url": "https://piaille.fr/@collectif3r/112013",
+    "content": "Rassemblement samedi 23 mai place de la mairie d'Ivry : non à la prolongation du surdimensionnement de l'incinérateur du SYCTOM ! Présentation de nos contre-propositions de tri mécano-biologique. #Ivry #Déchets",
+    "laya": {
+      "sentimentScore": 0,
+      "sentimentLabel": "NEUTRAL",
+      "primaryCategory": "GOVERNANCE",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "e6427712efd22ebce6d5ea5511b1790d461b6ab2c91fb189a7341e50ea222b14",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_bluesky_028",
+    "monthKey": "2026-05",
+    "network": "bluesky",
+    "networkLabel": "Bluesky (AT Proto)",
+    "date": "2026-05-22T16:50:00Z",
+    "author": "Veille Déchets Grand Paris",
+    "handle": "dechets-gp.bsky.social",
+    "avatar": "",
+    "url": "https://bsky.app/profile/dechets-gp.bsky.social/post/3k1010",
+    "content": "L'avis défavorable de plusieurs conseils municipaux du Val-de-Marne sur le nouveau plan régional de prévention des déchets (PRPGD) renforce la pression sur le SYCTOM. #Gouvernance",
+    "laya": {
+      "sentimentScore": 0,
+      "sentimentLabel": "NEUTRAL",
+      "primaryCategory": "GOVERNANCE",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "dd9bd1b7e7575f7d28f0b9907134a6bb430e0f806edb67e3412ac29ed13a148f",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_debats_citoyens_029",
+    "monthKey": "2026-05",
+    "network": "debats_citoyens",
+    "networkLabel": "Débats Citoyens / Actes",
+    "date": "2026-05-27T19:30:00Z",
+    "author": "Fédération des Conseils de Parents d'Élèves (FCPE Ivry)",
+    "handle": "fcpe_ivry_port",
+    "avatar": "",
+    "url": "https://fcpe94.fr/communique-ivry-mai-2026",
+    "content": "Motion votée en conseil d'école : Demande formelle de renouvellement des prélèvements de sol dans les cours de récréation pour mesurer les dioxines et furanes avant l'été.",
+    "laya": {
+      "sentimentScore": -0.45,
+      "sentimentLabel": "NEGATIVE",
+      "primaryCategory": "HEALTH",
+      "secondaryCategories": [
+        "GOVERNANCE"
+      ],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "361a5056d7ef7671ab775d3667cd057c30982a066d977315ae59cc34ab39689a",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_mastodon_026",
+    "monthKey": "2026-05",
+    "network": "mastodon",
+    "networkLabel": "Mastodon / Fediverse",
+    "date": "2026-05-28T21:40:00Z",
+    "author": "Sophie M. (Riveraine)",
+    "handle": "sophie_ivry94@piaille.fr",
+    "avatar": "https://piaille.fr/avatars/original/missing.png",
+    "url": "https://piaille.fr/@sophie_ivry94/112014",
+    "content": "Fumées âcres et gorge irritée chez mon fils ce soir vers le quai d'Ivry. Ce n'est pas normal qu'en 2026 on doive barricader son appartement un soir de printemps ! #Ivry #Santé #Odeur",
+    "laya": {
+      "sentimentScore": 0.4,
+      "sentimentLabel": "POSITIVE",
+      "primaryCategory": "TRAFFIC",
+      "secondaryCategories": [
+        "ODOR",
+        "HEALTH",
+        "PROPERTY_VALUE"
+      ],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "951c0a0b98da96ea515faf99d03a8c9b80507c6500e9c5dd1b481d3f633a6c01",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  }
+]

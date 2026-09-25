@@ -1,0 +1,26 @@
+[
+  {
+    "id": "post_2026_debats_citoyens_012",
+    "monthKey": "2026-02",
+    "network": "debats_citoyens",
+    "networkLabel": "Débats Citoyens / Actes",
+    "date": "2026-02-25T18:30:00Z",
+    "author": "Conseil de Quartier Ivry-Port",
+    "handle": "cdq_ivryport_officiel",
+    "avatar": "",
+    "url": "https://democratie.ivry94.fr/comptes-rendus/2026-02-25",
+    "content": "Compte-rendu d'atelier : Demande unanime des habitants pour la végétalisation renforcée du mur antibruit le long des voies de circulation des bennes du SYCTOM.",
+    "laya": {
+      "sentimentScore": 0,
+      "sentimentLabel": "NEUTRAL",
+      "primaryCategory": "TRAFFIC",
+      "secondaryCategories": [
+        "GOVERNANCE"
+      ],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "e5b3dc8207997950377f1c3b7d7bbf7e9337f10c20011011784e08277d19fb36",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  }
+]

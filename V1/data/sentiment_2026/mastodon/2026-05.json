@@ -1,0 +1,72 @@
+[
+  {
+    "id": "post_2026_mastodon_024",
+    "monthKey": "2026-05",
+    "network": "mastodon",
+    "networkLabel": "Mastodon / Fediverse",
+    "date": "2026-05-04T08:30:00Z",
+    "author": "Mairie d'Ivry-sur-Seine",
+    "handle": "mairie_ivry@piaille.fr",
+    "avatar": "https://piaille.fr/avatars/original/missing.png",
+    "url": "https://piaille.fr/@mairie_ivry/112012",
+    "content": "Courrier officiel adressé au Préfet du Val-de-Marne : les maires d'Ivry et Vitry réclament la tenue sans délai de la Commission de Suivi de Site (CSS) pour faire toute la lumière sur les rejets. #Ivry #Vitry #Gouvernance",
+    "laya": {
+      "sentimentScore": 0,
+      "sentimentLabel": "NEUTRAL",
+      "primaryCategory": "GOVERNANCE",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "b04252128bd8c6e829e91962ccfd1678505e6fca84687e4a6ce84f8b500d395d",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_mastodon_025",
+    "monthKey": "2026-05",
+    "network": "mastodon",
+    "networkLabel": "Mastodon / Fediverse",
+    "date": "2026-05-19T17:10:00Z",
+    "author": "Collectif 3R",
+    "handle": "collectif3r@piaille.fr",
+    "avatar": "https://piaille.fr/avatars/original/missing.png",
+    "url": "https://piaille.fr/@collectif3r/112013",
+    "content": "Rassemblement samedi 23 mai place de la mairie d'Ivry : non à la prolongation du surdimensionnement de l'incinérateur du SYCTOM ! Présentation de nos contre-propositions de tri mécano-biologique. #Ivry #Déchets",
+    "laya": {
+      "sentimentScore": 0,
+      "sentimentLabel": "NEUTRAL",
+      "primaryCategory": "GOVERNANCE",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "e6427712efd22ebce6d5ea5511b1790d461b6ab2c91fb189a7341e50ea222b14",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_mastodon_026",
+    "monthKey": "2026-05",
+    "network": "mastodon",
+    "networkLabel": "Mastodon / Fediverse",
+    "date": "2026-05-28T21:40:00Z",
+    "author": "Sophie M. (Riveraine)",
+    "handle": "sophie_ivry94@piaille.fr",
+    "avatar": "https://piaille.fr/avatars/original/missing.png",
+    "url": "https://piaille.fr/@sophie_ivry94/112014",
+    "content": "Fumées âcres et gorge irritée chez mon fils ce soir vers le quai d'Ivry. Ce n'est pas normal qu'en 2026 on doive barricader son appartement un soir de printemps ! #Ivry #Santé #Odeur",
+    "laya": {
+      "sentimentScore": 0.4,
+      "sentimentLabel": "POSITIVE",
+      "primaryCategory": "TRAFFIC",
+      "secondaryCategories": [
+        "ODOR",
+        "HEALTH",
+        "PROPERTY_VALUE"
+      ],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "951c0a0b98da96ea515faf99d03a8c9b80507c6500e9c5dd1b481d3f633a6c01",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  }
+]

@@ -1,0 +1,48 @@
+[
+  {
+    "id": "post_2026_bluesky_021",
+    "monthKey": "2026-04",
+    "network": "bluesky",
+    "networkLabel": "Bluesky (AT Proto)",
+    "date": "2026-04-12T09:45:00Z",
+    "author": "Thierry Renard (Ingénieur Thermique)",
+    "handle": "trenard-eco.bsky.social",
+    "avatar": "",
+    "url": "https://bsky.app/profile/trenard-eco.bsky.social/post/3k1007",
+    "content": "La transition vers la réduction catalytique sélective (SCR) à basse température permettra d'abaisser les NOx sous les 50 mg/Nm³ à Ivry. Progrès technique indéniable mais coût élevé. #DeNOx #Énergie",
+    "laya": {
+      "sentimentScore": 0.4,
+      "sentimentLabel": "POSITIVE",
+      "primaryCategory": "ODOR",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "0ab906d63a3dbfa1facd6d06167bda0edefa18ea486b5202df44dd0249577cc2",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_bluesky_022",
+    "monthKey": "2026-04",
+    "network": "bluesky",
+    "networkLabel": "Bluesky (AT Proto)",
+    "date": "2026-04-22T14:15:00Z",
+    "author": "Collectif Respirer 94",
+    "handle": "respirer94.bsky.social",
+    "avatar": "",
+    "url": "https://bsky.app/profile/respirer94.bsky.social/post/3k1008",
+    "content": "Journée de la Terre : l'air de la vallée de la Seine à Ivry et Vitry reste l'un des plus saturés en micro-particules de la métropole. La santé de nos enfants doit passer avant le tonnage brûlé ! #Pollution #Santé",
+    "laya": {
+      "sentimentScore": -0.45,
+      "sentimentLabel": "NEGATIVE",
+      "primaryCategory": "ODOR",
+      "secondaryCategories": [
+        "HEALTH"
+      ],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "f01ca18647f699ca51e61a74cb257be21f495d3ac1eb8623ddc5f6e7175b82b0",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  }
+]

@@ -1,0 +1,70 @@
+[
+  {
+    "id": "post_2026_mastodon_007",
+    "monthKey": "2026-02",
+    "network": "mastodon",
+    "networkLabel": "Mastodon / Fediverse",
+    "date": "2026-02-05T10:10:00Z",
+    "author": "Zero Waste France",
+    "handle": "zerowastefr@mastodon.social",
+    "avatar": "https://mastodon.social/avatars/original/missing.png",
+    "url": "https://mastodon.social/@zerowastefr/112004",
+    "content": "Moderniser un incinérateur pour brûler moins ? C'est le paradoxe d'Ivry. Nous continuons de plaider pour un moratoire et la réduction drastique à la source plutôt que des méga-fours. #Déchets #Ivry",
+    "laya": {
+      "sentimentScore": 0,
+      "sentimentLabel": "NEUTRAL",
+      "primaryCategory": "ODOR",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "fb3593e636eb000ee5ed04bcea30806204091d31829fb22ebb9b3e766ccd540a",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_mastodon_008",
+    "monthKey": "2026-02",
+    "network": "mastodon",
+    "networkLabel": "Mastodon / Fediverse",
+    "date": "2026-02-14T17:25:00Z",
+    "author": "Laurent B. (Vitry)",
+    "handle": "laurent_vitry@piaille.fr",
+    "avatar": "https://piaille.fr/avatars/original/missing.png",
+    "url": "https://piaille.fr/@laurent_vitry/112005",
+    "content": "Rotations intempestives de camions-bennes dès 5h du matin sur le quai Jules Guesde à Vitry. Bruit de compresseur insupportable pour les riverains du bord de Seine. #Vitry #Bruit #Trafic",
+    "laya": {
+      "sentimentScore": -0.85,
+      "sentimentLabel": "STRONGLY_NEGATIVE",
+      "primaryCategory": "NOISE",
+      "secondaryCategories": [
+        "TRAFFIC"
+      ],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "a4d5607bf96eeef41c987480f9a9b409a60799e049c39fe6c46590a620cf44ca",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_mastodon_009",
+    "monthKey": "2026-02",
+    "network": "mastodon",
+    "networkLabel": "Mastodon / Fediverse",
+    "date": "2026-02-22T19:00:00Z",
+    "author": "Airparif Veille",
+    "handle": "airparif_veille@piaille.fr",
+    "avatar": "https://piaille.fr/avatars/original/missing.png",
+    "url": "https://piaille.fr/@airparif_veille/112006",
+    "content": "Épisode de pollution aux particules fines PM2.5 en Île-de-France lié aux conditions anticycloniques. Indice dégradé relevé sur la station Ivry-Port. Vigilance pour personnes sensibles. #Airparif #Pollution",
+    "laya": {
+      "sentimentScore": 0,
+      "sentimentLabel": "NEUTRAL",
+      "primaryCategory": "ODOR",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "62b917b544624ea3cd7276117e6960eb57345172b7978755a9e13f3f84bedc71",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  }
+]

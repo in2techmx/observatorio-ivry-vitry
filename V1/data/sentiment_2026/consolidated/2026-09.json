@@ -1,0 +1,160 @@
+[
+  {
+    "id": "post_2026_mastodon_048",
+    "monthKey": "2026-09",
+    "network": "mastodon",
+    "networkLabel": "Mastodon / Fediverse",
+    "date": "2026-09-04T08:30:00Z",
+    "author": "FCPE Ivry-sur-Seine",
+    "handle": "fcpe_ivry@piaille.fr",
+    "avatar": "https://piaille.fr/avatars/original/missing.png",
+    "url": "https://piaille.fr/@fcpe_ivry/112024",
+    "content": "Rentrée scolaire 2026 : les parents d'élèves de l'école Albert Einstein exigent la publication immédiate des résultats des carottages de sol réalisés en juillet. Zéro compromis avec la santé de nos enfants ! #Ivry #Santé #Écoles",
+    "laya": {
+      "sentimentScore": -0.45,
+      "sentimentLabel": "NEGATIVE",
+      "primaryCategory": "HEALTH",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "a333c7d7a5739b75cb2061c7987c9fc6ca59d22ec406a9192b0b592649efa7c3",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_bluesky_052",
+    "monthKey": "2026-09",
+    "network": "bluesky",
+    "networkLabel": "Bluesky (AT Proto)",
+    "date": "2026-09-08T15:20:00Z",
+    "author": "Sociologie Urbaine & Conflits",
+    "handle": "socio-urbaine.bsky.social",
+    "avatar": "",
+    "url": "https://bsky.app/profile/socio-urbaine.bsky.social/post/3k1017",
+    "content": "La controverse de l'incinérateur d'Ivry illustre le concept d'injustice environnementale péri-métropolitaine : le traitement des déchets du centre historique reporté sur la périphérie populaire. #Sociologie #Ivry",
+    "laya": {
+      "sentimentScore": 0,
+      "sentimentLabel": "NEUTRAL",
+      "primaryCategory": "ODOR",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "fe7f0a26b0c95e6275860df4ca971da9dd733737baf04b7342434b98e87600ed",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_mastodon_049",
+    "monthKey": "2026-09",
+    "network": "mastodon",
+    "networkLabel": "Mastodon / Fediverse",
+    "date": "2026-09-12T14:15:00Z",
+    "author": "Collectif 3R",
+    "handle": "collectif3r@piaille.fr",
+    "avatar": "https://piaille.fr/avatars/original/missing.png",
+    "url": "https://piaille.fr/@collectif3r/112025",
+    "content": "Grande réunion publique ce jeudi en mairie d'Ivry : présentation de notre contre-expertise indépendante sur les émissions réelles de dioxines bromées et métaux lourds. Venez nombreux ! #Ivry #Mobilisation",
+    "laya": {
+      "sentimentScore": -0.45,
+      "sentimentLabel": "NEGATIVE",
+      "primaryCategory": "HEALTH",
+      "secondaryCategories": [
+        "GOVERNANCE"
+      ],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "e5ee03e40560457d946c5971e3c518b10c3a75f47f581c178fdaea39f123fa3f",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_bluesky_053",
+    "monthKey": "2026-09",
+    "network": "bluesky",
+    "networkLabel": "Bluesky (AT Proto)",
+    "date": "2026-09-17T17:50:00Z",
+    "author": "Santé Environnementale IDF",
+    "handle": "sante-env-idf.bsky.social",
+    "avatar": "",
+    "url": "https://bsky.app/profile/sante-env-idf.bsky.social/post/3k1018",
+    "content": "Rappel de précaution de l'ARS : interdiction maintenue de consommation des œufs des poulaillers familiaux dans un rayon de 3 km autour des installations thermiques d'Ivry et Vitry. #Santé #Alimentation",
+    "laya": {
+      "sentimentScore": -0.45,
+      "sentimentLabel": "NEGATIVE",
+      "primaryCategory": "HEALTH",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "57a6ec1a3b8cebb34157bba629baeb5e36688bf835d6ecf7e2ff81e11bbf72d8",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_mastodon_050",
+    "monthKey": "2026-09",
+    "network": "mastodon",
+    "networkLabel": "Mastodon / Fediverse",
+    "date": "2026-09-19T18:45:00Z",
+    "author": "Marc L. (Riverain Ivry-Port)",
+    "handle": "marcl_ivry@piaille.fr",
+    "avatar": "https://piaille.fr/avatars/original/missing.png",
+    "url": "https://piaille.fr/@marcl_ivry/112026",
+    "content": "⚠️ Reprise brutale des rotations de bennes et odeur de plastique brûlé tenace ce vendredi soir quai Marcel Boyer. Le retour des nuisances est immédiat après la trêve du mois d'août. #Ivry #Odeur #Trafic",
+    "laya": {
+      "sentimentScore": -0.35,
+      "sentimentLabel": "NEGATIVE",
+      "primaryCategory": "ODOR",
+      "secondaryCategories": [
+        "TRAFFIC"
+      ],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "7d3366aa7b57e0a4a4934897f6172023a9a782c134109e3c83361028a3cb6f55",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_debats_citoyens_054",
+    "monthKey": "2026-09",
+    "network": "debats_citoyens",
+    "networkLabel": "Débats Citoyens / Actes",
+    "date": "2026-09-22T20:30:00Z",
+    "author": "Conseil Municipal Extraordinaire d'Ivry-sur-Seine",
+    "handle": "registre_cm_ivry_2026_09",
+    "avatar": "",
+    "url": "https://ivry94.fr/seances-cm/2026-09-22",
+    "content": "Adoption unanime d'un vœu exigeant un moratoire sur toute hausse de tonnage du centre d'Ivry-Paris XIII et la mise en place d'un comité d'experts médicaux indépendants rémunéré par le SYCTOM.",
+    "laya": {
+      "sentimentScore": 0,
+      "sentimentLabel": "NEUTRAL",
+      "primaryCategory": "GOVERNANCE",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "2df564675c2c33fa11ae8127f9e91165bac2dc6f5c37fd38ca8bc6423ba73672",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_mastodon_051",
+    "monthKey": "2026-09",
+    "network": "mastodon",
+    "networkLabel": "Mastodon / Fediverse",
+    "date": "2026-09-23T11:00:00Z",
+    "author": "SYCTOM Info",
+    "handle": "syctom_officiel@mastodon.social",
+    "avatar": "https://mastodon.social/avatars/original/missing.png",
+    "url": "https://mastodon.social/@syctom_officiel/112027",
+    "content": "Mise en service opérationnelle des nouveaux analyseurs d'émissions en continu (CEMS) sur les deux lignes de combustion d'Ivry. Conformité totale avec les normes BREF européennes 2026. #Syctom #Ivry",
+    "laya": {
+      "sentimentScore": 0,
+      "sentimentLabel": "NEUTRAL",
+      "primaryCategory": "GOVERNANCE",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "71fead85d73328cb2091eb8d5873d62fa3746a96376a2f517d9ddf6d9c8d43b8",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  }
+]

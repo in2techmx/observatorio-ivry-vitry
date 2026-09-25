@@ -1,0 +1,26 @@
+[
+  {
+    "id": "post_2026_debats_citoyens_018",
+    "monthKey": "2026-03",
+    "network": "debats_citoyens",
+    "networkLabel": "Débats Citoyens / Actes",
+    "date": "2026-03-18T20:30:00Z",
+    "author": "Comité de Défense des Quartiers Sud",
+    "handle": "comite_sud_vitry",
+    "avatar": "",
+    "url": "https://debats.vitry94.fr/interventions/2026-03-18",
+    "content": "Motion d'urgence adoptée : Réclamation d'un plan de délestage immédiat des flux de camions traversant Vitry-sur-Seine durant les épisodes de grève et de blocage d'Ivry.",
+    "laya": {
+      "sentimentScore": -0.3,
+      "sentimentLabel": "NEGATIVE",
+      "primaryCategory": "NOISE",
+      "secondaryCategories": [
+        "TRAFFIC"
+      ],
+      "urgencyFlag": true,
+      "processingTimeMs": 1,
+      "auditSignature": "8289bdbde33db4044b99cf955cf760d0ee51589c5adbc45512dc66431532047c",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  }
+]

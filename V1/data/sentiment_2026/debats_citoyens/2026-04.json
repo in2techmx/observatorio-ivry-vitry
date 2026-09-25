@@ -1,0 +1,24 @@
+[
+  {
+    "id": "post_2026_debats_citoyens_023",
+    "monthKey": "2026-04",
+    "network": "debats_citoyens",
+    "networkLabel": "Débats Citoyens / Actes",
+    "date": "2026-04-25T19:00:00Z",
+    "author": "Pétition Citoyenne Municipale",
+    "handle": "petition_air_ivry",
+    "avatar": "",
+    "url": "https://petitions.ivry94.fr/puf-ecoles-2026",
+    "content": "Pétition citoyenne déposée avec 1 450 signatures : Exigence d'un système d'alerte SMS en temps réel pour les directeurs d'écoles en cas d'émission de fumée noire anormale ou de pic de NO2.",
+    "laya": {
+      "sentimentScore": 0.4,
+      "sentimentLabel": "POSITIVE",
+      "primaryCategory": "ODOR",
+      "secondaryCategories": [],
+      "urgencyFlag": true,
+      "processingTimeMs": 1,
+      "auditSignature": "d66fdcbd02c3373b9d7b1500dab8f4f2c3fe2ae8b0964ad07d3ee5696835e22b",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  }
+]

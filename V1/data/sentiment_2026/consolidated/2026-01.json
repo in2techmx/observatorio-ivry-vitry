@@ -1,0 +1,136 @@
+[
+  {
+    "id": "post_2026_mastodon_001",
+    "monthKey": "2026-01",
+    "network": "mastodon",
+    "networkLabel": "Mastodon / Fediverse",
+    "date": "2026-01-10T09:15:00Z",
+    "author": "Collectif 3R",
+    "handle": "collectif3r@piaille.fr",
+    "avatar": "https://piaille.fr/avatars/original/missing.png",
+    "url": "https://piaille.fr/@collectif3r/112001",
+    "content": "Vœux 2026 : nous demandons un audit citoyen indépendant sur les cheminées de l'incinérateur d'Ivry-Paris XIII. Les riverains ont droit à la transparence intégrale sur les dioxines. #Ivry #Incinérateur",
+    "laya": {
+      "sentimentScore": -0.45,
+      "sentimentLabel": "NEGATIVE",
+      "primaryCategory": "HEALTH",
+      "secondaryCategories": [
+        "GOVERNANCE"
+      ],
+      "urgencyFlag": false,
+      "processingTimeMs": 2,
+      "auditSignature": "ac435d51f07ffead6ba03ecdc48d4d1f585c45588fe30883197bee56c81b2351",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_bluesky_004",
+    "monthKey": "2026-01",
+    "network": "bluesky",
+    "networkLabel": "Bluesky (AT Proto)",
+    "date": "2026-01-12T11:20:00Z",
+    "author": "Claire Dufour (Urbanisme IDF)",
+    "handle": "cldufour.bsky.social",
+    "avatar": "",
+    "url": "https://bsky.app/profile/cldufour.bsky.social/post/3k1001",
+    "content": "La transformation d'Ivry-Confluences pose la question cruciale de la cohabitation entre nouveaux quartiers résidentiels denses et industrie lourde de traitement des déchets. #Urbanisme #Ivry",
+    "laya": {
+      "sentimentScore": 0,
+      "sentimentLabel": "NEUTRAL",
+      "primaryCategory": "ODOR",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "7a0e82683c8f95fb97dd870b5b6dc37e187e3bb74985c9f52aba6e5e51454e75",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_mastodon_002",
+    "monthKey": "2026-01",
+    "network": "mastodon",
+    "networkLabel": "Mastodon / Fediverse",
+    "date": "2026-01-16T14:30:00Z",
+    "author": "SYCTOM Info",
+    "handle": "syctom_officiel@mastodon.social",
+    "avatar": "https://mastodon.social/avatars/original/missing.png",
+    "url": "https://mastodon.social/@syctom_officiel/112002",
+    "content": "Bilan annuel 2025 : l'UVE d'Ivry-Paris XIII a produit plus de 1,1 million de MWh de vapeur pour le chauffage urbain parisien, épargnant l'émission de 150 000 t de CO2 fossile. #Syctom #Ivry",
+    "laya": {
+      "sentimentScore": 0,
+      "sentimentLabel": "NEUTRAL",
+      "primaryCategory": "GOVERNANCE",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "2b1d5ee06d1f282217a760a1128cdb8d0f050d6679aa9b8e08d8a8568abd99cd",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_debats_citoyens_006",
+    "monthKey": "2026-01",
+    "network": "debats_citoyens",
+    "networkLabel": "Débats Citoyens / Actes",
+    "date": "2026-01-20T20:00:00Z",
+    "author": "Commission Consultative des Services Publics",
+    "handle": "registre_ccspl_ivry",
+    "avatar": "",
+    "url": "https://registre.ivry94.fr/delib/2026-01-20",
+    "content": "Question inscrite en séance : Demande d'installation de capteurs métrologiques continus de particules ultra-fines (PUF) à l'école primaire Albert Einstein située sous les vents dominants.",
+    "laya": {
+      "sentimentScore": 0,
+      "sentimentLabel": "NEUTRAL",
+      "primaryCategory": "ODOR",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "77047fa3889b1e8749ff52fd97ea170aac6ab1b4893b4097d9a231e290da3308",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_mastodon_003",
+    "monthKey": "2026-01",
+    "network": "mastodon",
+    "networkLabel": "Mastodon / Fediverse",
+    "date": "2026-01-24T18:45:00Z",
+    "author": "Riverains Ivry-Port",
+    "handle": "riverains_ivry@piaille.fr",
+    "avatar": "https://piaille.fr/avatars/original/missing.png",
+    "url": "https://piaille.fr/@riverains_ivry/112003",
+    "content": "Par ce froid hivernal et vent de sud, le panache blanc est particulièrement dense et rasant au-dessus des immeubles de Bercy et Charenton. Inquiétude sur la dispersion. #Ivry #Pollution",
+    "laya": {
+      "sentimentScore": -0.4,
+      "sentimentLabel": "NEGATIVE",
+      "primaryCategory": "ODOR",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 4,
+      "auditSignature": "21c707965e4f1279f601a022081d8446bddf573b362c117049daba232d76dc68",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_bluesky_005",
+    "monthKey": "2026-01",
+    "network": "bluesky",
+    "networkLabel": "Bluesky (AT Proto)",
+    "date": "2026-01-28T16:05:00Z",
+    "author": "Éco-Veille Métropole",
+    "handle": "ecoveille.bsky.social",
+    "avatar": "",
+    "url": "https://bsky.app/profile/ecoveille.bsky.social/post/3k1002",
+    "content": "L'obligation de tri à la source des biodéchets peine encore à décoller dans les copropriétés du Val-de-Marne. Conséquence : trop de matières organiques finissent incinérées. #Déchets #Vitry",
+    "laya": {
+      "sentimentScore": 0,
+      "sentimentLabel": "NEUTRAL",
+      "primaryCategory": "ODOR",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "9a0250b3cd73922e050703a9b5c1c7279b11a78f445413c3ba90c1cd437f3424",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  }
+]

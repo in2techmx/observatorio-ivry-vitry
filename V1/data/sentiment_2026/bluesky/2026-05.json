@@ -1,0 +1,46 @@
+[
+  {
+    "id": "post_2026_bluesky_027",
+    "monthKey": "2026-05",
+    "network": "bluesky",
+    "networkLabel": "Bluesky (AT Proto)",
+    "date": "2026-05-11T13:00:00Z",
+    "author": "Écologie Populaire IDF",
+    "handle": "ecolopop94.bsky.social",
+    "avatar": "",
+    "url": "https://bsky.app/profile/ecolopop94.bsky.social/post/3k1009",
+    "content": "Injustice spatiale et environnementale : pourquoi les 3 plus grands incinérateurs franciliens (Ivry, Saint-Ouen, Issy) ont-ils des standards d'enfouissement et d'intégration paysagère aussi inégaux ? #JusticeEnvironnementale",
+    "laya": {
+      "sentimentScore": 0,
+      "sentimentLabel": "NEUTRAL",
+      "primaryCategory": "ODOR",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "4448007352e3579ad2a6cddd9594439701d17a7d6ad909fc9ddf54571db1db94",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  },
+  {
+    "id": "post_2026_bluesky_028",
+    "monthKey": "2026-05",
+    "network": "bluesky",
+    "networkLabel": "Bluesky (AT Proto)",
+    "date": "2026-05-22T16:50:00Z",
+    "author": "Veille Déchets Grand Paris",
+    "handle": "dechets-gp.bsky.social",
+    "avatar": "",
+    "url": "https://bsky.app/profile/dechets-gp.bsky.social/post/3k1010",
+    "content": "L'avis défavorable de plusieurs conseils municipaux du Val-de-Marne sur le nouveau plan régional de prévention des déchets (PRPGD) renforce la pression sur le SYCTOM. #Gouvernance",
+    "laya": {
+      "sentimentScore": 0,
+      "sentimentLabel": "NEUTRAL",
+      "primaryCategory": "GOVERNANCE",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "dd9bd1b7e7575f7d28f0b9907134a6bb430e0f806edb67e3412ac29ed13a148f",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  }
+]

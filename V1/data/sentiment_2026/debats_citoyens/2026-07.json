@@ -1,0 +1,24 @@
+[
+  {
+    "id": "post_2026_debats_citoyens_041",
+    "monthKey": "2026-07",
+    "network": "debats_citoyens",
+    "networkLabel": "Débats Citoyens / Actes",
+    "date": "2026-07-20T18:00:00Z",
+    "author": "Commission Environnement Conseil Métropolitain",
+    "handle": "metropole_grand_paris_env",
+    "avatar": "",
+    "url": "https://metropolegrandparis.fr/avis-uve-ivry-2026",
+    "content": "Avis favorable sous réserve : La Métropole valide l'avancement des travaux de modernisation mais impose un rapport semestriel contradictoire sur les émissions de dioxines et métaux lourds.",
+    "laya": {
+      "sentimentScore": -0.45,
+      "sentimentLabel": "NEGATIVE",
+      "primaryCategory": "HEALTH",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "processingTimeMs": 1,
+      "auditSignature": "64e2242cf6128b9b4de24df80f0cb85d1e5a95183bd2ec7e400693c22367725c",
+      "modelIdentifier": "laya-micro-v0.9.0-fr"
+    }
+  }
+]

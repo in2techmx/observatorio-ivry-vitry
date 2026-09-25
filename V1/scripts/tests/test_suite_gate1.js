@@ -219,6 +219,65 @@ runTest('Inferencia Laya sobre toots de redes sociales y cálculo determinista d
 });
 
 // ====================================================================
+// BLOQUE 5: PRUEBAS DE LA BASE DE DATOS HISTÓRICA GIT-AS-A-DATABASE 2026
+// ====================================================================
+console.log('\n--- 5. Pruebas de la Base de Datos Histórica Git-as-a-Database 2026 ---');
+
+const fs = require('fs');
+const path = require('path');
+const { HISTORICAL_SUMMARY_2026 } = require('../web/app.js');
+
+runTest('Estructura y cobertura de particiones por red social (mastodon, bluesky, debats_citoyens, consolidated)', () => {
+  const baseDir = path.resolve(__dirname, '../../data/sentiment_2026');
+  assert.ok(fs.existsSync(baseDir), 'El directorio base V1/data/sentiment_2026 debe existir');
+  assert.ok(fs.existsSync(path.join(baseDir, 'README.md')), 'El archivo README.md explicativo debe existir');
+  assert.ok(fs.existsSync(path.join(baseDir, 'summary_annual_2026.json')), 'El índice anual summary_annual_2026.json debe existir');
+
+  const requiredNetworks = ['mastodon', 'bluesky', 'debats_citoyens', 'consolidated'];
+  for (const net of requiredNetworks) {
+    const netDir = path.join(baseDir, net);
+    assert.ok(fs.existsSync(netDir), `La subcarpeta de partición ${net} debe existir`);
+  }
+});
+
+runTest('Validación cronológica y métricas agregadas de los 9 meses de 2026 en summary_annual', () => {
+  const summaryPath = path.resolve(__dirname, '../../data/sentiment_2026/summary_annual_2026.json');
+  const summary = JSON.parse(fs.readFileSync(summaryPath, 'utf8'));
+
+  assert.strictEqual(summary.year, 2026);
+  assert.strictEqual(summary.monthlyTimeline.length, 9, 'Debe incluir exactamente 9 meses (Enero a Septiembre 2026)');
+
+  for (const m of summary.monthlyTimeline) {
+    assert.ok(m.monthKey.startsWith('2026-'), 'Clave de mes debe tener formato AAAA-MM');
+    assert.ok(m.totalPosts >= 5, 'Cada mes debe contener al menos 5 publicaciones');
+    assert.ok(m.avgPolarity >= -1 && m.avgPolarity <= 1, 'Polaridad debe estar entre -1 y +1');
+    assert.ok(m.keyDriverEvent && m.keyDriverEvent.length > 10, 'Debe incluir evento conductor del periodo');
+    assert.strictEqual(m.ratio.positivePct + m.ratio.neutralPct + m.ratio.negativePct, 100, 'Los ratios deben sumar 100%');
+    assert.ok(m.byNetwork.mastodon > 0, 'Debe incluir publicaciones de Mastodon');
+  }
+});
+
+runTest('Conformidad de esquemas JSON y firmas HMAC en archivos mensuales particionados', () => {
+  const baseDir = path.resolve(__dirname, '../../data/sentiment_2026');
+  const testMonth = '2026-06';
+  const consolidatedPath = path.join(baseDir, 'consolidated', `${testMonth}.json`);
+  assert.ok(fs.existsSync(consolidatedPath), 'El archivo consolidado del mes 2026-06 debe existir');
+
+  const posts = JSON.parse(fs.readFileSync(consolidatedPath, 'utf8'));
+  assert.ok(posts.length >= 6, 'El mes 2026-06 debe contener al menos 6 posts consolidados');
+
+  for (const p of posts) {
+    assert.ok(p.id, 'Cada post debe tener id');
+    assert.ok(p.monthKey === testMonth, 'monthKey debe coincidir');
+    assert.ok(['mastodon', 'bluesky', 'debats_citoyens'].includes(p.network), 'network debe ser válida');
+    assert.ok(p.content && p.content.length > 5, 'content debe existir');
+    assert.ok(typeof p.laya.sentimentScore === 'number', 'laya.sentimentScore debe ser numérico');
+    assert.ok(p.laya.auditSignature && p.laya.auditSignature.length >= 16, 'laya.auditSignature HMAC debe existir');
+    assert.ok(p.laya.processingTimeMs < 70, 'Latencia Laya debe ser menor a 70ms');
+  }
+});
+
+// ====================================================================
 // RESUMEN FINAL DE GATE 1
 // ====================================================================
 console.log('\n================================================================');
