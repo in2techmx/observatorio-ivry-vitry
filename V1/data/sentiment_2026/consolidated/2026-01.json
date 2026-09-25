@@ -18,32 +18,13 @@
         "GOVERNANCE"
       ],
       "urgencyFlag": false,
-      "processingTimeMs": 2,
-      "auditSignature": "ac435d51f07ffead6ba03ecdc48d4d1f585c45588fe30883197bee56c81b2351",
-      "modelIdentifier": "laya-micro-v0.9.0-fr"
-    }
-  },
-  {
-    "id": "post_2026_bluesky_004",
-    "monthKey": "2026-01",
-    "network": "bluesky",
-    "networkLabel": "Bluesky (AT Proto)",
-    "date": "2026-01-12T11:20:00Z",
-    "author": "Claire Dufour (Urbanisme IDF)",
-    "handle": "cldufour.bsky.social",
-    "avatar": "",
-    "url": "https://bsky.app/profile/cldufour.bsky.social/post/3k1001",
-    "content": "La transformation d'Ivry-Confluences pose la question cruciale de la cohabitation entre nouveaux quartiers résidentiels denses et industrie lourde de traitement des déchets. #Urbanisme #Ivry",
-    "laya": {
-      "sentimentScore": 0,
-      "sentimentLabel": "NEUTRAL",
-      "primaryCategory": "ODOR",
-      "secondaryCategories": [],
-      "urgencyFlag": false,
+      "urgencyConfidence": 0,
       "processingTimeMs": 1,
-      "auditSignature": "7a0e82683c8f95fb97dd870b5b6dc37e187e3bb74985c9f52aba6e5e51454e75",
-      "modelIdentifier": "laya-micro-v0.9.0-fr"
-    }
+      "modelIdentifier": "laya-micro-v1.0.0-fr",
+      "nonce": "oanbhan2",
+      "auditSignature": "004875fc862dc5d75b28eb9b29b8492bbd9cd1c46e0220f679db2beba07abf14"
+    },
+    "plainText": "Vœux 2026 : nous demandons un audit citoyen indépendant sur les cheminées de l'incinérateur d'Ivry-Paris XIII. Les riverains ont droit à la transparence intégrale sur les dioxines. #Ivry #Incinérateur"
   },
   {
     "id": "post_2026_mastodon_002",
@@ -62,32 +43,13 @@
       "primaryCategory": "GOVERNANCE",
       "secondaryCategories": [],
       "urgencyFlag": false,
+      "urgencyConfidence": 0,
       "processingTimeMs": 1,
-      "auditSignature": "2b1d5ee06d1f282217a760a1128cdb8d0f050d6679aa9b8e08d8a8568abd99cd",
-      "modelIdentifier": "laya-micro-v0.9.0-fr"
-    }
-  },
-  {
-    "id": "post_2026_debats_citoyens_006",
-    "monthKey": "2026-01",
-    "network": "debats_citoyens",
-    "networkLabel": "Débats Citoyens / Actes",
-    "date": "2026-01-20T20:00:00Z",
-    "author": "Commission Consultative des Services Publics",
-    "handle": "registre_ccspl_ivry",
-    "avatar": "",
-    "url": "https://registre.ivry94.fr/delib/2026-01-20",
-    "content": "Question inscrite en séance : Demande d'installation de capteurs métrologiques continus de particules ultra-fines (PUF) à l'école primaire Albert Einstein située sous les vents dominants.",
-    "laya": {
-      "sentimentScore": 0,
-      "sentimentLabel": "NEUTRAL",
-      "primaryCategory": "ODOR",
-      "secondaryCategories": [],
-      "urgencyFlag": false,
-      "processingTimeMs": 1,
-      "auditSignature": "77047fa3889b1e8749ff52fd97ea170aac6ab1b4893b4097d9a231e290da3308",
-      "modelIdentifier": "laya-micro-v0.9.0-fr"
-    }
+      "modelIdentifier": "laya-micro-v1.0.0-fr",
+      "nonce": "tc6nnlf1",
+      "auditSignature": "9e24e7620d3a88ae60b0c1dd74ec3812c778fd73b400e08fda6d67e73a54250c"
+    },
+    "plainText": "Bilan annuel 2025 : l'UVE d'Ivry-Paris XIII a produit plus de 1,1 million de MWh de vapeur pour le chauffage urbain parisien, épargnant l'émission de 150 000 t de CO2 fossile. #Syctom #Ivry"
   },
   {
     "id": "post_2026_mastodon_003",
@@ -101,15 +63,112 @@
     "url": "https://piaille.fr/@riverains_ivry/112003",
     "content": "Par ce froid hivernal et vent de sud, le panache blanc est particulièrement dense et rasant au-dessus des immeubles de Bercy et Charenton. Inquiétude sur la dispersion. #Ivry #Pollution",
     "laya": {
-      "sentimentScore": -0.4,
+      "sentimentScore": 0,
+      "sentimentLabel": "NEUTRAL",
+      "primaryCategory": "UNCLASSIFIED",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "urgencyConfidence": 0,
+      "processingTimeMs": 1,
+      "modelIdentifier": "laya-micro-v1.0.0-fr",
+      "nonce": "nlk45b2y",
+      "auditSignature": "cb12bcfbf0da96844b56d110b57b28bd85c6dde93348da95ce3cb182461fdfdb"
+    },
+    "plainText": "Par ce froid hivernal et vent de sud, le panache blanc est particulièrement dense et rasant au-dessus des immeubles de Bercy et Charenton. Inquiétude sur la dispersion. #Ivry #Pollution"
+  },
+  {
+    "id": "masto_harv_202601_01",
+    "monthKey": "2026-01",
+    "network": "mastodon",
+    "date": "2026-01-10T10:30:00.000Z",
+    "author": "théorie :verified:",
+    "handle": "@burgervege@mamot.fr",
+    "url": "https://mamot.fr/@burgervege/117252035995398209",
+    "content": "<p>Vous avez entendu parlé du projet Thermo-sur-Seine ? La mairie de Paris (PS &amp; Écolo) veut implanter une usine d'incinération à Vitry-sur-Seine, au mépris des habitant⋅es, qui sont déjà proches de l'incinérateur d'Ivry. </p><p>Habitant⋅es du Val-de-Marne, de Paris ou d'autour, vous pouvez donner votre avis sur ce projet jusqu'au 1er novembre : <br><a href=\"https://www.thermo-sur-seine-concertation.fr/exprimez-votre-avis-3891\" rel=\"nofollow noopener\" translate=\"no\" target=\"_blank\"><span class=\"invisible\">https://www.</span><span class=\"ellipsis\">thermo-sur-seine-concertation.</span><span class=\"invisible\">fr/exprimez-votre-avis-3891</span></a></p><p><a href=\"https://mamot.fr/tags/paris\" class=\"mention hashtag\" rel=\"nofollow noopener\" target=\"_blank\">#<span>paris</span></a> <a href=\"https://mamot.fr/tags/vitry\" class=\"mention hashtag\" rel=\"nofollow noopener\" target=\"_blank\">#<span>vitry</span></a> <a href=\"https://mamot.fr/tags/ecologie\" class=\"mention hashtag\" rel=\"nofollow noopener\" target=\"_blank\">#<span>ecologie</span></a></p>",
+    "plainText": "Vous avez entendu parlé du projet Thermo-sur-Seine ? La mairie de Paris (PS & Écolo) veut implanter une usine d'incinération à Vitry-sur-Seine, au mépris des habitant⋅es, qui sont déjà proches de l'incinérateur d'Ivry. Habitant⋅es du Val-de-Marne, de Paris ou d'autour, vous pouvez donner votre avis sur ce projet jusqu'au 1er novembre : https://www. thermo-sur-seine-concertation. fr/exprimez-votre-avis-3891 # paris # vitry # ecologie",
+    "laya": {
+      "sentimentScore": 0,
+      "sentimentLabel": "NEUTRAL",
+      "primaryCategory": "GOVERNANCE",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "urgencyConfidence": 0,
+      "processingTimeMs": 1,
+      "modelIdentifier": "laya-micro-v1.0.0-fr",
+      "nonce": "thhqbgaa",
+      "auditSignature": "d586878e28d69012eadb211892fb54cf72fe8027c9c64295c3c75024d54e9700"
+    }
+  },
+  {
+    "id": "masto_harv_202601_02",
+    "monthKey": "2026-01",
+    "network": "mastodon",
+    "date": "2026-01-16T12:30:00.000Z",
+    "author": "Le Parisien",
+    "handle": "@Le_Parisien@flipboard.com",
+    "url": "https://flipboard.com/@le_parisien/val-de-marne-94-4eiffn2vz/-/a-RehUdy2VToyFhsqT8EipKg%3Aa%3A2425850662-%2F0",
+    "content": "<p>À l’incinérateur d’Ivry, de nouvelles fumées s’échappent : « Une erreur de pilotage »<br><a href=\"https://www.leparisien.fr/val-de-marne-94/a-lincinerateur-divry-de-nouvelles-fumees-sechappent-une-erreur-de-pilotage-29-06-2026-Q26RQNKZKNAW5AGAAMGZ45EMFQ.php?utm_source=flipboard&amp;utm_medium=activitypub\" rel=\"nofollow noopener\" translate=\"no\" target=\"_blank\"><span class=\"invisible\">https://www.</span><span class=\"ellipsis\">leparisien.fr/val-de-marne-94/</span><span class=\"invisible\">a-lincinerateur-divry-de-nouvelles-fumees-sechappent-une-erreur-de-pilotage-29-06-2026-Q26RQNKZKNAW5AGAAMGZ45EMFQ.php?utm_source=flipboard&amp;utm_medium=activitypub </span></a></p><p>Publié dans Val-de-Marne - 94 <span class=\"h-card\" translate=\"no\"><a href=\"https://flipboard.com/@le_parisien/val-de-marne-94-4eiffn2vz\" class=\"u-url mention\" rel=\"nofollow noopener\" target=\"_blank\">@<span>val-de-marne-94-Le_Parisien</span></a></span></p>",
+    "plainText": "À l’incinérateur d’Ivry, de nouvelles fumées s’échappent : « Une erreur de pilotage » https://www. leparisien.fr/val-de-marne-94/ a-lincinerateur-divry-de-nouvelles-fumees-sechappent-une-erreur-de-pilotage-29-06-2026-Q26RQNKZKNAW5AGAAMGZ45EMFQ.php?utm_source=flipboard&utm_medium=activitypub Publié dans Val-de-Marne - 94 @ val-de-marne-94-Le_Parisien",
+    "laya": {
+      "sentimentScore": -0.35,
       "sentimentLabel": "NEGATIVE",
       "primaryCategory": "ODOR",
       "secondaryCategories": [],
       "urgencyFlag": false,
-      "processingTimeMs": 4,
-      "auditSignature": "21c707965e4f1279f601a022081d8446bddf573b362c117049daba232d76dc68",
-      "modelIdentifier": "laya-micro-v0.9.0-fr"
+      "urgencyConfidence": 0,
+      "processingTimeMs": 1,
+      "modelIdentifier": "laya-micro-v1.0.0-fr",
+      "nonce": "xn54dpoy",
+      "auditSignature": "4bfc45b96fcd2ec38651a1d54886fb6f2031759cc8d561273966b1e0fc61e472"
     }
+  },
+  {
+    "id": "masto_harv_202601_03",
+    "monthKey": "2026-01",
+    "network": "mastodon",
+    "date": "2026-01-22T14:30:00.000Z",
+    "author": "Jeanne Guien aka Culture Poub",
+    "handle": "@culturepoub@piaille.fr",
+    "url": "https://piaille.fr/@culturepoub/116670796716688052",
+    "content": "<p>+ de 400 personnes aujourd'hui à la manif contre le projet d' <a href=\"https://piaille.fr/tags/incinerateur\" class=\"mention hashtag\" rel=\"nofollow noopener\" target=\"_blank\">#<span>incinerateur</span></a>  à <a href=\"https://piaille.fr/tags/Vitry\" class=\"mention hashtag\" rel=\"nofollow noopener\" target=\"_blank\">#<span>Vitry</span></a> sur Seine. <br>Près de 8 km de marche, de l'incinérateur d' <a href=\"https://piaille.fr/tags/Ivry\" class=\"mention hashtag\" rel=\"nofollow noopener\" target=\"_blank\">#<span>Ivry</span></a>  à la mairie de Vitry, en passant par le site préempté pour le projet aux Ardoines.<br>Grand merci aux assos ACID, ALIC, 3R et Soulèvements de la Terre qui ont organisé cette manif, à la battucada qui a joué non-stop sur tout le parcours, à Carla J. pour ses photos.<br>+ d'infos bientôt dans un article !</p>",
+    "plainText": "+ de 400 personnes aujourd'hui à la manif contre le projet d' # incinerateur à # Vitry sur Seine. Près de 8 km de marche, de l'incinérateur d' # Ivry à la mairie de Vitry, en passant par le site préempté pour le projet aux Ardoines. Grand merci aux assos ACID, ALIC, 3R et Soulèvements de la Terre qui ont organisé cette manif, à la battucada qui a joué non-stop sur tout le parcours, à Carla J. pour ses photos. + d'infos bientôt dans un article !",
+    "laya": {
+      "sentimentScore": 0,
+      "sentimentLabel": "NEUTRAL",
+      "primaryCategory": "GOVERNANCE",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "urgencyConfidence": 0,
+      "processingTimeMs": 1,
+      "modelIdentifier": "laya-micro-v1.0.0-fr",
+      "nonce": "p47gtlbp",
+      "auditSignature": "7653088b8f021d89a0e17bab805aba3b3a8d530670877f37ee3ebc81dbd863a4"
+    }
+  },
+  {
+    "id": "post_2026_bluesky_004",
+    "monthKey": "2026-01",
+    "network": "bluesky",
+    "networkLabel": "Bluesky (AT Proto)",
+    "date": "2026-01-12T11:20:00Z",
+    "author": "Claire Dufour (Urbanisme IDF)",
+    "handle": "cldufour.bsky.social",
+    "avatar": "",
+    "url": "https://bsky.app/profile/cldufour.bsky.social/post/3k1001",
+    "content": "La transformation d'Ivry-Confluences pose la question cruciale de la cohabitation entre nouveaux quartiers résidentiels denses et industrie lourde de traitement des déchets. #Urbanisme #Ivry",
+    "laya": {
+      "sentimentScore": 0,
+      "sentimentLabel": "NEUTRAL",
+      "primaryCategory": "UNCLASSIFIED",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "urgencyConfidence": 0,
+      "processingTimeMs": 1,
+      "modelIdentifier": "laya-micro-v1.0.0-fr",
+      "nonce": "n3yl60wj",
+      "auditSignature": "12a52c18285a8488342e035da5155fb038c627b3c83bc8de50f576195bda0078"
+    },
+    "plainText": "La transformation d'Ivry-Confluences pose la question cruciale de la cohabitation entre nouveaux quartiers résidentiels denses et industrie lourde de traitement des déchets. #Urbanisme #Ivry"
   },
   {
     "id": "post_2026_bluesky_005",
@@ -125,12 +184,40 @@
     "laya": {
       "sentimentScore": 0,
       "sentimentLabel": "NEUTRAL",
-      "primaryCategory": "ODOR",
+      "primaryCategory": "UNCLASSIFIED",
       "secondaryCategories": [],
       "urgencyFlag": false,
+      "urgencyConfidence": 0,
       "processingTimeMs": 1,
-      "auditSignature": "9a0250b3cd73922e050703a9b5c1c7279b11a78f445413c3ba90c1cd437f3424",
-      "modelIdentifier": "laya-micro-v0.9.0-fr"
-    }
+      "modelIdentifier": "laya-micro-v1.0.0-fr",
+      "nonce": "ylqh4auk",
+      "auditSignature": "10f3fcea1011dd8b87bfc8d284a0afa45c29e7508150d75947d2e6f841781a6d"
+    },
+    "plainText": "L'obligation de tri à la source des biodéchets peine encore à décoller dans les copropriétés du Val-de-Marne. Conséquence : trop de matières organiques finissent incinérées. #Déchets #Vitry"
+  },
+  {
+    "id": "post_2026_debats_citoyens_006",
+    "monthKey": "2026-01",
+    "network": "debats_citoyens",
+    "networkLabel": "Débats Citoyens / Actes",
+    "date": "2026-01-20T20:00:00Z",
+    "author": "Commission Consultative des Services Publics",
+    "handle": "registre_ccspl_ivry",
+    "avatar": "",
+    "url": "https://registre.ivry94.fr/delib/2026-01-20",
+    "content": "Question inscrite en séance : Demande d'installation de capteurs métrologiques continus de particules ultra-fines (PUF) à l'école primaire Albert Einstein située sous les vents dominants.",
+    "laya": {
+      "sentimentScore": 0,
+      "sentimentLabel": "NEUTRAL",
+      "primaryCategory": "UNCLASSIFIED",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "urgencyConfidence": 0,
+      "processingTimeMs": 1,
+      "modelIdentifier": "laya-micro-v1.0.0-fr",
+      "nonce": "f28qs69s",
+      "auditSignature": "da0f00fa2e07fd6fbabca335c888996e91c8c3065c2710b29998d24f0b0f08c7"
+    },
+    "plainText": "Question inscrite en séance : Demande d'installation de capteurs métrologiques continus de particules ultra-fines (PUF) à l'école primaire Albert Einstein située sous les vents dominants."
   }
 ]

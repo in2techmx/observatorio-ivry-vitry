@@ -13,12 +13,138 @@
     "laya": {
       "sentimentScore": 0,
       "sentimentLabel": "NEUTRAL",
-      "primaryCategory": "ODOR",
+      "primaryCategory": "UNCLASSIFIED",
       "secondaryCategories": [],
       "urgencyFlag": false,
+      "urgencyConfidence": 0,
       "processingTimeMs": 1,
-      "auditSignature": "fb3593e636eb000ee5ed04bcea30806204091d31829fb22ebb9b3e766ccd540a",
-      "modelIdentifier": "laya-micro-v0.9.0-fr"
+      "modelIdentifier": "laya-micro-v1.0.0-fr",
+      "nonce": "zp34rn4s",
+      "auditSignature": "b10eea1e9dc9b64c6a4b7931041661f13c3b55c1bfcc81bfa530cbc70832d647"
+    },
+    "plainText": "Moderniser un incinérateur pour brûler moins ? C'est le paradoxe d'Ivry. Nous continuons de plaider pour un moratoire et la réduction drastique à la source plutôt que des méga-fours. #Déchets #Ivry"
+  },
+  {
+    "id": "post_2026_mastodon_008",
+    "monthKey": "2026-02",
+    "network": "mastodon",
+    "networkLabel": "Mastodon / Fediverse",
+    "date": "2026-02-14T17:25:00Z",
+    "author": "Laurent B. (Vitry)",
+    "handle": "laurent_vitry@piaille.fr",
+    "avatar": "https://piaille.fr/avatars/original/missing.png",
+    "url": "https://piaille.fr/@laurent_vitry/112005",
+    "content": "Rotations intempestives de camions-bennes dès 5h du matin sur le quai Jules Guesde à Vitry. Bruit de compresseur insupportable pour les riverains du bord de Seine. #Vitry #Bruit #Trafic",
+    "laya": {
+      "sentimentScore": -0.513,
+      "sentimentLabel": "NEGATIVE",
+      "primaryCategory": "NOISE",
+      "secondaryCategories": [
+        "TRAFFIC"
+      ],
+      "urgencyFlag": false,
+      "urgencyConfidence": 0,
+      "processingTimeMs": 1,
+      "modelIdentifier": "laya-micro-v1.0.0-fr",
+      "nonce": "y6sd7b54",
+      "auditSignature": "c1a6e66d32535ed89c8d1d3d54986e93d5b466b29c57be0ad436491c5ce550f6"
+    },
+    "plainText": "Rotations intempestives de camions-bennes dès 5h du matin sur le quai Jules Guesde à Vitry. Bruit de compresseur insupportable pour les riverains du bord de Seine. #Vitry #Bruit #Trafic"
+  },
+  {
+    "id": "post_2026_mastodon_009",
+    "monthKey": "2026-02",
+    "network": "mastodon",
+    "networkLabel": "Mastodon / Fediverse",
+    "date": "2026-02-22T19:00:00Z",
+    "author": "Airparif Veille",
+    "handle": "airparif_veille@piaille.fr",
+    "avatar": "https://piaille.fr/avatars/original/missing.png",
+    "url": "https://piaille.fr/@airparif_veille/112006",
+    "content": "Épisode de pollution aux particules fines PM2.5 en Île-de-France lié aux conditions anticycloniques. Indice dégradé relevé sur la station Ivry-Port. Vigilance pour personnes sensibles. #Airparif #Pollution",
+    "laya": {
+      "sentimentScore": 0,
+      "sentimentLabel": "NEUTRAL",
+      "primaryCategory": "UNCLASSIFIED",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "urgencyConfidence": 0,
+      "processingTimeMs": 1,
+      "modelIdentifier": "laya-micro-v1.0.0-fr",
+      "nonce": "35yfsbld",
+      "auditSignature": "4aa9d333cc92b21329d8f17c04c2765e82a665e2b2f16856c38bb45bfa34215b"
+    },
+    "plainText": "Épisode de pollution aux particules fines PM2.5 en Île-de-France lié aux conditions anticycloniques. Indice dégradé relevé sur la station Ivry-Port. Vigilance pour personnes sensibles. #Airparif #Pollution"
+  },
+  {
+    "id": "masto_harv_202602_01",
+    "monthKey": "2026-02",
+    "network": "mastodon",
+    "date": "2026-02-10T10:30:00.000Z",
+    "author": "théorie :verified:",
+    "handle": "@burgervege@mamot.fr",
+    "url": "https://mamot.fr/@burgervege/116618133725692701",
+    "content": "<p>Manifestation contre le projet d'incinérateur à Vitry ! RDV dimanche *31* mai à 10h30 pour marcher contre l'implantation d'un nouvel incinérateur dans le Val-de-Marne.</p><p>Avec les assos contre l'incinération à Vitry (ACID), à Ivry (3R), à Créteil (ALIC) et les Soulèvements de la terre IDF </p><p>Lien : <a href=\"https://linktr.ee/marche31mai\" rel=\"nofollow noopener\" translate=\"no\" target=\"_blank\"><span class=\"invisible\">https://</span><span class=\"\">linktr.ee/marche31mai</span><span class=\"invisible\"></span></a> <br>Infos dans le 🧵 </p><p><a href=\"https://mamot.fr/tags/paris\" class=\"mention hashtag\" rel=\"nofollow noopener\" target=\"_blank\">#<span>paris</span></a> <a href=\"https://mamot.fr/tags/vitry\" class=\"mention hashtag\" rel=\"nofollow noopener\" target=\"_blank\">#<span>vitry</span></a> <a href=\"https://mamot.fr/tags/ivry\" class=\"mention hashtag\" rel=\"nofollow noopener\" target=\"_blank\">#<span>ivry</span></a> <a href=\"https://mamot.fr/tags/ileDeFrance\" class=\"mention hashtag\" rel=\"nofollow noopener\" target=\"_blank\">#<span>ileDeFrance</span></a> <a href=\"https://mamot.fr/tags/zerowaste\" class=\"mention hashtag\" rel=\"nofollow noopener\" target=\"_blank\">#<span>zerowaste</span></a> <a href=\"https://mamot.fr/tags/zerod%C3%A9chet\" class=\"mention hashtag\" rel=\"nofollow noopener\" target=\"_blank\">#<span>zerodéchet</span></a> <a href=\"https://mamot.fr/tags/pollution\" class=\"mention hashtag\" rel=\"nofollow noopener\" target=\"_blank\">#<span>pollution</span></a> <a href=\"https://mamot.fr/tags/ecologie\" class=\"mention hashtag\" rel=\"nofollow noopener\" target=\"_blank\">#<span>ecologie</span></a></p>",
+    "plainText": "Manifestation contre le projet d'incinérateur à Vitry ! RDV dimanche *31* mai à 10h30 pour marcher contre l'implantation d'un nouvel incinérateur dans le Val-de-Marne. Avec les assos contre l'incinération à Vitry (ACID), à Ivry (3R), à Créteil (ALIC) et les Soulèvements de la terre IDF Lien : https:// linktr.ee/marche31mai Infos dans le 🧵 # paris # vitry # ivry # ileDeFrance # zerowaste # zerodéchet # pollution # ecologie",
+    "laya": {
+      "sentimentScore": 0,
+      "sentimentLabel": "NEUTRAL",
+      "primaryCategory": "UNCLASSIFIED",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "urgencyConfidence": 0,
+      "processingTimeMs": 1,
+      "modelIdentifier": "laya-micro-v1.0.0-fr",
+      "nonce": "35wcr3lb",
+      "auditSignature": "58c8a83206f3453451e863e67b8c485fcd0636abdc88826f19daae62c37a7f82"
+    }
+  },
+  {
+    "id": "masto_harv_202602_02",
+    "monthKey": "2026-02",
+    "network": "mastodon",
+    "date": "2026-02-16T12:30:00.000Z",
+    "author": "Paris Luttes Info",
+    "handle": "@paris_luttes@mamot.fr",
+    "url": "https://mamot.fr/@paris_luttes/116616735607884216",
+    "content": "<p>Manifestation contre le projet d'incinérateur à Vitry-sur-Seine !</p><p>Manifestation contre le projet d’incinérateur Thermo-sur-Seine. Départ à 10h30 le dimanche 31&nbsp;mai devant l’école Dulcie September (allée chanteclair) à Ivry-sur-Seine, en direction du quartier des Ardoines, à Vitry-sur-Seine, lieu du futur projet d’incinérateur.</p><p><a href=\"https://mamot.fr/tags/VitrySurSeine\" class=\"mention hashtag\" rel=\"nofollow noopener\" target=\"_blank\">#<span>VitrySurSeine</span></a></p><p><a href=\"https://paris-luttes.info/20827\" rel=\"nofollow noopener\" translate=\"no\" target=\"_blank\"><span class=\"invisible\">https://</span><span class=\"\">paris-luttes.info/20827</span><span class=\"invisible\"></span></a></p>",
+    "plainText": "Manifestation contre le projet d'incinérateur à Vitry-sur-Seine ! Manifestation contre le projet d’incinérateur Thermo-sur-Seine. Départ à 10h30 le dimanche 31&nbsp;mai devant l’école Dulcie September (allée chanteclair) à Ivry-sur-Seine, en direction du quartier des Ardoines, à Vitry-sur-Seine, lieu du futur projet d’incinérateur. # VitrySurSeine https:// paris-luttes.info/20827",
+    "laya": {
+      "sentimentScore": 0,
+      "sentimentLabel": "NEUTRAL",
+      "primaryCategory": "UNCLASSIFIED",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "urgencyConfidence": 0,
+      "processingTimeMs": 1,
+      "modelIdentifier": "laya-micro-v1.0.0-fr",
+      "nonce": "zsscc8pb",
+      "auditSignature": "bb40353095139f01596a33683f468caccb6de5eb6549dbda7c492ea366d0c115"
+    }
+  },
+  {
+    "id": "masto_harv_202602_03",
+    "monthKey": "2026-02",
+    "network": "mastodon",
+    "date": "2026-02-22T14:30:00.000Z",
+    "author": "Jeanne Guien aka Culture Poub",
+    "handle": "@culturepoub@piaille.fr",
+    "url": "https://piaille.fr/@culturepoub/116527000703614962",
+    "content": "<p>Hier matin le maire de Vitry-sur-Seine réunissait ses homologues de Paris, Ivry, Alfortville, Créteil et de la sous-préfecture de l'Hay les Roses pour une réunion (non publique) concernant son projet d' <a href=\"https://piaille.fr/tags/incin%C3%A9rateur\" class=\"mention hashtag\" rel=\"nofollow noopener\" target=\"_blank\">#<span>incinérateur</span></a> aux Ardoines. Aucune représentation des vitriot.es n'était prévue. Heureusement l'info a fuité en dernière minute et l'association ACID est venue rappeler que les habitant.es sont opposé.es à ce projet polluant et dangereux pour leur santé !</p>",
+    "plainText": "Hier matin le maire de Vitry-sur-Seine réunissait ses homologues de Paris, Ivry, Alfortville, Créteil et de la sous-préfecture de l'Hay les Roses pour une réunion (non publique) concernant son projet d' # incinérateur aux Ardoines. Aucune représentation des vitriot.es n'était prévue. Heureusement l'info a fuité en dernière minute et l'association ACID est venue rappeler que les habitant.es sont opposé.es à ce projet polluant et dangereux pour leur santé !",
+    "laya": {
+      "sentimentScore": -0.45,
+      "sentimentLabel": "NEGATIVE",
+      "primaryCategory": "HEALTH",
+      "secondaryCategories": [
+        "GOVERNANCE"
+      ],
+      "urgencyFlag": false,
+      "urgencyConfidence": 0,
+      "processingTimeMs": 1,
+      "modelIdentifier": "laya-micro-v1.0.0-fr",
+      "nonce": "qt6ww2vu",
+      "auditSignature": "985744ead6a2c6b3d1ce5b4befdfe4ecc999c3b996674e6cc7db43468160bdd8"
     }
   },
   {
@@ -38,34 +164,13 @@
       "primaryCategory": "GOVERNANCE",
       "secondaryCategories": [],
       "urgencyFlag": false,
+      "urgencyConfidence": 0,
       "processingTimeMs": 1,
-      "auditSignature": "2c26f38efda2a645b6a5d9c763c718eef42b469863a1c353e37e5b52dc000efb",
-      "modelIdentifier": "laya-micro-v0.9.0-fr"
-    }
-  },
-  {
-    "id": "post_2026_mastodon_008",
-    "monthKey": "2026-02",
-    "network": "mastodon",
-    "networkLabel": "Mastodon / Fediverse",
-    "date": "2026-02-14T17:25:00Z",
-    "author": "Laurent B. (Vitry)",
-    "handle": "laurent_vitry@piaille.fr",
-    "avatar": "https://piaille.fr/avatars/original/missing.png",
-    "url": "https://piaille.fr/@laurent_vitry/112005",
-    "content": "Rotations intempestives de camions-bennes dès 5h du matin sur le quai Jules Guesde à Vitry. Bruit de compresseur insupportable pour les riverains du bord de Seine. #Vitry #Bruit #Trafic",
-    "laya": {
-      "sentimentScore": -0.85,
-      "sentimentLabel": "STRONGLY_NEGATIVE",
-      "primaryCategory": "NOISE",
-      "secondaryCategories": [
-        "TRAFFIC"
-      ],
-      "urgencyFlag": false,
-      "processingTimeMs": 1,
-      "auditSignature": "a4d5607bf96eeef41c987480f9a9b409a60799e049c39fe6c46590a620cf44ca",
-      "modelIdentifier": "laya-micro-v0.9.0-fr"
-    }
+      "modelIdentifier": "laya-micro-v1.0.0-fr",
+      "nonce": "3304hl26",
+      "auditSignature": "2251f3dd56c0ed2d2aff6b084036a771d44da266a934802ff8bded2cf559611b"
+    },
+    "plainText": "Intervention au conseil territorial sur le budget déchets 2026 : l'amortissement du nouveau centre de valorisation d'Ivry ne doit pas pénaliser la taxe d'enlèvement (TEOM) des ménages. #Syctom #Finances"
   },
   {
     "id": "post_2026_bluesky_011",
@@ -84,32 +189,13 @@
       "primaryCategory": "HEALTH",
       "secondaryCategories": [],
       "urgencyFlag": false,
+      "urgencyConfidence": 0,
       "processingTimeMs": 1,
-      "auditSignature": "bb30f7e7c7eec7ccccabea01742af4c61b1fb0f0ba46f027db3cb6aa6d880543",
-      "modelIdentifier": "laya-micro-v0.9.0-fr"
-    }
-  },
-  {
-    "id": "post_2026_mastodon_009",
-    "monthKey": "2026-02",
-    "network": "mastodon",
-    "networkLabel": "Mastodon / Fediverse",
-    "date": "2026-02-22T19:00:00Z",
-    "author": "Airparif Veille",
-    "handle": "airparif_veille@piaille.fr",
-    "avatar": "https://piaille.fr/avatars/original/missing.png",
-    "url": "https://piaille.fr/@airparif_veille/112006",
-    "content": "Épisode de pollution aux particules fines PM2.5 en Île-de-France lié aux conditions anticycloniques. Indice dégradé relevé sur la station Ivry-Port. Vigilance pour personnes sensibles. #Airparif #Pollution",
-    "laya": {
-      "sentimentScore": 0,
-      "sentimentLabel": "NEUTRAL",
-      "primaryCategory": "ODOR",
-      "secondaryCategories": [],
-      "urgencyFlag": false,
-      "processingTimeMs": 1,
-      "auditSignature": "62b917b544624ea3cd7276117e6960eb57345172b7978755a9e13f3f84bedc71",
-      "modelIdentifier": "laya-micro-v0.9.0-fr"
-    }
+      "modelIdentifier": "laya-micro-v1.0.0-fr",
+      "nonce": "aogsql2k",
+      "auditSignature": "8b6818bd65d5d5448ab7824a88b22fd20c282522676f7d16173d61bdfda75e71"
+    },
+    "plainText": "Rappel utile : l'exposition chronique aux polluants de combustion nécessite un suivi biomonitoring de long terme pour les populations riveraines. #Santé #Ivry #Vitry"
   },
   {
     "id": "post_2026_debats_citoyens_012",
@@ -130,9 +216,12 @@
         "GOVERNANCE"
       ],
       "urgencyFlag": false,
+      "urgencyConfidence": 0,
       "processingTimeMs": 1,
-      "auditSignature": "e5b3dc8207997950377f1c3b7d7bbf7e9337f10c20011011784e08277d19fb36",
-      "modelIdentifier": "laya-micro-v0.9.0-fr"
-    }
+      "modelIdentifier": "laya-micro-v1.0.0-fr",
+      "nonce": "5hyha0ye",
+      "auditSignature": "748fabcd043c2ddcc586494d084a0b1e2d1f71db399a249d0f6343be052a40f1"
+    },
+    "plainText": "Compte-rendu d'atelier : Demande unanime des habitants pour la végétalisation renforcée du mur antibruit le long des voies de circulation des bennes du SYCTOM."
   }
 ]

@@ -16,10 +16,13 @@
       "primaryCategory": "HEALTH",
       "secondaryCategories": [],
       "urgencyFlag": false,
+      "urgencyConfidence": 0,
       "processingTimeMs": 1,
-      "auditSignature": "a333c7d7a5739b75cb2061c7987c9fc6ca59d22ec406a9192b0b592649efa7c3",
-      "modelIdentifier": "laya-micro-v0.9.0-fr"
-    }
+      "modelIdentifier": "laya-micro-v1.0.0-fr",
+      "nonce": "0tu8j66n",
+      "auditSignature": "75a058ecf71d0de35a4364a894a82f1f372ee51ba0b8336d5b268b57748c5695"
+    },
+    "plainText": "Rentrée scolaire 2026 : les parents d'élèves de l'école Albert Einstein exigent la publication immédiate des résultats des carottages de sol réalisés en juillet. Zéro compromis avec la santé de nos enfants ! #Ivry #Santé #Écoles"
   },
   {
     "id": "post_2026_mastodon_049",
@@ -40,10 +43,13 @@
         "GOVERNANCE"
       ],
       "urgencyFlag": false,
+      "urgencyConfidence": 0,
       "processingTimeMs": 1,
-      "auditSignature": "e5ee03e40560457d946c5971e3c518b10c3a75f47f581c178fdaea39f123fa3f",
-      "modelIdentifier": "laya-micro-v0.9.0-fr"
-    }
+      "modelIdentifier": "laya-micro-v1.0.0-fr",
+      "nonce": "qvzy9zqb",
+      "auditSignature": "214c92b83cc8172379c2a6dc8e613bfaef611953deb426ffa0176666436fb66b"
+    },
+    "plainText": "Grande réunion publique ce jeudi en mairie d'Ivry : présentation de notre contre-expertise indépendante sur les émissions réelles de dioxines bromées et métaux lourds. Venez nombreux ! #Ivry #Mobilisation"
   },
   {
     "id": "post_2026_mastodon_050",
@@ -64,10 +70,13 @@
         "TRAFFIC"
       ],
       "urgencyFlag": false,
+      "urgencyConfidence": 0,
       "processingTimeMs": 1,
-      "auditSignature": "7d3366aa7b57e0a4a4934897f6172023a9a782c134109e3c83361028a3cb6f55",
-      "modelIdentifier": "laya-micro-v0.9.0-fr"
-    }
+      "modelIdentifier": "laya-micro-v1.0.0-fr",
+      "nonce": "imc9716l",
+      "auditSignature": "ce441e854edbc6905d475fcbe920756f232365e99841bc0aa1710fff92eaaa8c"
+    },
+    "plainText": "⚠️ Reprise brutale des rotations de bennes et odeur de plastique brûlé tenace ce vendredi soir quai Marcel Boyer. Le retour des nuisances est immédiat après la trêve du mois d'août. #Ivry #Odeur #Trafic"
   },
   {
     "id": "post_2026_mastodon_051",
@@ -86,9 +95,83 @@
       "primaryCategory": "GOVERNANCE",
       "secondaryCategories": [],
       "urgencyFlag": false,
+      "urgencyConfidence": 0,
       "processingTimeMs": 1,
-      "auditSignature": "71fead85d73328cb2091eb8d5873d62fa3746a96376a2f517d9ddf6d9c8d43b8",
-      "modelIdentifier": "laya-micro-v0.9.0-fr"
+      "modelIdentifier": "laya-micro-v1.0.0-fr",
+      "nonce": "fh5woutt",
+      "auditSignature": "e66186c8c8756d0b45738271142c9c0d0a4a6afd47eee75864481337d9a3a3e6"
+    },
+    "plainText": "Mise en service opérationnelle des nouveaux analyseurs d'émissions en continu (CEMS) sur les deux lignes de combustion d'Ivry. Conformité totale avec les normes BREF européennes 2026. #Syctom #Ivry"
+  },
+  {
+    "id": "masto_harv_202609_01",
+    "monthKey": "2026-09",
+    "network": "mastodon",
+    "date": "2026-09-10T10:30:00.000Z",
+    "author": "ABESTIT",
+    "handle": "@abestit",
+    "url": "https://mastodon.social/@abestit/114577929408441867",
+    "content": "<p>Pollution confirmée autour de l’incinérateur historique d’Ivry-Paris XIII</p><p>L’analyse des mesures de retombées atmosphériques réalisées par le gestionnaire montre des niveaux de dioxines plus élevés à proximité de l’usine....</p><p><a href=\"https://abestit.fr/pollution-confirmee-autour-de-lincinerateur-historique-divry-paris-xiii/?utm_source=mastodon&amp;utm_medium=jetpack_social\" target=\"_blank\" rel=\"nofollow noopener\" translate=\"no\"><span class=\"invisible\">https://</span><span class=\"ellipsis\">abestit.fr/pollution-confirmee</span><span class=\"invisible\">-autour-de-lincinerateur-historique-divry-paris-xiii/?utm_source=mastodon&amp;utm_medium=jetpack_social</span></a></p>",
+    "plainText": "Pollution confirmée autour de l’incinérateur historique d’Ivry-Paris XIII L’analyse des mesures de retombées atmosphériques réalisées par le gestionnaire montre des niveaux de dioxines plus élevés à proximité de l’usine.... https:// abestit.fr/pollution-confirmee -autour-de-lincinerateur-historique-divry-paris-xiii/?utm_source=mastodon&utm_medium=jetpack_social",
+    "laya": {
+      "sentimentScore": -0.45,
+      "sentimentLabel": "NEGATIVE",
+      "primaryCategory": "HEALTH",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "urgencyConfidence": 0,
+      "processingTimeMs": 1,
+      "modelIdentifier": "laya-micro-v1.0.0-fr",
+      "nonce": "jekcbvrh",
+      "auditSignature": "083db7f54991e290786916698069f081a5043bf29fbfac72bc054a3af19ae082"
+    }
+  },
+  {
+    "id": "masto_harv_202609_02",
+    "monthKey": "2026-09",
+    "network": "mastodon",
+    "date": "2026-09-16T12:30:00.000Z",
+    "author": "théorie :verified:",
+    "handle": "@burgervege@mamot.fr",
+    "url": "https://mamot.fr/@burgervege/111640345943184096",
+    "content": "<p>À Ivry, les capteurs qui évaluent les émissions de polluants ont été *éteints* pendant 289 jours entre 2020 et 2021.</p><p>Globalement, l'Europe est a trop d'incinérateurs, ce qui va à l'encontre de l'objectif de réduire les déchets.</p><p>En France, l'Ademe explique depuis 2017 qu'on n'a plus besoin de construire d'incinérateurs. <a href=\"https://www.zerowastefrance.org/incinerateur-ivry-dioxines-controle/\" rel=\"nofollow noopener\" translate=\"no\" target=\"_blank\"><span class=\"invisible\">https://www.</span><span class=\"ellipsis\">zerowastefrance.org/incinerate</span><span class=\"invisible\">ur-ivry-dioxines-controle/</span></a> <a href=\"https://mamot.fr/tags/pollution\" class=\"mention hashtag\" rel=\"nofollow noopener\" target=\"_blank\">#<span>pollution</span></a> <a href=\"https://mamot.fr/tags/d%C3%A9chets\" class=\"mention hashtag\" rel=\"nofollow noopener\" target=\"_blank\">#<span>déchets</span></a> <a href=\"https://mamot.fr/tags/zerod%C3%A9chet\" class=\"mention hashtag\" rel=\"nofollow noopener\" target=\"_blank\">#<span>zerodéchet</span></a> <a href=\"https://mamot.fr/tags/ecologie\" class=\"mention hashtag\" rel=\"nofollow noopener\" target=\"_blank\">#<span>ecologie</span></a> <a href=\"https://mamot.fr/tags/ivry\" class=\"mention hashtag\" rel=\"nofollow noopener\" target=\"_blank\">#<span>ivry</span></a> <a href=\"https://mamot.fr/tags/paris2024\" class=\"mention hashtag\" rel=\"nofollow noopener\" target=\"_blank\">#<span>paris2024</span></a> <a href=\"https://mamot.fr/tags/ademe\" class=\"mention hashtag\" rel=\"nofollow noopener\" target=\"_blank\">#<span>ademe</span></a> <a href=\"https://mamot.fr/tags/europe\" class=\"mention hashtag\" rel=\"nofollow noopener\" target=\"_blank\">#<span>europe</span></a></p>",
+    "plainText": "À Ivry, les capteurs qui évaluent les émissions de polluants ont été *éteints* pendant 289 jours entre 2020 et 2021. Globalement, l'Europe est a trop d'incinérateurs, ce qui va à l'encontre de l'objectif de réduire les déchets. En France, l'Ademe explique depuis 2017 qu'on n'a plus besoin de construire d'incinérateurs. https://www. zerowastefrance.org/incinerate ur-ivry-dioxines-controle/ # pollution # déchets # zerodéchet # ecologie # ivry # paris2024 # ademe # europe",
+    "laya": {
+      "sentimentScore": 0,
+      "sentimentLabel": "NEUTRAL",
+      "primaryCategory": "UNCLASSIFIED",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "urgencyConfidence": 0,
+      "processingTimeMs": 1,
+      "modelIdentifier": "laya-micro-v1.0.0-fr",
+      "nonce": "89pro6db",
+      "auditSignature": "e89adf835f9f0c8b5a04c386a06b6bc7761c611badc680899fdf3e12af02b863"
+    }
+  },
+  {
+    "id": "masto_harv_202609_03",
+    "monthKey": "2026-09",
+    "network": "mastodon",
+    "date": "2026-09-22T14:30:00.000Z",
+    "author": "LesEcologistes-EELV Paris5",
+    "handle": "@eelvparis5",
+    "url": "https://mastodon.social/@eelvparis5/111405401905084715",
+    "content": "<p><a href=\"https://mastodon.social/tags/Syctom\" class=\"mention hashtag\" rel=\"tag\">#<span>Syctom</span></a> <a href=\"https://mastodon.social/tags/incin%C3%A9rateur\" class=\"mention hashtag\" rel=\"tag\">#<span>incinérateur</span></a> <a href=\"https://mastodon.social/tags/dioxine\" class=\"mention hashtag\" rel=\"tag\">#<span>dioxine</span></a> <br />---<br />⬇️  «...L&#39;Agence Régionale de Santé (#ARS) a réalisé ses propres prélèvements et recommande de ne plus consommer d’œufs issus de poulaillers domestiques à l’échelle de toute l’#IleDeFrance. Plusieurs fois annoncé, un rapport de l’ARS censé éclairer les sources de pollution est toujours en attente de publication...»<br />---<br /><a href=\"https://www.lemonde.fr/planete/article/2023/11/13/a-l-incinerateur-d-ivry-paris-xiii-les-dioxines-ne-sont-pas-controlees-24-h-sur-24-et-365-jours-par-an_6199902_3244.html\" target=\"_blank\" rel=\"nofollow noopener\" translate=\"no\"><span class=\"invisible\">https://www.</span><span class=\"ellipsis\">lemonde.fr/planete/article/202</span><span class=\"invisible\">3/11/13/a-l-incinerateur-d-ivry-paris-xiii-les-dioxines-ne-sont-pas-controlees-24-h-sur-24-et-365-jours-par-an_6199902_3244.html</span></a></p>",
+    "plainText": "# Syctom # incinérateur # dioxine --- ⬇️ «...L'Agence Régionale de Santé (#ARS) a réalisé ses propres prélèvements et recommande de ne plus consommer d’œufs issus de poulaillers domestiques à l’échelle de toute l’#IleDeFrance. Plusieurs fois annoncé, un rapport de l’ARS censé éclairer les sources de pollution est toujours en attente de publication...» --- https://www. lemonde.fr/planete/article/202 3/11/13/a-l-incinerateur-d-ivry-paris-xiii-les-dioxines-ne-sont-pas-controlees-24-h-sur-24-et-365-jours-par-an_6199902_3244.html",
+    "laya": {
+      "sentimentScore": -0.45,
+      "sentimentLabel": "NEGATIVE",
+      "primaryCategory": "HEALTH",
+      "secondaryCategories": [
+        "GOVERNANCE"
+      ],
+      "urgencyFlag": false,
+      "urgencyConfidence": 0,
+      "processingTimeMs": 1,
+      "modelIdentifier": "laya-micro-v1.0.0-fr",
+      "nonce": "v6ipoer6",
+      "auditSignature": "de787f9a320b3a2b278796afb5ae49d7b013e3161aeaefaaf028ddb4284d0485"
     }
   }
 ]

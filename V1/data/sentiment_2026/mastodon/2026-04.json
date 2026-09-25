@@ -13,13 +13,16 @@
     "laya": {
       "sentimentScore": 0,
       "sentimentLabel": "NEUTRAL",
-      "primaryCategory": "ODOR",
+      "primaryCategory": "UNCLASSIFIED",
       "secondaryCategories": [],
       "urgencyFlag": false,
+      "urgencyConfidence": 0,
       "processingTimeMs": 1,
-      "auditSignature": "c873134243d7c10374855004d03b3b7d4b4889e30a52adbc28a2838085c21be4",
-      "modelIdentifier": "laya-micro-v0.9.0-fr"
-    }
+      "modelIdentifier": "laya-micro-v1.0.0-fr",
+      "nonce": "en0t6gzw",
+      "auditSignature": "943eb62c0343c1c4e5ed7991bc412e74d75511433f2ccbdec0c86b4b3b24b75a"
+    },
+    "plainText": "Lancement de la campagne métrologique ciblée de printemps : déploiement de 15 micro-capteurs entre le quai Marcel Boyer et Charenton pour analyser les traceurs de panache d'Ivry. #Airparif #Métrologie"
   },
   {
     "id": "post_2026_mastodon_020",
@@ -38,9 +41,81 @@
       "primaryCategory": "ODOR",
       "secondaryCategories": [],
       "urgencyFlag": false,
+      "urgencyConfidence": 0,
       "processingTimeMs": 1,
-      "auditSignature": "0f81c10dc3c7c31368b964418c34cc654559056095620dd4c6cf5e74fc1d4f67",
-      "modelIdentifier": "laya-micro-v0.9.0-fr"
+      "modelIdentifier": "laya-micro-v1.0.0-fr",
+      "nonce": "ff5n1m3f",
+      "auditSignature": "9d8f5cb7b4d5bc3040b2726ad1a6ffe525fe4b58903b22f2cfb18d80439731de"
+    },
+    "plainText": "Première journée douce et odeur nauséabonde très perceptible ce soir en rentrant du RER C. Un mélange de fermentescible et de soufre. Impossible d'ouvrir les fenêtres. #Vitry #Odeur"
+  },
+  {
+    "id": "masto_harv_202604_01",
+    "monthKey": "2026-04",
+    "network": "mastodon",
+    "date": "2026-04-10T10:30:00.000Z",
+    "author": "théorie :verified:",
+    "handle": "@burgervege@mamot.fr",
+    "url": "https://mamot.fr/@burgervege/115858483311975407",
+    "content": "<p>À l'incinérateur d'Ivry, des rejets polluants réguliers et un incident fin 2025. Construit en 1969, l'incinérateur est toujours exploité 57 ans après, malgré une durée de vie prévue de 40 ans.</p><p>Annoncé pour 2023, 2024, 2025 et maintenant 2026, le nouvel incinérateur censé le remplacer a eu des problèmes en phase de test. Sa capacité sera de moitié moins... car une réduction des déchets drastique était programmée.</p><p><a href=\"https://www.lemonde.fr/planete/article/2026/01/06/la-prolongation-de-l-incinerateur-d-ivry-paris-13-l-un-des-plus-grands-et-vieux-d-europe-fait-exploser-les-couts-et-avive-les-craintes_6660756_3244.html?random=1518591331\" rel=\"nofollow noopener\" translate=\"no\" target=\"_blank\"><span class=\"invisible\">https://www.</span><span class=\"ellipsis\">lemonde.fr/planete/article/202</span><span class=\"invisible\">6/01/06/la-prolongation-de-l-incinerateur-d-ivry-paris-13-l-un-des-plus-grands-et-vieux-d-europe-fait-exploser-les-couts-et-avive-les-craintes_6660756_3244.html?random=1518591331</span></a></p><p><a href=\"https://mamot.fr/tags/paris\" class=\"mention hashtag\" rel=\"nofollow noopener\" target=\"_blank\">#<span>paris</span></a> <a href=\"https://mamot.fr/tags/d%C3%A9chets\" class=\"mention hashtag\" rel=\"nofollow noopener\" target=\"_blank\">#<span>déchets</span></a> <a href=\"https://mamot.fr/tags/zerodechet\" class=\"mention hashtag\" rel=\"nofollow noopener\" target=\"_blank\">#<span>zerodechet</span></a> <a href=\"https://mamot.fr/tags/ecologie\" class=\"mention hashtag\" rel=\"nofollow noopener\" target=\"_blank\">#<span>ecologie</span></a> <a href=\"https://mamot.fr/tags/ivry\" class=\"mention hashtag\" rel=\"nofollow noopener\" target=\"_blank\">#<span>ivry</span></a> <a href=\"https://mamot.fr/tags/iledefrance\" class=\"mention hashtag\" rel=\"nofollow noopener\" target=\"_blank\">#<span>iledefrance</span></a></p>",
+    "plainText": "À l'incinérateur d'Ivry, des rejets polluants réguliers et un incident fin 2025. Construit en 1969, l'incinérateur est toujours exploité 57 ans après, malgré une durée de vie prévue de 40 ans. Annoncé pour 2023, 2024, 2025 et maintenant 2026, le nouvel incinérateur censé le remplacer a eu des problèmes en phase de test. Sa capacité sera de moitié moins... car une réduction des déchets drastique était programmée. https://www. lemonde.fr/planete/article/202 6/01/06/la-prolongation-de-l-incinerateur-d-ivry-paris-13-l-un-des-plus-grands-et-vieux-d-europe-fait-exploser-les-couts-et-avive-les-craintes_6660756_3244.html?random=1518591331 # paris # déchets # zerodechet # ecologie # ivry # iledefrance",
+    "laya": {
+      "sentimentScore": -0.261,
+      "sentimentLabel": "NEGATIVE",
+      "primaryCategory": "UNCLASSIFIED",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "urgencyConfidence": 0,
+      "processingTimeMs": 1,
+      "modelIdentifier": "laya-micro-v1.0.0-fr",
+      "nonce": "48kudqna",
+      "auditSignature": "af30ae3c47e6cb1b2738b3db8f46053a16dd7630c6cdc42fc3c714c1aed9e210"
+    }
+  },
+  {
+    "id": "masto_harv_202604_02",
+    "monthKey": "2026-04",
+    "network": "mastodon",
+    "date": "2026-04-16T12:30:00.000Z",
+    "author": "Le Parisien",
+    "handle": "@Le_Parisien@flipboard.com",
+    "url": "https://flipboard.com/@le_parisien/val-de-marne-94-4eiffn2vz/-/a-AHx3s7HjR86ZfFqgUeRLZQ%3Aa%3A2425850662-%2F0",
+    "content": "<p>Incinérateur d’Ivry : l’usine « en fin de vie » cédera la place à la nouvelle « au plus tard » en septembre 2026<br><a href=\"https://www.leparisien.fr/val-de-marne-94/incinerateur-divry-lusine-en-fin-de-vie-cedera-la-place-a-la-nouvelle-au-plus-tard-en-septembre-2026-04-01-2026-NFQHRMH5WNGBVO7QLNQ3AHKFPQ.php?utm_source=flipboard&amp;utm_medium=activitypub\" rel=\"nofollow noopener\" translate=\"no\" target=\"_blank\"><span class=\"invisible\">https://www.</span><span class=\"ellipsis\">leparisien.fr/val-de-marne-94/</span><span class=\"invisible\">incinerateur-divry-lusine-en-fin-de-vie-cedera-la-place-a-la-nouvelle-au-plus-tard-en-septembre-2026-04-01-2026-NFQHRMH5WNGBVO7QLNQ3AHKFPQ.php?utm_source=flipboard&amp;utm_medium=activitypub </span></a></p><p>Publié dans Val-de-Marne - 94 <span class=\"h-card\" translate=\"no\"><a href=\"https://flipboard.com/@le_parisien/val-de-marne-94-4eiffn2vz\" class=\"u-url mention\" rel=\"nofollow noopener\" target=\"_blank\">@<span>val-de-marne-94-Le_Parisien</span></a></span></p>",
+    "plainText": "Incinérateur d’Ivry : l’usine « en fin de vie » cédera la place à la nouvelle « au plus tard » en septembre 2026 https://www. leparisien.fr/val-de-marne-94/ incinerateur-divry-lusine-en-fin-de-vie-cedera-la-place-a-la-nouvelle-au-plus-tard-en-septembre-2026-04-01-2026-NFQHRMH5WNGBVO7QLNQ3AHKFPQ.php?utm_source=flipboard&utm_medium=activitypub Publié dans Val-de-Marne - 94 @ val-de-marne-94-Le_Parisien",
+    "laya": {
+      "sentimentScore": 0,
+      "sentimentLabel": "NEUTRAL",
+      "primaryCategory": "UNCLASSIFIED",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "urgencyConfidence": 0,
+      "processingTimeMs": 1,
+      "modelIdentifier": "laya-micro-v1.0.0-fr",
+      "nonce": "h4mct1t7",
+      "auditSignature": "17e7b215f121ad9f13311bef5bba25efe427b3b57f6ebae2649fee07c60c654e"
+    }
+  },
+  {
+    "id": "masto_harv_202604_03",
+    "monthKey": "2026-04",
+    "network": "mastodon",
+    "date": "2026-04-22T14:30:00.000Z",
+    "author": "Eva Sas",
+    "handle": "@_EvaSas",
+    "url": "https://mastodon.social/@_EvaSas/115735716466270092",
+    "content": "<p>❌ La mise en service du nouvel incinérateur d’Ivry repoussée suite à un incident, le Syctom affirmait pourtant que le site actuel ne pouvait pas continuer après 2025</p><p>♻️ Comme le propose 3R, réfléchissons à des solutions alternatives &amp; exigeons de la transparence sur les risques de l&#39;incinérateur</p><p><a href=\"https://www.leparisien.fr/val-de-marne-94/la-mise-en-service-du-futur-incinerateur-divry-retardee-apres-un-incident-durant-les-tests-15-12-2025-DZPJORCF7NG5LHG4KT3Q7WV6UU.php\" target=\"_blank\" rel=\"nofollow noopener\" translate=\"no\"><span class=\"invisible\">https://www.</span><span class=\"ellipsis\">leparisien.fr/val-de-marne-94/</span><span class=\"invisible\">la-mise-en-service-du-futur-incinerateur-divry-retardee-apres-un-incident-durant-les-tests-15-12-2025-DZPJORCF7NG5LHG4KT3Q7WV6UU.php</span></a></p>",
+    "plainText": "❌ La mise en service du nouvel incinérateur d’Ivry repoussée suite à un incident, le Syctom affirmait pourtant que le site actuel ne pouvait pas continuer après 2025 ♻️ Comme le propose 3R, réfléchissons à des solutions alternatives & exigeons de la transparence sur les risques de l'incinérateur https://www. leparisien.fr/val-de-marne-94/ la-mise-en-service-du-futur-incinerateur-divry-retardee-apres-un-incident-durant-les-tests-15-12-2025-DZPJORCF7NG5LHG4KT3Q7WV6UU.php",
+    "laya": {
+      "sentimentScore": 0,
+      "sentimentLabel": "NEUTRAL",
+      "primaryCategory": "GOVERNANCE",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "urgencyConfidence": 0,
+      "processingTimeMs": 1,
+      "modelIdentifier": "laya-micro-v1.0.0-fr",
+      "nonce": "xsdf3id9",
+      "auditSignature": "c82fd649b66a5f6c38e8413496a33486882e21f1951be3a92c390c5d3439e495"
     }
   }
 ]

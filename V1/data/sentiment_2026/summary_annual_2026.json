@@ -3,7 +3,7 @@
   "datasetName": "Observatoire de Sentiment Social Annuel 2026 (Ivry / Vitry)",
   "year": 2026,
   "coverage": "2026-01 à 2026-09 (Janvier à Septembre 2026)",
-  "totalPosts": 54,
+  "totalPosts": 80,
   "networksIncluded": [
     "mastodon",
     "bluesky",
@@ -13,20 +13,20 @@
     {
       "monthKey": "2026-01",
       "monthLabel": "Janvier 2026",
-      "totalPosts": 6,
-      "avgPolarity": -0.142,
-      "polarityLabel": "Tension / Négatif",
+      "totalPosts": 9,
+      "avgPolarity": -0.089,
+      "polarityLabel": "Neutre / Équilibré",
       "ratio": {
         "positivePct": 0,
-        "neutralPct": 67,
-        "negativePct": 33
+        "neutralPct": 78,
+        "negativePct": 22
       },
       "urgencyCount": 0,
       "urgencyRate": 0,
-      "topCategory": "ODOR",
+      "topCategory": "UNCLASSIFIED",
       "keyDriverEvent": "Bilan annuel du SYCTOM et revendication d'audit citoyen par le Collectif 3R.",
       "byNetwork": {
-        "mastodon": 3,
+        "mastodon": 6,
         "bluesky": 2,
         "debats_citoyens": 1
       }
@@ -34,8 +34,8 @@
     {
       "monthKey": "2026-02",
       "monthLabel": "Février 2026",
-      "totalPosts": 6,
-      "avgPolarity": -0.217,
+      "totalPosts": 9,
+      "avgPolarity": -0.157,
       "polarityLabel": "Tension / Négatif",
       "ratio": {
         "positivePct": 0,
@@ -44,10 +44,10 @@
       },
       "urgencyCount": 0,
       "urgencyRate": 0,
-      "topCategory": "ODOR",
+      "topCategory": "UNCLASSIFIED",
       "keyDriverEvent": "Débats budgétaires métropolitains et alertes de particules fines en conditions anticycloniques.",
       "byNetwork": {
-        "mastodon": 3,
+        "mastodon": 6,
         "bluesky": 2,
         "debats_citoyens": 1
       }
@@ -55,20 +55,20 @@
     {
       "monthKey": "2026-03",
       "monthLabel": "Mars 2026",
-      "totalPosts": 6,
-      "avgPolarity": 0.042,
-      "polarityLabel": "Neutre / Équilibré",
+      "totalPosts": 9,
+      "avgPolarity": -0.106,
+      "polarityLabel": "Tension / Négatif",
       "ratio": {
-        "positivePct": 17,
-        "neutralPct": 50,
+        "positivePct": 0,
+        "neutralPct": 67,
         "negativePct": 33
       },
       "urgencyCount": 2,
-      "urgencyRate": 33.3,
+      "urgencyRate": 22.2,
       "topCategory": "GOVERNANCE",
       "keyDriverEvent": "Grève et blocage ponctuel de l'usine d'Ivry : déviation des flux et inquiétudes d'accumulation.",
       "byNetwork": {
-        "mastodon": 3,
+        "mastodon": 6,
         "bluesky": 2,
         "debats_citoyens": 1
       }
@@ -76,20 +76,20 @@
     {
       "monthKey": "2026-04",
       "monthLabel": "Avril 2026",
-      "totalPosts": 5,
-      "avgPolarity": 0,
+      "totalPosts": 8,
+      "avgPolarity": -0.087,
       "polarityLabel": "Neutre / Équilibré",
       "ratio": {
-        "positivePct": 40,
-        "neutralPct": 20,
-        "negativePct": 40
+        "positivePct": 13,
+        "neutralPct": 50,
+        "negativePct": 37
       },
       "urgencyCount": 1,
-      "urgencyRate": 20,
-      "topCategory": "ODOR",
+      "urgencyRate": 12.5,
+      "topCategory": "UNCLASSIFIED",
       "keyDriverEvent": "Déploiement des micro-capteurs Airparif sous le panache et retours des premières chaleurs.",
       "byNetwork": {
-        "mastodon": 2,
+        "mastodon": 5,
         "bluesky": 2,
         "debats_citoyens": 1
       }
@@ -97,20 +97,20 @@
     {
       "monthKey": "2026-05",
       "monthLabel": "Mai 2026",
-      "totalPosts": 6,
-      "avgPolarity": -0.008,
+      "totalPosts": 9,
+      "avgPolarity": -0.071,
       "polarityLabel": "Neutre / Équilibré",
       "ratio": {
-        "positivePct": 17,
-        "neutralPct": 67,
-        "negativePct": 16
+        "positivePct": 0,
+        "neutralPct": 78,
+        "negativePct": 22
       },
       "urgencyCount": 0,
       "urgencyRate": 0,
-      "topCategory": "GOVERNANCE",
+      "topCategory": "UNCLASSIFIED",
       "keyDriverEvent": "Demande conjointe des maires d'Ivry et Vitry pour une Commission de Suivi de Site (CSS) extraordinaire.",
       "byNetwork": {
-        "mastodon": 3,
+        "mastodon": 6,
         "bluesky": 2,
         "debats_citoyens": 1
       }
@@ -118,20 +118,20 @@
     {
       "monthKey": "2026-06",
       "monthLabel": "Juin 2026",
-      "totalPosts": 6,
-      "avgPolarity": -0.258,
+      "totalPosts": 9,
+      "avgPolarity": -0.167,
       "polarityLabel": "Tension / Négatif",
       "ratio": {
         "positivePct": 0,
-        "neutralPct": 33,
-        "negativePct": 67
+        "neutralPct": 56,
+        "negativePct": 44
       },
       "urgencyCount": 2,
-      "urgencyRate": 33.3,
-      "topCategory": "ODOR",
+      "urgencyRate": 22.2,
+      "topCategory": "UNCLASSIFIED",
       "keyDriverEvent": "Épisode caniculaire critique : pic de quejas por olores nauséabonds et alertes respiratoires.",
       "byNetwork": {
-        "mastodon": 3,
+        "mastodon": 6,
         "bluesky": 2,
         "debats_citoyens": 1
       }
@@ -139,20 +139,20 @@
     {
       "monthKey": "2026-07",
       "monthLabel": "Juillet 2026",
-      "totalPosts": 6,
-      "avgPolarity": 0.125,
-      "polarityLabel": "Favorable / Positif",
+      "totalPosts": 9,
+      "avgPolarity": -0.192,
+      "polarityLabel": "Tension / Négatif",
       "ratio": {
-        "positivePct": 50,
-        "neutralPct": 33,
-        "negativePct": 17
+        "positivePct": 22,
+        "neutralPct": 22,
+        "negativePct": 56
       },
       "urgencyCount": 0,
       "urgencyRate": 0,
-      "topCategory": "ODOR",
+      "topCategory": "HEALTH",
       "keyDriverEvent": "Pose des nouveaux filtres catalytiques DeNOx et raccordement du chauffage urbain CPCU.",
       "byNetwork": {
-        "mastodon": 3,
+        "mastodon": 6,
         "bluesky": 2,
         "debats_citoyens": 1
       }
@@ -160,20 +160,20 @@
     {
       "monthKey": "2026-08",
       "monthLabel": "Août 2026",
-      "totalPosts": 6,
-      "avgPolarity": 0.15,
-      "polarityLabel": "Favorable / Positif",
+      "totalPosts": 8,
+      "avgPolarity": -0.068,
+      "polarityLabel": "Neutre / Équilibré",
       "ratio": {
-        "positivePct": 50,
-        "neutralPct": 33,
-        "negativePct": 17
+        "positivePct": 38,
+        "neutralPct": 25,
+        "negativePct": 37
       },
       "urgencyCount": 0,
       "urgencyRate": 0,
-      "topCategory": "ODOR",
+      "topCategory": "UNCLASSIFIED",
       "keyDriverEvent": "Tregua estival : baisse de 40% des volumes de déchets et apaisement temporaire des tensions.",
       "byNetwork": {
-        "mastodon": 3,
+        "mastodon": 5,
         "bluesky": 2,
         "debats_citoyens": 1
       }
@@ -181,20 +181,20 @@
     {
       "monthKey": "2026-09",
       "monthLabel": "Septembre 2026",
-      "totalPosts": 7,
-      "avgPolarity": -0.243,
+      "totalPosts": 10,
+      "avgPolarity": -0.26,
       "polarityLabel": "Tension / Négatif",
       "ratio": {
         "positivePct": 0,
-        "neutralPct": 43,
-        "negativePct": 57
+        "neutralPct": 40,
+        "negativePct": 60
       },
       "urgencyCount": 0,
       "urgencyRate": 0,
       "topCategory": "HEALTH",
       "keyDriverEvent": "Rentrée scolaire : mobilisation des parents d'élèves sur les dioxines et réunion publique municipale.",
       "byNetwork": {
-        "mastodon": 4,
+        "mastodon": 7,
         "bluesky": 2,
         "debats_citoyens": 1
       }

@@ -16,32 +16,13 @@
       "primaryCategory": "GOVERNANCE",
       "secondaryCategories": [],
       "urgencyFlag": false,
+      "urgencyConfidence": 0,
       "processingTimeMs": 1,
-      "auditSignature": "b04252128bd8c6e829e91962ccfd1678505e6fca84687e4a6ce84f8b500d395d",
-      "modelIdentifier": "laya-micro-v0.9.0-fr"
-    }
-  },
-  {
-    "id": "post_2026_bluesky_027",
-    "monthKey": "2026-05",
-    "network": "bluesky",
-    "networkLabel": "Bluesky (AT Proto)",
-    "date": "2026-05-11T13:00:00Z",
-    "author": "Écologie Populaire IDF",
-    "handle": "ecolopop94.bsky.social",
-    "avatar": "",
-    "url": "https://bsky.app/profile/ecolopop94.bsky.social/post/3k1009",
-    "content": "Injustice spatiale et environnementale : pourquoi les 3 plus grands incinérateurs franciliens (Ivry, Saint-Ouen, Issy) ont-ils des standards d'enfouissement et d'intégration paysagère aussi inégaux ? #JusticeEnvironnementale",
-    "laya": {
-      "sentimentScore": 0,
-      "sentimentLabel": "NEUTRAL",
-      "primaryCategory": "ODOR",
-      "secondaryCategories": [],
-      "urgencyFlag": false,
-      "processingTimeMs": 1,
-      "auditSignature": "4448007352e3579ad2a6cddd9594439701d17a7d6ad909fc9ddf54571db1db94",
-      "modelIdentifier": "laya-micro-v0.9.0-fr"
-    }
+      "modelIdentifier": "laya-micro-v1.0.0-fr",
+      "nonce": "erwvhiha",
+      "auditSignature": "6065055a65b54ea8541a411b0c8fdd8d634dc452fd125984f2cbca6faeeed7a5"
+    },
+    "plainText": "Courrier officiel adressé au Préfet du Val-de-Marne : les maires d'Ivry et Vitry réclament la tenue sans délai de la Commission de Suivi de Site (CSS) pour faire toute la lumière sur les rejets. #Ivry #Vitry #Gouvernance"
   },
   {
     "id": "post_2026_mastodon_025",
@@ -60,10 +41,135 @@
       "primaryCategory": "GOVERNANCE",
       "secondaryCategories": [],
       "urgencyFlag": false,
+      "urgencyConfidence": 0,
       "processingTimeMs": 1,
-      "auditSignature": "e6427712efd22ebce6d5ea5511b1790d461b6ab2c91fb189a7341e50ea222b14",
-      "modelIdentifier": "laya-micro-v0.9.0-fr"
+      "modelIdentifier": "laya-micro-v1.0.0-fr",
+      "nonce": "rtiwv6ld",
+      "auditSignature": "1d5313a8259c34df59f7c6f5f22688858ba8bdb83f030ddcee8c67ef73766142"
+    },
+    "plainText": "Rassemblement samedi 23 mai place de la mairie d'Ivry : non à la prolongation du surdimensionnement de l'incinérateur du SYCTOM ! Présentation de nos contre-propositions de tri mécano-biologique. #Ivry #Déchets"
+  },
+  {
+    "id": "post_2026_mastodon_026",
+    "monthKey": "2026-05",
+    "network": "mastodon",
+    "networkLabel": "Mastodon / Fediverse",
+    "date": "2026-05-28T21:40:00Z",
+    "author": "Sophie M. (Riveraine)",
+    "handle": "sophie_ivry94@piaille.fr",
+    "avatar": "https://piaille.fr/avatars/original/missing.png",
+    "url": "https://piaille.fr/@sophie_ivry94/112014",
+    "content": "Fumées âcres et gorge irritée chez mon fils ce soir vers le quai d'Ivry. Ce n'est pas normal qu'en 2026 on doive barricader son appartement un soir de printemps ! #Ivry #Santé #Odeur",
+    "laya": {
+      "sentimentScore": -0.185,
+      "sentimentLabel": "NEGATIVE",
+      "primaryCategory": "ODOR",
+      "secondaryCategories": [
+        "HEALTH",
+        "PROPERTY_VALUE"
+      ],
+      "urgencyFlag": false,
+      "urgencyConfidence": 0,
+      "processingTimeMs": 1,
+      "modelIdentifier": "laya-micro-v1.0.0-fr",
+      "nonce": "ge2q40fs",
+      "auditSignature": "5537cb03e8a1bc2ad5362fd76e2956b36cfc8d5b2037678a65e1f8e9ce7756fc"
+    },
+    "plainText": "Fumées âcres et gorge irritée chez mon fils ce soir vers le quai d'Ivry. Ce n'est pas normal qu'en 2026 on doive barricader son appartement un soir de printemps ! #Ivry #Santé #Odeur"
+  },
+  {
+    "id": "masto_harv_202605_01",
+    "monthKey": "2026-05",
+    "network": "mastodon",
+    "date": "2026-05-10T10:30:00.000Z",
+    "author": "Le Parisien",
+    "handle": "@Le_Parisien@flipboard.com",
+    "url": "https://flipboard.com/@le_parisien/val-de-marne-94-4eiffn2vz/-/a-cjtv2vCSTLWWRaPGR2sREg%3Aa%3A2425850662-%2F0",
+    "content": "<p>La mise en service du futur incinérateur d’Ivry retardée après un incident durant les tests<br><a href=\"https://www.leparisien.fr/val-de-marne-94/la-mise-en-service-du-futur-incinerateur-divry-retardee-apres-un-incident-durant-les-tests-15-12-2025-DZPJORCF7NG5LHG4KT3Q7WV6UU.php?utm_source=flipboard&amp;utm_medium=activitypub\" rel=\"nofollow noopener\" translate=\"no\" target=\"_blank\"><span class=\"invisible\">https://www.</span><span class=\"ellipsis\">leparisien.fr/val-de-marne-94/</span><span class=\"invisible\">la-mise-en-service-du-futur-incinerateur-divry-retardee-apres-un-incident-durant-les-tests-15-12-2025-DZPJORCF7NG5LHG4KT3Q7WV6UU.php?utm_source=flipboard&amp;utm_medium=activitypub </span></a></p><p>Publié dans Val-de-Marne - 94 <span class=\"h-card\" translate=\"no\"><a href=\"https://flipboard.com/@le_parisien/val-de-marne-94-4eiffn2vz\" class=\"u-url mention\" rel=\"nofollow noopener\" target=\"_blank\">@<span>val-de-marne-94-Le_Parisien</span></a></span></p>",
+    "plainText": "La mise en service du futur incinérateur d’Ivry retardée après un incident durant les tests https://www. leparisien.fr/val-de-marne-94/ la-mise-en-service-du-futur-incinerateur-divry-retardee-apres-un-incident-durant-les-tests-15-12-2025-DZPJORCF7NG5LHG4KT3Q7WV6UU.php?utm_source=flipboard&utm_medium=activitypub Publié dans Val-de-Marne - 94 @ val-de-marne-94-Le_Parisien",
+    "laya": {
+      "sentimentScore": 0,
+      "sentimentLabel": "NEUTRAL",
+      "primaryCategory": "UNCLASSIFIED",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "urgencyConfidence": 0,
+      "processingTimeMs": 1,
+      "modelIdentifier": "laya-micro-v1.0.0-fr",
+      "nonce": "11ym017f",
+      "auditSignature": "d754103f27f31fdc63fc1da8f4a8279479ef77976e76d10183d34d6c6aa66f39"
     }
+  },
+  {
+    "id": "masto_harv_202605_02",
+    "monthKey": "2026-05",
+    "network": "mastodon",
+    "date": "2026-05-16T12:30:00.000Z",
+    "author": "艾天",
+    "handle": "@aitian@pixelfed.social",
+    "url": "https://pixelfed.social/p/aitian/895932839206127821",
+    "content": "Incinérateur<br>\n📷 Pentax Super Program<br>\n🎞 Nation Photo BW400<br>\n🗺 Ivry-sur-Seine 🇫🇷<br>\n🗓 2025/10<br>\n.<br>\n. <br>\n<a href=\"https://pixelfed.social/discover/tags/incinerateur?src=hash\" class=\"u-url hashtag\" rel=\"nofollow noopener\" target=\"_blank\">#incinerateur</a> <a href=\"https://pixelfed.social/discover/tags/architecture?src=hash\" class=\"u-url hashtag\" rel=\"nofollow noopener\" target=\"_blank\">#architecture</a> <a href=\"https://pixelfed.social/discover/tags/blackandwhite?src=hash\" class=\"u-url hashtag\" rel=\"nofollow noopener\" target=\"_blank\">#blackandwhite</a> <a href=\"https://pixelfed.social/discover/tags/35mm?src=hash\" class=\"u-url hashtag\" rel=\"nofollow noopener\" target=\"_blank\">#35mm</a> <a href=\"https://pixelfed.social/discover/tags/filmphotography?src=hash\" class=\"u-url hashtag\" rel=\"nofollow noopener\" target=\"_blank\">#filmphotography</a> <a href=\"https://pixelfed.social/discover/tags/argentique?src=hash\" class=\"u-url hashtag\" rel=\"nofollow noopener\" target=\"_blank\">#argentique</a>",
+    "plainText": "Incinérateur 📷 Pentax Super Program 🎞 Nation Photo BW400 🗺 Ivry-sur-Seine 🇫🇷 🗓 2025/10 . . #incinerateur #architecture #blackandwhite #35mm #filmphotography #argentique",
+    "laya": {
+      "sentimentScore": 0,
+      "sentimentLabel": "NEUTRAL",
+      "primaryCategory": "UNCLASSIFIED",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "urgencyConfidence": 0,
+      "processingTimeMs": 1,
+      "modelIdentifier": "laya-micro-v1.0.0-fr",
+      "nonce": "jrzff9g9",
+      "auditSignature": "f19f311bb238345246e47be8d1675459240dd402ef4905305070385c9ad3194f"
+    }
+  },
+  {
+    "id": "masto_harv_202605_03",
+    "monthKey": "2026-05",
+    "network": "mastodon",
+    "date": "2026-05-22T14:30:00.000Z",
+    "author": "Philippe De Jonckheere",
+    "handle": "@desordre",
+    "url": "https://mastodon.social/@desordre/115510323716690216",
+    "content": "<p><a href=\"https://mastodon.social/tags/EnCheminVersCentenaireDeDeleuze\" class=\"mention hashtag\" rel=\"tag\">#<span>EnCheminVersCentenaireDeDeleuze</span></a> cela faisait neuf mois que je n’étais venu en ces endroits autrefois rabâchés désormais quasi neufs à mes yeux. Le bout des cheminées de l’incinérateur d’Ivry me fait penser en même temps à mon ami <span class=\"h-card\" translate=\"no\"><a href=\"https://masto.ai/@srongier\" class=\"u-url mention\">@<span>srongier</span></a></span>, à mes si nombreux aller-retours en train vers et de Clermont mais aussi aux cheminées de l’incinérateur de l’Est de Manhattan, les trois simultanément ! Et je repense à mon ami Ray qui se plaignait qu’en vieillissant tout prenne de l’épaisseur …</p>",
+    "plainText": "# EnCheminVersCentenaireDeDeleuze cela faisait neuf mois que je n’étais venu en ces endroits autrefois rabâchés désormais quasi neufs à mes yeux. Le bout des cheminées de l’incinérateur d’Ivry me fait penser en même temps à mon ami @ srongier , à mes si nombreux aller-retours en train vers et de Clermont mais aussi aux cheminées de l’incinérateur de l’Est de Manhattan, les trois simultanément ! Et je repense à mon ami Ray qui se plaignait qu’en vieillissant tout prenne de l’épaisseur …",
+    "laya": {
+      "sentimentScore": 0,
+      "sentimentLabel": "NEUTRAL",
+      "primaryCategory": "UNCLASSIFIED",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "urgencyConfidence": 0,
+      "processingTimeMs": 1,
+      "modelIdentifier": "laya-micro-v1.0.0-fr",
+      "nonce": "0zmez0ts",
+      "auditSignature": "47b1bb887a026ddd9661cecfd64123960a558d373cfd0d68a9e87a1b9134e648"
+    }
+  },
+  {
+    "id": "post_2026_bluesky_027",
+    "monthKey": "2026-05",
+    "network": "bluesky",
+    "networkLabel": "Bluesky (AT Proto)",
+    "date": "2026-05-11T13:00:00Z",
+    "author": "Écologie Populaire IDF",
+    "handle": "ecolopop94.bsky.social",
+    "avatar": "",
+    "url": "https://bsky.app/profile/ecolopop94.bsky.social/post/3k1009",
+    "content": "Injustice spatiale et environnementale : pourquoi les 3 plus grands incinérateurs franciliens (Ivry, Saint-Ouen, Issy) ont-ils des standards d'enfouissement et d'intégration paysagère aussi inégaux ? #JusticeEnvironnementale",
+    "laya": {
+      "sentimentScore": 0,
+      "sentimentLabel": "NEUTRAL",
+      "primaryCategory": "UNCLASSIFIED",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "urgencyConfidence": 0,
+      "processingTimeMs": 1,
+      "modelIdentifier": "laya-micro-v1.0.0-fr",
+      "nonce": "ghdwm5dg",
+      "auditSignature": "c6090534ab13128ae5e50e5cb512c7acdcc39fb81bbc91c9b3325a44c7719973"
+    },
+    "plainText": "Injustice spatiale et environnementale : pourquoi les 3 plus grands incinérateurs franciliens (Ivry, Saint-Ouen, Issy) ont-ils des standards d'enfouissement et d'intégration paysagère aussi inégaux ? #JusticeEnvironnementale"
   },
   {
     "id": "post_2026_bluesky_028",
@@ -82,10 +188,13 @@
       "primaryCategory": "GOVERNANCE",
       "secondaryCategories": [],
       "urgencyFlag": false,
+      "urgencyConfidence": 0,
       "processingTimeMs": 1,
-      "auditSignature": "dd9bd1b7e7575f7d28f0b9907134a6bb430e0f806edb67e3412ac29ed13a148f",
-      "modelIdentifier": "laya-micro-v0.9.0-fr"
-    }
+      "modelIdentifier": "laya-micro-v1.0.0-fr",
+      "nonce": "djbjg5i5",
+      "auditSignature": "25fc12b183f60e45c89cbb8497f548f60e81caa2592bacee9e039f344e4fa924"
+    },
+    "plainText": "L'avis défavorable de plusieurs conseils municipaux du Val-de-Marne sur le nouveau plan régional de prévention des déchets (PRPGD) renforce la pression sur le SYCTOM. #Gouvernance"
   },
   {
     "id": "post_2026_debats_citoyens_029",
@@ -106,35 +215,12 @@
         "GOVERNANCE"
       ],
       "urgencyFlag": false,
+      "urgencyConfidence": 0,
       "processingTimeMs": 1,
-      "auditSignature": "361a5056d7ef7671ab775d3667cd057c30982a066d977315ae59cc34ab39689a",
-      "modelIdentifier": "laya-micro-v0.9.0-fr"
-    }
-  },
-  {
-    "id": "post_2026_mastodon_026",
-    "monthKey": "2026-05",
-    "network": "mastodon",
-    "networkLabel": "Mastodon / Fediverse",
-    "date": "2026-05-28T21:40:00Z",
-    "author": "Sophie M. (Riveraine)",
-    "handle": "sophie_ivry94@piaille.fr",
-    "avatar": "https://piaille.fr/avatars/original/missing.png",
-    "url": "https://piaille.fr/@sophie_ivry94/112014",
-    "content": "Fumées âcres et gorge irritée chez mon fils ce soir vers le quai d'Ivry. Ce n'est pas normal qu'en 2026 on doive barricader son appartement un soir de printemps ! #Ivry #Santé #Odeur",
-    "laya": {
-      "sentimentScore": 0.4,
-      "sentimentLabel": "POSITIVE",
-      "primaryCategory": "TRAFFIC",
-      "secondaryCategories": [
-        "ODOR",
-        "HEALTH",
-        "PROPERTY_VALUE"
-      ],
-      "urgencyFlag": false,
-      "processingTimeMs": 1,
-      "auditSignature": "951c0a0b98da96ea515faf99d03a8c9b80507c6500e9c5dd1b481d3f633a6c01",
-      "modelIdentifier": "laya-micro-v0.9.0-fr"
-    }
+      "modelIdentifier": "laya-micro-v1.0.0-fr",
+      "nonce": "ntb076yr",
+      "auditSignature": "a65ed3e6520522b8e4cb225487f11414e899b185291c9dc7e8a14206bf54910d"
+    },
+    "plainText": "Motion votée en conseil d'école : Demande formelle de renouvellement des prélèvements de sol dans les cours de récréation pour mesurer les dioxines et furanes avant l'été."
   }
 ]

@@ -11,17 +11,118 @@
     "url": "https://piaille.fr/@riverain_ivry/112021",
     "content": "Août à Ivry : le trafic des camions sur le quai Marcel Boyer est divisé par deux. On respire enfin un peu mieux et les odeurs restent maîtrisées grâce au vent d'ouest. #Ivry #Tranquillité",
     "laya": {
-      "sentimentScore": 0.4,
-      "sentimentLabel": "POSITIVE",
+      "sentimentScore": 0.133,
+      "sentimentLabel": "NEUTRAL",
       "primaryCategory": "ODOR",
       "secondaryCategories": [
         "NOISE",
         "TRAFFIC"
       ],
       "urgencyFlag": false,
+      "urgencyConfidence": 0,
       "processingTimeMs": 1,
-      "auditSignature": "18f4fe112a83a8bfb42f90feb3634bc09d5fef26a3664a2f3ae31da643128155",
-      "modelIdentifier": "laya-micro-v0.9.0-fr"
+      "modelIdentifier": "laya-micro-v1.0.0-fr",
+      "nonce": "uxf6qk1o",
+      "auditSignature": "1c074e57109a66aa69cf113bcb4a04801cb1ffb90b8b125e954778e2db0d3b78"
+    },
+    "plainText": "Août à Ivry : le trafic des camions sur le quai Marcel Boyer est divisé par deux. On respire enfin un peu mieux et les odeurs restent maîtrisées grâce au vent d'ouest. #Ivry #Tranquillité"
+  },
+  {
+    "id": "post_2026_mastodon_043",
+    "monthKey": "2026-08",
+    "network": "mastodon",
+    "networkLabel": "Mastodon / Fediverse",
+    "date": "2026-08-19T14:40:00Z",
+    "author": "Zero Waste France",
+    "handle": "zerowastefr@mastodon.social",
+    "avatar": "https://mastodon.social/avatars/original/missing.png",
+    "url": "https://mastodon.social/@zerowastefr/112022",
+    "content": "En août, la production de déchets ménagers baisse de 25% en IDF. La preuve irréfutable que les volumes ne sont pas figés. Une politique ambitieuse de consigne et vrac permettrait d'arrêter un four entier ! #Déchets",
+    "laya": {
+      "sentimentScore": 0.261,
+      "sentimentLabel": "POSITIVE",
+      "primaryCategory": "UNCLASSIFIED",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "urgencyConfidence": 0,
+      "processingTimeMs": 1,
+      "modelIdentifier": "laya-micro-v1.0.0-fr",
+      "nonce": "2ppdon4r",
+      "auditSignature": "8978a4961a57bdc6b01d1f4ee1df09b9cc526aad6be973880b45e74650872476"
+    },
+    "plainText": "En août, la production de déchets ménagers baisse de 25% en IDF. La preuve irréfutable que les volumes ne sont pas figés. Une politique ambitieuse de consigne et vrac permettrait d'arrêter un four entier ! #Déchets"
+  },
+  {
+    "id": "post_2026_mastodon_044",
+    "monthKey": "2026-08",
+    "network": "mastodon",
+    "networkLabel": "Mastodon / Fediverse",
+    "date": "2026-08-28T18:00:00Z",
+    "author": "Airparif Info",
+    "handle": "airparif_veille@piaille.fr",
+    "avatar": "https://piaille.fr/avatars/original/missing.png",
+    "url": "https://piaille.fr/@airparif_veille/112023",
+    "content": "Bilan météo et qualité de l'air du mois d'août : régime de vent dominant d'Ouest/Sud-Ouest. Dispersion satisfaisante des cheminées industrielles, zéro dépassement du seuil d'alerte NO2 sur le 94. #Airparif",
+    "laya": {
+      "sentimentScore": 0,
+      "sentimentLabel": "NEUTRAL",
+      "primaryCategory": "UNCLASSIFIED",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "urgencyConfidence": 0,
+      "processingTimeMs": 1,
+      "modelIdentifier": "laya-micro-v1.0.0-fr",
+      "nonce": "56mre71x",
+      "auditSignature": "fcf0aa00deade8f3959b7484b9423ce94f6aed275c0105c49a06afa219959da5"
+    },
+    "plainText": "Bilan météo et qualité de l'air du mois d'août : régime de vent dominant d'Ouest/Sud-Ouest. Dispersion satisfaisante des cheminées industrielles, zéro dépassement du seuil d'alerte NO2 sur le 94. #Airparif"
+  },
+  {
+    "id": "masto_harv_202608_01",
+    "monthKey": "2026-08",
+    "network": "mastodon",
+    "date": "2026-08-10T10:30:00.000Z",
+    "author": "théorie :verified:",
+    "handle": "@burgervege@mamot.fr",
+    "url": "https://mamot.fr/@burgervege/114585658361048312",
+    "content": "<p>Ivry : les données de l'Agence régionale de santé confirment la pollution autour de l'incinérateur. Les deux études réalisées par la fondation ToxicoWatch avaient été critiquée par le Syctom, qui gère l'incinérateur. </p><p>Conclusion : oui, la pollution aux dioxines y est entre 3 et à 10 fois supérieure aux valeurs réglementaires (par rapport à l'Allemagne, vu qu'il n'y en a pas en France). <a href=\"https://www.lemonde.fr/planete/article/2025/05/27/des-donnees-officielles-confirment-la-pollution-autour-de-l-incinerateur-d-ivry-paris-xiii-l-un-des-plus-grands-et-anciens-d-europe_6608752_3244.html\" rel=\"nofollow noopener\" translate=\"no\" target=\"_blank\"><span class=\"invisible\">https://www.</span><span class=\"ellipsis\">lemonde.fr/planete/article/202</span><span class=\"invisible\">5/05/27/des-donnees-officielles-confirment-la-pollution-autour-de-l-incinerateur-d-ivry-paris-xiii-l-un-des-plus-grands-et-anciens-d-europe_6608752_3244.html</span></a></p><p><a href=\"https://mamot.fr/tags/paris\" class=\"mention hashtag\" rel=\"nofollow noopener\" target=\"_blank\">#<span>paris</span></a> <a href=\"https://mamot.fr/tags/ivry\" class=\"mention hashtag\" rel=\"nofollow noopener\" target=\"_blank\">#<span>ivry</span></a> <a href=\"https://mamot.fr/tags/d%C3%A9chets\" class=\"mention hashtag\" rel=\"nofollow noopener\" target=\"_blank\">#<span>déchets</span></a> <a href=\"https://mamot.fr/tags/ecologie\" class=\"mention hashtag\" rel=\"nofollow noopener\" target=\"_blank\">#<span>ecologie</span></a> <a href=\"https://mamot.fr/tags/zeroD%C3%A9chet\" class=\"mention hashtag\" rel=\"nofollow noopener\" target=\"_blank\">#<span>zeroDéchet</span></a></p>",
+    "plainText": "Ivry : les données de l'Agence régionale de santé confirment la pollution autour de l'incinérateur. Les deux études réalisées par la fondation ToxicoWatch avaient été critiquée par le Syctom, qui gère l'incinérateur. Conclusion : oui, la pollution aux dioxines y est entre 3 et à 10 fois supérieure aux valeurs réglementaires (par rapport à l'Allemagne, vu qu'il n'y en a pas en France). https://www. lemonde.fr/planete/article/202 5/05/27/des-donnees-officielles-confirment-la-pollution-autour-de-l-incinerateur-d-ivry-paris-xiii-l-un-des-plus-grands-et-anciens-d-europe_6608752_3244.html # paris # ivry # déchets # ecologie # zeroDéchet",
+    "laya": {
+      "sentimentScore": -0.45,
+      "sentimentLabel": "NEGATIVE",
+      "primaryCategory": "HEALTH",
+      "secondaryCategories": [
+        "GOVERNANCE"
+      ],
+      "urgencyFlag": false,
+      "urgencyConfidence": 0,
+      "processingTimeMs": 1,
+      "modelIdentifier": "laya-micro-v1.0.0-fr",
+      "nonce": "mrdhhmog",
+      "auditSignature": "d22b943f9d748da6926fa1da32b0a8184aef69aec17edda56a246c8b7dfb654a"
+    }
+  },
+  {
+    "id": "masto_harv_202608_02",
+    "monthKey": "2026-08",
+    "network": "mastodon",
+    "date": "2026-08-16T12:30:00.000Z",
+    "author": "GREUBE HUMAINE",
+    "handle": "@GREUBELINUX",
+    "url": "https://mastodon.social/@GREUBELINUX/114580894241954446",
+    "content": "<p>La pollution à la dioxine des abords de l’incinérateur de déchets d’Ivry-sur-Seine (Val-de-Marne) se confirme.</p><p>Lire l&#39;article ➡️ l.reporterre.net/q87</p>",
+    "plainText": "La pollution à la dioxine des abords de l’incinérateur de déchets d’Ivry-sur-Seine (Val-de-Marne) se confirme. Lire l'article ➡️ l.reporterre.net/q87",
+    "laya": {
+      "sentimentScore": -0.45,
+      "sentimentLabel": "NEGATIVE",
+      "primaryCategory": "HEALTH",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "urgencyConfidence": 0,
+      "processingTimeMs": 1,
+      "modelIdentifier": "laya-micro-v1.0.0-fr",
+      "nonce": "u0rpbmwv",
+      "auditSignature": "1351b90e06dab76e38a01c3174f8fdf96442e5e0a12406457d71ccfb13c424a4"
     }
   },
   {
@@ -41,32 +142,13 @@
       "primaryCategory": "NOISE",
       "secondaryCategories": [],
       "urgencyFlag": false,
+      "urgencyConfidence": 0,
       "processingTimeMs": 1,
-      "auditSignature": "9610cacdb52a8160d36c5a85fffdf225c30b51a0b59d297d977f34b3b8801139",
-      "modelIdentifier": "laya-micro-v0.9.0-fr"
-    }
-  },
-  {
-    "id": "post_2026_mastodon_043",
-    "monthKey": "2026-08",
-    "network": "mastodon",
-    "networkLabel": "Mastodon / Fediverse",
-    "date": "2026-08-19T14:40:00Z",
-    "author": "Zero Waste France",
-    "handle": "zerowastefr@mastodon.social",
-    "avatar": "https://mastodon.social/avatars/original/missing.png",
-    "url": "https://mastodon.social/@zerowastefr/112022",
-    "content": "En août, la production de déchets ménagers baisse de 25% en IDF. La preuve irréfutable que les volumes ne sont pas figés. Une politique ambitieuse de consigne et vrac permettrait d'arrêter un four entier ! #Déchets",
-    "laya": {
-      "sentimentScore": 0.4,
-      "sentimentLabel": "POSITIVE",
-      "primaryCategory": "ODOR",
-      "secondaryCategories": [],
-      "urgencyFlag": false,
-      "processingTimeMs": 1,
-      "auditSignature": "483c84b4fcd37d0d4cbabd8f2622d7d561dab84dc2d553acd594db56a47a2c60",
-      "modelIdentifier": "laya-micro-v0.9.0-fr"
-    }
+      "modelIdentifier": "laya-micro-v1.0.0-fr",
+      "nonce": "1w4se7vp",
+      "auditSignature": "36958f173a0aef281f2cbf3e66cd55422b43d112ae88f4096c437ce321ae5788"
+    },
+    "plainText": "Comparatif estival : À Issy-les-Moulineaux (Isséane), l'enfouissement à 60% neutralise le bruit et le panache. À Ivry, l'option aérienne reste source de tensions visuelles permanentes. #Architecture #Déchets"
   },
   {
     "id": "post_2026_bluesky_046",
@@ -82,13 +164,16 @@
     "laya": {
       "sentimentScore": 0,
       "sentimentLabel": "NEUTRAL",
-      "primaryCategory": "ODOR",
+      "primaryCategory": "UNCLASSIFIED",
       "secondaryCategories": [],
       "urgencyFlag": false,
+      "urgencyConfidence": 0,
       "processingTimeMs": 1,
-      "auditSignature": "721e1d4a55093c41b8c4e7a01ec7d4ea59c3e1ef10bbd396f918d73af3d619f6",
-      "modelIdentifier": "laya-micro-v0.9.0-fr"
-    }
+      "modelIdentifier": "laya-micro-v1.0.0-fr",
+      "nonce": "of8vgnad",
+      "auditSignature": "450acd5a428bc2a164d6143749033684ce7e37a04c3f2541e966e9cad8677a59"
+    },
+    "plainText": "Enquête d'été : Que deviennent les mâchefers de l'incinérateur d'Ivry ? 80% sont valorisés en sous-couches routières sous contrôle de l'Ademe. Enjeux de traçabilité des métaux résiduels. #Recyclage"
   },
   {
     "id": "post_2026_debats_citoyens_047",
@@ -102,36 +187,17 @@
     "url": "https://riverains-ivry.org/bulletin-2026-08",
     "content": "Note d'observation estivale : Période la plus calme de l'année. Vigilance demandée pour la réouverture des chantiers et la reprise du plein régime des fours prévue début septembre.",
     "laya": {
-      "sentimentScore": 0.4,
+      "sentimentScore": 0.261,
       "sentimentLabel": "POSITIVE",
-      "primaryCategory": "ODOR",
+      "primaryCategory": "UNCLASSIFIED",
       "secondaryCategories": [],
       "urgencyFlag": false,
+      "urgencyConfidence": 0,
       "processingTimeMs": 1,
-      "auditSignature": "673e92b969797ef5eb1e355a20c67c43f4380ff03d804eacb1a9530543007187",
-      "modelIdentifier": "laya-micro-v0.9.0-fr"
-    }
-  },
-  {
-    "id": "post_2026_mastodon_044",
-    "monthKey": "2026-08",
-    "network": "mastodon",
-    "networkLabel": "Mastodon / Fediverse",
-    "date": "2026-08-28T18:00:00Z",
-    "author": "Airparif Info",
-    "handle": "airparif_veille@piaille.fr",
-    "avatar": "https://piaille.fr/avatars/original/missing.png",
-    "url": "https://piaille.fr/@airparif_veille/112023",
-    "content": "Bilan météo et qualité de l'air du mois d'août : régime de vent dominant d'Ouest/Sud-Ouest. Dispersion satisfaisante des cheminées industrielles, zéro dépassement du seuil d'alerte NO2 sur le 94. #Airparif",
-    "laya": {
-      "sentimentScore": 0,
-      "sentimentLabel": "NEUTRAL",
-      "primaryCategory": "ODOR",
-      "secondaryCategories": [],
-      "urgencyFlag": false,
-      "processingTimeMs": 1,
-      "auditSignature": "752e6fc28d8dcfcd99e3d9fbb60f53c540c2deed94770582ef25af2224e3d6fc",
-      "modelIdentifier": "laya-micro-v0.9.0-fr"
-    }
+      "modelIdentifier": "laya-micro-v1.0.0-fr",
+      "nonce": "fuv55oh1",
+      "auditSignature": "619835f25a9ea9a76d97944d19a943ad99331dccb8ad4a8d6e779d9997aa8cdf"
+    },
+    "plainText": "Note d'observation estivale : Période la plus calme de l'année. Vigilance demandée pour la réouverture des chantiers et la reprise du plein régime des fours prévue début septembre."
   }
 ]

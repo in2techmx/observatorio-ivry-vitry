@@ -16,9 +16,133 @@
       "primaryCategory": "GOVERNANCE",
       "secondaryCategories": [],
       "urgencyFlag": false,
+      "urgencyConfidence": 0,
       "processingTimeMs": 1,
-      "auditSignature": "97327adf0045a5a7720f2005321e137f3e176cc1c057dbde6dd5d282753182eb",
-      "modelIdentifier": "laya-micro-v0.9.0-fr"
+      "modelIdentifier": "laya-micro-v1.0.0-fr",
+      "nonce": "tctp5thy",
+      "auditSignature": "41e820c38b9120b3018f9dac6e1e42fe4dcf12cbd256f3801f723ba1a22567fc"
+    },
+    "plainText": "Blocage de l'usine d'Ivry-Paris XIII ce matin dès 6h par les agents territoriaux et militants écologistes. Dénonciation conjointe des conditions de travail et du sous-dimensionnement du tri. #Ivry #Syctom"
+  },
+  {
+    "id": "post_2026_mastodon_014",
+    "monthKey": "2026-03",
+    "network": "mastodon",
+    "networkLabel": "Mastodon / Fediverse",
+    "date": "2026-03-15T12:00:00Z",
+    "author": "Collectif 3R",
+    "handle": "collectif3r@piaille.fr",
+    "avatar": "https://piaille.fr/avatars/original/missing.png",
+    "url": "https://piaille.fr/@collectif3r/112008",
+    "content": "La grève met en lumière la fragilité d'un système hyper-centralisé. Dès que l'usine d'Ivry s'arrête, des milliers de tonnes de déchets s'accumulent. La vraie résilience, c'est le zéro déchet ! #Déchets #Ivry",
+    "laya": {
+      "sentimentScore": 0,
+      "sentimentLabel": "NEUTRAL",
+      "primaryCategory": "GOVERNANCE",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "urgencyConfidence": 0,
+      "processingTimeMs": 1,
+      "modelIdentifier": "laya-micro-v1.0.0-fr",
+      "nonce": "aihkit2v",
+      "auditSignature": "41c5d573267d5ecba0f85c6cc76986efb4aacdb432cc94f30ebac9e2ae3dc08f"
+    },
+    "plainText": "La grève met en lumière la fragilité d'un système hyper-centralisé. Dès que l'usine d'Ivry s'arrête, des milliers de tonnes de déchets s'accumulent. La vraie résilience, c'est le zéro déchet ! #Déchets #Ivry"
+  },
+  {
+    "id": "post_2026_mastodon_015",
+    "monthKey": "2026-03",
+    "network": "mastodon",
+    "networkLabel": "Mastodon / Fediverse",
+    "date": "2026-03-22T16:45:00Z",
+    "author": "Ville d'Ivry-sur-Seine",
+    "handle": "mairie_ivry@piaille.fr",
+    "avatar": "https://piaille.fr/avatars/original/missing.png",
+    "url": "https://piaille.fr/@mairie_ivry/112009",
+    "content": "Communiqué : La Ville rappelle que la compétence traitement des ordures relève du SYCTOM et appelle au dialogue social pour garantir la salubrité publique des rues et des écoles. #Ivry #Gouvernance",
+    "laya": {
+      "sentimentScore": 0,
+      "sentimentLabel": "NEUTRAL",
+      "primaryCategory": "GOVERNANCE",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "urgencyConfidence": 0,
+      "processingTimeMs": 1,
+      "modelIdentifier": "laya-micro-v1.0.0-fr",
+      "nonce": "ou9ud5sz",
+      "auditSignature": "a93846f17250c66ad326a05e03ecc5539aa3924bb48d66001d23451731ddee29"
+    },
+    "plainText": "Communiqué : La Ville rappelle que la compétence traitement des ordures relève du SYCTOM et appelle au dialogue social pour garantir la salubrité publique des rues et des écoles. #Ivry #Gouvernance"
+  },
+  {
+    "id": "masto_harv_202603_01",
+    "monthKey": "2026-03",
+    "network": "mastodon",
+    "date": "2026-03-10T10:30:00.000Z",
+    "author": "GREUBE HUMAINE",
+    "handle": "@GREUBELINUX",
+    "url": "https://mastodon.social/@GREUBELINUX/116005615817209842",
+    "content": "<p>La mise en service de l&#39;incinérateur d’ordures ménagères censé remplacer la vieillissante l’usine d’Ivry-Paris-13 a encore été retardée.</p><p>Les riverains, qui dénoncent la pollution liée à cette infrastructure, ne décolèrent pas.</p><p>Lire l&#39;article ➡️ <a href=\"https://l.reporterre.net/c3o\" target=\"_blank\" rel=\"nofollow noopener\" translate=\"no\"><span class=\"invisible\">https://</span><span class=\"\">l.reporterre.net/c3o</span><span class=\"invisible\"></span></a></p>",
+    "plainText": "La mise en service de l'incinérateur d’ordures ménagères censé remplacer la vieillissante l’usine d’Ivry-Paris-13 a encore été retardée. Les riverains, qui dénoncent la pollution liée à cette infrastructure, ne décolèrent pas. Lire l'article ➡️ https:// l.reporterre.net/c3o",
+    "laya": {
+      "sentimentScore": 0,
+      "sentimentLabel": "NEUTRAL",
+      "primaryCategory": "UNCLASSIFIED",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "urgencyConfidence": 0,
+      "processingTimeMs": 1,
+      "modelIdentifier": "laya-micro-v1.0.0-fr",
+      "nonce": "mz1q1nag",
+      "auditSignature": "6d05b05bcdff8826affeb1e58d19d9e83a3ac2758d946d1f989021ae9016d864"
+    }
+  },
+  {
+    "id": "masto_harv_202603_02",
+    "monthKey": "2026-03",
+    "network": "mastodon",
+    "date": "2026-03-16T12:30:00.000Z",
+    "author": "la_voix",
+    "handle": "@la_voix",
+    "url": "https://mastodon.social/@la_voix/116001788855099843",
+    "content": "<p>PFAS : l’incinérateur d’Ivry-sur-Seine</p><p>Cet incinérateur d’ordures ménagères est le plus grand d’ <a href=\"https://mastodon.social/tags/Europe\" class=\"mention hashtag\" rel=\"tag\">#<span>Europe</span></a> et brûle chaque année 700.000 tonnes d’ordures, en provenance de 14 communes d #’ÎledeFrance et de 12 arrondissements de <a href=\"https://mastodon.social/tags/Paris\" class=\"mention hashtag\" rel=\"tag\">#<span>Paris</span></a> Géré par le <a href=\"https://mastodon.social/tags/Syctom\" class=\"mention hashtag\" rel=\"tag\">#<span>Syctom</span></a> <a href=\"https://fr.wikipedia.org/wiki/Syctom\" target=\"_blank\" rel=\"nofollow noopener\" translate=\"no\"><span class=\"invisible\">https://</span><span class=\"\">fr.wikipedia.org/wiki/Syctom</span><span class=\"invisible\"></span></a> des analyses font apparaître des niveaux élevés de <a href=\"https://mastodon.social/tags/PFAS\" class=\"mention hashtag\" rel=\"tag\">#<span>PFAS</span></a> <a href=\"https://www.charentelibre.fr/environnement/pollution/polluants-eternels-a-ivry-l-etude-qui-met-en-cause-le-plus-grand-incinerateur-d-europe-26290762.php\" target=\"_blank\" rel=\"nofollow noopener\" translate=\"no\"><span class=\"invisible\">https://www.</span><span class=\"ellipsis\">charentelibre.fr/environnement</span><span class=\"invisible\">/pollution/polluants-eternels-a-ivry-l-etude-qui-met-en-cause-le-plus-grand-incinerateur-d-europe-26290762.php</span></a> Les riverains, qui dénoncent la <a href=\"https://mastodon.social/tags/pollution\" class=\"mention hashtag\" rel=\"tag\">#<span>pollution</span></a> liée à cette infrastructure, ne décolèrent pas <a href=\"https://reporterre.net/Inadmissible-La-fermeture-du-polluant-incinerateur-d-Ivry-Paris-13-encore-reportee\" target=\"_blank\" rel=\"nofollow noopener\" translate=\"no\"><span class=\"invisible\">https://</span><span class=\"ellipsis\">reporterre.net/Inadmissible-La</span><span class=\"invisible\">-fermeture-du-polluant-incinerateur-d-Ivry-Paris-13-encore-reportee</span></a></p><p><a href=\"https://mastodon.social/tags/environnement\" class=\"mention hashtag\" rel=\"tag\">#<span>environnement</span></a></p>",
+    "plainText": "PFAS : l’incinérateur d’Ivry-sur-Seine Cet incinérateur d’ordures ménagères est le plus grand d’ # Europe et brûle chaque année 700.000 tonnes d’ordures, en provenance de 14 communes d #’ÎledeFrance et de 12 arrondissements de # Paris Géré par le # Syctom https:// fr.wikipedia.org/wiki/Syctom des analyses font apparaître des niveaux élevés de # PFAS https://www. charentelibre.fr/environnement /pollution/polluants-eternels-a-ivry-l-etude-qui-met-en-cause-le-plus-grand-incinerateur-d-europe-26290762.php Les riverains, qui dénoncent la # pollution liée à cette infrastructure, ne décolèrent pas https:// reporterre.net/Inadmissible-La -fermeture-du-polluant-incinerateur-d-Ivry-Paris-13-encore-reportee # environnement",
+    "laya": {
+      "sentimentScore": -0.35,
+      "sentimentLabel": "NEGATIVE",
+      "primaryCategory": "ODOR",
+      "secondaryCategories": [
+        "GOVERNANCE"
+      ],
+      "urgencyFlag": false,
+      "urgencyConfidence": 0,
+      "processingTimeMs": 1,
+      "modelIdentifier": "laya-micro-v1.0.0-fr",
+      "nonce": "3twu5g8d",
+      "auditSignature": "9cb5ffe67cee18692101cd767fb6d06c154d48f82b267f23ea9c79b464fbe477"
+    }
+  },
+  {
+    "id": "masto_harv_202603_03",
+    "monthKey": "2026-03",
+    "network": "mastodon",
+    "date": "2026-03-22T14:30:00.000Z",
+    "author": "Le Parisien",
+    "handle": "@Le_Parisien@flipboard.com",
+    "url": "https://flipboard.com/@le_parisien/val-de-marne-94-4eiffn2vz/-/a-7Z623Q_dQjuDBcQrZ7DZew%3Aa%3A2425850662-%2F0",
+    "content": "<p>Incinérateur d’Ivry : l’usine « en fin de vie » cédera la place à la nouvelle « au plus tard » en septembre 2026<br><a href=\"https://www.leparisien.fr/val-de-marne-94/incinerateur-divry-lusine-en-fin-de-vie-cedera-la-place-a-la-nouvelle-au-plus-tard-en-septembre-2026-04-01-2026-NFQHRMH5WNGBVO7QLNQ3AHKFPQ.php?utm_source=flipboard&amp;utm_medium=activitypub\" rel=\"nofollow noopener\" translate=\"no\" target=\"_blank\"><span class=\"invisible\">https://www.</span><span class=\"ellipsis\">leparisien.fr/val-de-marne-94/</span><span class=\"invisible\">incinerateur-divry-lusine-en-fin-de-vie-cedera-la-place-a-la-nouvelle-au-plus-tard-en-septembre-2026-04-01-2026-NFQHRMH5WNGBVO7QLNQ3AHKFPQ.php?utm_source=flipboard&amp;utm_medium=activitypub </span></a></p><p>Publié dans Val-de-Marne - 94 <span class=\"h-card\" translate=\"no\"><a href=\"https://flipboard.com/@le_parisien/val-de-marne-94-4eiffn2vz\" class=\"u-url mention\" rel=\"nofollow noopener\" target=\"_blank\">@<span>val-de-marne-94-Le_Parisien</span></a></span></p>",
+    "plainText": "Incinérateur d’Ivry : l’usine « en fin de vie » cédera la place à la nouvelle « au plus tard » en septembre 2026 https://www. leparisien.fr/val-de-marne-94/ incinerateur-divry-lusine-en-fin-de-vie-cedera-la-place-a-la-nouvelle-au-plus-tard-en-septembre-2026-04-01-2026-NFQHRMH5WNGBVO7QLNQ3AHKFPQ.php?utm_source=flipboard&utm_medium=activitypub Publié dans Val-de-Marne - 94 @ val-de-marne-94-Le_Parisien",
+    "laya": {
+      "sentimentScore": 0,
+      "sentimentLabel": "NEUTRAL",
+      "primaryCategory": "UNCLASSIFIED",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "urgencyConfidence": 0,
+      "processingTimeMs": 1,
+      "modelIdentifier": "laya-micro-v1.0.0-fr",
+      "nonce": "0o425e9p",
+      "auditSignature": "2ca567baef7b5c513ede95c029c19d542ac7a3b7f6b14601ab68d592631db960"
     }
   },
   {
@@ -40,32 +164,38 @@
         "TRAFFIC"
       ],
       "urgencyFlag": false,
+      "urgencyConfidence": 0,
       "processingTimeMs": 1,
-      "auditSignature": "cef0efb43c4a6305cfe4c1580b5621be301a976e98fd8ce7a22192ec0dd7b25a",
-      "modelIdentifier": "laya-micro-v0.9.0-fr"
-    }
+      "modelIdentifier": "laya-micro-v1.0.0-fr",
+      "nonce": "lry4uj9q",
+      "auditSignature": "e6b72906e3da48de5866fffba6a50df8ccb56309feb87592faea0b0b27de4da4"
+    },
+    "plainText": "Tension palpable ce midi devant le centre de traitement des déchets d'Ivry. Files de camions déviées vers Saint-Ouen et Créteil pour éviter la saturation du site. #Reportage #Ivry"
   },
   {
-    "id": "post_2026_mastodon_014",
+    "id": "post_2026_bluesky_017",
     "monthKey": "2026-03",
-    "network": "mastodon",
-    "networkLabel": "Mastodon / Fediverse",
-    "date": "2026-03-15T12:00:00Z",
-    "author": "Collectif 3R",
-    "handle": "collectif3r@piaille.fr",
-    "avatar": "https://piaille.fr/avatars/original/missing.png",
-    "url": "https://piaille.fr/@collectif3r/112008",
-    "content": "La grève met en lumière la fragilité d'un système hyper-centralisé. Dès que l'usine d'Ivry s'arrête, des milliers de tonnes de déchets s'accumulent. La vraie résilience, c'est le zéro déchet ! #Déchets #Ivry",
+    "network": "bluesky",
+    "networkLabel": "Bluesky (AT Proto)",
+    "date": "2026-03-26T18:20:00Z",
+    "author": "Dr. Valérie Roche",
+    "handle": "vroche-sante.bsky.social",
+    "avatar": "",
+    "url": "https://bsky.app/profile/vroche-sante.bsky.social/post/3k1006",
+    "content": "L'accumulation d'ordures dans les rues combinée au redoux printanier crée des risques microbiologiques et de rongeurs immédiats. Il faut un protocole d'urgence sanitaire. #SantéPublique #Ivry",
     "laya": {
-      "sentimentScore": 0.85,
-      "sentimentLabel": "STRONGLY_POSITIVE",
-      "primaryCategory": "ODOR",
+      "sentimentScore": 0,
+      "sentimentLabel": "NEUTRAL",
+      "primaryCategory": "UNCLASSIFIED",
       "secondaryCategories": [],
-      "urgencyFlag": false,
+      "urgencyFlag": true,
+      "urgencyConfidence": 0.75,
       "processingTimeMs": 1,
-      "auditSignature": "2b130da599e625aefccad968f2d1df5acbd424c4a44a0606b181a2850743a7ad",
-      "modelIdentifier": "laya-micro-v0.9.0-fr"
-    }
+      "modelIdentifier": "laya-micro-v1.0.0-fr",
+      "nonce": "fhmmsyvu",
+      "auditSignature": "e51e60564699a70d46173f18ff1710ab51da5b7b379a514df607aae2da425353"
+    },
+    "plainText": "L'accumulation d'ordures dans les rues combinée au redoux printanier crée des risques microbiologiques et de rongeurs immédiats. Il faut un protocole d'urgence sanitaire. #SantéPublique #Ivry"
   },
   {
     "id": "post_2026_debats_citoyens_018",
@@ -86,53 +216,12 @@
         "TRAFFIC"
       ],
       "urgencyFlag": true,
+      "urgencyConfidence": 0.75,
       "processingTimeMs": 1,
-      "auditSignature": "8289bdbde33db4044b99cf955cf760d0ee51589c5adbc45512dc66431532047c",
-      "modelIdentifier": "laya-micro-v0.9.0-fr"
-    }
-  },
-  {
-    "id": "post_2026_mastodon_015",
-    "monthKey": "2026-03",
-    "network": "mastodon",
-    "networkLabel": "Mastodon / Fediverse",
-    "date": "2026-03-22T16:45:00Z",
-    "author": "Ville d'Ivry-sur-Seine",
-    "handle": "mairie_ivry@piaille.fr",
-    "avatar": "https://piaille.fr/avatars/original/missing.png",
-    "url": "https://piaille.fr/@mairie_ivry/112009",
-    "content": "Communiqué : La Ville rappelle que la compétence traitement des ordures relève du SYCTOM et appelle au dialogue social pour garantir la salubrité publique des rues et des écoles. #Ivry #Gouvernance",
-    "laya": {
-      "sentimentScore": 0,
-      "sentimentLabel": "NEUTRAL",
-      "primaryCategory": "GOVERNANCE",
-      "secondaryCategories": [],
-      "urgencyFlag": false,
-      "processingTimeMs": 1,
-      "auditSignature": "b0473d0ebaa306c98192db6f6e87c42e2c002b22eb71ebc16e983354805372d0",
-      "modelIdentifier": "laya-micro-v0.9.0-fr"
-    }
-  },
-  {
-    "id": "post_2026_bluesky_017",
-    "monthKey": "2026-03",
-    "network": "bluesky",
-    "networkLabel": "Bluesky (AT Proto)",
-    "date": "2026-03-26T18:20:00Z",
-    "author": "Dr. Valérie Roche",
-    "handle": "vroche-sante.bsky.social",
-    "avatar": "",
-    "url": "https://bsky.app/profile/vroche-sante.bsky.social/post/3k1006",
-    "content": "L'accumulation d'ordures dans les rues combinée au redoux printanier crée des risques microbiologiques et de rongeurs immédiats. Il faut un protocole d'urgence sanitaire. #SantéPublique #Ivry",
-    "laya": {
-      "sentimentScore": 0,
-      "sentimentLabel": "NEUTRAL",
-      "primaryCategory": "ODOR",
-      "secondaryCategories": [],
-      "urgencyFlag": true,
-      "processingTimeMs": 1,
-      "auditSignature": "16cd14d5792891461ee920f163e62027e92e32b5fc751464387529ac9d1a8909",
-      "modelIdentifier": "laya-micro-v0.9.0-fr"
-    }
+      "modelIdentifier": "laya-micro-v1.0.0-fr",
+      "nonce": "re1ct219",
+      "auditSignature": "aee6533786297f46241de4e0cfff953db86147063c6182ded6d54a8d37c0e65b"
+    },
+    "plainText": "Motion d'urgence adoptée : Réclamation d'un plan de délestage immédiat des flux de camions traversant Vitry-sur-Seine durant les épisodes de grève et de blocage d'Ivry."
   }
 ]

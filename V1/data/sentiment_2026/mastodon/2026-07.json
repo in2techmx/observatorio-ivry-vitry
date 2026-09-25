@@ -11,15 +11,18 @@
     "url": "https://mastodon.social/@syctom_officiel/112018",
     "content": "Étape clé sur le chantier Ivry/Paris XIII : Pose de la nouvelle travée DeNOx à réduction catalytique sélective. Réduction de 50% des rejets d'oxydes d'azote garantie dès l'automne. #Syctom #Ivry #Progrès",
     "laya": {
-      "sentimentScore": 0.4,
+      "sentimentScore": 0.261,
       "sentimentLabel": "POSITIVE",
       "primaryCategory": "GOVERNANCE",
       "secondaryCategories": [],
       "urgencyFlag": false,
+      "urgencyConfidence": 0,
       "processingTimeMs": 1,
-      "auditSignature": "d305c9a6cd96ac419bf32b84835d9cc8b7631ea2823d3b0785119fb96a7d1c2a",
-      "modelIdentifier": "laya-micro-v0.9.0-fr"
-    }
+      "modelIdentifier": "laya-micro-v1.0.0-fr",
+      "nonce": "ncobj58j",
+      "auditSignature": "aaf43f5711cd3097cc0c66e5fdceed04903e64dbfcd13f781472ac88bd62abca"
+    },
+    "plainText": "Étape clé sur le chantier Ivry/Paris XIII : Pose de la nouvelle travée DeNOx à réduction catalytique sélective. Réduction de 50% des rejets d'oxydes d'azote garantie dès l'automne. #Syctom #Ivry #Progrès"
   },
   {
     "id": "post_2026_mastodon_037",
@@ -33,15 +36,18 @@
     "url": "https://piaille.fr/@collectif3r/112019",
     "content": "Un filtre catalytique de plus ne résout pas la question des cendres toxiques et des résidus d'épuration (REFIOM) envoyés en décharge de classe 1. La vraie propreté, c'est de ne pas produire ces déchets. #Ivry",
     "laya": {
-      "sentimentScore": 0.4,
-      "sentimentLabel": "POSITIVE",
-      "primaryCategory": "ODOR",
+      "sentimentScore": -0.45,
+      "sentimentLabel": "NEGATIVE",
+      "primaryCategory": "HEALTH",
       "secondaryCategories": [],
       "urgencyFlag": false,
+      "urgencyConfidence": 0,
       "processingTimeMs": 1,
-      "auditSignature": "445889e8b000ff56d32d4ea64df5eb0ef560c26b60fb9f47ebabca4e428077fd",
-      "modelIdentifier": "laya-micro-v0.9.0-fr"
-    }
+      "modelIdentifier": "laya-micro-v1.0.0-fr",
+      "nonce": "c72m5k4i",
+      "auditSignature": "18281c0780d20217fe098e42f9d4a6e23449bc34ea531ca966d9b6d7227e943c"
+    },
+    "plainText": "Un filtre catalytique de plus ne résout pas la question des cendres toxiques et des résidus d'épuration (REFIOM) envoyés en décharge de classe 1. La vraie propreté, c'est de ne pas produire ces déchets. #Ivry"
   },
   {
     "id": "post_2026_mastodon_038",
@@ -57,12 +63,86 @@
     "laya": {
       "sentimentScore": 0,
       "sentimentLabel": "NEUTRAL",
-      "primaryCategory": "ODOR",
+      "primaryCategory": "UNCLASSIFIED",
       "secondaryCategories": [],
       "urgencyFlag": false,
+      "urgencyConfidence": 0,
       "processingTimeMs": 1,
-      "auditSignature": "b6b9631ed6316bb57f7ece4aaa79748e05f1c0f592842c19c8ae3edef827bc1b",
-      "modelIdentifier": "laya-micro-v0.9.0-fr"
+      "modelIdentifier": "laya-micro-v1.0.0-fr",
+      "nonce": "sy9etql0",
+      "auditSignature": "a6767498f95443552545a158fc2942a7bfac28ee61631cb10c88ea66e8f55889"
+    },
+    "plainText": "Travaux estivaux d'extension du réseau de chaleur : raccordement de 2 500 nouveaux logements sociaux d'Ivry et Vitry à l'énergie de récupération de l'UVE d'Ivry. Facture énergétique allégée de 15%. #Énergie"
+  },
+  {
+    "id": "masto_harv_202607_01",
+    "monthKey": "2026-07",
+    "network": "mastodon",
+    "date": "2026-07-10T10:30:00.000Z",
+    "author": "Eva Sas",
+    "handle": "@_EvaSas",
+    "url": "https://mastodon.social/@_EvaSas/115271254530899970",
+    "content": "<p>🚨 Le collectif 3R révèle la présence de PFAS, dans les filtres d’aération de 5 écoles primaires, toutes situées à - de 1 500 m de l’incinérateur d’Ivry-Paris XIII.</p><p>👉 L’ARS Île-de-France doit se saisir de ce sujet sans délai et faire toute la transparence, les parents d&#39;élèves doivent être informés.</p><p><a href=\"https://www.leparisien.fr/val-de-marne-94/court-on-un-risque-sanitaire-angoisse-face-aux-pfas-detectes-dans-des-ecoles-proches-de-lincinerateur-divry-24-09-2025-4G3H4LHZIJDALMILNUXQAVV7K4.php?xtor=AD-366\" target=\"_blank\" rel=\"nofollow noopener\" translate=\"no\"><span class=\"invisible\">https://www.</span><span class=\"ellipsis\">leparisien.fr/val-de-marne-94/</span><span class=\"invisible\">court-on-un-risque-sanitaire-angoisse-face-aux-pfas-detectes-dans-des-ecoles-proches-de-lincinerateur-divry-24-09-2025-4G3H4LHZIJDALMILNUXQAVV7K4.php?xtor=AD-366</span></a></p>",
+    "plainText": "🚨 Le collectif 3R révèle la présence de PFAS, dans les filtres d’aération de 5 écoles primaires, toutes situées à - de 1 500 m de l’incinérateur d’Ivry-Paris XIII. 👉 L’ARS Île-de-France doit se saisir de ce sujet sans délai et faire toute la transparence, les parents d'élèves doivent être informés. https://www. leparisien.fr/val-de-marne-94/ court-on-un-risque-sanitaire-angoisse-face-aux-pfas-detectes-dans-des-ecoles-proches-de-lincinerateur-divry-24-09-2025-4G3H4LHZIJDALMILNUXQAVV7K4.php?xtor=AD-366",
+    "laya": {
+      "sentimentScore": -0.45,
+      "sentimentLabel": "NEGATIVE",
+      "primaryCategory": "HEALTH",
+      "secondaryCategories": [
+        "GOVERNANCE"
+      ],
+      "urgencyFlag": false,
+      "urgencyConfidence": 0,
+      "processingTimeMs": 1,
+      "modelIdentifier": "laya-micro-v1.0.0-fr",
+      "nonce": "vm2lrdzp",
+      "auditSignature": "2deaabba395cf6a24cd81c2410a86e6ee619f8bef84dc533b6dc8bdd2a39f180"
+    }
+  },
+  {
+    "id": "masto_harv_202607_02",
+    "monthKey": "2026-07",
+    "network": "mastodon",
+    "date": "2026-07-16T12:30:00.000Z",
+    "author": "théorie :verified:",
+    "handle": "@burgervege@mamot.fr",
+    "url": "https://mamot.fr/@burgervege/110230152466336546",
+    "content": "<p>Vous mangez des œufs d'Île-de-France qui ne sont *pas* vendus dans le commerce ? L'Agence régionale de santé (ARS) conseille d'arrêter jusqu'à nouvel ordre. <a href=\"https://www.iledefrance.ars.sante.fr/polluants-organiques-persistants-lagence-recommande-titre-conservatoire-de-ne-pas-consommer-les\" rel=\"nofollow noopener\" target=\"_blank\"><span class=\"invisible\">https://www.</span><span class=\"ellipsis\">iledefrance.ars.sante.fr/pollu</span><span class=\"invisible\">ants-organiques-persistants-lagence-recommande-titre-conservatoire-de-ne-pas-consommer-les</span></a></p><p>Début 2022, le collectif 3R publiait une étude indépendante sur la pollution autour de l'incinérateur d'Ivry. Conclusion : entre autres pollutions, les œufs étaient contaminés.</p><p>Depuis l'ARS a lancé une contre-étude. Résultat : tous les œufs d'IDF hors circuit commercial sont à éviter en attendant plus de tests. <a href=\"https://mamot.fr/tags/IDF\" class=\"mention hashtag\" rel=\"nofollow noopener\" target=\"_blank\">#<span>IDF</span></a></p>",
+    "plainText": "Vous mangez des œufs d'Île-de-France qui ne sont *pas* vendus dans le commerce ? L'Agence régionale de santé (ARS) conseille d'arrêter jusqu'à nouvel ordre. https://www. iledefrance.ars.sante.fr/pollu ants-organiques-persistants-lagence-recommande-titre-conservatoire-de-ne-pas-consommer-les Début 2022, le collectif 3R publiait une étude indépendante sur la pollution autour de l'incinérateur d'Ivry. Conclusion : entre autres pollutions, les œufs étaient contaminés. Depuis l'ARS a lancé une contre-étude. Résultat : tous les œufs d'IDF hors circuit commercial sont à éviter en attendant plus de tests. # IDF",
+    "laya": {
+      "sentimentScore": -0.45,
+      "sentimentLabel": "NEGATIVE",
+      "primaryCategory": "HEALTH",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "urgencyConfidence": 0,
+      "processingTimeMs": 1,
+      "modelIdentifier": "laya-micro-v1.0.0-fr",
+      "nonce": "k5ag6zob",
+      "auditSignature": "c15ffe0f765cfe9f5a85341983b9def1136a05581d9baaa371460a15d8c89442"
+    }
+  },
+  {
+    "id": "masto_harv_202607_03",
+    "monthKey": "2026-07",
+    "network": "mastodon",
+    "date": "2026-07-22T14:30:00.000Z",
+    "author": "FRANOL Services",
+    "handle": "@franol@piaille.fr",
+    "url": "https://piaille.fr/@franol/114669757588652514",
+    "content": "<p>Dioxines à Ivry : un incinérateur sous haute surveillance - <a href=\"https://www.riskassur-hebdo.com/actu01/actu_auto.php?adr=1206251146\" rel=\"nofollow noopener\" translate=\"no\" target=\"_blank\"><span class=\"invisible\">https://www.</span><span class=\"ellipsis\">riskassur-hebdo.com/actu01/act</span><span class=\"invisible\">u_auto.php?adr=1206251146</span></a></p>",
+    "plainText": "Dioxines à Ivry : un incinérateur sous haute surveillance - https://www. riskassur-hebdo.com/actu01/act u_auto.php?adr=1206251146",
+    "laya": {
+      "sentimentScore": -0.45,
+      "sentimentLabel": "NEGATIVE",
+      "primaryCategory": "HEALTH",
+      "secondaryCategories": [],
+      "urgencyFlag": false,
+      "urgencyConfidence": 0,
+      "processingTimeMs": 1,
+      "modelIdentifier": "laya-micro-v1.0.0-fr",
+      "nonce": "4i543gr0",
+      "auditSignature": "cf49698f60a59cf156b2b1f97c3a058ff74589812efd6f2c360477b9ff639602"
     }
   }
 ]

@@ -3,9 +3,9 @@
   "project_name": "Observatorio de Gobernanza Ambiental Urbana y Percepción Pública (Ivry/Vitry)",
   "project_type": "Full-Stack GIS & Agentic BI Observatory",
   "workspace_path": "C:\\Users\\in2te\\.gemini\\antigravity\\scratch\\observatorio-ivry-vitry",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "status": "COMPLETADO Y VERIFICADO (3 GATES SUPERADOS)",
-  "last_updated": "2026-09-25T03:29:00",
+  "last_updated": "2026-09-25T03:35:00",
   "stages": [
     {
       "id": "stage-1",
