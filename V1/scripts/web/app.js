@@ -649,8 +649,101 @@ const SOCIAL_FALLBACK_CACHE = {
   ]
 };
 
+// ====================================================================
+// GESTION DU JETON MASTODON & RECHERCHE PLEIN TEXTE
+// ====================================================================
+
+const MASTODON_STORAGE_KEY = 'in2tech_mastodon_bearer_token';
+
+function getMastodonToken() {
+  if (typeof localStorage === 'undefined') return '';
+  return (localStorage.getItem(MASTODON_STORAGE_KEY) || '').trim();
+}
+
+function setMastodonToken(token) {
+  if (typeof localStorage === 'undefined') return;
+  if (token && token.trim()) {
+    localStorage.setItem(MASTODON_STORAGE_KEY, token.trim());
+  } else {
+    localStorage.removeItem(MASTODON_STORAGE_KEY);
+  }
+  updateTokenUI();
+}
+
+function updateTokenUI() {
+  const token = getMastodonToken();
+  const pill = document.getElementById('token-status-pill');
+  if (pill) {
+    if (token) {
+      pill.textContent = 'Active';
+      pill.classList.remove('inactive');
+      pill.title = 'Jeton d\'accès configuré et actif';
+    } else {
+      pill.textContent = 'Non configuré';
+      pill.classList.add('inactive');
+      pill.title = 'Cliquez pour configurer un jeton d\'accès';
+    }
+  }
+}
+
+function openTokenModal() {
+  const modal = document.getElementById('masto-token-modal');
+  const input = document.getElementById('input-masto-token');
+  if (modal) modal.classList.remove('hidden');
+  if (input) input.value = getMastodonToken();
+}
+
+function closeTokenModal() {
+  const modal = document.getElementById('masto-token-modal');
+  if (modal) modal.classList.add('hidden');
+}
+
+function saveMastodonToken() {
+  const input = document.getElementById('input-masto-token');
+  if (input) {
+    setMastodonToken(input.value);
+  }
+  closeTokenModal();
+}
+
+function clearMastodonToken() {
+  setMastodonToken('');
+  const input = document.getElementById('input-masto-token');
+  if (input) input.value = '';
+  closeTokenModal();
+}
+
+function applyQuickPhrase(phrase) {
+  const input = document.getElementById('social-keyword-input');
+  if (input) {
+    input.value = phrase;
+  }
+  executeKeywordSearch();
+}
+
+function executeKeywordSearch() {
+  const input = document.getElementById('social-keyword-input');
+  const query = (input ? input.value : '').trim();
+  if (!query) return;
+
+  // Deseleccionar píldoras de hashtag
+  const pills = document.querySelectorAll('#social-tag-pills .social-pill');
+  pills.forEach(p => p.classList.remove('active'));
+
+  loadSocialFeed(query, true);
+}
+
 function initSocialSentimentFeed() {
-  loadSocialFeed(APP_STATE.currentSocialTag || 'ivry');
+  updateTokenUI();
+  const searchInput = document.getElementById('social-keyword-input');
+  if (searchInput) {
+    searchInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        executeKeywordSearch();
+      }
+    });
+  }
+  loadSocialFeed(APP_STATE.currentSocialTag || 'ivry', false);
 }
 
 function setSocialFeedTag(tag) {
@@ -663,7 +756,9 @@ function setSocialFeedTag(tag) {
       p.classList.remove('active');
     }
   });
-  loadSocialFeed(tag);
+  const searchInput = document.getElementById('social-keyword-input');
+  if (searchInput) searchInput.value = '';
+  loadSocialFeed(tag, false);
 }
 
 function refreshCurrentSocialTag() {
@@ -672,7 +767,11 @@ function refreshCurrentSocialTag() {
     btn.textContent = '⏳ Actualisation...';
     btn.disabled = true;
   }
-  loadSocialFeed(APP_STATE.currentSocialTag || 'ivry').finally(() => {
+  const searchInput = document.getElementById('social-keyword-input');
+  const kw = searchInput ? searchInput.value.trim() : '';
+  const promise = kw ? loadSocialFeed(kw, true) : loadSocialFeed(APP_STATE.currentSocialTag || 'ivry', false);
+
+  promise.finally(() => {
     if (btn) {
       btn.textContent = '🔄 Actualiser le flux';
       btn.disabled = false;
@@ -680,33 +779,70 @@ function refreshCurrentSocialTag() {
   });
 }
 
-async function loadSocialFeed(tag) {
+async function loadSocialFeed(queryOrTag, isFullText = false) {
   const grid = document.getElementById('social-feed-grid');
   if (!grid) return;
 
+  const displayLabel = isFullText ? `Texte : "${queryOrTag}"` : `#${queryOrTag}`;
   grid.innerHTML = `
     <div class="social-loading-state">
       <div class="loading-spinner"></div>
-      <span>Interrogation du réseau Fediverse (#${tag}) et classification Laya en temps réel...</span>
+      <span>Interrogation du réseau Fediverse (${displayLabel}) et classification Laya en temps réel...</span>
     </div>
   `;
 
   try {
-    const { posts, source } = await fetchSocialFeed(tag);
+    const { posts, source } = await fetchSocialFeed(queryOrTag, isFullText);
     APP_STATE.socialFeedLoaded = true;
-    renderSocialFeed(posts, source, tag);
+    renderSocialFeed(posts, source, queryOrTag, isFullText);
   } catch (err) {
     console.error('Erreur lors du chargement du feed social:', err);
-    const fallbackPosts = SOCIAL_FALLBACK_CACHE[tag] || SOCIAL_FALLBACK_CACHE['ivry'] || [];
-    renderSocialFeed(fallbackPosts, 'cache', tag);
+    const fallbackPosts = SOCIAL_FALLBACK_CACHE['ivry'] || [];
+    renderSocialFeed(fallbackPosts, 'cache', queryOrTag, isFullText);
   }
 }
 
-async function fetchSocialFeed(tag) {
-  const cleanTag = encodeURIComponent(tag.toLowerCase().replace(/[^a-z0-9]/g, ''));
+async function fetchSocialFeed(queryOrTag, isFullText = false) {
+  // 1. Branche Recherche Plein Texte (Full-Text Search) avec API Mastodon v2
+  if (isFullText) {
+    const token = getMastodonToken();
+    const cleanQuery = encodeURIComponent(queryOrTag);
+    try {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 6000);
+      const headers = token ? { 'Authorization': 'Bearer ' + token } : {};
+      const resp = await fetch(`https://mastodon.social/api/v2/search?q=${cleanQuery}&type=statuses&limit=15`, {
+        headers,
+        signal: controller.signal
+      });
+      clearTimeout(timeoutId);
+      if (resp.ok) {
+        const data = await resp.json();
+        if (data.statuses && Array.isArray(data.statuses) && data.statuses.length > 0) {
+          return { posts: data.statuses, source: 'live' };
+        }
+      }
+    } catch (e) {
+      console.warn('Erreur recherche plein texte Mastodon.social:', e.message);
+    }
+
+    // Fallback recherche locale dans le cache certifié
+    const qLower = queryOrTag.toLowerCase();
+    const matchingFromCache = Object.values(SOCIAL_FALLBACK_CACHE)
+      .flat()
+      .filter(p => stripHtmlTags(p.content || '').toLowerCase().includes(qLower));
+
+    if (matchingFromCache.length > 0) {
+      return { posts: matchingFromCache, source: 'cache' };
+    }
+    return { posts: [], source: 'live' };
+  }
+
+  // 2. Branche Recherche par Hashtag (Standard Fediverse)
+  const cleanTag = encodeURIComponent(queryOrTag.toLowerCase().replace(/[^a-z0-9]/g, ''));
   let livePosts = [];
 
-  // 1. Essai primaire sur Piaille.fr (instance francophone ouverte CORS *)
+  // Essai primaire sur Piaille.fr
   try {
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), 4000);
@@ -724,7 +860,7 @@ async function fetchSocialFeed(tag) {
     console.warn(`Piaille fetch échoué pour #${cleanTag}, essai mastodon.social...`);
   }
 
-  // 2. Essai secondaire sur Mastodon.social si Piaille n'a rien renvoyé
+  // Essai secondaire sur Mastodon.social si Piaille n'a rien renvoyé
   if (livePosts.length === 0) {
     try {
       const controller = new AbortController();
@@ -744,9 +880,7 @@ async function fetchSocialFeed(tag) {
     }
   }
 
-  // Si on a des posts en direct
   if (livePosts.length > 0) {
-    // Si moins de 4 posts en direct, on complète avec le cache certifié pour un affichage dense et riche
     const cacheFallback = SOCIAL_FALLBACK_CACHE[cleanTag] || SOCIAL_FALLBACK_CACHE['ivry'] || [];
     if (livePosts.length < 4 && cacheFallback.length > 0) {
       const combined = [...livePosts, ...cacheFallback.slice(0, 4 - livePosts.length)];
@@ -755,19 +889,19 @@ async function fetchSocialFeed(tag) {
     return { posts: livePosts, source: 'live' };
   }
 
-  // 3. Fallback déterministe sur le cache certifié d'IN2TECHMX
   const fallback = SOCIAL_FALLBACK_CACHE[cleanTag] || SOCIAL_FALLBACK_CACHE['ivry'] || [];
   return { posts: fallback, source: 'cache' };
 }
 
-function renderSocialFeed(posts, source, tag) {
+function renderSocialFeed(posts, source, queryOrTag, isFullText = false) {
   const grid = document.getElementById('social-feed-grid');
   if (!grid) return;
 
   if (!posts || posts.length === 0) {
+    const label = isFullText ? `le terme « ${escapeHtmlChars(queryOrTag)} »` : `le tag <strong>#${escapeHtmlChars(queryOrTag)}</strong>`;
     grid.innerHTML = `
       <div class="social-loading-state">
-        <p>Aucune publication trouvée pour le tag <strong>#${tag}</strong>.</p>
+        <p>Aucune publication trouvée pour ${label}.</p>
         <button class="social-pill" onclick="setSocialFeedTag('ivry')">Revenir à #Ivry</button>
       </div>
     `;
@@ -828,7 +962,10 @@ function renderSocialFeed(posts, source, tag) {
 
   const tagEl = document.getElementById('sm-active-tag');
   if (tagEl) {
-    tagEl.innerText = `Tag : #${tag} (${source === 'live' ? '● En direct' : '📁 Cache certifié'})`;
+    const originLabel = source === 'live' ? '● En direct' : '📁 Cache certifié';
+    tagEl.innerText = isFullText 
+      ? `Recherche : "${queryOrTag}" (${originLabel})` 
+      : `Tag : #${queryOrTag} (${originLabel})`;
   }
 
   const polarityEl = document.getElementById('sm-polarity');
