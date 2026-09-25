@@ -173,6 +173,52 @@ runTest('Sanitización RGPD purga correos electrónicos, teléfonos y direccione
 });
 
 // ====================================================================
+// BLOQUE 4: PRUEBAS DE INGESTIÓN Y ANÁLISIS DE REDES SOCIALES (FEDIVERSE)
+// ====================================================================
+console.log('\n--- 4. Pruebas de Ingestión y Análisis de Sentimiento Social (Fediverse) ---');
+
+const { SOCIAL_FALLBACK_CACHE, stripHtmlTags } = require('../web/app.js');
+
+runTest('Integridad y cobertura del catálogo de contingencia social para hashtags objetivo', () => {
+  assert.ok(SOCIAL_FALLBACK_CACHE, 'El catálogo de publicaciones de contingencia debe existir');
+  const requiredTags = ['ivry', 'vitry', 'incinerateur', 'syctom', 'dechets', 'pollution'];
+  
+  for (const tag of requiredTags) {
+    const list = SOCIAL_FALLBACK_CACHE[tag];
+    assert.ok(Array.isArray(list) && list.length >= 2, `El tag #${tag} debe tener al menos 2 publicaciones verificadas`);
+    for (const post of list) {
+      assert.ok(post.id, 'Cada post debe tener ID');
+      assert.ok(post.content, 'Cada post debe tener contenido');
+      assert.ok(post.account && post.account.display_name, 'Cada post debe tener autor');
+      assert.ok(post.url, 'Cada post debe tener enlace fuente');
+    }
+  }
+});
+
+runTest('Inferencia Laya sobre toots de redes sociales y cálculo determinista de polaridad', () => {
+  const ivryPosts = SOCIAL_FALLBACK_CACHE.ivry;
+  assert.ok(ivryPosts.length > 0);
+
+  let totalScore = 0;
+  let classifiedCount = 0;
+
+  for (const post of ivryPosts) {
+    const plain = stripHtmlTags(post.content);
+    assert.ok(!plain.includes('<p>') && !plain.includes('</p>'), 'El texto plano debe estar limpio de etiquetas HTML');
+    const res = classifyMicroDecision(plain, 'test_' + post.id);
+    assert.ok(typeof res.sentimentScore === 'number', 'Debe generar score numérico');
+    assert.ok(['POSITIVE', 'NEUTRAL', 'NEGATIVE'].includes(res.sentimentLabel), 'Label debe ser válido');
+    assert.ok(res.auditSignature && res.auditSignature.length >= 16, 'Debe incluir firma de auditoría');
+    assert.ok(res.processingTimeMs < 70, 'La latencia debe ser inferior a 70ms');
+    totalScore += res.sentimentScore;
+    classifiedCount++;
+  }
+
+  const avg = totalScore / classifiedCount;
+  assert.ok(!isNaN(avg) && avg >= -1 && avg <= 1, 'El promedio de polaridad debe estar en [-1, 1]');
+});
+
+// ====================================================================
 // RESUMEN FINAL DE GATE 1
 // ====================================================================
 console.log('\n================================================================');

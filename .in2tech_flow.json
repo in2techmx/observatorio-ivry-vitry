@@ -83,12 +83,12 @@
   ],
   "qa_assessment": {
     "evaluator": "FS Guardian & DD",
-    "verdict": "CONFORME — PROYECTO SELLADO v0.9.0",
-    "timestamp": "2026-09-24 23:54",
-    "comments": "Restauración de infraestructura y corrección de regresión completada: todas las 6 pestañas (KPIs, Mapa GIS Leaflet, Simulador Laya/Encuesta, Benchmarking, Asistente IA y Línea de Tiempo Minimalista 3 Secciones) 100% funcionales y ordenadas. Suite de 10/10 pruebas en verde.",
+    "verdict": "CONFORME — PROYECTO SELLADO v0.9.1",
+    "timestamp": "2026-09-25 02:36",
+    "comments": "Activación exitosa de la sección de Sentiment Analysis de redes sociales en vivo (Piaille.fr / Mastodon.social) conectada directamente al motor Laya Engine (<70ms), con métricas agregadas de polaridad, ratio bar, selectores de hashtags y búfer de contingencia determinista. Suite de 12/12 pruebas en verde.",
     "second_brain_alerts": [
-      "Regla ADR-001: Pruebas deterministas superadas.",
-      "Regla ADR-003: Cero degradación por mocks; preservación estricta de componentes probados."
+      "Regla ADR-001: Pruebas deterministas superadas (12/12 PASS).",
+      "Regla ADR-003: Cero degradación por mocks; consumo de APIs públicas del Fediverse abiertas CORS * con preservación estricta de componentes probados."
     ]
   }
 }

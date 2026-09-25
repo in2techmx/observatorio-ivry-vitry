@@ -156,6 +156,80 @@
 
       <!-- PESTAÑA 3: CENTRO DE SENTIMIENTO Y ENCUESTAS -->
       <section id="tab-sentiment" class="tab-panel">
+        <!-- SECCIÓN 1: VEILLE & ANALYSE DE SENTIMENT EN DIRECT (RÉSEAUX SOCIAUX / FEDIVERSE) -->
+        <div class="social-feed-container">
+          <div class="social-feed-header">
+            <div class="social-header-info">
+              <div class="social-title-row">
+                <h3>Veille & Analyse de Sentiment en Direct (Fediverse / Mastodon)</h3>
+                <span class="live-status-pill">
+                  <span class="live-dot-green"></span> Flux Ouvert &bull; Piaille.fr / Mastodon
+                </span>
+              </div>
+              <p class="social-header-subtitle">
+                Ingestion des flux citoyens en temps réel et inférence probabiliste via le moteur <strong>Laya Engine</strong> (&lt; 70 ms) : calcul de polarité, catégorisation thématique, détection d'alertes d'urgence et scellage HMAC-SHA256.
+              </p>
+            </div>
+
+            <div class="social-controls-row">
+              <div class="social-tag-pills" id="social-tag-pills">
+                <button class="social-pill active" onclick="setSocialFeedTag('ivry')">#Ivry</button>
+                <button class="social-pill" onclick="setSocialFeedTag('vitry')">#Vitry</button>
+                <button class="social-pill" onclick="setSocialFeedTag('incinerateur')">#Incinérateur</button>
+                <button class="social-pill" onclick="setSocialFeedTag('syctom')">#Syctom</button>
+                <button class="social-pill" onclick="setSocialFeedTag('dechets')">#Déchets</button>
+                <button class="social-pill" onclick="setSocialFeedTag('pollution')">#Pollution</button>
+              </div>
+              <button class="social-refresh-btn" id="social-refresh-btn" onclick="refreshCurrentSocialTag()">
+                🔄 Actualiser le flux
+              </button>
+            </div>
+          </div>
+
+          <!-- Métricas de Resumen del Feed Social -->
+          <div class="social-metrics-strip">
+            <div class="social-metric-card">
+              <span class="sm-label">Publications Analysées</span>
+              <span class="sm-value" id="sm-count">0</span>
+              <span class="sm-sub" id="sm-active-tag">Tag : #ivry</span>
+            </div>
+            <div class="social-metric-card">
+              <span class="sm-label">Score de Polarité Moyen</span>
+              <span class="sm-value" id="sm-polarity">0.00</span>
+              <span class="sm-sub" id="sm-polarity-label">Neutre</span>
+            </div>
+            <div class="social-metric-card">
+              <span class="sm-label">Ratio d'Urgence Détectée</span>
+              <span class="sm-value" id="sm-urgency">0%</span>
+              <span class="sm-sub">Filtre HITL Santé/Odeur</span>
+            </div>
+            <div class="social-metric-card ratio-card">
+              <div class="social-ratio-legend">
+                <span class="kpi-chip-sm pour">🟢 Positif : <strong id="sm-pct-pos">0%</strong></span>
+                <span class="kpi-chip-sm neutre">⚪ Neutre : <strong id="sm-pct-neu">0%</strong></span>
+                <span class="kpi-chip-sm contre">🔴 Négatif : <strong id="sm-pct-neg">0%</strong></span>
+              </div>
+              <div class="social-ratio-track">
+                <div class="s-seg s-seg-pos" id="sm-seg-pos" style="width: 0%;"></div>
+                <div class="s-seg s-seg-neu" id="sm-seg-neu" style="width: 0%;"></div>
+                <div class="s-seg s-seg-neg" id="sm-seg-neg" style="width: 0%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Grid de publicaciones sociales clasificadas -->
+          <div class="social-feed-grid" id="social-feed-grid">
+            <div class="social-loading-state">
+              <div class="loading-spinner"></div>
+              <span>Connexion au réseau Fediverse et inférence Laya en cours...</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-divider">
+          <span>Outils de Diagnostic Complémentaires</span>
+        </div>
+
         <div class="sentiment-layout">
           <!-- Simulador de Micro-Decisión Laya -->
           <div class="card">
