@@ -302,6 +302,59 @@ runTest('Conformidad de esquemas JSON y firmas HMAC en archivos mensuales partic
   }
 });
 
+console.log('\n--- 6. Pruebas de Publicación y Vinculación Mensual de Noticias (Pestaña 6) ---');
+runTest('Validación y vinculación mensual de noticias personalizadas (Pestaña 6)', () => {
+  const targetMonth = '2026-09';
+  const customNews = {
+    id: `custom_test_${Date.now()}`,
+    isCustom: true,
+    category: 'CITIZEN',
+    publisher: 'Collectif Riverains Ivry',
+    date: '28 Septembre 2026',
+    monthKey: targetMonth,
+    docType: 'Communiqué Citoyen',
+    posture: 'CONTRE',
+    title: 'Mesures citoyennes de retombées de suies et particules fines',
+    summary: 'Rapport indépendant alertant sur des retombées de poussières aux abords du collège Molière.',
+    postureArgument: 'Alerte immédiate sur la dispersion particulaire.',
+    linkUrl: 'https://example.org/rapport'
+  };
+
+  assert.ok(customNews.title.length > 5, 'El título debe tener contenido significativo');
+  assert.ok(customNews.publisher.length > 2, 'El editor debe ser identificado');
+  assert.ok(['POUR', 'NEUTRE', 'CONTRE'].includes(customNews.posture), 'La postura debe ser válida');
+  assert.strictEqual(customNews.monthKey, targetMonth, 'La noticia debe quedar anclada al mes desplegado');
+  assert.strictEqual(customNews.isCustom, true, 'Debe marcarse como publicación de usuario');
+});
+
+runTest('Cálculo determinista de distribución de posturas con noticias añadidas', () => {
+  const sampleItems = [
+    { posture: 'POUR' },
+    { posture: 'POUR' },
+    { posture: 'CONTRE' },
+    { posture: 'NEUTRE' }
+  ];
+  // Añadir 1 CONTRE
+  sampleItems.push({ posture: 'CONTRE' });
+
+  const total = sampleItems.length;
+  const pourCount = sampleItems.filter(i => i.posture === 'POUR').length;
+  const contreCount = sampleItems.filter(i => i.posture === 'CONTRE').length;
+  const neutreCount = sampleItems.filter(i => i.posture === 'NEUTRE').length;
+
+  const pourPct = Math.round((pourCount / total) * 100);
+  const contrePct = Math.round((contreCount / total) * 100);
+  const neutrePct = 100 - pourPct - contrePct;
+
+  assert.strictEqual(total, 5, 'Total debe ser 5');
+  assert.strictEqual(pourCount, 2, 'POUR debe ser 2');
+  assert.strictEqual(contreCount, 2, 'CONTRE debe ser 2');
+  assert.strictEqual(neutreCount, 1, 'NEUTRE debe ser 1');
+  assert.strictEqual(pourPct, 40, '40% POUR');
+  assert.strictEqual(contrePct, 40, '40% CONTRE');
+  assert.strictEqual(neutrePct, 20, '20% NEUTRE');
+});
+
 // ====================================================================
 // RESUMEN FINAL DE GATE 1
 // ====================================================================

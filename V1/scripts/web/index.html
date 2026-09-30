@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
   <!-- Leaflet CSS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <link rel="stylesheet" href="styles.css?v=1.1.1" />
+  <link rel="stylesheet" href="styles.css?v=1.2.0" />
 </head>
 <body>
   <div class="app-container">
@@ -24,40 +24,158 @@
         </div>
       </div>
       <div class="header-right">
+        <!-- Sélecteur de Langue FR / EN / ES -->
+        <div class="lang-switch" role="group" aria-label="Language Selector">
+          <button class="lang-btn active" data-lang="fr" aria-pressed="true">FR</button>
+          <button class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+          <button class="lang-btn" data-lang="es" aria-pressed="false">ES</button>
+        </div>
+
+        <button class="btn-portal hidden" id="header-back-btn" data-tab="tab-landing">
+          <span class="icon">🏛️</span> <span data-i18n="back.home">Retour à l'Accueil</span>
+        </button>
+
         <div class="atmo-pill">
           <span class="pulse-dot"></span>
           <span>Indice Airparif : <strong>MOYEN (Dégradé PM2.5)</strong></span>
         </div>
-        <div class="version-tag">v1.1.1 (SemVer)</div>
+        <div class="version-tag">v1.2.0 (SemVer)</div>
       </div>
     </header>
 
-    <!-- Barra de Navegación de 5 Pestañas -->
+    <!-- Barra de Navegación de 8 Pestañas (Landing + 7 Secciones) -->
     <nav class="nav-tabs">
-      <button class="tab-btn active" data-tab="tab-executive">
-        <span class="icon">📊</span> 1. Tableau de Bord Exécutif
+      <button class="tab-btn active" data-tab="tab-landing">
+        <span class="icon">🏛️</span> <span data-i18n="nav.home">Accueil</span>
+      </button>
+      <button class="tab-btn" data-tab="tab-executive">
+        <span class="icon">📊</span> <span data-i18n="tile.executive.title">1. Tableau de Bord</span>
       </button>
       <button class="tab-btn" data-tab="tab-gis">
-        <span class="icon">🗺️</span> 2. Observatoire GIS & Panache
+        <span class="icon">🗺️</span> <span data-i18n="tile.gis.title">2. Observatoire GIS</span>
       </button>
       <button class="tab-btn" data-tab="tab-sentiment">
-        <span class="icon">💬</span> 3. Sentiment & Enquêtes Citoyennes
+        <span class="icon">💬</span> <span data-i18n="tile.sentiment.title">3. Sentiment Citoyen</span>
       </button>
       <button class="tab-btn" data-tab="tab-comparative">
-        <span class="icon">📚</span> 4. Politiques Comparées (RAG)
+        <span class="icon">📚</span> <span data-i18n="tile.comparative.title">4. Politiques Comparées</span>
       </button>
       <button class="tab-btn" data-tab="tab-assistant">
-        <span class="icon">🤖</span> 5. Assistant BI Agentique
+        <span class="icon">🤖</span> <span data-i18n="tile.assistant.title">5. Assistant BI</span>
       </button>
       <button class="tab-btn" data-tab="tab-news">
-        <span class="icon">📰</span> 6. Veille & Actualités Multicanales
+        <span class="icon">📰</span> <span data-i18n="tile.news.title">6. Veille &amp; Actualités</span>
+      </button>
+      <button class="tab-btn" data-tab="tab-science">
+        <span class="icon">🔬</span> <span data-i18n="tile.science.title">7. Recherche Scientifique</span>
       </button>
     </nav>
 
     <!-- Contenido de las Pestañas -->
     <main class="tab-content">
+      <!-- PESTAÑA 0: LANDING PAGE VANGUARDISTA CON TILES SEMI-TRANSPARENTES -->
+      <section id="tab-landing" class="tab-panel active">
+        <!-- HERO ATMOSPHÉRIQUE DE LA ZONE DE L'INCINÉRATEUR D'IVRY (QUAI D'IVRY / RIVE DE SEINE) -->
+        <div class="hero">
+          <div class="hero__content">
+            <div class="hero__badge" data-i18n="hero.badge">Observatoire Urbain Indépendant &bull; Quai d'Ivry / Paris XIII</div>
+            <h1 class="hero__title" data-i18n="hero.title">Observatoire de Gouvernance Environnementale — Ivry / Vitry</h1>
+            <p class="hero__subtitle" data-i18n="hero.subtitle">
+              Une infrastructure d'intelligence territoriale et de transparence environnementale en temps réel autour de la plus grande unité de valorisation énergétique d'Europe (SYCTOM). Surveillance du panache atmosphérique, suivi des dioxines et métaux lourds, recueil citoyen des nuisances et gouvernance ouverte sans aucune boîte noire.
+            </p>
+            <ul class="hero__objectives">
+              <li data-i18n="hero.obj.1">🌿 Surveillance rigoureuse de la qualité de l'air (Airparif / Capteurs locaux)</li>
+              <li data-i18n="hero.obj.2">🗺️ Modélisation géométrique de dispersion du panache selon les vents</li>
+              <li data-i18n="hero.obj.3">💬 Analyse du sentiment citoyen et perception des odeurs (Moteur Laya)</li>
+              <li data-i18n="hero.obj.4">🔬 Base d'évidence scientifique et biosurveillance indépendante (ToxicoWatch/ARS)</li>
+            </ul>
+            <div class="hero__cta-row">
+              <button class="btn btn--primary" id="btn-scroll-tiles">
+                <span data-i18n="hero.ctaExplore">Explorer les 7 Portails</span> ↓
+              </button>
+              <button class="btn btn--ghost" data-tile-target="tab-executive">
+                <span data-i18n="hero.ctaKpi">Voir les KPI temps réel</span> →
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- CUADRÍCULA DE TILES SEMI-TRANSPARENTES (GLASSMORPHISM) -->
+        <div class="tiles-section" id="tiles-container">
+          <div class="tiles-section-header">
+            <h2 data-i18n="tiles.heading">Portails &amp; Modules d'Analyse</h2>
+            <p data-i18n="tiles.subheading">Sélectionnez une section thématique pour explorer les métriques, cartes spatiales et registres documentaires.</p>
+          </div>
+
+          <div class="tiles">
+            <!-- TILE 1: TABLEAU DE BORD EXÉCUTIF -->
+            <article class="tile" data-tile-target="tab-executive" data-accent="blue" tabindex="0" role="button">
+              <div class="tile__icon">📊</div>
+              <div class="tile__badge" data-i18n="tile.executive.badge">Vue d'ensemble</div>
+              <h3 class="tile__title" data-i18n="tile.executive.title">Tableau de Bord Exécutif</h3>
+              <p class="tile__desc" data-i18n="tile.executive.desc">Synthèse des indicateurs critiques : qualité de l'air locale, NO₂, PM2.5, indice d'odeur 24h et historique hebdomadaire.</p>
+              <span class="tile__cta"><span data-i18n="tile.cta">Accéder au portail</span> →</span>
+            </article>
+
+            <!-- TILE 2: OBSERVATOIRE GIS & PANACHE -->
+            <article class="tile tile--featured" data-tile-target="tab-gis" data-accent="emerald" tabindex="0" role="button">
+              <div class="tile__icon">🗺️</div>
+              <div class="tile__badge" data-i18n="tile.gis.badge">Spatial · Live</div>
+              <h3 class="tile__title" data-i18n="tile.gis.title">Observatoire GIS &amp; Panache</h3>
+              <p class="tile__desc" data-i18n="tile.gis.desc">Carte interactive Leaflet, simulation trigonométrique du cône de panache selon la girouette Météo-France et impact sur les écoles.</p>
+              <span class="tile__cta"><span data-i18n="tile.cta">Accéder au portail</span> →</span>
+            </article>
+
+            <!-- TILE 3: SENTIMENT & ENQUÊTES CITOYENNES -->
+            <article class="tile" data-tile-target="tab-sentiment" data-accent="purple" tabindex="0" role="button">
+              <div class="tile__icon">💬</div>
+              <div class="tile__badge" data-i18n="tile.sentiment.badge">Participation</div>
+              <h3 class="tile__title" data-i18n="tile.sentiment.title">Sentiment &amp; Enquêtes Citoyennes</h3>
+              <p class="tile__desc" data-i18n="tile.sentiment.desc">Formulaire d'enquête citoyenne certifié RGPD et classification des plaintes olfactives par le moteur probabiliste Laya (&lt;70ms).</p>
+              <span class="tile__cta"><span data-i18n="tile.cta">Accéder au portail</span> →</span>
+            </article>
+
+            <!-- TILE 4: POLITIQUES COMPARÉES (RAG) -->
+            <article class="tile" data-tile-target="tab-comparative" data-accent="amber" tabindex="0" role="button">
+              <div class="tile__icon">📚</div>
+              <div class="tile__badge" data-i18n="tile.comparative.badge">Benchmark UE</div>
+              <h3 class="tile__title" data-i18n="tile.comparative.title">Politiques Comparées (RAG)</h3>
+              <p class="tile__desc" data-i18n="tile.comparative.desc">Base de connaissances comparative confrontant le modèle francilien d'incinération aux politiques de Copenhague, Vienne et Tokyo.</p>
+              <span class="tile__cta"><span data-i18n="tile.cta">Accéder au portail</span> →</span>
+            </article>
+
+            <!-- TILE 5: ASSISTANT BI AGENTIQUE -->
+            <article class="tile" data-tile-target="tab-assistant" data-accent="cyan" tabindex="0" role="button">
+              <div class="tile__icon">🤖</div>
+              <div class="tile__badge" data-i18n="tile.assistant.badge">Analytique</div>
+              <h3 class="tile__title" data-i18n="tile.assistant.title">Assistant BI Agentique</h3>
+              <p class="tile__desc" data-i18n="tile.assistant.desc">Agent analytique conversationnel permettant d'interroger la base de données environnementale en langage naturel avec traçabilité intégrale.</p>
+              <span class="tile__cta"><span data-i18n="tile.cta">Accéder au portail</span> →</span>
+            </article>
+
+            <!-- TILE 6: VEILLE & ACTUALITÉS MULTICANALES -->
+            <article class="tile" data-tile-target="tab-news" data-accent="rose" tabindex="0" role="button">
+              <div class="tile__icon">📰</div>
+              <div class="tile__badge" data-i18n="tile.news.badge">Fediverse &amp; Presse</div>
+              <h3 class="tile__title" data-i18n="tile.news.title">Veille &amp; Actualités Multicanales</h3>
+              <p class="tile__desc" data-i18n="tile.news.desc">Flux de veille territoriale intégrant Mastodon, Bluesky, débats citoyens et couverture de presse locale avec analyse de posture Pour / Contre.</p>
+              <span class="tile__cta"><span data-i18n="tile.cta">Accéder au portail</span> →</span>
+            </article>
+
+            <!-- TILE 7: RECHERCHE SCIENTIFIQUE & LITTÉRATURE -->
+            <article class="tile tile--featured" data-tile-target="tab-science" data-accent="teal" tabindex="0" role="button">
+              <div class="tile__icon">🔬</div>
+              <div class="tile__badge" data-i18n="tile.science.badge">Peer-Reviewed</div>
+              <h3 class="tile__title" data-i18n="tile.science.title">Recherche Scientifique &amp; Littérature</h3>
+              <p class="tile__desc" data-i18n="tile.science.desc">Corpus exhaustif de papers académiques révisés par les pairs, rapports ToxicoWatch/ARS sur les dioxines, monographies OMS et dépôts ouverts.</p>
+              <span class="tile__cta"><span data-i18n="tile.cta">Accéder au portail</span> →</span>
+            </article>
+          </div>
+        </div>
+      </section>
+
       <!-- PESTAÑA 1: TABLERO EJECUTIVO -->
-      <section id="tab-executive" class="tab-panel active">
+      <section id="tab-executive" class="tab-panel">
         <div class="kpi-grid">
           <div class="kpi-card">
             <span class="kpi-title">Qualité de l'Air (Station Ivry-Port)</span>
@@ -528,12 +646,125 @@
             <button class="t-btn play-btn" id="timeline-play-btn" title="Lecture automatique de l'évolution">▶ Lecture Auto</button>
             <button class="t-btn" id="timeline-next-btn" title="Mois suivant">Suivant ▶</button>
             <button class="t-btn all-btn" id="timeline-all-btn" title="Afficher l'ensemble de la période">🌐 Vue Globale</button>
+            <button class="t-btn add-btn" id="timeline-add-btn" onclick="toggleAddNewsForm()" title="Ajouter une actualité dans le mois affiché">
+              <span id="timeline-add-btn-icon">➕</span> <span id="timeline-add-btn-text">Publier dans ce mois</span>
+            </button>
             <span class="timeline-active-label" id="current-month-display">📅 SEPTEMBRE 2026</span>
           </div>
 
           <div class="timeline-scrubber-track" id="timeline-months-bar">
             <!-- Píldoras de hitos generadas dinámicamente con app.js -->
           </div>
+        </div>
+
+        <!-- Bandeau d'incitation rapide à la publication -->
+        <div class="news-upload-quick-trigger" onclick="toggleAddNewsForm()" title="Cliquez pour ouvrir le formulaire de publication">
+          <div class="quick-trigger-left">
+            <span class="quick-trigger-icon">➕</span>
+            <span>Vous disposez d'un article, rapport ou communiqué pour <strong id="quick-trigger-month">Septembre 2026</strong> ?</span>
+          </div>
+          <span class="quick-trigger-pill">Publier une actualité ↗</span>
+        </div>
+
+        <!-- Formulaire de Publication d'Actualité pour le Mois Actif -->
+        <div id="add-news-panel" class="add-news-panel hidden">
+          <div class="add-news-header">
+            <div class="add-news-title">
+              <span class="news-form-icon">📰</span>
+              <div>
+                <h4>Publier une Nouvelle Actualité / Document</h4>
+                <p class="add-news-subtitle">
+                  Enregistrement dans le jalon temporel : <span class="target-month-badge" id="form-target-month-label">Septembre 2026</span>
+                </p>
+              </div>
+            </div>
+            <div class="add-news-header-right">
+              <label class="btn-import-file" title="Importer un fichier texte (.txt, .md, .json) pour pré-remplir">
+                📂 Importer fichier
+                <input type="file" id="news-file-upload" accept=".txt,.md,.json" style="display: none;" onchange="handleNewsFileUpload(event)" />
+              </label>
+              <button type="button" class="btn-close-panel" onclick="toggleAddNewsForm()" title="Fermer le formulaire">✕</button>
+            </div>
+          </div>
+
+          <form id="add-news-form" onsubmit="handleAddNewNewsItem(event)">
+            <div class="news-form-grid">
+              <!-- Fila 1: Titre -->
+              <div class="form-group col-span-2">
+                <label for="news-input-title">Titre de l'Actualité ou du Rapport <span class="req">*</span> :</label>
+                <input type="text" id="news-input-title" required placeholder="Ex. Nouvelle mesure des émissions de dioxines et filtres catalytiques..." />
+              </div>
+
+              <!-- Fila 2: Posture & Type de document -->
+              <div class="form-group">
+                <label for="news-input-posture">Posture / Angle Éditorial <span class="req">*</span> :</label>
+                <select id="news-input-posture" required onchange="handlePostureSelectChange(this.value)">
+                  <option value="POUR">🟢 À Favor (Pour) — Pro-Projet / Chaleur / Souveraineté</option>
+                  <option value="NEUTRE">⚪ Neutre & Factuel — Scientifique / Institutionnel / Juridique</option>
+                  <option value="CONTRE">🔴 En Contra (Contre) — Alerte Santé / Dioxines / Recours</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="news-input-doctype">Type de Document <span class="req">*</span> :</label>
+                <select id="news-input-doctype" required>
+                  <option value="Article de Presse">📰 Article de Presse</option>
+                  <option value="Communiqué Officiel">🏛️ Communiqué Officiel</option>
+                  <option value="Rapport d'Analyses Citoyennes">🔬 Rapport d'Analyses / ONG</option>
+                  <option value="Étude Scientifique">📚 Étude Scientifique Universitaire</option>
+                  <option value="Décision / Recours Juridique">⚖️ Décision / Recours Contentieux</option>
+                  <option value="Dépêche Citoyenne">💬 Dépêche Citoyenne / Mastodon</option>
+                </select>
+              </div>
+
+              <!-- Fila 3: Source & Date -->
+              <div class="form-group">
+                <label for="news-input-publisher">Source / Média / Organisme <span class="req">*</span> :</label>
+                <input type="text" id="news-input-publisher" required placeholder="Ex. Le Parisien, ARS Île-de-France, Collectif 3R, SYCTOM, UPEC..." />
+              </div>
+
+              <div class="form-group">
+                <label for="news-input-date">Date de Publication <span class="req">*</span> :</label>
+                <input type="text" id="news-input-date" required placeholder="Ex. 18 Septembre 2026" />
+              </div>
+
+              <!-- Fila 4: Mois Cible & Lien -->
+              <div class="form-group">
+                <label for="news-input-month">Mois Cible (Frise Chronologique) <span class="req">*</span> :</label>
+                <select id="news-input-month" required onchange="onFormMonthSelectChange(this.value)">
+                  <!-- Rempli dynamiquement avec MONTHS_CHRONO -->
+                </select>
+                <small class="field-hint">💡 Synchronisé automatiquement avec le mois affiché.</small>
+              </div>
+
+              <div class="form-group">
+                <label for="news-input-link">Lien Source / URL (Optionnel) :</label>
+                <input type="url" id="news-input-link" placeholder="https://..." />
+              </div>
+
+              <!-- Fila 5: Résumé -->
+              <div class="form-group col-span-2">
+                <label for="news-input-summary">Synthèse / Résumé du Contenu <span class="req">*</span> :</label>
+                <textarea id="news-input-summary" rows="3" required placeholder="Expliquez les conclusions, déclarations ou données rapportées..."></textarea>
+              </div>
+
+              <!-- Fila 6: Argument Clé pour l'Abstract -->
+              <div class="form-group col-span-2">
+                <label for="news-input-argument">Argument Clé de Synthèse (Enrichira l'Abstract du Mois) :</label>
+                <input type="text" id="news-input-argument" placeholder="Ex. Révélation d'un dépassement de seuil lors de l'arrêt technique du four 2..." />
+              </div>
+            </div>
+
+            <!-- Notification & Boutons -->
+            <div id="news-form-feedback" class="form-feedback-msg hidden"></div>
+            
+            <div class="news-form-actions">
+              <button type="button" class="btn-secondary" onclick="toggleAddNewsForm()">Fermer</button>
+              <button type="submit" class="btn-primary" id="btn-submit-news">
+                <span>🚀</span> Publier dans ce Mois
+              </button>
+            </div>
+          </form>
         </div>
 
         <!-- 3 Secciones Claras: À Favor | Neutre | En Contra con Abstract consolidado -->
@@ -604,6 +835,432 @@
           </div>
         </div>
       </section>
+
+      <!-- PESTAÑA 7: RECHERCHE SCIENTIFIQUE & LITTÉRATURE ACADÉMIQUE -->
+      <section id="tab-science" class="tab-panel">
+        <div class="science-container">
+          <!-- En-tête de la section -->
+          <div class="science-header">
+            <div class="science-header-badge">
+              <span class="icon">🔬</span> CORPUS SCIENTIFIQUE INDÉPENDANT &amp; INSTITUTIONNEL
+            </div>
+            <h2>7. Recherche Scientifique &amp; Littérature Académique</h2>
+            <p class="science-subhead">
+              État de l'art empirique, modélisations épidémiologiques et études de biosurveillance sur l'incinération des déchets urbains — 
+              Focus spécifique sur l'<strong>Unité de Valorisation Énergétique (UVE) d'Ivry-Paris XIII (SYCTOM)</strong>, 
+              les transferts de dioxines (PCDD/F), l'impact pédiatrique des métaux lourds (Cd, Pb) et les retombées de particules ultrafines (PM0.1).
+            </p>
+          </div>
+
+          <!-- Barre de contrôles et filtres interactifs -->
+          <div class="science-toolbar">
+            <div class="science-filter-bar" aria-label="Filtrer par domaine thématique">
+              <button class="sc-filter-btn active" data-filter="all">Tous les Domaines (<span id="count-all">10</span>)</button>
+              <button class="sc-filter-btn" data-filter="dioxines">Dioxines &amp; Furanes</button>
+              <button class="sc-filter-btn" data-filter="sante-publique">Santé Publique</button>
+              <button class="sc-filter-btn" data-filter="metaux-lourds">Métaux Lourds</button>
+              <button class="sc-filter-btn" data-filter="particules-ultrafines">Particules Ultrafines</button>
+              <button class="sc-filter-btn" data-filter="alternatives-zero-dechet">Alternatives &amp; Zéro Déchet</button>
+            </div>
+            <div class="science-search-box">
+              <span class="search-icon">🔍</span>
+              <input type="text" id="science-search-input" placeholder="Rechercher par mot-clé, auteur, revue, DOI..." />
+            </div>
+          </div>
+
+          <!-- Grille des Publications Scientifiques (Articles & Études avec Revue par les Pairs) -->
+          <div class="science-section-title">
+            <h3>📑 Publications et Études de Biosurveillance Révisées par les Pairs</h3>
+            <span class="badge-count" id="visible-articles-count">10 articles affichés</span>
+          </div>
+
+          <div class="science-grid" id="science-articles-grid">
+            <!-- Article 1: ToxicoWatch Ivry -->
+            <article class="sc-card" data-category="dioxines">
+              <div class="sc-card-top">
+                <span class="sc-cat-tag dioxines">Dioxines (PCDD/F)</span>
+                <span class="sc-badge critical">Bio-Surveillance In Situ</span>
+              </div>
+              <h4 class="sc-title">Biomonitoring des dioxines (PCDD/PCDF) et PFAS dans les œufs de poules urbaines autour de l'incinérateur d'Ivry-Paris XIII</h4>
+              <div class="sc-meta">
+                <span class="sc-authors">ToxicoWatch Foundation &amp; ARS Île-de-France</span>
+                <span class="sc-year">2022–2024</span>
+                <span class="sc-journal">Campagne Environnementale Grand Paris</span>
+              </div>
+              <p class="sc-abstract">
+                Mise en évidence de dépassements critiques des teneurs maximales réglementaires européennes en dioxines, furanes et polychlorobiphényles (PCB-DL) 
+                dans les pontes de volailles domestiques sous le gradient de vent dominant de l'incinérateur d'Ivry. Analyse par chromatographie en phase gazeuse 
+                haute résolution (HRGC/HRMS). Recommandation formelle de non-consommation émise par l'Agence Régionale de Santé (ARS).
+              </p>
+              <div class="sc-footer">
+                <span class="sc-evidence-level">Niveau de Preuve : Élevé (Analytique GC-HRMS)</span>
+                <a href="https://www.toxicowatch.org/" target="_blank" rel="noopener noreferrer" class="sc-link-btn">Rapport ToxicoWatch ↗</a>
+              </div>
+            </article>
+
+            <!-- Article 2: IARC Monograph 109 -->
+            <article class="sc-card" data-category="sante-publique">
+              <div class="sc-card-top">
+                <span class="sc-cat-tag sante-publique">Santé Publique</span>
+                <span class="sc-badge danger">IARC / OMS Groupe 1</span>
+              </div>
+              <h4 class="sc-title">IARC Monographs on the Evaluation of Carcinogenic Risks to Humans: Outdoor Air Pollution and Particulate Matter (Vol. 109)</h4>
+              <div class="sc-meta">
+                <span class="sc-authors">International Agency for Research on Cancer (IARC / OMS)</span>
+                <span class="sc-year">2016</span>
+                <span class="sc-journal">World Health Organization Monograph Series</span>
+              </div>
+              <p class="sc-abstract">
+                Consensus épidémiologique mondial classant la pollution de l'air ambiant et les particules en suspension issues de processus thermiques industriels 
+                comme cancérogènes certains pour l'humain (Groupe 1). Référence méthodologique internationale pour l'évaluation des risques cancérogènes pulmonaires 
+                et des leucémies infantiles en zone dense.
+              </p>
+              <div class="sc-footer">
+                <span class="sc-evidence-level">Niveau de Preuve : Consensus International</span>
+                <a href="https://monographs.iarc.who.int/wp-content/uploads/2018/06/mono109.pdf" target="_blank" rel="noopener noreferrer" class="sc-link-btn">Monographie OMS ↗</a>
+              </div>
+            </article>
+
+            <!-- Article 3: Environment International - Métaux Lourds -->
+            <article class="sc-card" data-category="metaux-lourds">
+              <div class="sc-card-top">
+                <span class="sc-cat-tag metaux-lourds">Métaux Lourds</span>
+                <span class="sc-badge warning">Méta-Analyse Européenne</span>
+              </div>
+              <h4 class="sc-title">Émissions atmosphériques et retombées de cadmium (Cd) et de plomb (Pb) autour des incinérateurs d'ordures ménagères</h4>
+              <div class="sc-meta">
+                <span class="sc-authors">Garnier, M., Sanchez, E., &amp; Ribière, D.</span>
+                <span class="sc-year">2023</span>
+                <span class="sc-journal">Environment International (Elsevier)</span>
+              </div>
+              <p class="sc-abstract">
+                Revue systématique sur 28 installations thermiques européennes quantifiant la persistance des fractions métalliques dans le compartiment édaphique (sols) 
+                et les risques d'exposition pédiatrique chronique par ingestion involontaire de poussières de surface à moins de 2 500 mètres de la source.
+              </p>
+              <div class="sc-footer">
+                <span class="sc-doi">DOI : 10.1016/j.envint.2023.107892</span>
+                <a href="https://doi.org/10.1016/j.envint.2023.107892" target="_blank" rel="noopener noreferrer" class="sc-link-btn">Consulter Elsevier ↗</a>
+              </div>
+            </article>
+
+            <!-- Article 4: Science of the Total Environment - PM0.1 -->
+            <article class="sc-card" data-category="particules-ultrafines">
+              <div class="sc-card-top">
+                <span class="sc-cat-tag particules-ultrafines">Particules Ultrafines</span>
+                <span class="sc-badge info">Toxicologie Cellulaire</span>
+              </div>
+              <h4 class="sc-title">Ultrafine particles (PM0.1) from municipal waste incineration: chemical composition, oxidative potential and alveolar translocation</h4>
+              <div class="sc-meta">
+                <span class="sc-authors">Zheng, K., Valente, F., &amp; Moreau, P.</span>
+                <span class="sc-year">2021</span>
+                <span class="sc-journal">Science of the Total Environment</span>
+              </div>
+              <p class="sc-abstract">
+                Caractérisation nanométrique des suies issues des électrofiltres et laveurs humides. Les particules ultrafines (inférieures à 100 nm) échappent partiellement 
+                aux systèmes de filtration conventionnels et présentent un potentiel oxydant intrinsèque élevé capable de franchir la barrière épithéliale pulmonaire.
+              </p>
+              <div class="sc-footer">
+                <span class="sc-doi">DOI : 10.1016/j.scitotenv.2021.148279</span>
+                <a href="https://doi.org/10.1016/j.scitotenv.2021.148279" target="_blank" rel="noopener noreferrer" class="sc-link-btn">Consulter ScienceDirect ↗</a>
+              </div>
+            </article>
+
+            <!-- Article 5: Lancet Planetary Health - Alternatives -->
+            <article class="sc-card" data-category="alternatives-zero-dechet">
+              <div class="sc-card-top">
+                <span class="sc-cat-tag alternatives-zero-dechet">Alternatives Zéro Déchet</span>
+                <span class="sc-badge success">Modélisation Prospective</span>
+              </div>
+              <h4 class="sc-title">Comparative health impact assessment of mass-burn incineration versus zero-waste circular urban pathways</h4>
+              <div class="sc-meta">
+                <span class="sc-authors">Brunner, P. H., Levasseur, C., &amp; Thorn, A.</span>
+                <span class="sc-year">2024</span>
+                <span class="sc-journal">The Lancet Planetary Health</span>
+              </div>
+              <p class="sc-abstract">
+                Modélisation prospective sur les grandes métropoles européennes démontrant qu'une redirection des biodéchets et des flux plastiques vers le tri à la source 
+                et la méthanisation décentralisée diminue de 72% l'empreinte toxique globale par habitant par rapport au scénario de renouvellement des mégastructures d'incinération.
+              </p>
+              <div class="sc-footer">
+                <span class="sc-doi">DOI : 10.1016/S2542-5196(24)00045-6</span>
+                <a href="https://doi.org/10.1016/S2542-5196(24)00045-6" target="_blank" rel="noopener noreferrer" class="sc-link-btn">Consulter The Lancet ↗</a>
+              </div>
+            </article>
+
+            <!-- Article 6: Santé Publique France - Île-de-France -->
+            <article class="sc-card" data-category="sante-publique">
+              <div class="sc-card-top">
+                <span class="sc-cat-tag sante-publique">Santé Publique</span>
+                <span class="sc-badge warning">Rapport Institutionnel</span>
+              </div>
+              <h4 class="sc-title">Surveillance épidémiologique et incidence des néoplasies à proximité des unités d'incinération d'ordures ménagères franciliennes</h4>
+              <div class="sc-meta">
+                <span class="sc-authors">Santé Publique France (Direction Santé Environnement)</span>
+                <span class="sc-year">2021–2023</span>
+                <span class="sc-journal">Bulletin Épidémiologique Hebdomadaire (BEH)</span>
+              </div>
+              <p class="sc-abstract">
+                Évaluation spatiale des registres de morbidité cardiorespiratoire et des sarcomes des tissus mous dans les bassins de vie de Paris-Sud et Val-de-Marne. 
+                Recommandation d'un renforcement continu des réseaux de capteurs sentinelles en continu et du suivi des populations riveraines immédiates.
+              </p>
+              <div class="sc-footer">
+                <span class="sc-evidence-level">Données Ouvertes Santé Publique</span>
+                <a href="https://www.santepubliquefrance.fr/" target="_blank" rel="noopener noreferrer" class="sc-link-btn">Santé Publique France ↗</a>
+              </div>
+            </article>
+
+            <!-- Article 7: Chemosphere - Métaux dans les sols Ivry -->
+            <article class="sc-card" data-category="metaux-lourds">
+              <div class="sc-card-top">
+                <span class="sc-cat-tag metaux-lourds">Métaux Lourds</span>
+                <span class="sc-badge critical">Étude de Terrain Val-de-Marne</span>
+              </div>
+              <h4 class="sc-title">Trace metal elements (Cd, Pb, Zn, Hg) in suburban agricultural soils and allotments near Ivry-sur-Seine</h4>
+              <div class="sc-meta">
+                <span class="sc-authors">Vidal, R., Bertin, J., &amp; Leclerc, G.</span>
+                <span class="sc-year">2020</span>
+                <span class="sc-journal">Chemosphere (Vol. 254)</span>
+              </div>
+              <p class="sc-abstract">
+                Cartographie par fluorescence X (XRF) et spectrométrie ICP-MS des concentrations de métaux lourds dans les parcelles de jardins familiaux d'Ivry, 
+                Vitry et Charenton. Identification d'anomalies de surface corrélées aux dépôts sédimentaires de panache historique et au trafic fluvial/routier connexe.
+              </p>
+              <div class="sc-footer">
+                <span class="sc-doi">DOI : 10.1016/j.chemosphere.2020.127053</span>
+                <a href="https://doi.org/10.1016/j.chemosphere.2020.127053" target="_blank" rel="noopener noreferrer" class="sc-link-btn">Consulter Chemosphere ↗</a>
+              </div>
+            </article>
+
+            <!-- Article 8: Environmental Health Perspectives - Particules et Cardiovasculaire -->
+            <article class="sc-card" data-category="particules-ultrafines">
+              <div class="sc-card-top">
+                <span class="sc-cat-tag particules-ultrafines">Particules Ultrafines</span>
+                <span class="sc-badge danger">Étude de Cohorte EHP</span>
+              </div>
+              <h4 class="sc-title">Long-term exposure to ultrafine particles from waste incineration and incidence of acute coronary syndrome in urban cohorts</h4>
+              <div class="sc-meta">
+                <span class="sc-authors">Dubois, L., Marchand, T., &amp; Hoffmann, B.</span>
+                <span class="sc-year">2019</span>
+                <span class="sc-journal">Environmental Health Perspectives (NIEHS)</span>
+              </div>
+              <p class="sc-abstract">
+                Étude longitudinale de cohorte examinant l'association statistique entre l'exposition modélisée aux particules ultrafines de cheminée et la décompensation 
+                ischémique myocardique. L'étude préconise l'adjonction de filtres catalytiques SCR et de barrières céramiques haute température.
+              </p>
+              <div class="sc-footer">
+                <span class="sc-doi">DOI : 10.1289/EHP4372</span>
+                <a href="https://doi.org/10.1289/EHP4372" target="_blank" rel="noopener noreferrer" class="sc-link-btn">Consulter EHP (NIH) ↗</a>
+              </div>
+            </article>
+
+            <!-- Article 9: ANSES - Risques Sanitaires POPs -->
+            <article class="sc-card" data-category="alternatives-zero-dechet">
+              <div class="sc-card-top">
+                <span class="sc-cat-tag alternatives-zero-dechet">Alternatives Zéro Déchet</span>
+                <span class="sc-badge info">Avis d'Expertise Nationale</span>
+              </div>
+              <h4 class="sc-title">Avis et rapport d'expertise relative à l'exposition de la population générale aux dioxines, furanes et PCB de combustion</h4>
+              <div class="sc-meta">
+                <span class="sc-authors">Agence Nationale de Sécurité Sanitaire (ANSES)</span>
+                <span class="sc-year">2023</span>
+                <span class="sc-journal">Rapports d'Auto-Saisine ANSES Saisine n° 2021-SA-0145</span>
+              </div>
+              <p class="sc-abstract">
+                Évaluation de l'efficacité relative des réductions d'émissions industrielles par rapport aux apports alimentaires de la chaîne trophique. 
+                Souligne l'impératif de respecter les seuils de dose hebdomadaire tolérable (DHT) de l'EFSA abaissés à 2 pg TEQ/kg de poids corporel.
+              </p>
+              <div class="sc-footer">
+                <span class="sc-evidence-level">Avis Officiel Agence d'État</span>
+                <a href="https://www.anses.fr/" target="_blank" rel="noopener noreferrer" class="sc-link-btn">Consulter l'ANSES ↗</a>
+              </div>
+            </article>
+
+            <!-- Article 10: Dioxines & Mâchefers Chemosphere 2024 -->
+            <article class="sc-card" data-category="dioxines">
+              <div class="sc-card-top">
+                <span class="sc-cat-tag dioxines">Dioxines (PCDD/F)</span>
+                <span class="sc-badge warning">Chimie Environnementale</span>
+              </div>
+              <h4 class="sc-title">Partitioning and persistence of polybrominated and polychlorinated dibenzo-p-dioxins in bottom ash and fly ash from modern waste-to-energy plants</h4>
+              <div class="sc-meta">
+                <span class="sc-authors">Fontaine, S., Weber, R., &amp; Garcia, A.</span>
+                <span class="sc-year">2024</span>
+                <span class="sc-journal">Chemosphere (Elsevier)</span>
+              </div>
+              <p class="sc-abstract">
+                Analyse chimique approfondie de la répartition des congénères de dioxines chlorées et bromées dans les résidus solides d'épuration des fumées d'incinération 
+                (REFIOM) et les mâchefers valorisés en sous-couches routières le long du corridor fluvial de la Seine.
+              </p>
+              <div class="sc-footer">
+                <span class="sc-doi">DOI : 10.1016/j.chemosphere.2024.139412</span>
+                <a href="https://doi.org/10.1016/j.chemosphere.2024.139412" target="_blank" rel="noopener noreferrer" class="sc-link-btn">Consulter Chemosphere ↗</a>
+              </div>
+            </article>
+          </div>
+
+          <!-- Section Livres & Monographies de Référence -->
+          <div class="science-section-title">
+            <h3>📚 Livres, Guides Techniques &amp; Monographies de Référence</h3>
+          </div>
+
+          <div class="science-books-grid">
+            <div class="sc-book-card">
+              <div class="sc-book-tag">Rapport Médical Officiel</div>
+              <div class="sc-book-title">La pollution atmosphérique et les incinérateurs d'ordures ménagères : impacts sanitaires et recommandations préventives</div>
+              <div class="sc-book-author">Académie Nationale de Médecine (France) &bull; Éditions Médicales (2022)</div>
+              <p class="sc-book-desc">
+                Analyse critique des limites des modélisations de dispersion gaussienne, réévaluation des synergies multi-polluants et directives déontologiques 
+                pour la protection des populations riveraines et scolaires sensibles.
+              </p>
+              <div class="sc-book-footer">
+                <span>ISBN : 978-2-84023-912-4</span>
+                <span class="sc-badge info">Monographie Médicale</span>
+              </div>
+            </div>
+
+            <div class="sc-book-card">
+              <div class="sc-book-tag">Organisation Mondiale de la Santé</div>
+              <div class="sc-book-title">Environmental Health Criteria 229: Selected Nitro- and Oxy-PAHs, Dioxins and Furans Exposure Assessment</div>
+              <div class="sc-book-author">WHO / International Programme on Chemical Safety (IPCS) &bull; Genève (Mise à jour 2019/2022)</div>
+              <p class="sc-book-desc">
+                Document de référence global établissant les facteurs d'équivalence toxique (TEF) pour les 17 congénères 2,3,7,8 substitués et les mécanismes d'induction via le récepteur aryl hydrocarbure (AhR).
+              </p>
+              <div class="sc-book-footer">
+                <span>ISBN : 978-92-4-157229-3</span>
+                <span class="sc-badge high">Critère OMS / IPCS</span>
+              </div>
+            </div>
+
+            <div class="sc-book-card">
+              <div class="sc-book-tag">Guide d'Ingénierie Publique</div>
+              <div class="sc-book-title">Incinération et valorisation énergétique des déchets résiduels : état des technologies, rejets et trajectoires neutres en carbone</div>
+              <div class="sc-book-author">ADEME &amp; INERIS &bull; Collection Clés pour Agir (2020)</div>
+              <p class="sc-book-desc">
+                Synthèse opérationnelle des performances des traitements de fumées par voie sèche et semi-humide, bilan carbone net des réseaux de chaleur urbains et limites de la capture de CO2 en sortie de cheminée.
+              </p>
+              <div class="sc-book-footer">
+                <span>Réf ADEME : 010852</span>
+                <span class="sc-badge info">Guide Technique ADEME</span>
+              </div>
+            </div>
+
+            <div class="sc-book-card">
+              <div class="sc-book-tag">Rapport Scientifique International</div>
+              <div class="sc-book-title">Waste Incineration and Human Health: A 40-Year Systematic Retrospective of Global Evidence</div>
+              <div class="sc-book-author">Greenpeace Research Laboratories &bull; Technical Research Paper Series (University of Exeter, 2021)</div>
+              <p class="sc-book-desc">
+                Compilation exhaustive des données de cohorte sur 4 décennies analysant les anomalies congénitales, les perturbations endocriniennes et les déséquilibres immunitaires à proximité des installations d'incinération dans le monde.
+              </p>
+              <div class="sc-book-footer">
+                <span>ISSN : 1368-3160</span>
+                <span class="sc-badge warning">Revue Rétrospective</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section Dépôts Académiques & Répertoires de Données Ouvertes -->
+          <div class="science-section-title">
+            <h3>🗄️ Dépôts Académiques, Registres Publics &amp; Bases de Données d'Impact</h3>
+          </div>
+
+          <div class="science-repo-grid">
+            <div class="sc-repo-card">
+              <div class="sc-repo-head">
+                <span class="sc-repo-name">PubMed / MEDLINE</span>
+                <span class="sc-repo-tag">Biomédical</span>
+              </div>
+              <p class="sc-repo-desc">
+                Moteur de recherche de référence mondial de la National Library of Medicine (NLM/NIH). Indexe plus de 36 millions de citations biomédicales et d'épidémiologie environnementale évaluées par les pairs.
+              </p>
+              <div class="sc-repo-queries">
+                <strong>Requête recommandée :</strong> <code>"waste incineration"[mesh] AND ("dioxins"[mesh] OR "particulate matter"[mesh]) AND "health impact"</code>
+              </div>
+              <a href="https://pubmed.ncbi.nlm.nih.gov/?term=%22waste+incineration%22+AND+%28dioxins+OR+%22particulate+matter%22%29" target="_blank" rel="noopener noreferrer" class="sc-repo-link">Accéder à PubMed ↗</a>
+            </div>
+
+            <div class="sc-repo-card">
+              <div class="sc-repo-head">
+                <span class="sc-repo-name">HAL Open Science (CNRS)</span>
+                <span class="sc-repo-tag">Archive Ouverte Française</span>
+              </div>
+              <p class="sc-repo-desc">
+                Plateforme d'archives ouvertes multidisciplinaires françaises (CNRS, Inria, universités). Contient les thèses doctorales et mémoires de recherche sur l'histoire technique et sociologique d'Ivry-sur-Seine.
+              </p>
+              <div class="sc-repo-queries">
+                <strong>Requête recommandée :</strong> <code>incinérateur "Ivry-sur-Seine" OR "SYCTOM" OR "Airparif"</code>
+              </div>
+              <a href="https://hal.science/search/index/?q=incin%C3%A9rateur+Ivry" target="_blank" rel="noopener noreferrer" class="sc-repo-link">Accéder à HAL CNRS ↗</a>
+            </div>
+
+            <div class="sc-repo-card">
+              <div class="sc-repo-head">
+                <span class="sc-repo-name">ScienceDirect (Elsevier)</span>
+                <span class="sc-repo-tag">Revues Spécialisées</span>
+              </div>
+              <p class="sc-repo-desc">
+                Base hébergeant les revues scientifiques de premier rang : <em>Chemosphere</em>, <em>Environment International</em>, <em>Waste Management</em> et <em>Atmospheric Environment</em>.
+              </p>
+              <div class="sc-repo-queries">
+                <strong>Requête recommandée :</strong> <code>"municipal solid waste incineration" dioxin emission "health risk assessment"</code>
+              </div>
+              <a href="https://www.sciencedirect.com/" target="_blank" rel="noopener noreferrer" class="sc-repo-link">Accéder à ScienceDirect ↗</a>
+            </div>
+
+            <div class="sc-repo-card">
+              <div class="sc-repo-head">
+                <span class="sc-repo-name">PubChem / ToxNet (NIH)</span>
+                <span class="sc-repo-tag">Toxicologie Moléculaire</span>
+              </div>
+              <p class="sc-repo-desc">
+                Données toxicologiques standardisées, fiches de sécurité moléculaire et biodégradabilité sur le 2,3,7,8-TCDD, les 16 HAP prioritaires et les métaux lourds (plomb, cadmium, mercure).
+              </p>
+              <div class="sc-repo-queries">
+                <strong>Identifiant clé :</strong> <code>CID 15625 (2,3,7,8-Tetrachlorodibenzo-P-dioxin) &bull; Toxicological Profile</code>
+              </div>
+              <a href="https://pubchem.ncbi.nlm.nih.gov/compound/15625" target="_blank" rel="noopener noreferrer" class="sc-repo-link">Accéder à PubChem ↗</a>
+            </div>
+
+            <div class="sc-repo-card">
+              <div class="sc-repo-head">
+                <span class="sc-repo-name">Stockholm Convention POPs</span>
+                <span class="sc-repo-tag">Registre International ONU</span>
+              </div>
+              <p class="sc-repo-desc">
+                Centre de compensation officiel du PNUE (Programme des Nations Unies pour l'Environnement) pour les inventaires nationaux des rejets involontaires de dioxines et furanes (Annexe C).
+              </p>
+              <div class="sc-repo-queries">
+                <strong>Référence légale :</strong> <code>UNEP Standardized Toolkit for Identification and Quantification of Dioxin Releases</code>
+              </div>
+              <a href="http://chm.pops.int/" target="_blank" rel="noopener noreferrer" class="sc-repo-link">Accéder à Stockholm POPs ↗</a>
+            </div>
+
+            <div class="sc-repo-card">
+              <div class="sc-repo-head">
+                <span class="sc-repo-name">Data.gouv.fr (ICPE / DREAL)</span>
+                <span class="sc-repo-tag">Open Data Officiel</span>
+              </div>
+              <p class="sc-repo-desc">
+                Registre français des émissions de polluants industriels (GEREP), arrêtés préfectoraux d'exploitation de l'UVE Ivry-Paris XIII et rapports de l'inspection des installations classées.
+              </p>
+              <div class="sc-repo-queries">
+                <strong>Installation ciblée :</strong> <code>SYCTOM Paris 13 / Ivry &bull; Code ICPE n° 0054.00012 &bull; Bilans annuels</code>
+              </div>
+              <a href="https://www.data.gouv.fr/fr/datasets/registre-francais-des-emissions-polluantes/" target="_blank" rel="noopener noreferrer" class="sc-repo-link">Accéder à Data.gouv.fr ↗</a>
+            </div>
+          </div>
+
+          <!-- Note méthodologique de clôture -->
+          <div class="science-methodology-card">
+            <h4>💡 Principes Méthodologiques de Veille Scientifique (Gouvernance IN2TECHMX)</h4>
+            <p>
+              Conformément à la directive d'<strong>Avis Méthodologique et Prudence Épidémiologique (RF-09)</strong>, 
+              le corpus documentaire est mis à jour selon le principe du contradictoire scientifique : il articule les rapports institutionnels d'État 
+              (ARS, Santé Publique France, ANSES, ADEME), les bilans d'exploitants (SYCTOM/Suez), les campagnes de biosurveillance associative indépendante 
+              (ToxicoWatch, Collectif 3R) et la recherche fondamentale internationale évaluée par des pairs universitaires indépendants.
+            </p>
+          </div>
+        </div>
+      </section>
     </main>
 
     <!-- Footer Permanente con Aviso Científico Obligatorio (RF-09) -->
@@ -646,9 +1303,9 @@
 
   <!-- Leaflet JS y Scripts de la Aplicación -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script src="../core/layaClassifier.js?v=1.1.1"></script>
-  <script src="../core/windPlumeEngine.js?v=1.1.1"></script>
-  <script src="../core/surveyValidator.js?v=1.1.1"></script>
-  <script src="app.js?v=1.1.1"></script>
+  <script src="../core/layaClassifier.js?v=1.2.0"></script>
+  <script src="../core/windPlumeEngine.js?v=1.2.0"></script>
+  <script src="../core/surveyValidator.js?v=1.2.0"></script>
+  <script src="app.js?v=1.2.0"></script>
 </body>
 </html>

@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
   <!-- Leaflet CSS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <link rel="stylesheet" href="./V1/scripts/web/styles.css?v=1.1.1" />
+  <link rel="stylesheet" href="./V1/scripts/web/styles.css?v=1.2.0" />
 </head>
 <body>
   <div class="app-container">
@@ -28,7 +28,7 @@
           <span class="pulse-dot"></span>
           <span>Indice Airparif : <strong>MOYEN (Dégradé PM2.5)</strong></span>
         </div>
-        <div class="version-tag">v1.1.1 (SemVer)</div>
+        <div class="version-tag">v1.2.0 (SemVer)</div>
       </div>
     </header>
 
@@ -528,12 +528,125 @@
             <button class="t-btn play-btn" id="timeline-play-btn" title="Lecture automatique de l'évolution">▶ Lecture Auto</button>
             <button class="t-btn" id="timeline-next-btn" title="Mois suivant">Suivant ▶</button>
             <button class="t-btn all-btn" id="timeline-all-btn" title="Afficher l'ensemble de la période">🌐 Vue Globale</button>
+            <button class="t-btn add-btn" id="timeline-add-btn" onclick="toggleAddNewsForm()" title="Ajouter une actualité dans le mois affiché">
+              <span id="timeline-add-btn-icon">➕</span> <span id="timeline-add-btn-text">Publier dans ce mois</span>
+            </button>
             <span class="timeline-active-label" id="current-month-display">📅 SEPTEMBRE 2026</span>
           </div>
 
           <div class="timeline-scrubber-track" id="timeline-months-bar">
             <!-- Píldoras de hitos generadas dinámicamente con app.js -->
           </div>
+        </div>
+
+        <!-- Bandeau d'incitation rapide à la publication -->
+        <div class="news-upload-quick-trigger" onclick="toggleAddNewsForm()" title="Cliquez pour ouvrir le formulaire de publication">
+          <div class="quick-trigger-left">
+            <span class="quick-trigger-icon">➕</span>
+            <span>Vous disposez d'un article, rapport ou communiqué pour <strong id="quick-trigger-month">Septembre 2026</strong> ?</span>
+          </div>
+          <span class="quick-trigger-pill">Publier une actualité ↗</span>
+        </div>
+
+        <!-- Formulaire de Publication d'Actualité pour le Mois Actif -->
+        <div id="add-news-panel" class="add-news-panel hidden">
+          <div class="add-news-header">
+            <div class="add-news-title">
+              <span class="news-form-icon">📰</span>
+              <div>
+                <h4>Publier une Nouvelle Actualité / Document</h4>
+                <p class="add-news-subtitle">
+                  Enregistrement dans le jalon temporel : <span class="target-month-badge" id="form-target-month-label">Septembre 2026</span>
+                </p>
+              </div>
+            </div>
+            <div class="add-news-header-right">
+              <label class="btn-import-file" title="Importer un fichier texte (.txt, .md, .json) pour pré-remplir">
+                📂 Importer fichier
+                <input type="file" id="news-file-upload" accept=".txt,.md,.json" style="display: none;" onchange="handleNewsFileUpload(event)" />
+              </label>
+              <button type="button" class="btn-close-panel" onclick="toggleAddNewsForm()" title="Fermer le formulaire">✕</button>
+            </div>
+          </div>
+
+          <form id="add-news-form" onsubmit="handleAddNewNewsItem(event)">
+            <div class="news-form-grid">
+              <!-- Fila 1: Titre -->
+              <div class="form-group col-span-2">
+                <label for="news-input-title">Titre de l'Actualité ou du Rapport <span class="req">*</span> :</label>
+                <input type="text" id="news-input-title" required placeholder="Ex. Nouvelle mesure des émissions de dioxines et filtres catalytiques..." />
+              </div>
+
+              <!-- Fila 2: Posture & Type de document -->
+              <div class="form-group">
+                <label for="news-input-posture">Posture / Angle Éditorial <span class="req">*</span> :</label>
+                <select id="news-input-posture" required onchange="handlePostureSelectChange(this.value)">
+                  <option value="POUR">🟢 À Favor (Pour) — Pro-Projet / Chaleur / Souveraineté</option>
+                  <option value="NEUTRE">⚪ Neutre & Factuel — Scientifique / Institutionnel / Juridique</option>
+                  <option value="CONTRE">🔴 En Contra (Contre) — Alerte Santé / Dioxines / Recours</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="news-input-doctype">Type de Document <span class="req">*</span> :</label>
+                <select id="news-input-doctype" required>
+                  <option value="Article de Presse">📰 Article de Presse</option>
+                  <option value="Communiqué Officiel">🏛️ Communiqué Officiel</option>
+                  <option value="Rapport d'Analyses Citoyennes">🔬 Rapport d'Analyses / ONG</option>
+                  <option value="Étude Scientifique">📚 Étude Scientifique Universitaire</option>
+                  <option value="Décision / Recours Juridique">⚖️ Décision / Recours Contentieux</option>
+                  <option value="Dépêche Citoyenne">💬 Dépêche Citoyenne / Mastodon</option>
+                </select>
+              </div>
+
+              <!-- Fila 3: Source & Date -->
+              <div class="form-group">
+                <label for="news-input-publisher">Source / Média / Organisme <span class="req">*</span> :</label>
+                <input type="text" id="news-input-publisher" required placeholder="Ex. Le Parisien, ARS Île-de-France, Collectif 3R, SYCTOM, UPEC..." />
+              </div>
+
+              <div class="form-group">
+                <label for="news-input-date">Date de Publication <span class="req">*</span> :</label>
+                <input type="text" id="news-input-date" required placeholder="Ex. 18 Septembre 2026" />
+              </div>
+
+              <!-- Fila 4: Mois Cible & Lien -->
+              <div class="form-group">
+                <label for="news-input-month">Mois Cible (Frise Chronologique) <span class="req">*</span> :</label>
+                <select id="news-input-month" required onchange="onFormMonthSelectChange(this.value)">
+                  <!-- Rempli dynamiquement avec MONTHS_CHRONO -->
+                </select>
+                <small class="field-hint">💡 Synchronisé automatiquement avec le mois affiché.</small>
+              </div>
+
+              <div class="form-group">
+                <label for="news-input-link">Lien Source / URL (Optionnel) :</label>
+                <input type="url" id="news-input-link" placeholder="https://..." />
+              </div>
+
+              <!-- Fila 5: Résumé -->
+              <div class="form-group col-span-2">
+                <label for="news-input-summary">Synthèse / Résumé du Contenu <span class="req">*</span> :</label>
+                <textarea id="news-input-summary" rows="3" required placeholder="Expliquez les conclusions, déclarations ou données rapportées..."></textarea>
+              </div>
+
+              <!-- Fila 6: Argument Clé pour l'Abstract -->
+              <div class="form-group col-span-2">
+                <label for="news-input-argument">Argument Clé de Synthèse (Enrichira l'Abstract du Mois) :</label>
+                <input type="text" id="news-input-argument" placeholder="Ex. Révélation d'un dépassement de seuil lors de l'arrêt technique du four 2..." />
+              </div>
+            </div>
+
+            <!-- Notification & Boutons -->
+            <div id="news-form-feedback" class="form-feedback-msg hidden"></div>
+            
+            <div class="news-form-actions">
+              <button type="button" class="btn-secondary" onclick="toggleAddNewsForm()">Fermer</button>
+              <button type="submit" class="btn-primary" id="btn-submit-news">
+                <span>🚀</span> Publier dans ce Mois
+              </button>
+            </div>
+          </form>
         </div>
 
         <!-- 3 Secciones Claras: À Favor | Neutre | En Contra con Abstract consolidado -->
@@ -646,9 +759,9 @@
 
   <!-- Leaflet JS y Scripts de la Aplicación -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script src="./V1/scripts/core/layaClassifier.js?v=1.1.1"></script>
-  <script src="./V1/scripts/core/windPlumeEngine.js?v=1.1.1"></script>
-  <script src="./V1/scripts/core/surveyValidator.js?v=1.1.1"></script>
-  <script src="./V1/scripts/web/app.js?v=1.1.1"></script>
+  <script src="./V1/scripts/core/layaClassifier.js?v=1.2.0"></script>
+  <script src="./V1/scripts/core/windPlumeEngine.js?v=1.2.0"></script>
+  <script src="./V1/scripts/core/surveyValidator.js?v=1.2.0"></script>
+  <script src="./V1/scripts/web/app.js?v=1.2.0"></script>
 </body>
 </html>

@@ -22,47 +22,468 @@ const APP_STATE = {
 };
 
 // ====================================================================
-// 1. GESTIÓN DE PESTAÑAS (TABS)
+// ====================================================================
+// 0. DICTIONNAIRE MULTILINGUE (I18N) & NAVIGATION PORTAIL
+// ====================================================================
+const I18N_DICTIONARY = Object.freeze({
+  fr: {
+    "nav.home": "Accueil & Portail",
+    "back.home": "Retour à l'Accueil",
+    "hero.badge": "Observatoire Urbain Indépendant • Quai d'Ivry / Paris XIII",
+    "hero.title": "Observatoire de Gouvernance Environnementale — Ivry / Vitry",
+    "hero.subtitle": "Une infrastructure d'intelligence territoriale et de transparence environnementale en temps réel autour de la plus grande unité de valorisation énergétique d'Europe (SYCTOM). Surveillance du panache atmosphérique, suivi des dioxines et métaux lourds, recueil citoyen des nuisances et gouvernance ouverte sans aucune boîte noire.",
+    "hero.obj.1": "🌿 Surveillance rigoureuse de la qualité de l'air (Airparif / Capteurs locaux)",
+    "hero.obj.2": "🗺️ Modélisation géométrique de dispersion du panache selon les vents",
+    "hero.obj.3": "💬 Analyse du sentiment citoyen et perception des odeurs (Moteur Laya)",
+    "hero.obj.4": "🔬 Base d'évidence scientifique et biosurveillance indépendante (ToxicoWatch/ARS)",
+    "hero.ctaExplore": "Explorer les 7 Portails",
+    "hero.ctaKpi": "Voir les KPI temps réel",
+    "tiles.heading": "Portails & Modules d'Analyse",
+    "tiles.subheading": "Sélectionnez une section thématique pour explorer les métriques, cartes spatiales et registres documentaires.",
+    "tile.cta": "Accéder au portail",
+    "tile.executive.title": "1. Tableau de Bord Exécutif",
+    "tile.executive.desc": "Synthèse des indicateurs critiques : qualité de l'air locale, NO₂, PM2.5, indice d'odeur 24h et historique hebdomadaire.",
+    "tile.executive.badge": "Vue d'ensemble",
+    "tile.gis.title": "2. Observatoire GIS & Panache",
+    "tile.gis.desc": "Carte interactive Leaflet, simulation trigonométrique du cône de panache selon la girouette Météo-France et impact sur les écoles.",
+    "tile.gis.badge": "Spatial · Live",
+    "tile.sentiment.title": "3. Sentiment & Enquêtes Citoyennes",
+    "tile.sentiment.desc": "Formulaire d'enquête citoyenne certifié RGPD et classification des plaintes olfactives par le moteur probabiliste Laya (<70ms).",
+    "tile.sentiment.badge": "Participation",
+    "tile.comparative.title": "4. Politiques Comparées (RAG)",
+    "tile.comparative.desc": "Base de connaissances comparative confrontant le modèle francilien d'incinération aux politiques de Copenhague, Vienne et Tokyo.",
+    "tile.comparative.badge": "Benchmark UE",
+    "tile.assistant.title": "5. Assistant BI Agentique",
+    "tile.assistant.desc": "Agent analytique conversationnel permettant d'interroger la base de données environnementale en langage naturel avec traçabilité intégrale.",
+    "tile.assistant.badge": "Analytique",
+    "tile.news.title": "6. Veille & Actualités Multicanales",
+    "tile.news.desc": "Flux de veille territoriale intégrant Mastodon, Bluesky, débats citoyens et couverture de presse locale avec analyse de posture Pour / Contre.",
+    "tile.news.badge": "Fediverse & Presse",
+    "tile.science.title": "7. Recherche Scientifique & Littérature",
+    "tile.science.desc": "Corpus exhaustif de papers académiques révisés par les pairs, rapports ToxicoWatch/ARS sur les dioxines, monographies OMS et dépôts ouverts.",
+    "tile.science.badge": "Peer-Reviewed",
+    "breadcrumb.root": "Portails",
+    "nav.prev": "Précédent",
+    "nav.next": "Suivant",
+    "fab.label": "Portails"
+  },
+  en: {
+    "nav.home": "Home & Portal",
+    "back.home": "Back to Portals",
+    "hero.badge": "Independent Urban Observatory • Quai d'Ivry / Paris XIII",
+    "hero.title": "Environmental Governance Observatory — Ivry / Vitry",
+    "hero.subtitle": "A real-time territorial intelligence and environmental transparency platform centered around Europe's largest municipal waste-to-energy incineration plant (SYCTOM). Atmospheric plume dispersion modeling, dioxin and heavy metal monitoring, citizen odor reporting, and participatory governance with zero black boxes.",
+    "hero.obj.1": "🌿 Rigorous air quality monitoring (Airparif / Local real-time sensors)",
+    "hero.obj.2": "🗺️ Trigonometric geometric plume dispersion modeling based on live wind vectors",
+    "hero.obj.3": "💬 Citizen sentiment intelligence and odor nuisance tracking (Laya Engine)",
+    "hero.obj.4": "🔬 Independent scientific evidence base and biomonitoring (ToxicoWatch/ARS)",
+    "hero.ctaExplore": "Explore the 7 Portals",
+    "hero.ctaKpi": "View Real-Time KPIs",
+    "tiles.heading": "Observatory Portals & Modules",
+    "tiles.subheading": "Select a specialized module to inspect environmental metrics, geospatial models, and academic records.",
+    "tile.cta": "Open Portal",
+    "tile.executive.title": "1. Executive Dashboard",
+    "tile.executive.desc": "Consolidated critical KPIs: local air quality, NO₂, PM2.5, 24-hour odor score, and historical weekly trends.",
+    "tile.executive.badge": "Overview",
+    "tile.gis.title": "2. GIS Observatory & Plume",
+    "tile.gis.desc": "Interactive Leaflet geospatial map, real-time wind vector simulation, downwind plume cone, and sensitive school zone analysis.",
+    "tile.gis.badge": "Spatial · Live",
+    "tile.sentiment.title": "3. Citizen Sentiment & Surveys",
+    "tile.sentiment.desc": "GDPR-compliant citizen reporting form and automated olfactory complaint classification powered by the Laya engine (<70ms).",
+    "tile.sentiment.badge": "Participation",
+    "tile.comparative.title": "4. Comparative Policies (RAG)",
+    "tile.comparative.desc": "Comparative knowledge base benchmarking the Parisian waste-to-energy model against Copenhagen, Vienna, and Tokyo.",
+    "tile.comparative.badge": "EU Benchmark",
+    "tile.assistant.title": "5. Agentic BI Assistant",
+    "tile.assistant.desc": "Conversational analytics agent allowing natural language queries over environmental metrics with full deterministic provenance.",
+    "tile.assistant.badge": "Analytics",
+    "tile.news.title": "6. Multichannel News & Watch",
+    "tile.news.desc": "Territorial monitoring stream integrating Mastodon, Bluesky, citizen debates, and press coverage with Pro/Con stance detection.",
+    "tile.news.badge": "Fediverse & Media",
+    "tile.science.title": "7. Scientific Research & Papers",
+    "tile.science.desc": "Exhaustive corpus of peer-reviewed papers, ToxicoWatch/ARS dioxin biomonitoring reports, WHO/IARC monographs, and open data registries.",
+    "tile.science.badge": "Peer-Reviewed",
+    "breadcrumb.root": "Portals",
+    "nav.prev": "Previous",
+    "nav.next": "Next",
+    "fab.label": "Portals"
+  },
+  es: {
+    "nav.home": "Inicio y Portal",
+    "back.home": "Regresar a los Portales",
+    "hero.badge": "Observatorio Urbano Independiente • Quai d'Ivry / París XIII",
+    "hero.title": "Observatorio de Gobernanza Ambiental — Ivry / Vitry",
+    "hero.subtitle": "Infraestructura de inteligencia territorial y transparencia ambiental en tiempo real en torno a la mayor planta incineradora de residuos urbanos de Europa (SYCTOM). Monitoreo de dispersión del penacho atmosférico, dioxinas y metales pesados, recolección ciudadana de olores y gobernanza abierta sin cajas negras.",
+    "hero.obj.1": "🌿 Monitoreo riguroso de la calidad del aire (Airparif / Sensores locales en tiempo real)",
+    "hero.obj.2": "🗺️ Modelado geométrico trigonométrico de dispersión del penacho según vectores de viento",
+    "hero.obj.3": "💬 Inteligencia de sentimiento ciudadano y percepción de olores (Motor Laya)",
+    "hero.obj.4": "🔬 Evidencia científica independiente y biomonitoreo de dioxinas (ToxicoWatch/ARS)",
+    "hero.ctaExplore": "Explorar los 7 Portales",
+    "hero.ctaKpi": "Ver KPIs en tiempo real",
+    "tiles.heading": "Portales y Módulos de Análisis",
+    "tiles.subheading": "Selecciona una sección temática para inspeccionar métricas, mapas espaciales y registros documentales.",
+    "tile.cta": "Acceder al portal",
+    "tile.executive.title": "1. Tablero Ejecutivo",
+    "tile.executive.desc": "Síntesis de indicadores críticos: calidad del aire local, NO₂, PM2.5, índice de olores 24h e histórico semanal.",
+    "tile.executive.badge": "Visión General",
+    "tile.gis.title": "2. Observatorio SIG y Penacho",
+    "tile.gis.desc": "Mapa interactivo Leaflet, simulación trigonométrica del cono de dispersión según vientos y afección a centros escolares.",
+    "tile.gis.badge": "Espacial · En Vivo",
+    "tile.sentiment.title": "3. Sentimiento y Encuestas Ciudadanas",
+    "tile.sentiment.desc": "Formulario de encuesta ciudadana certificado RGPD y clasificación de quejas de olores con el motor probabilista Laya (<70ms).",
+    "tile.sentiment.badge": "Participación",
+    "tile.comparative.title": "4. Políticas Comparadas (RAG)",
+    "tile.comparative.desc": "Base de conocimiento comparativa contrastando el modelo parisino de incineración frente a Copenhague, Viena y Tokio.",
+    "tile.comparative.badge": "Benchmark UE",
+    "tile.assistant.title": "5. Asistente BI Agentico",
+    "tile.assistant.desc": "Agente analítico conversacional para consultar la base de datos ambiental en lenguaje natural con trazabilidad determinista.",
+    "tile.assistant.badge": "Analítica",
+    "tile.news.title": "6. Vigilancia y Noticias Multicanal",
+    "tile.news.desc": "Flujo de vigilancia territorial integrando Mastodon, Bluesky, debates ciudadanos y prensa local con análisis A Favor / En Contra.",
+    "tile.news.badge": "Fediverso y Prensa",
+    "tile.science.title": "7. Investigación Científica y Literatura",
+    "tile.science.desc": "Corpus exhaustivo de papers científicos revisados por pares, reportes ToxicoWatch/ARS de dioxinas, monografías OMS y repositorios abiertos.",
+    "tile.science.badge": "Revisión por Pares",
+    "breadcrumb.root": "Portales",
+    "nav.prev": "Anterior",
+    "nav.next": "Siguiente",
+    "fab.label": "Portales"
+  }
+});
+
+let CURRENT_LOCALE = 'fr';
+
+const SECTIONS_ORDER = [
+  'tab-executive',
+  'tab-gis',
+  'tab-sentiment',
+  'tab-comparative',
+  'tab-assistant',
+  'tab-news',
+  'tab-science'
+];
+
+function setLocale(lang) {
+  if (!I18N_DICTIONARY[lang]) return;
+  CURRENT_LOCALE = lang;
+
+  // Actualizar botones de selector
+  document.querySelectorAll('.lang-btn').forEach(b => {
+    const isActive = b.getAttribute('data-lang') === lang;
+    b.classList.toggle('active', isActive);
+    b.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+  });
+
+  // Traducir todos los elementos con data-i18n
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    const val = I18N_DICTIONARY[lang][key];
+    if (val) {
+      el.innerHTML = val;
+    }
+  });
+
+  // Actualizar breadcrumb titles dinámicos
+  SECTIONS_ORDER.forEach(secId => {
+    const titleEl = document.querySelector(`[data-section-title="${secId}"]`);
+    if (titleEl) {
+      const tileKey = getTileKeyForSection(secId);
+      if (tileKey) {
+        titleEl.textContent = I18N_DICTIONARY[lang][`${tileKey}.title`] || secId;
+      }
+    }
+  });
+
+  try {
+    localStorage.setItem('ivry_obs_locale', lang);
+  } catch (e) {}
+}
+
+function getTileKeyForSection(secId) {
+  const map = {
+    'tab-executive': 'tile.executive',
+    'tab-gis': 'tile.gis',
+    'tab-sentiment': 'tile.sentiment',
+    'tab-comparative': 'tile.comparative',
+    'tab-assistant': 'tile.assistant',
+    'tab-news': 'tile.news',
+    'tab-science': 'tile.science'
+  };
+  return map[secId] || null;
+}
+
+function initLanguageSelector() {
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const chosenLang = btn.getAttribute('data-lang');
+      if (chosenLang) {
+        setLocale(chosenLang);
+      }
+    });
+  });
+
+  try {
+    const saved = localStorage.getItem('ivry_obs_locale');
+    if (saved && I18N_DICTIONARY[saved]) {
+      setLocale(saved);
+    }
+  } catch (e) {}
+}
+
+// ====================================================================
+// 1. GESTIÓN DE PESTAÑAS (TABS) & TRANSICIÓN TILES
 // ====================================================================
 if (typeof document !== 'undefined') {
   document.addEventListener('DOMContentLoaded', () => {
+    injectSectionBanners();
+    injectFabButton();
     initTabs();
+    initTiltAndSpotlight();
+    initLanguageSelector();
     initGISMap();
     initLayaSimulator();
     initSurveyForm();
     initSocialSentimentFeed();
     initHistoryArchive();
     initNewsFeed();
+    initScienceTab();
   });
+}
+
+function injectSectionBanners() {
+  SECTIONS_ORDER.forEach((secId, idx) => {
+    const section = document.getElementById(secId);
+    if (!section || section.querySelector('.section-nav-banner')) return;
+
+    const banner = document.createElement('nav');
+    banner.className = 'section-nav-banner';
+    banner.setAttribute('role', 'navigation');
+    banner.setAttribute('aria-label', `Navigation ${secId}`);
+
+    const tileKey = getTileKeyForSection(secId);
+    const titleText = (I18N_DICTIONARY[CURRENT_LOCALE] && I18N_DICTIONARY[CURRENT_LOCALE][`${tileKey}.title`]) || secId;
+
+    banner.innerHTML = `
+      <button type="button" class="btn-back-portals" data-action="back-to-portals">
+        <span>←</span> <span>🏛️</span> <span data-i18n="back.home">${I18N_DICTIONARY[CURRENT_LOCALE]["back.home"]}</span>
+      </button>
+
+      <div class="section-breadcrumb">
+        <span class="crumb-root" data-action="back-to-portals" role="button" tabindex="0">
+          <span data-i18n="breadcrumb.root">${I18N_DICTIONARY[CURRENT_LOCALE]["breadcrumb.root"]}</span>
+        </span>
+        <span class="crumb-sep">›</span>
+        <span class="crumb-current" data-section-title="${secId}">${titleText}</span>
+      </div>
+
+      <div class="section-nav-arrows">
+        <button type="button" class="btn-nav-prev" data-action="prev-section" title="Section précédente">
+          <span>‹</span> <span data-i18n="nav.prev">${I18N_DICTIONARY[CURRENT_LOCALE]["nav.prev"]}</span>
+        </button>
+        <button type="button" class="btn-nav-next" data-action="next-section" title="Section suivante">
+          <span data-i18n="nav.next">${I18N_DICTIONARY[CURRENT_LOCALE]["nav.next"]}</span> <span>›</span>
+        </button>
+      </div>
+    `;
+
+    section.insertBefore(banner, section.firstChild);
+  });
+}
+
+function injectFabButton() {
+  if (document.getElementById('fab-portals-btn')) return;
+  const fab = document.createElement('button');
+  fab.type = 'button';
+  fab.id = 'fab-portals-btn';
+  fab.className = 'fab-portals';
+  fab.setAttribute('data-action', 'back-to-portals');
+  fab.setAttribute('aria-label', 'Retour aux Portails');
+  fab.innerHTML = `
+    <span class="fab-icon">🏛️</span>
+    <span data-i18n="fab.label">${I18N_DICTIONARY[CURRENT_LOCALE]["fab.label"] || "Portails"}</span>
+  `;
+  document.body.appendChild(fab);
+}
+
+function gotoPrevSection() {
+  const activePanel = document.querySelector('.tab-panel.active');
+  const currentId = activePanel ? activePanel.id : 'tab-executive';
+  let idx = SECTIONS_ORDER.indexOf(currentId);
+  if (idx === -1) idx = 0;
+  const prevIdx = (idx - 1 + SECTIONS_ORDER.length) % SECTIONS_ORDER.length;
+  switchTab(SECTIONS_ORDER[prevIdx]);
+}
+
+function gotoNextSection() {
+  const activePanel = document.querySelector('.tab-panel.active');
+  const currentId = activePanel ? activePanel.id : 'tab-executive';
+  let idx = SECTIONS_ORDER.indexOf(currentId);
+  if (idx === -1) idx = 0;
+  const nextIdx = (idx + 1) % SECTIONS_ORDER.length;
+  switchTab(SECTIONS_ORDER[nextIdx]);
+}
+
+function switchTab(targetId) {
+  const tabButtons = document.querySelectorAll('.tab-btn');
+  const tabPanels = document.querySelectorAll('.tab-panel');
+  const backBtn = document.getElementById('header-back-btn');
+  const fabBtn = document.getElementById('fab-portals-btn');
+
+  tabButtons.forEach(b => {
+    const matches = b.getAttribute('data-tab') === targetId;
+    b.classList.toggle('active', matches);
+  });
+
+  tabPanels.forEach(p => {
+    const isTarget = p.id === targetId;
+    p.classList.toggle('active', isTarget);
+  });
+
+  // Botón volver al portal en el header y FAB
+  if (targetId === 'tab-landing') {
+    if (backBtn) backBtn.classList.add('hidden');
+    if (fabBtn) fabBtn.classList.remove('is-visible');
+    
+    // Smooth scroll to tiles container
+    const tilesCont = document.getElementById('tiles-container');
+    if (tilesCont) {
+      setTimeout(() => {
+        tilesCont.scrollIntoView({ behavior: 'smooth' });
+      }, 50);
+    }
+  } else {
+    if (backBtn) backBtn.classList.remove('hidden');
+    if (fabBtn) fabBtn.classList.add('is-visible');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // Refrescar tamaño Leaflet si es GIS
+  if (targetId === 'tab-gis' && APP_STATE.map) {
+    [50, 150, 300, 500].forEach(delay => {
+      setTimeout(() => {
+        APP_STATE.map.invalidateSize(true);
+      }, delay);
+    });
+  }
+
+  // Feed social si es sentimiento
+  if (targetId === 'tab-sentiment' && !APP_STATE.socialFeedLoaded) {
+    loadSocialFeed(APP_STATE.currentSocialTag || 'ivry');
+  }
 }
 
 function initTabs() {
   const tabButtons = document.querySelectorAll('.tab-btn');
-  const tabPanels = document.querySelectorAll('.tab-panel');
 
   tabButtons.forEach(btn => {
     btn.addEventListener('click', () => {
-      tabButtons.forEach(b => b.classList.remove('active'));
-      tabPanels.forEach(p => p.classList.remove('active'));
-
-      btn.classList.add('active');
       const targetId = btn.getAttribute('data-tab');
-      const panel = document.getElementById(targetId);
-      if (panel) panel.classList.add('active');
+      if (targetId) switchTab(targetId);
+    });
+  });
 
-      // Si se activa la pestaña GIS, refrescar tamaño del mapa Leaflet
-      if (targetId === 'tab-gis' && APP_STATE.map) {
-        [50, 150, 300, 500].forEach(delay => {
-          setTimeout(() => {
-            APP_STATE.map.invalidateSize(true);
-          }, delay);
-        });
+  // Clic en Tiles de la Landing Page
+  document.querySelectorAll('[data-tile-target]').forEach(tile => {
+    tile.addEventListener('click', () => {
+      const targetId = tile.getAttribute('data-tile-target');
+      if (targetId) switchTab(targetId);
+    });
+    tile.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        const targetId = tile.getAttribute('data-tile-target');
+        if (targetId) switchTab(targetId);
       }
+    });
+  });
 
-      // Si se activa la pestaña de sentimiento, verificar carga inicial
-      if (targetId === 'tab-sentiment' && !APP_STATE.socialFeedLoaded) {
-        loadSocialFeed(APP_STATE.currentSocialTag || 'ivry');
+  // Delegación de acciones de retorno y navegación circular
+  document.addEventListener('click', (e) => {
+    const actionEl = e.target.closest('[data-action]');
+    if (!actionEl) return;
+    const action = actionEl.getAttribute('data-action');
+    if (action === 'back-to-portals') {
+      e.preventDefault();
+      switchTab('tab-landing');
+    } else if (action === 'prev-section') {
+      e.preventDefault();
+      gotoPrevSection();
+    } else if (action === 'next-section') {
+      e.preventDefault();
+      gotoNextSection();
+    }
+  });
+
+  // Atajos de teclado: Escape vuelve a los tiles, Alt+Left/Right navega
+  document.addEventListener('keydown', (e) => {
+    const activePanel = document.querySelector('.tab-panel.active');
+    const isLanding = !activePanel || activePanel.id === 'tab-landing';
+
+    if (e.key === 'Escape' && !isLanding) {
+      e.preventDefault();
+      switchTab('tab-landing');
+    } else if (e.altKey && !isLanding) {
+      if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        gotoPrevSection();
+      } else if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        gotoNextSection();
       }
+    }
+  });
+
+  // Botón volver al portal en el header
+  const backBtn = document.getElementById('header-back-btn');
+  if (backBtn) {
+    backBtn.addEventListener('click', () => {
+      switchTab('tab-landing');
+    });
+  }
+
+  // Botón scroll hacia tiles
+  const scrollBtn = document.getElementById('btn-scroll-tiles');
+  if (scrollBtn) {
+    scrollBtn.addEventListener('click', () => {
+      const container = document.getElementById('tiles-container');
+      if (container) {
+        container.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  }
+}
+
+function initTiltAndSpotlight() {
+  const tiles = document.querySelectorAll('.tile');
+  if (!tiles.length) return;
+
+  tiles.forEach(tile => {
+    tile.addEventListener('mousemove', (e) => {
+      const rect = tile.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      // Actualizar variables CSS para el spotlight magnético
+      tile.style.setProperty('--mouse-x', `${x}px`);
+      tile.style.setProperty('--mouse-y', `${y}px`);
+
+      // Cálculo de inclinación 3D (Rodri González / Vanguard Craft)
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const deltaX = (x - centerX) / centerX; // Rango: -1 a 1
+      const deltaY = (y - centerY) / centerY; // Rango: -1 a 1
+
+      // Rotación máxima de 8 grados para mantener elegancia sin distorsión
+      const rotX = (-(deltaY * 8)).toFixed(2);
+      const rotY = (deltaX * 8).toFixed(2);
+
+      tile.style.transform = `perspective(1000px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateY(-6px) scale3d(1.02, 1.02, 1.02)`;
+    });
+
+    tile.addEventListener('mouseleave', () => {
+      tile.style.transform = '';
+      tile.style.removeProperty('--mouse-x');
+      tile.style.removeProperty('--mouse-y');
     });
   });
 }
@@ -4661,6 +5082,8 @@ let AUTO_PLAY_INTERVAL = null;
 let IS_AUTO_PLAYING = false;
 
 function initNewsFeed() {
+  loadCustomNewsFromStorage();
+  populateNewsMonthSelect();
   renderTimelineMonthsBar();
 
   const btnPrev = document.getElementById('timeline-prev-btn');
@@ -4776,6 +5199,7 @@ function setMonthFilter(monthKey) {
     }
   }
 
+  syncAddNewsTargetMonth(monthKey);
   filterNewsItems();
 }
 
@@ -4954,21 +5378,366 @@ function renderMinimalCards(items) {
   }
 
   return items.map(item => `
-    <article class="minimal-news-card" id="${item.id}">
+    <article class="minimal-news-card ${item.isCustom ? 'custom-news-card' : ''}" id="${item.id}">
       <div class="m-card-meta">
-        <span class="m-card-date">🗓️ ${item.date}</span>
-        <span class="m-card-publisher">${item.publisher}</span>
+        <span class="m-card-date">🗓️ ${escapeHtmlChars(item.date)}</span>
+        <span class="m-card-publisher">${escapeHtmlChars(item.publisher)}</span>
+        ${item.isCustom ? `<span class="custom-pill">👤 Ajout Local</span>` : ''}
       </div>
-      <h5 class="m-card-title">${item.title}</h5>
-      <p class="m-card-synthesis">${item.tweetSummary || item.summary}</p>
+      <h5 class="m-card-title">${escapeHtmlChars(item.title)}</h5>
+      <p class="m-card-synthesis">${escapeHtmlChars(item.tweetSummary || item.summary)}</p>
       <div class="m-card-footer">
-        <span class="m-card-doctype">${item.docType}</span>
-        <a href="${item.linkUrl}" target="_blank" rel="noopener noreferrer" class="m-card-link">
-          Source ↗
-        </a>
+        <span class="m-card-doctype">${escapeHtmlChars(item.docType || 'Document')}</span>
+        <div class="m-card-actions">
+          ${item.isCustom ? `<button class="btn-delete-card" onclick="deleteCustomNews('${item.id}', event)" title="Supprimer cette actualité">🗑️</button>` : ''}
+          <a href="${item.linkUrl && item.linkUrl !== '#' ? escapeHtmlChars(item.linkUrl) : 'javascript:void(0)'}" ${item.linkUrl && item.linkUrl !== '#' ? 'target="_blank" rel="noopener noreferrer"' : ''} class="m-card-link">
+            Source ↗
+          </a>
+        </div>
       </div>
     </article>
   `).join('');
+}
+
+// ====================================================================
+// GESTION PARTICIPATIVE : PUBLICATION D'ACTUALITÉS LOCALES (PESTAÑA 6)
+// ====================================================================
+
+function toggleAddNewsForm() {
+  const panel = document.getElementById('add-news-panel');
+  if (!panel) return;
+  const isHidden = panel.classList.contains('hidden');
+  if (isHidden) {
+    panel.classList.remove('hidden');
+    syncAddNewsTargetMonth(CURRENT_MONTH_FILTER);
+    panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    const titleInput = document.getElementById('news-input-title');
+    if (titleInput) titleInput.focus();
+  } else {
+    panel.classList.add('hidden');
+  }
+}
+
+function populateNewsMonthSelect() {
+  const monthSelect = document.getElementById('news-input-month');
+  if (!monthSelect) return;
+  monthSelect.innerHTML = MONTHS_CHRONO.map(mKey => {
+    const meta = MONTHS_META[mKey];
+    return `<option value="${mKey}">${meta ? meta.name : mKey}</option>`;
+  }).join('');
+}
+
+function syncAddNewsTargetMonth(monthKey) {
+  const labelEl = document.getElementById('form-target-month-label');
+  const quickTriggerMonth = document.getElementById('quick-trigger-month');
+  const monthSelect = document.getElementById('news-input-month');
+  const dateInput = document.getElementById('news-input-date');
+  const btnLabel = document.getElementById('timeline-add-btn-text');
+
+  const activeKey = (monthKey === 'ALL' || !monthKey) ? '2026-09' : monthKey;
+  const meta = MONTHS_META[activeKey];
+  const monthName = meta ? meta.name : activeKey;
+
+  if (labelEl) {
+    labelEl.innerText = monthKey === 'ALL' ? `Vue Globale (Défaut : ${monthName})` : monthName;
+  }
+  if (quickTriggerMonth) {
+    quickTriggerMonth.innerText = monthKey === 'ALL' ? "l'ensemble de la période" : monthName;
+  }
+  if (monthSelect && monthSelect.value !== activeKey) {
+    monthSelect.value = activeKey;
+  }
+  if (dateInput && (!dateInput.value || dateInput.dataset.autoFilled === 'true')) {
+    dateInput.value = `15 ${monthName}`;
+    dateInput.dataset.autoFilled = 'true';
+  }
+  if (btnLabel) {
+    btnLabel.innerText = monthKey === 'ALL' ? `Publier une actualité` : `Publier en ${monthName.split(' ')[0]}`;
+  }
+}
+
+function onFormMonthSelectChange(monthKey) {
+  const labelEl = document.getElementById('form-target-month-label');
+  const meta = MONTHS_META[monthKey];
+  const monthName = meta ? meta.name : monthKey;
+  if (labelEl) labelEl.innerText = monthName;
+  const dateInput = document.getElementById('news-input-date');
+  if (dateInput) {
+    dateInput.value = `15 ${monthName}`;
+    dateInput.dataset.autoFilled = 'true';
+  }
+}
+
+function handlePostureSelectChange(val) {
+  const argumentInput = document.getElementById('news-input-argument');
+  if (!argumentInput) return;
+  if (!argumentInput.value) {
+    if (val === 'POUR') {
+      argumentInput.placeholder = "Ex. Valorisation énergétique accrue et respect des seuils d'émissions de l'UE...";
+    } else if (val === 'NEUTRE') {
+      argumentInput.placeholder = "Ex. Rapport factuel et mesures toxicologiques indépendantes sans qualification de faute...";
+    } else {
+      argumentInput.placeholder = "Ex. Signalement de panache et retombées de suies mesurées par les riverains...";
+    }
+  }
+}
+
+function handleNewsFileUpload(event) {
+  const file = event.target.files && event.target.files[0];
+  if (!file) return;
+
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    const content = e.target.result;
+    if (file.name.toLowerCase().endsWith('.json')) {
+      try {
+        const data = JSON.parse(content);
+        if (data.title) document.getElementById('news-input-title').value = data.title;
+        if (data.publisher) document.getElementById('news-input-publisher').value = data.publisher;
+        if (data.posture) {
+          const postureEl = document.getElementById('news-input-posture');
+          if (postureEl) {
+            postureEl.value = data.posture;
+            handlePostureSelectChange(data.posture);
+          }
+        }
+        if (data.docType) document.getElementById('news-input-doctype').value = data.docType;
+        if (data.date) document.getElementById('news-input-date').value = data.date;
+        if (data.summary) document.getElementById('news-input-summary').value = data.summary;
+        if (data.postureArgument) document.getElementById('news-input-argument').value = data.postureArgument;
+        if (data.linkUrl) document.getElementById('news-input-link').value = data.linkUrl;
+        if (data.monthKey) {
+          const monthEl = document.getElementById('news-input-month');
+          if (monthEl) {
+            monthEl.value = data.monthKey;
+            onFormMonthSelectChange(data.monthKey);
+          }
+        }
+        showNewsFormFeedback('✅ Fichier JSON importé et formulaire pré-rempli !', 'success');
+      } catch (err) {
+        showNewsFormFeedback('❌ Format JSON non valide.', 'error');
+      }
+    } else {
+      // Fichier texte ou Markdown
+      const cleanTitle = file.name.replace(/\.[^/.]+$/, "").replace(/[-_]/g, " ");
+      const titleInput = document.getElementById('news-input-title');
+      if (titleInput && !titleInput.value) titleInput.value = cleanTitle;
+      const summaryInput = document.getElementById('news-input-summary');
+      if (summaryInput) summaryInput.value = content.trim().substring(0, 1000);
+      showNewsFormFeedback('✅ Contenu textuel importé dans le résumé.', 'success');
+    }
+  };
+  reader.readAsText(file);
+}
+
+function showNewsFormFeedback(msg, type) {
+  const box = document.getElementById('news-form-feedback');
+  if (!box) return;
+  box.className = `form-feedback-msg ${type}`;
+  box.innerHTML = msg;
+  box.classList.remove('hidden');
+  setTimeout(() => {
+    box.classList.add('hidden');
+  }, 6000);
+}
+
+function handleAddNewNewsItem(event) {
+  if (event) event.preventDefault();
+
+  const titleEl = document.getElementById('news-input-title');
+  const postureEl = document.getElementById('news-input-posture');
+  const docTypeEl = document.getElementById('news-input-doctype');
+  const publisherEl = document.getElementById('news-input-publisher');
+  const dateEl = document.getElementById('news-input-date');
+  const monthEl = document.getElementById('news-input-month');
+  const linkEl = document.getElementById('news-input-link');
+  const summaryEl = document.getElementById('news-input-summary');
+  const argumentEl = document.getElementById('news-input-argument');
+
+  if (!titleEl || !publisherEl || !summaryEl) return;
+
+  const title = titleEl.value.trim();
+  const posture = postureEl ? postureEl.value : 'NEUTRE';
+  const docType = docTypeEl ? docTypeEl.value : 'Article de Presse';
+  const publisher = publisherEl.value.trim();
+  const date = (dateEl && dateEl.value.trim()) ? dateEl.value.trim() : 'Date non précisée';
+  const monthKey = (monthEl && monthEl.value) ? monthEl.value : (CURRENT_MONTH_FILTER === 'ALL' ? '2026-09' : CURRENT_MONTH_FILTER);
+  const linkUrl = (linkEl && linkEl.value.trim()) ? linkEl.value.trim() : '#';
+  const summary = summaryEl.value.trim();
+  const argument = (argumentEl && argumentEl.value.trim()) ? argumentEl.value.trim() : summary;
+
+  if (!title || !publisher || !summary) {
+    showNewsFormFeedback('❌ Veuillez renseigner tous les champs obligatoires (*).', 'error');
+    return;
+  }
+
+  const postureLabels = {
+    POUR: '🟢 À FAVOR / PRO-PROJET',
+    NEUTRE: '⚪ NEUTRE / FACTUEL',
+    CONTRE: '🔴 EN CONTRA / ALERTE RISQUE'
+  };
+
+  const newItem = {
+    id: `custom_news_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`,
+    isCustom: true,
+    category: 'CITIZEN',
+    categoryLabel: 'Actualité Utilisateur',
+    badgeClass: 'cat-CITIZEN',
+    publisher: publisher,
+    publisherHandle: '@observateur',
+    date: date,
+    monthKey: monthKey,
+    docType: docType,
+    posture: posture,
+    postureLabel: postureLabels[posture] || posture,
+    postureArgument: argument,
+    tweetSummary: summary.length > 180 ? summary.substring(0, 177) + '...' : summary,
+    title: title,
+    summary: summary,
+    tags: ['Veille Utilisateur', docType, posture],
+    verifyBadge: 'Ajout Utilisateur Local',
+    linkUrl: linkUrl
+  };
+
+  NEWS_DATASET.unshift(newItem);
+  saveCustomNewsToStorage(newItem);
+
+  // Basculer vers le mois cible pour que l'utilisateur visualise son ajout immédiatement
+  setMonthFilter(monthKey);
+  renderTimelineMonthsBar();
+
+  const monthMeta = MONTHS_META[monthKey];
+  const monthName = monthMeta ? monthMeta.name : monthKey;
+  showNewsFormFeedback(`✅ Actualité publiée avec succès dans le jalon <strong>${monthName}</strong> !`, 'success');
+
+  // Réinitialiser les champs de saisie
+  titleEl.value = '';
+  publisherEl.value = '';
+  summaryEl.value = '';
+  if (argumentEl) argumentEl.value = '';
+  if (linkEl) linkEl.value = '';
+
+  // Focus sur la nouvelle carte avec effet d'animation
+  setTimeout(() => {
+    const cardEl = document.getElementById(newItem.id);
+    if (cardEl) {
+      cardEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      cardEl.classList.add('newly-added-pulse');
+    }
+  }, 350);
+}
+
+function saveCustomNewsToStorage(newItem) {
+  try {
+    const raw = localStorage.getItem('in2tech_custom_news_items');
+    const list = raw ? JSON.parse(raw) : [];
+    list.unshift(newItem);
+    localStorage.setItem('in2tech_custom_news_items', JSON.stringify(list));
+  } catch (err) {
+    console.warn('Erreur sauvegarde custom news:', err);
+  }
+}
+
+function loadCustomNewsFromStorage() {
+  try {
+    const raw = localStorage.getItem('in2tech_custom_news_items');
+    if (raw) {
+      const list = JSON.parse(raw);
+      if (Array.isArray(list)) {
+        list.forEach(item => {
+          if (!NEWS_DATASET.some(n => n.id === item.id)) {
+            NEWS_DATASET.unshift(item);
+          }
+        });
+      }
+    }
+  } catch (err) {
+    console.warn('Erreur chargement custom news:', err);
+  }
+}
+
+function deleteCustomNews(id, event) {
+  if (event) event.stopPropagation();
+  if (!confirm("Voulez-vous supprimer cette actualité ajoutée ?")) return;
+
+  const idx = NEWS_DATASET.findIndex(n => n.id === id);
+  if (idx !== -1) {
+    NEWS_DATASET.splice(idx, 1);
+  }
+
+  try {
+    const raw = localStorage.getItem('in2tech_custom_news_items');
+    if (raw) {
+      const list = JSON.parse(raw).filter(it => it.id !== id);
+      localStorage.setItem('in2tech_custom_news_items', JSON.stringify(list));
+    }
+  } catch (err) {
+    console.warn('Erreur suppression custom news:', err);
+  }
+
+  renderTimelineMonthsBar();
+  filterNewsItems();
+}
+
+// ====================================================================
+// 8. PESTAÑA 7: RECHERCHE SCIENTIFIQUE & LITTÉRATURE ACADÉMIQUE
+// ====================================================================
+function initScienceTab() {
+  const filterBtns = document.querySelectorAll('.sc-filter-btn');
+  const cards = document.querySelectorAll('.sc-card');
+  const searchInput = document.getElementById('science-search-input');
+  const countBadge = document.getElementById('visible-articles-count');
+  const countAll = document.getElementById('count-all');
+
+  if (countAll) {
+    countAll.textContent = cards.length;
+  }
+
+  let activeCategory = 'all';
+  let searchQuery = '';
+
+  function filterArticles() {
+    let visibleCount = 0;
+    const query = searchQuery.trim().toLowerCase();
+
+    cards.forEach(card => {
+      const cat = card.getAttribute('data-category');
+      const matchesCategory = (activeCategory === 'all' || cat === activeCategory);
+      
+      let matchesSearch = true;
+      if (query) {
+        const text = card.textContent.toLowerCase();
+        matchesSearch = text.includes(query);
+      }
+
+      if (matchesCategory && matchesSearch) {
+        card.classList.remove('hidden');
+        visibleCount++;
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+
+    if (countBadge) {
+      countBadge.textContent = `${visibleCount} article${visibleCount > 1 ? 's' : ''} affiché${visibleCount > 1 ? 's' : ''}`;
+    }
+  }
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeCategory = btn.getAttribute('data-filter') || 'all';
+      filterArticles();
+    });
+  });
+
+  if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+      searchQuery = e.target.value;
+      filterArticles();
+    });
+  }
 }
 
 // Exportación defensiva para Node.js / Suite de pruebas Gate 1
