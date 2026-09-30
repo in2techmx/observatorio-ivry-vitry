@@ -3,9 +3,9 @@
   "project_name": "Observatorio de Gobernanza Ambiental Urbana y Percepción Pública (Ivry/Vitry)",
   "project_type": "Full-Stack GIS & Agentic BI Observatory",
   "workspace_path": "C:\\Users\\in2te\\.gemini\\antigravity\\scratch\\observatorio-ivry-vitry",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "status": "COMPLETADO Y VERIFICADO (3 GATES SUPERADOS)",
-  "last_updated": "2026-09-30T23:33:00",
+  "last_updated": "2026-10-01T00:30:00",
   "stages": [
     {
       "id": "stage-1",
@@ -32,14 +32,14 @@
       "id": "stage-4",
       "name": "4. Control por 3 Puertas (Gates 1, 2, 3)",
       "status": "COMPLETED",
-      "description": "Gate 1 (19/19 Tests verdes), Gate 2 (Seguridad AS / RGPD favorable), Gate 3 (Auditoría AA / Trazabilidad favorable).",
+      "description": "Gate 1 (25/25 Tests verdes), Gate 2 (Seguridad AS / RGPD favorable), Gate 3 (Auditoría AA / Trazabilidad favorable).",
       "responsible": "ADS, AS & AA"
     },
     {
       "id": "stage-5",
       "name": "5. Auditoría FS Guardian & Sellado Inmutable",
       "status": "COMPLETED",
-      "description": "Verificación global de conformidad con la SF/FT, inmutabilidad y release SemVer v1.0.0.",
+      "description": "Verificación global de conformidad con la SF/FT, inmutabilidad y release SemVer v1.3.0.",
       "responsible": "FS Guardian (QA)"
     }
   ],
@@ -53,13 +53,13 @@
     {
       "agent_id": "ADS-1",
       "role": "Agente Desarrollador Core (Algoritmia y Datos)",
-      "main_tasks": "Implementar layaClassifier.js v1.0.0, windPlumeEngine.js, surveyValidator.js y test_suite_gate1.js (19/19 PASS).",
+      "main_tasks": "Implementar layaClassifier.js v1.0.0, windPlumeEngine.js con capas de anillos y demografía IRIS, surveyValidator.js y test_suite_gate1.js (25/25 PASS).",
       "status": "COMPLETED"
     },
     {
       "agent_id": "ADS-2",
       "role": "Agente Desarrollador Web (Full-Stack & GIS)",
-      "main_tasks": "Implementar portal SPA con Leaflet, motor de búsqueda plein texte Mastodon API y asistente conversacional.",
+      "main_tasks": "Implementar portal SPA con Leaflet, anillos concéntricos de proximidad, capa coroplética de densidad demográfica IRIS y leyenda flotante.",
       "status": "COMPLETED"
     },
     {
@@ -83,12 +83,12 @@
   ],
   "qa_assessment": {
     "evaluator": "FS Guardian & DD",
-    "verdict": "CONFORME — PROYECTO SELLADO v1.0.0",
-    "timestamp": "2026-09-25 03:29",
-    "comments": "Actualización mayor del motor de micro-decisión Laya Engine a v1.0.0-fr: persistencia de nonce para re-verificación criptográfica HMAC (Gate 3), control estricto de secretos en producción (Gate 2), tokenización de contracciones en francés, manejo de negaciones e intensificadores, clasificación honesta (UNCLASSIFIED) y soporte de emojis. Suite de 19/19 pruebas en verde.",
+    "verdict": "CONFORME — RELEASE v1.3.0",
+    "timestamp": "2026-10-01 00:30",
+    "comments": "Incorporación de capa de población carroyada INSEE IRIS y 4 anillos concéntricos de afectación por proximidad (0-500m, 500m-1.5km, 1.5km-3.0km, 3.0km-5.0km). Controles independientes de capas, leyenda flotante interactiva y síntesis demográfica. Suite Gate 1 ampliada a 25/25 pruebas en verde.",
     "second_brain_alerts": [
-      "Regla ADR-001: Pruebas deterministas superadas (19/19 PASS).",
-      "Regla ADR-003: Cero degradación por mocks; preservación de componentes probados y persistencia de nonce para re-verificación de auditoría HMAC."
+      "Regla ADR-001: Pruebas deterministas superadas (25/25 PASS).",
+      "Regla ADR-003: Cero degradación por mocks; polígonos cerrados de distritos IRIS y radios geodésicos Haversine verificados formalmente."
     ]
   }
 }

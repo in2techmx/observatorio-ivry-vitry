@@ -11,7 +11,11 @@ const {
   generateDispersionPlume, 
   haversineDistanceKm, 
   calculateBearingDegrees,
-  SENSITIVE_FACILITIES 
+  SENSITIVE_FACILITIES,
+  AFFECTATION_RINGS,
+  CENSUS_IRIS_BLOCKS,
+  classifyPointInRing,
+  calculateRingDemographics
 } = require('../core/windPlumeEngine');
 const { validateCitizenSurvey, sanitizeCitizenComment } = require('../core/surveyValidator');
 
@@ -353,6 +357,97 @@ runTest('Cálculo determinista de distribución de posturas con noticias añadid
   assert.strictEqual(pourPct, 40, '40% POUR');
   assert.strictEqual(contrePct, 40, '40% CONTRE');
   assert.strictEqual(neutrePct, 20, '20% NEUTRE');
+});
+
+// ====================================================================
+// BLOQUE 7: ANILLOS DE AFECTACIÓN POR PROXIMIDAD Y CAPA DE POBLACIÓN IRIS
+// ====================================================================
+console.log('\n--- 7. Pruebas de Capas Cartográficas de Proximidad y Demografía IRIS ---');
+
+runTest('Los anillos de afectación concéntricos están definidos con radios estrictamente crecientes', () => {
+  assert.strictEqual(AFFECTATION_RINGS.length, 4, 'Deben existir exactamente 4 anillos de afectación');
+  
+  const expectedRadii = [500, 1500, 3000, 5000];
+  AFFECTATION_RINGS.forEach((ring, idx) => {
+    assert.strictEqual(ring.radiusMeters, expectedRadii[idx], `El radio del anillo ${idx} debe ser ${expectedRadii[idx]}m`);
+    assert.ok(ring.estPopulation > 0, 'La población estimada debe ser mayor a 0');
+    assert.ok(ring.color.startsWith('#'), 'El color debe ser hexadecimal válido');
+    assert.ok(ring.riskLevel.length > 5, 'Debe incluir definición de nivel de riesgo');
+  });
+
+  // Verificar radios estrictamente crecientes
+  for (let i = 1; i < AFFECTATION_RINGS.length; i++) {
+    assert.ok(AFFECTATION_RINGS[i].radiusMeters > AFFECTATION_RINGS[i - 1].radiusMeters, 'Los radios deben ser crecientes');
+    assert.ok(AFFECTATION_RINGS[i].estPopulation > AFFECTATION_RINGS[i - 1].estPopulation, 'La población acumulada debe ser creciente');
+  }
+});
+
+runTest('classifyPointInRing clasifica con exactitud puntos según su distancia geodésica a la UVE', () => {
+  // 1. Origen exacto de la UVE (distancia 0 m)
+  const atUve = classifyPointInRing(UVE_ORIGIN.latitude, UVE_ORIGIN.longitude);
+  assert.strictEqual(atUve.ringId, 'ring_500m', 'La chimenea debe estar en Zone 1 (0-500m)');
+  assert.strictEqual(atUve.distanceMeters, 0, 'Distancia en origen debe ser 0m');
+
+  // 2. Punto a ~350 metros (Les Ardoines) -> Zone 1 (0-500m)
+  const pt350m = classifyPointInRing(48.7940, 2.4180);
+  assert.strictEqual(pt350m.ringId, 'ring_500m', 'Punto a 350m debe caer en Zone 1');
+  assert.ok(pt350m.distanceMeters <= 500, 'Distancia <= 500m');
+
+  // 3. Punto a ~1.2 km (Collège Molière / Port-à-l\'Anglais) -> Zone 2 (500m-1.5km)
+  const pt1200m = classifyPointInRing(48.8000, 2.4100);
+  assert.strictEqual(pt1200m.ringId, 'ring_1500m', 'Punto a 1.2km debe caer en Zone 2');
+  assert.ok(pt1200m.distanceMeters > 500 && pt1200m.distanceMeters <= 1500, 'Distancia entre 500m y 1500m');
+
+  // 4. Punto a ~2.4 km (Ivry Centre) -> Zone 3 (1.5km-3.0km)
+  const pt2400m = classifyPointInRing(48.8120, 2.3900);
+  assert.strictEqual(pt2400m.ringId, 'ring_3000m', 'Punto a 2.4km debe caer en Zone 3');
+  assert.ok(pt2400m.distanceMeters > 1500 && pt2400m.distanceMeters <= 3000, 'Distancia entre 1500m y 3000m');
+
+  // 5. Punto a ~4.1 km (Masséna / Paris 13e Sud) -> Zone 4 (3.0km-5.0km)
+  const pt4100m = classifyPointInRing(48.8200, 2.3800);
+  assert.strictEqual(pt4100m.ringId, 'ring_5000m', 'Punto a 4.1km debe caer en Zone 4');
+  assert.ok(pt4100m.distanceMeters > 3000 && pt4100m.distanceMeters <= 5000, 'Distancia entre 3000m y 5000m');
+
+  // 6. Punto fuera de perímetro (> 5 km)
+  const ptFar = classifyPointInRing(48.8900, 2.4500);
+  assert.strictEqual(ptFar.ringId, 'out_of_bounds', 'Punto >5km debe catalogarse como fuera de perímetro');
+});
+
+runTest('Los sectores censales carroyados (CENSUS_IRIS_BLOCKS) tienen polígonos cerrados y atributos válidos', () => {
+  assert.ok(CENSUS_IRIS_BLOCKS.length >= 8, 'Debe haber al menos 8 distritos IRIS carroyados');
+  
+  CENSUS_IRIS_BLOCKS.forEach(iris => {
+    assert.ok(iris.irisCode && iris.irisCode.length === 9, `Código IRIS INSEE debe tener 9 caracteres: ${iris.irisCode}`);
+    assert.ok(iris.estPopulation > 1000, `Población debe ser significativa: ${iris.estPopulation} en ${iris.name}`);
+    assert.ok(iris.densityHabKm2 > 3000, `Densidad hab/km² debe ser urbana: ${iris.densityHabKm2}`);
+    assert.ok(iris.under5Pct > 0 && iris.under5Pct < 25, `Porcentaje menores 5 años válido: ${iris.under5Pct}`);
+    assert.ok(iris.over65Pct > 0 && iris.over65Pct < 40, `Porcentaje mayores 65 años válido: ${iris.over65Pct}`);
+    assert.ok(Array.isArray(iris.polygon) && iris.polygon.length >= 3, `Polígono debe tener al menos 3 vértices en ${iris.name}`);
+    
+    // Verificar coordenadas válidas dentro del cuadrante metropolitano de París sur
+    iris.polygon.forEach(coord => {
+      assert.ok(coord[0] >= 48.70 && coord[0] <= 48.90, `Latitud de polígono coherente: ${coord[0]}`);
+      assert.ok(coord[1] >= 2.30 && coord[1] <= 2.50, `Longitud de polígono coherente: ${coord[1]}`);
+    });
+  });
+});
+
+runTest('calculateRingDemographics sintetiza correctamente los distritos e instalaciones por anillo', () => {
+  const summary = calculateRingDemographics();
+  assert.strictEqual(summary.length, 4, 'Deben devolverse los 4 anillos');
+  
+  // El anillo 4 (5000m) debe englobar todos los distritos e instalaciones de la zona de estudio
+  const ring4 = summary.find(r => r.id === 'ring_5000m');
+  assert.ok(ring4.censusTractsCount > 0, 'Debe incluir sectores censales en Zone 4');
+  assert.ok(ring4.sensitiveFacilitiesCount > 0, 'Debe incluir equipamientos sensibles en Zone 4');
+  
+  // La cantidad de sectores englobados debe crecer monótonamente con el radio
+  for (let i = 1; i < summary.length; i++) {
+    assert.ok(
+      summary[i].censusTractsCount >= summary[i - 1].censusTractsCount,
+      `Conteo censal en anillo ${i} (${summary[i].censusTractsCount}) debe ser >= anillo ${i-1} (${summary[i-1].censusTractsCount})`
+    );
+  }
 });
 
 // ====================================================================

@@ -10,6 +10,12 @@ const APP_STATE = {
   windSpeed: 18,   // km/h
   map: null,
   plumeLayer: null,
+  ringsLayer: null,
+  populationLayer: null,
+  showRings: true,
+  showPopulation: true,
+  showPlume: true,
+  showFacilities: true,
   facilityMarkers: [],
   uveMarker: null,
   sensorMarker: null,
@@ -512,12 +518,6 @@ function initGISMap() {
   // Activar OpenStreetMap France por defecto
   osmFr.addTo(APP_STATE.map);
 
-  // Control de capas base intercambiables
-  L.control.layers({
-    "OpenStreetMap France (Haute Définition)": osmFr,
-    "OpenStreetMap Standard": osmStandard
-  }, null, { position: 'topright' }).addTo(APP_STATE.map);
-
   // 1. Marcador Instalación / Chimenea UVE (48° 47' 30" N, 2° 25' 0" E)
   const factoryIcon = L.divIcon({
     className: 'custom-map-icon',
@@ -590,6 +590,21 @@ function initGISMap() {
       `);
     APP_STATE.facilityMarkers.push({ data: fac, marker: m });
   });
+
+  // 4. Anillos Concéntricos de Afectación por Proximidad (500m, 1.5km, 3km, 5km)
+  initAffectationRingsLayer();
+
+  // 5. Capa Coroplética de Densidad de Población (INSEE IRIS)
+  initPopulationDemographicLayer();
+
+  // Control de capas base y capas temáticas interactivas
+  L.control.layers({
+    "OpenStreetMap France (Haute Définition)": osmFr,
+    "OpenStreetMap Standard": osmStandard
+  }, {
+    "🎯 Anneaux de Proximité (500m à 5km)": APP_STATE.ringsLayer,
+    "👥 Densité de Population (INSEE IRIS)": APP_STATE.populationLayer
+  }, { position: 'topright' }).addTo(APP_STATE.map);
 
   // Escuchar Sliders de Viento
   const windOriginSlider = document.getElementById('wind-origin-slider');
@@ -699,7 +714,10 @@ function updateWindPlume() {
           fillOpacity: 0.35,
           dashArray: '4, 4'
         }
-      }).addTo(APP_STATE.map);
+      });
+      if (APP_STATE.showPlume) {
+        APP_STATE.plumeLayer.addTo(APP_STATE.map);
+      }
     }
   }
 }
@@ -708,6 +726,189 @@ function getCardinalSector(deg) {
   const sectors = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'];
   const idx = Math.round(deg / 45) % 8;
   return sectors[idx];
+}
+
+// ====================================================================
+// CAPAS CARTOGRÁFICAS AVANZADAS: ANILLOS DE PROXIMIDAD Y POBLACIÓN
+// ====================================================================
+
+function initAffectationRingsLayer() {
+  if (!APP_STATE.map) return;
+  APP_STATE.ringsLayer = L.layerGroup();
+
+  const rings = (typeof AFFECTATION_RINGS !== 'undefined') ? AFFECTATION_RINGS : [
+    { id: 'ring_500m', name: 'Zone 1 : Exposition Immédiate (0 – 500 m)', radiusMeters: 500, color: '#ef4444', fillColor: '#ef4444', fillOpacity: 0.20, estPopulation: 8500, riskLevel: 'Nuisances Aiguës / Immédiates', description: 'Périmètre riverain direct (Les Ardoines, Port-à-l\'Anglais). Odeurs directes, suies et bruit.' },
+    { id: 'ring_1500m', name: 'Zone 2 : Proximité & Vigilance Scolaire (500 m – 1.5 km)', radiusMeters: 1500, color: '#f97316', fillColor: '#f97316', fillOpacity: 0.14, dashArray: '5, 5', estPopulation: 48500, riskLevel: 'Vigilance Renforcée (Écoles & EHPAD)', description: 'Collège Molière, Écoles Langevin, Barbusse, Lycée Jean Macé. Retombées de dioxines et métaux lourds.' },
+    { id: 'ring_3000m', name: 'Zone 3 : Influence Atmosphérique Fluviale (1.5 km – 3.0 km)', radiusMeters: 3000, color: '#eab308', fillColor: '#eab308', fillOpacity: 0.08, dashArray: '7, 6', estPopulation: 142000, riskLevel: 'Influence Atmosphérique Péri-urbaine', description: 'Bassin fluvial de la vallée de la Seine (Ivry Centre, Vitry Plateau, Alfortville, Charenton).' },
+    { id: 'ring_5000m', name: 'Zone 4 : Surveillance Épidémiologique ARS (3.0 km – 5.0 km)', radiusMeters: 5000, color: '#38bdf8', fillColor: '#38bdf8', fillOpacity: 0.04, dashArray: '9, 8', estPopulation: 315000, riskLevel: 'Périmètre Régional de Biosurveillance', description: 'Zone d\'évaluation épidémiologique régionale ARS / Santé Publique France (Paris 13e, Maisons-Alfort).' }
+  ];
+
+  rings.forEach(ring => {
+    const circle = L.circle([48.791667, 2.416667], {
+      radius: ring.radiusMeters,
+      color: ring.color,
+      weight: ring.weight || 2,
+      dashArray: ring.dashArray || null,
+      fillColor: ring.fillColor || ring.color,
+      fillOpacity: ring.fillOpacity || 0.1
+    });
+
+    circle.bindTooltip(`<strong>${ring.name}</strong><br>👥 ~${ring.estPopulation.toLocaleString()} habitants exposés`, {
+      sticky: true,
+      direction: 'top'
+    });
+
+    circle.bindPopup(`
+      <div style="font-family: Inter, sans-serif; font-size: 0.84rem; color: #0f172a; line-height: 1.45; max-width: 290px;">
+        <div style="font-weight: 800; font-size: 0.95rem; color: ${ring.color}; margin-bottom: 4px;">
+          ${ring.name}
+        </div>
+        <div style="font-size: 0.78rem; color: #64748b; margin-bottom: 6px;">
+          Rayon : <strong>${ring.radiusMeters < 1000 ? ring.radiusMeters + ' mètres' : (ring.radiusMeters / 1000).toFixed(1) + ' km'}</strong>
+        </div>
+        <div style="background: #f1f5f9; padding: 6px 8px; border-radius: 4px; margin-bottom: 6px; font-size: 0.8rem;">
+          👥 <strong>Population exposée estimée :</strong> ${ring.estPopulation.toLocaleString()} hab.<br>
+          ⚠️ <strong>Niveau de risque :</strong> ${ring.riskLevel}
+        </div>
+        <p style="margin: 0; font-size: 0.78rem; color: #475569;">
+          ${ring.description}
+        </p>
+      </div>
+    `);
+
+    APP_STATE.ringsLayer.addLayer(circle);
+  });
+
+  if (APP_STATE.showRings) {
+    APP_STATE.ringsLayer.addTo(APP_STATE.map);
+  }
+}
+
+function getDensityColor(density) {
+  return density > 20000 ? '#e11d48' :
+         density > 15000 ? '#ea580c' :
+         density > 10000 ? '#d97706' :
+         density > 5000  ? '#0284c7' :
+                           '#059669';
+}
+
+function initPopulationDemographicLayer() {
+  if (!APP_STATE.map) return;
+  APP_STATE.populationLayer = L.layerGroup();
+
+  const blocks = (typeof CENSUS_IRIS_BLOCKS !== 'undefined') ? CENSUS_IRIS_BLOCKS : [];
+
+  blocks.forEach(tract => {
+    if (!tract.polygon || tract.polygon.length === 0) return;
+
+    const densityColor = getDensityColor(tract.densityHabKm2 || 12000);
+
+    const poly = L.polygon(tract.polygon, {
+      color: densityColor,
+      weight: 1.5,
+      fillColor: densityColor,
+      fillOpacity: 0.30
+    });
+
+    poly.on('mouseover', function() {
+      this.setStyle({
+        weight: 3,
+        fillOpacity: 0.52
+      });
+    });
+
+    poly.on('mouseout', function() {
+      this.setStyle({
+        weight: 1.5,
+        fillOpacity: 0.30
+      });
+    });
+
+    poly.bindTooltip(`
+      <div style="font-family: Inter, sans-serif; font-size: 0.8rem;">
+        <strong>${tract.name}</strong> (${tract.commune})<br>
+        👥 <strong>${(tract.estPopulation || 0).toLocaleString()} hab.</strong> &bull; 📊 ${(tract.densityHabKm2 || 0).toLocaleString()} hab/km²
+      </div>
+    `, { sticky: true });
+
+    poly.bindPopup(`
+      <div style="font-family: Inter, sans-serif; font-size: 0.84rem; color: #0f172a; line-height: 1.4; max-width: 290px;">
+        <div style="font-weight: 800; font-size: 0.94rem; color: #0284c7; margin-bottom: 2px;">
+          ${tract.name} (${tract.commune})
+        </div>
+        <div style="font-size: 0.74rem; color: #64748b; margin-bottom: 6px;">
+          Code IRIS INSEE : <code>${tract.irisCode}</code> &bull; CP : ${tract.postalCode || '94'}
+        </div>
+        <div style="background: #f8fafc; border: 1px solid #e2e8f0; padding: 6px 8px; border-radius: 4px; margin-bottom: 6px; font-size: 0.8rem;">
+          👥 <strong>Population résidente :</strong> ${(tract.estPopulation || 0).toLocaleString()} hab.<br>
+          📐 <strong>Densité démographique :</strong> ${(tract.densityHabKm2 || 0).toLocaleString()} hab/km²<br>
+          👶 <strong>Enfants &lt; 5 ans :</strong> ${tract.under5Pct || 8}% (vulnérabilité respiratoire)<br>
+          👵 <strong>Seniors &gt; 65 ans :</strong> ${tract.over65Pct || 12}%<br>
+          📏 <strong>Distance de l'incinérateur :</strong> ${tract.distFromUveKm || 2.5} km
+        </div>
+        <div style="font-size: 0.75rem; color: #475569;">
+          Données démographiques carroyées INSEE / OpenData Région Île-de-France.
+        </div>
+      </div>
+    `);
+
+    APP_STATE.populationLayer.addLayer(poly);
+  });
+
+  if (APP_STATE.showPopulation) {
+    APP_STATE.populationLayer.addTo(APP_STATE.map);
+  }
+}
+
+function toggleGisLayer(layerName) {
+  if (!APP_STATE.map) return;
+  if (layerName === 'rings') {
+    APP_STATE.showRings = !APP_STATE.showRings;
+    const chk = document.getElementById('toggle-layer-rings');
+    if (chk) chk.checked = APP_STATE.showRings;
+    if (APP_STATE.ringsLayer) {
+      if (APP_STATE.showRings) APP_STATE.ringsLayer.addTo(APP_STATE.map);
+      else APP_STATE.map.removeLayer(APP_STATE.ringsLayer);
+    }
+  } else if (layerName === 'population') {
+    APP_STATE.showPopulation = !APP_STATE.showPopulation;
+    const chk = document.getElementById('toggle-layer-pop');
+    if (chk) chk.checked = APP_STATE.showPopulation;
+    if (APP_STATE.populationLayer) {
+      if (APP_STATE.showPopulation) APP_STATE.populationLayer.addTo(APP_STATE.map);
+      else APP_STATE.map.removeLayer(APP_STATE.populationLayer);
+    }
+  } else if (layerName === 'plume') {
+    APP_STATE.showPlume = !APP_STATE.showPlume;
+    const chk = document.getElementById('toggle-layer-plume');
+    if (chk) chk.checked = APP_STATE.showPlume;
+    if (APP_STATE.plumeLayer) {
+      if (APP_STATE.showPlume) APP_STATE.plumeLayer.addTo(APP_STATE.map);
+      else APP_STATE.map.removeLayer(APP_STATE.plumeLayer);
+    }
+  } else if (layerName === 'facilities') {
+    APP_STATE.showFacilities = !APP_STATE.showFacilities;
+    const chk = document.getElementById('toggle-layer-fac');
+    if (chk) chk.checked = APP_STATE.showFacilities;
+    APP_STATE.facilityMarkers.forEach(fac => {
+      if (APP_STATE.showFacilities) fac.marker.addTo(APP_STATE.map);
+      else APP_STATE.map.removeLayer(fac.marker);
+    });
+  }
+}
+
+function toggleMapLegend() {
+  const content = document.getElementById('legend-content');
+  const icon = document.getElementById('legend-toggle-icon');
+  if (!content) return;
+  const isHidden = content.classList.contains('hidden');
+  if (isHidden) {
+    content.classList.remove('hidden');
+    if (icon) icon.innerText = '▾';
+  } else {
+    content.classList.add('hidden');
+    if (icon) icon.innerText = '▸';
+  }
 }
 
 // ====================================================================
